@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Inter-Regular/Inter-Regular.woff2") format("woff2"),
+    url("../fonts/Inter-Regular/Inter-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Inter-Medium/Inter-Medium.woff2") format("woff2"),
+    url("../fonts/Inter-Medium/Inter-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Roboto-Regular/roboto-400-regular.woff2") format("woff2"),
+    url("../fonts/Roboto-Regular/roboto-400-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Roboto-Regular-Slab/roboto-slab-400-regular.woff2")
+      format("woff2"),
+    url("../fonts/Roboto-Regular-Slab/roboto-slab-400-regular.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Roboto-Medium/roboto-500.woff2") format("woff2"),
+    url("../fonts/Roboto-Medium/roboto-500.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Roboto-Bold/roboto-700.woff2") format("woff2"),
+    url("../fonts/Roboto-Bold/roboto-700.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Roboto-Bold-Slab/roboto-slab-700.woff2") format("woff2"),
+    url("../fonts/Roboto-Bold-Slab/roboto-slab-700.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../fonts/Roboto-Black/roboto-900.woff2") format("woff2"),
+    url("../fonts/Roboto-Black/roboto-900.woff") format("woff");
+}

@@ -1,0 +1,11 @@
+.navigation__home-container {
+  max-width: 64px;
+  max-height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}

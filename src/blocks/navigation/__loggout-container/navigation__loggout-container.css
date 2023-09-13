@@ -1,0 +1,29 @@
+.navigation__loggout-container {
+  max-width: 112px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__loggout-container span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 82px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navigation__loggout-container:hover .navigation__icon-logged-out {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .navigation__loggout-container {
+    height: 40px;
+  }
+}

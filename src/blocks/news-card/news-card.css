@@ -1,0 +1,32 @@
+.news-card {
+  width: 400px;
+  height: 576px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .news-card {
+    width: 224px;
+    height: 420px;
+  }
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .news-card {
+    width: 288px;
+    height: 440px;
+  }
+}

@@ -1,0 +1,26 @@
+.btn-popup-closed {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-popup-closed:hover {
+  transition: 0.3s ease-in-out;
+  opacity: 0.6;
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .btn-popup-closed {
+    width: 26px;
+    height: 26px;
+    top: -35px;
+    right: 0;
+  }
+}

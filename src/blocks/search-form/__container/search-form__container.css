@@ -1,0 +1,19 @@
+.search-form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .search-form__container {
+    align-items: center;
+  }
+}

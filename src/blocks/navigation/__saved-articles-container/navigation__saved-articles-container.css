@@ -1,0 +1,36 @@
+.navigation__saved-articles-container {
+  width: 178px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .navigation__saved-articles-container {
+    max-width: 128px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .navigation__saved-articles-container {
+    max-width: 118px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

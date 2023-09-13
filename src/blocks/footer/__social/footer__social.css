@@ -1,0 +1,21 @@
+.footer__social {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 26px;
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 968px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .footer__social {
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+}

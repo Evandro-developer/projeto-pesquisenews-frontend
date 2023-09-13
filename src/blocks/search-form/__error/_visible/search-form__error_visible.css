@@ -1,0 +1,18 @@
+.search-form__error_visible {
+  display: block;
+  position: absolute;
+  top: calc(100% - 18px);
+  margin: 0;
+  padding: 0;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .search-form__error_visible {
+    top: calc(100% - 98px);
+  }
+}

@@ -1,0 +1,10 @@
+.saved-news {
+  width: 100vw;
+  max-width: 1440px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}

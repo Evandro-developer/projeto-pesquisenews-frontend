@@ -1,0 +1,24 @@
+.navigation__title {
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .navigation__title {
+    align-self: flex-start;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

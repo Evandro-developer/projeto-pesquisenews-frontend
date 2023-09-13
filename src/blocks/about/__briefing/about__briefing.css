@@ -1,0 +1,32 @@
+.about__briefing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .about__briefing {
+    max-width: 424px;
+    max-height: 218px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .about__briefing {
+    max-width: 320px;
+    max-height: 296px;
+  }
+}

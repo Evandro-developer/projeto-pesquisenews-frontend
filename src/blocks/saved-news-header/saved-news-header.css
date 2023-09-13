@@ -1,0 +1,28 @@
+.saved-news-header {
+  width: 100%;
+  max-height: 294px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .saved-news-header {
+    max-height: 270px;
+  }
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .saved-news-header {
+    max-height: 246px;
+  }
+}

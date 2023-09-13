@@ -26,7 +26,7 @@ function Navigation({ isLoggedIn, setIsLoggedIn, setIsPopupOpen, userName }) {
       <nav className="navigation__container">
         <h1 className={`navigation__title ${titleClass}`}>
           <Link to="/" className="navigation__link">
-            Pesquise News
+            PesquiseNews
           </Link>
         </h1>
         <ul className="navigation__content">

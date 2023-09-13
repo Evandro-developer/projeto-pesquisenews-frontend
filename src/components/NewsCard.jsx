@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import iconBookmark from "../images/icon_bookmark.png";
 import iconBookmarkHover from "../images/icon_bookmark_hover.png";
 import iconBookmarkActive from "../images/icon_bookmark_active.png";
 import iconTrash from "../images/icon_trash.png";
 
 function NewsCard({
-  theme = "home",
   source,
   title,
   publishedAt,
@@ -14,10 +14,12 @@ function NewsCard({
   isLoggedIn,
   query,
 }) {
+  const location = useLocation();
+  const isSavedNewsPath = location.pathname === "/saved-news";
+  const formattedPublishedAt = formatDate(publishedAt);
+
   const [isBookmarkActive, setIsBookmarkActive] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
-
-  const formattedPublishedAt = formatDate(publishedAt);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -32,7 +34,7 @@ function NewsCard({
   };
 
   const getBookmarkImageInfo = () => {
-    if (theme === "saved-news") {
+    if (isSavedNewsPath) {
       return {
         src: iconTrash,
         alt: "Imagem do ícone da lixeira",
@@ -66,7 +68,7 @@ function NewsCard({
 
   return (
     <ul className="news-card">
-      {theme === "saved-news" && (
+      {isSavedNewsPath && (
         <li>
           <p className="news-card__category">{query}</p>
         </li>
@@ -87,10 +89,10 @@ function NewsCard({
       </picture>
       {isHovered && (
         <>
-          {theme === "home" && !isLoggedIn && !isBookmarkActive && (
+          {!isSavedNewsPath && isLoggedIn && !isBookmarkActive && (
             <p className="btn-tooltip-hover">Faça Login para salvar artigos</p>
           )}
-          {theme === "saved-news" && !isLoggedIn && (
+          {isSavedNewsPath && !isLoggedIn && (
             <p className="btn-tooltip-hover">Remover dos salvos</p>
           )}
         </>

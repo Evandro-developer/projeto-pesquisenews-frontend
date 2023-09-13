@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NewsCard from "./NewsCard";
 
-function NewsCardList({ newsData, isSavedNews, theme, query }) {
+function NewsCardList({ newsData, isSavedNews, query }) {
   const ITEMS_PER_PAGE = 3;
   const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE);
 
@@ -27,7 +27,6 @@ function NewsCardList({ newsData, isSavedNews, theme, query }) {
                   publishedAt={newsItem.publishedAt}
                   description={newsItem.description}
                   urlToImage={newsItem.urlToImage}
-                  theme={theme}
                   query={query}
                 />
               ))}

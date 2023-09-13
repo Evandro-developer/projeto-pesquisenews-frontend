@@ -27,7 +27,6 @@ function SavedNews({
           isLoggedIn={isLoggedIn}
           newsData={newsData}
           isSavedNews={true}
-          theme="saved-news"
           query={query}
         />
       </div>

@@ -1,0 +1,30 @@
+.news-card__img {
+  width: 400px;
+  height: 272px;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .news-card__img {
+    width: 224px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .news-card__img {
+    width: 288px;
+    height: 196px;
+  }
+}

@@ -1,0 +1,33 @@
+.new-card-list {
+  max-width: 1440px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f6f7;
+  margin: 0;
+  padding: 80px 104px;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .new-card-list {
+    max-width: 768px;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 580px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .new-card-list {
+    max-width: 580px;
+    padding: 32px 0 24px;
+  }
+}

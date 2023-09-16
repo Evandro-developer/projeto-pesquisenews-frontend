@@ -6,5 +6,12 @@ export default defineConfig({
   server: {
     open: true,
     port: 3000,
+    proxy: {
+      "/v2": {
+        target: "https://newsapi.org",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/v2/, "/v2"),
+      },
+    },
   },
 });

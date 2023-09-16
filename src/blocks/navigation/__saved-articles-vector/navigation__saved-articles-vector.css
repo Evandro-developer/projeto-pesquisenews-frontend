@@ -1,0 +1,32 @@
+.navigation__saved-articles-vector {
+  width: 178px;
+  height: 3px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -12px;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .navigation__saved-articles-vector {
+    max-width: 138px;
+    bottom: -10px;
+  }
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .navigation__saved-articles-vector {
+    max-width: 118px;
+    bottom: -12px;
+  }
+}

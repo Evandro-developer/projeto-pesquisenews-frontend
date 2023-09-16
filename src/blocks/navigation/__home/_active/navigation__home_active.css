@@ -1,0 +1,28 @@
+.navigation__home_active {
+  display: inline-block;
+  max-width: 68px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: -12px;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .navigation__home_active {
+    font-size: 16px;
+    bottom: -10px;
+  }
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .navigation__home_active {
+    bottom: -12px;
+  }
+}

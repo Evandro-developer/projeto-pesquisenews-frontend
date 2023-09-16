@@ -1,0 +1,25 @@
+.news-card__briefing {
+  width: 100%;
+  margin: 0;
+  padding: 20px 24px 24px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .news-card__briefing {
+    padding: 14px 14px 16px;
+  }
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .news-card__briefing {
+    padding: 16px;
+  }
+}

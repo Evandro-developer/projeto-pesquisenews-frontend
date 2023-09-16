@@ -1,0 +1,28 @@
+.footer__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 968px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .footer__list {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .footer__list {
+    width: 100%;
+    align-items: flex-start;
+    gap: 0;
+  }
+}

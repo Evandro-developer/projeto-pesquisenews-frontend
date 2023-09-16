@@ -1,0 +1,10 @@
+.preload {
+  width: 100%;
+  max-height: 374px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f6f7;
+  margin: 0;
+  padding: 0;
+}

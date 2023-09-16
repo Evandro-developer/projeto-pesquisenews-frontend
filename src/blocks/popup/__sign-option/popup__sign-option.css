@@ -1,0 +1,10 @@
+.popup__sign-option {
+  width: 100%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+}

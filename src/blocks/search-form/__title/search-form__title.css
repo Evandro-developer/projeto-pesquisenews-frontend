@@ -1,0 +1,36 @@
+.search-form__title {
+  max-width: 702px;
+  max-height: 128px;
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 64px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0 0 32px;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .search-form__title {
+    max-width: 425px;
+    max-height: 80px;
+    font-size: 36px;
+    line-height: 40px;
+    padding-bottom: 16px;
+  }
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .search-form__title {
+    max-width: 285px;
+    max-height: 120px;
+    padding-bottom: 12px;
+  }
+}

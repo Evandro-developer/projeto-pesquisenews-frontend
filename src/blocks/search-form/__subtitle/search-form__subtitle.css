@@ -1,0 +1,34 @@
+.search-form__subtitle {
+  max-width: 608px;
+  max-height: 48px;
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0 0 64px;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .search-form__subtitle {
+    max-width: 452px;
+    padding-bottom: 48px;
+  }
+}
+
+@media (max-width: 584px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+
+  .search-form__subtitle {
+    max-width: 288px;
+    max-height: 72px;
+    padding-bottom: 36px;
+  }
+}

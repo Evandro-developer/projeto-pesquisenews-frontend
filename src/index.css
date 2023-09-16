@@ -1,112 +1,122 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url(./vendor/normalize.css);
+@import url(./fonts/fonts.css);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@import url(./blocks/page/page.css);
+@import url(./blocks/root/root.css);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__container/header__container.css);
+@import url(./blocks/header/__container-img/header__container-img.css);
+@import url(./blocks/header/__img/header__img.css);
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+@import url(./blocks/navigation/navigation.css);
+@import url(./blocks/navigation/__container/navigation__container.css);
+@import url(./blocks/navigation/__link/navigation__link.css);
+@import url(./blocks/navigation/__title/navigation__title.css);
+@import url(./blocks/navigation/__title/_theme/navigation__title_theme_dark.css);
+@import url(./blocks/navigation/__content/navigation__content.css);
+@import url(./blocks/navigation/__home-container/navigation__home-container.css);
+@import url(./blocks/navigation/__home/navigation__home.css);
+@import url(./blocks/navigation/__home/_theme/navigation__home_theme_dark.css);
+@import url(./blocks/navigation/__home/_active/navigation__home_active.css);
+@import url(./blocks/navigation/__home-vector/navigation__home-vector.css);
+@import url(./blocks/navigation/__saved-articles-container/navigation__saved-articles-container.css);
+@import url(./blocks/navigation/__saved-articles/navigation__saved-articles.css);
+@import url(./blocks/navigation/__saved-articles/_theme/navigation__saved-articles_theme_dark.css);
+@import url(./blocks/navigation/__saved-articles/_active/navigation__saved-articles_active.css);
+@import url(./blocks/navigation/__saved-articles-vector/navigation__saved-articles-vector.css);
+@import url(./blocks/navigation/__loggout-container/navigation__loggout-container.css);
+@import url(./blocks/navigation/__icon-logged-out/navigation__icon-logged-out.css);
+@import url(./blocks/navigation/__logged-out/navigation__logged-out.css);
+@import url(./blocks/btn-logged-in/btn-logged-in.css);
+@import url(./blocks//btn-logged-in/_theme/btn-logged-in_theme_dark.css);
+@import url(./blocks/btn-logged-out/btn-logged-out.css);
+@import url(./blocks/btn-logged-out/_theme/btn-logged-out_theme_dark.css);
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+@import url(./blocks/search-form/search-form.css);
+@import url(./blocks/search-form/__container/search-form__container.css);
+@import url(./blocks/search-form/__title/search-form__title.css);
+@import url(./blocks/search-form/__subtitle/search-form__subtitle.css);
+@import url(./blocks/search-form/__input-container/search-form__input-container.css);
+@import url(./blocks/search-form/__input/search-form__input.css);
+@import url(./blocks/search-form/__error/search-form__error.css);
+@import url(./blocks/search-form/__error/_visible/search-form__error_visible.css);
+@import url(./blocks/search-form/__input/_active/search-form__input_active.css);
+@import url(./blocks/search-form/__input/_type/search-form__input_type_error.css);
+@import url(./blocks/search-form/__input-error/search-form__input-error.css);
+@import url(./blocks/btn-search-form/btn-search-form.css);
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+@import url(./blocks/new-card-list/new-card-list.css);
+@import url(./blocks/new-card-list/__container/new-card-list__container.css);
+@import url(./blocks/new-card-list/__heading/new-card-list__heading.css);
+@import url(./blocks/new-card-list/__item/new-card-list__item.css);
+@import url(./blocks/btn-show-more/btn-show-more.css);
+@import url(./blocks/btn-show-more/btn-show-more__visible.css);
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+@import url(./blocks/news-card/news-card.css);
+@import url(./blocks/news-card/__img/news-card__img.css);
+@import url(./blocks/news-card/__published-at/news-card__published-at.css);
+@import url(./blocks/news-card/__briefing/news-card__briefing.css);
+@import url(./blocks/news-card/__heading/news-card__heading.css);
+@import url(./blocks/news-card/__article/news-card__article.css);
+@import url(./blocks/news-card/__author/news-card__author.css);
+@import url(./blocks/btn-default/btn-default.css);
+@import url(./blocks/btn-default/__container/btn-default__container.css);
+@import url(./blocks/btn-tooltip-hover/btn-tooltip-hover.css);
+@import url(./blocks/news-card/__category/news-card__category.css);
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+@import url(./blocks/saved-news/saved-news.css);
+@import url(./blocks/saved-news/__container/saved-news__container.css);
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+@import url(./blocks/saved-news-header/saved-news-header.css);
+@import url(./blocks/saved-news-header/__container/saved-news-header__container.css);
+@import url(./blocks/saved-news-header/__saved-articles/saved-news-header__saved-articles.css);
+@import url(./blocks/saved-news-header/__heading/saved-news-header__heading.css);
+@import url(./blocks/saved-news-header/__query/saved-news-header__query.css);
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+@import url(./blocks/about/about.css);
+@import url(./blocks/about/__container/about__container.css);
+@import url(./blocks/about/__img/about__img.css);
+@import url(./blocks/about/__briefing/about__briefing.css);
+@import url(./blocks/about/__title/about__title.css);
+@import url(./blocks/about/__paragrafh/about__paragrafh.css);
+@import url(./blocks/about/__text/about__text.css);
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@import url(./blocks/preload/preload.css);
+@import url(./blocks/preload/__container/preload__container.css);
+@import url(./blocks/preload/__content-error/preload__content-error.css);
+@import url(./blocks/preload/__error-img/preload__error-img.css);
+@import url(./blocks/preload/__heading-error/preload__heading-error.css);
+@import url(./blocks/preload/__text-error/preload__text-error.css);
+@import url(./blocks/preload/__content-spinner/preload__content-spinner.css);
+@import url(./blocks/preload/__spinner-img/preload__spinner-img.css);
+@import url(./blocks/preload/__heading-spinner/preload__heading-spinner.css);
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__container/footer__container.css);
+@import url(./blocks/footer/__footer__copyrights/footer__copyrights.css);
+@import url(./blocks/footer/__list/footer__list.css);
+@import url(./blocks/footer/__content/footer__content.css);
+@import url(./blocks/footer/__text/footer__text.css);
+@import url(./blocks/footer/__social/footer__social.css);
+@import url(./blocks/footer/__social-icons/footer__social-icons.css);
+@import url(./blocks/footer/__link/footer__link.css);
+@import url(./blocks/footer/__icon-link/footer__icon-link.css);
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/__form/popup__form.css);
+@import url(./blocks/popup/__heading/popup__heading.css);
+@import url(./blocks/popup/__field/popup__field.css);
+@import url(./blocks/popup/__label/popup__label.css);
+@import url(./blocks/popup/__input/popup__input.css);
+@import url(./blocks/popup/__input/_active/popup__input_active.css);
+@import url(./blocks/popup/__input/_type/popup__input_type_error.css);
+@import url(./blocks/popup/__input-error/popup__input-error.css);
+@import url(./blocks/popup/__error/popup__error.css);
+@import url(./blocks/popup/__error/_visible/popup__error_visible.css);
+@import url(./blocks/btn-popup-submit/btn-popup-submit.css);
+@import url(./blocks/btn-popup-submit/_disabled/btn-popup-submit_disabled.css);
+@import url(./blocks/btn-popup-closed/btn-popup-closed.css);
+@import url(./blocks/popup/__sign-option/popup__sign-option.css);
+@import url(./blocks/popup/__or-text/popup__or-text.css);
+@import url(./blocks/popup/__sign-text/popup__sign-text.css);

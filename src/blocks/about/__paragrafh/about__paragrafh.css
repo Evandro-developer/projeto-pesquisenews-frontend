@@ -6,13 +6,9 @@
   gap: 24px;
   margin: 0;
   padding: 0;
-  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .about__paragrafh {
     gap: 16px;
   }

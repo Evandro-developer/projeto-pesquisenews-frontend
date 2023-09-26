@@ -11,19 +11,12 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .new-card-list__container {
     gap: 32px;
   }
 }
 
 @media (max-width: 580px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .new-card-list__container {
     max-width: 580px;
     gap: 0;

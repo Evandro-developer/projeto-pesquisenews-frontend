@@ -1,16 +1,13 @@
 .about__img {
-  max-width: 464px;
-  max-height: 464px;
-  border-radius: 100px;
+  max-width: 322px;
+  max-height: 322px;
+  border-radius: 50%;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .about__img {
     max-width: 232px;
     max-height: 232px;
@@ -18,10 +15,6 @@
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .about__img {
     max-width: 272px;
     max-height: 272px;

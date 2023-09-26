@@ -12,9 +12,6 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .news-card {
     width: 224px;
     height: 420px;
@@ -22,9 +19,6 @@
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .news-card {
     width: 288px;
     height: 440px;

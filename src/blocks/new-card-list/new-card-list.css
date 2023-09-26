@@ -11,10 +11,6 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .new-card-list {
     max-width: 768px;
     padding: 40px;
@@ -22,10 +18,6 @@
 }
 
 @media (max-width: 580px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .new-card-list {
     max-width: 580px;
     padding: 32px 0 24px;

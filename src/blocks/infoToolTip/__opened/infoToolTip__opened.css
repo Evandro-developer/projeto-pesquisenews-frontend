@@ -1,0 +1,14 @@
+.infoToolTip__opened {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out forwards;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

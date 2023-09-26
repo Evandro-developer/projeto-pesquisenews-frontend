@@ -19,7 +19,6 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
-  transition: 0.3s ease-in-out;
   transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
     font-size 0.3s ease-in-out;
 }
@@ -35,9 +34,6 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .btn-search-form {
     font-size: 18px;
     width: 160px;
@@ -46,10 +42,6 @@
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .btn-search-form {
     position: static;
     width: 288px;

@@ -14,13 +14,10 @@
   border-radius: 10px;
   margin: 0;
   padding: 34px 36px 28px;
-  transition: 0.3s ease-in-out;
+  z-index: 1;
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .popup__form {
     max-width: 320px;
     max-height: 520px;

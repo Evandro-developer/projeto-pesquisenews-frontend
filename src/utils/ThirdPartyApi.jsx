@@ -1,65 +1,50 @@
 class ThirdPartyApi {
-  constructor(apiKey) {
-    this.apiKey = apiKey;
-    this.baseUrl = "/v2";
+  constructor(baseUrl) {
+    this.baseUrl = baseUrl;
   }
 
-  async _genericFetch(endpoint, queryParams = {}) {
-    try {
-      // Constrói a URL manualmente para o endpoint
-      const fullPath = `${this.baseUrl}/${endpoint}`;
+  _getHeaders() {
+    const headers = {
+      "Content-Type": "application/json",
+    };
 
-      // Converte queryParams para uma string de consulta
-      const queryString = new URLSearchParams(queryParams).toString();
+    const token = localStorage.getItem("token");
 
-      // Cria a URL final com a string de consulta
-      const finalURL = queryString ? `${fullPath}?${queryString}` : fullPath;
+    if (token) {
+      headers.authorization = `Bearer ${token}`;
+    }
+    return headers;
+  }
 
-      const response = await fetch(finalURL, {
-        method: "GET",
-        headers: {
-          "X-Api-Key": this.apiKey,
-        },
-      });
+  async _checkResponse(res) {
+    if (!res.ok) {
+      let errorMessage = `Error: ${res.statusText}`;
 
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+      try {
+        const errorData = await res.json();
+
+        if (errorData && errorData.message) {
+          errorMessage += ` - ${errorData.message}`;
+        }
+      } catch (err) {
+        console.error("Erro ao analisar a resposta de erro:", err);
       }
+      throw new Error(errorMessage);
+    }
+    return res.json();
+  }
 
-      return await response.json();
+  async fetchEverything({ q }) {
+    try {
+      const response = await fetch(`${this.baseUrl}?q=${q}`, {
+        headers: this._getHeaders(),
+      });
+      return this._checkResponse(response);
     } catch (error) {
-      console.error(`Erro na solicitação GET para ${endpoint}:`, error);
+      console.error("Erro ao buscar notícias:", error);
       throw error;
     }
   }
-
-  fetchEverything(queryParams = {}) {
-    // Busca data para os últimos 7 dias e a data atual
-    const toDate = new Date().toISOString().split("T")[0];
-    const fromDate = new Date(new Date().setDate(new Date().getDate() - 7))
-      .toISOString()
-      .split("T")[0];
-
-    // Mescla queryParams com os parâmetros padrão
-    const finalParams = {
-      ...queryParams,
-      from: fromDate,
-      to: toDate,
-      pageSize: 100,
-    };
-
-    return this._genericFetch("everything", finalParams);
-  }
-
-  fetchTopHeadlines(queryParams = {}) {
-    return this._genericFetch("top-headlines", queryParams);
-  }
-
-  fetchSources(queryParams = {}) {
-    return this._genericFetch("top-headlines/sources", queryParams);
-  }
 }
 
-const api = new ThirdPartyApi("540e7e315a9b4724a114bc87e010244f");
-
-export default api;
+export default new ThirdPartyApi("https://api.pesquisenews.com.br");

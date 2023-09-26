@@ -6,13 +6,9 @@
   color: rgba(26, 27, 34, 0.5);
   margin: 0;
   padding: 0 0 28px;
-  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .saved-news-header__saved-articles {
     font-size: 14px;
     padding-bottom: 16px;
@@ -20,10 +16,6 @@
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .saved-news-header__saved-articles {
     font-size: 12px;
   }

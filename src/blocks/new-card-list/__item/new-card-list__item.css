@@ -10,22 +10,15 @@
   gap: 16px;
   margin: 0;
   padding: 0;
-  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .new-card-list__item {
     gap: 8px;
   }
 }
 
 @media (max-width: 580px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .new-card-list__item {
     gap: 10px;
     padding: 58px 0 21px;

@@ -6,19 +6,12 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .news-card__briefing {
     padding: 14px 14px 16px;
   }
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .news-card__briefing {
     padding: 16px;
   }

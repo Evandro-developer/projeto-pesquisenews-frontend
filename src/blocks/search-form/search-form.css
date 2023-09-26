@@ -10,9 +10,6 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .search-form {
     max-width: 448px;
     max-height: 334px;
@@ -21,10 +18,6 @@
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .search-form {
     max-width: 320px;
     max-height: 480px;

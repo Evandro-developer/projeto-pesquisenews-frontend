@@ -11,9 +11,6 @@
 }
 
 @media (max-width: 968px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .footer__social {
     justify-content: flex-end;
     align-items: flex-start;

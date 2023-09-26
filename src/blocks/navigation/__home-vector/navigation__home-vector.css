@@ -10,20 +10,12 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .navigation__home-vector {
     bottom: -10px;
   }
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .navigation__home-vector {
     width: 56px;
     bottom: -12px;

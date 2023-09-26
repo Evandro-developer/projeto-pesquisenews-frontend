@@ -15,14 +15,11 @@
 }
 
 .navigation__loggout-container:hover .navigation__icon-logged-out {
+  transition: 0.3s ease-in-out;
   transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .navigation__loggout-container {
     height: 40px;
   }

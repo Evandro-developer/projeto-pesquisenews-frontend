@@ -1,4 +1,4 @@
-.saved-news-header__query {
+.saved-news-header__keyword {
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -6,15 +6,10 @@
   color: #1a1b22;
   margin: 0;
   padding: 0;
-  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
-  .saved-news-header__query {
+  .saved-news-header__keyword {
     max-width: 288px;
   }
 }

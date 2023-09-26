@@ -1,4 +1,4 @@
-.news-card__img {
+.news-card__url-to-img {
   width: 400px;
   height: 272px;
   margin: 0;
@@ -10,20 +10,14 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-  .news-card__img {
+  .news-card__url-to-img {
     width: 224px;
     height: 150px;
   }
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-  .news-card__img {
+  .news-card__url-to-img {
     width: 288px;
     height: 196px;
   }

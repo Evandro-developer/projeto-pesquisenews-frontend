@@ -1,17 +1,20 @@
 import React, { useEffect } from "react";
-import PopupWithForm from "./PopupWithForm";
+import { useNavigate } from "react-router-dom";
 import useFormWithValidation from "./FormValidation";
 import { errorClasses } from "../utils/globalValidationRules";
 import Input from "./Input";
 import ButtonSubmit from "./ButtonSubmit";
 
 function PopupLogin({
-  setIsPopupOpen,
-  setIsToggledPopup,
   isPopupOpen,
-  setIsLoggedIn,
-  onSubmit,
+  formType,
+  toggleForm,
+  setIsToggledPopup,
+  handleSubmitPopup,
+  handleClosePopup,
 }) {
+  const navigate = useNavigate();
+
   const {
     values,
     errors,
@@ -20,28 +23,25 @@ function PopupLogin({
     handleChange,
     handleBlur,
     resetForm,
-  } = useFormWithValidation("login");
+  } = useFormWithValidation(formType);
 
   const { emailClassesError, passwordClassesError, buttonClassesError } =
     errorClasses(errors, isValid, inputActive);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSubmitPopup(values);
+    handleClosePopup();
+  };
 
   useEffect(() => {
     if (!isPopupOpen) {
       resetForm();
     }
-  }, [isPopupOpen, resetForm]);
+  }, [resetForm]);
 
   return (
-    <PopupWithForm
-      setIsPopupOpen={setIsPopupOpen}
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (onSubmit(values.email, values.password)) {
-          setIsPopupOpen(false);
-          setIsLoggedIn(true);
-        }
-      }}
-    >
+    <>
       <div className="popup__field">
         <label className="popup__label">E-mail</label>
         <Input
@@ -72,19 +72,29 @@ function PopupLogin({
           className={`popup__input`}
         />
       </div>
-      <ButtonSubmit className={buttonClassesError} isValid={isValid}>
+      <ButtonSubmit
+        className={buttonClassesError}
+        isValid={isValid}
+        onClick={(e) => handleSubmit(e)}
+      >
         Entrar
       </ButtonSubmit>
+
       <div className="popup__sign-option">
         <span className="popup__or-text">ou</span>
         <span
+          role="button"
           className="popup__sign-text"
-          onClick={() => setIsToggledPopup(false)}
+          onClick={() => {
+            toggleForm();
+            setIsToggledPopup(false);
+            navigate("/signup");
+          }}
         >
           Inscreva-se
         </span>
       </div>
-    </PopupWithForm>
+    </>
   );
 }
 

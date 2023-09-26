@@ -54,16 +54,16 @@
 @import url(./blocks/btn-show-more/btn-show-more__visible.css);
 
 @import url(./blocks/news-card/news-card.css);
-@import url(./blocks/news-card/__img/news-card__img.css);
-@import url(./blocks/news-card/__published-at/news-card__published-at.css);
-@import url(./blocks/news-card/__briefing/news-card__briefing.css);
-@import url(./blocks/news-card/__heading/news-card__heading.css);
-@import url(./blocks/news-card/__article/news-card__article.css);
-@import url(./blocks/news-card/__author/news-card__author.css);
+@import url(./blocks/news-card/__keyword/news-card__keyword.css);
 @import url(./blocks/btn-default/btn-default.css);
 @import url(./blocks/btn-default/__container/btn-default__container.css);
 @import url(./blocks/btn-tooltip-hover/btn-tooltip-hover.css);
-@import url(./blocks/news-card/__category/news-card__category.css);
+@import url(./blocks/news-card/__url-to-img/news-card__url-to-img.css);
+@import url(./blocks/news-card/__briefing/news-card__briefing.css);
+@import url(./blocks/news-card/__published-at/news-card__published-at.css);
+@import url(./blocks/news-card/__title/news-card__title.css);
+@import url(./blocks/news-card/__description/news-card__description.css);
+@import url(./blocks/news-card/__source/news-card__source.css);
 
 @import url(./blocks/saved-news/saved-news.css);
 @import url(./blocks/saved-news/__container/saved-news__container.css);
@@ -72,7 +72,7 @@
 @import url(./blocks/saved-news-header/__container/saved-news-header__container.css);
 @import url(./blocks/saved-news-header/__saved-articles/saved-news-header__saved-articles.css);
 @import url(./blocks/saved-news-header/__heading/saved-news-header__heading.css);
-@import url(./blocks/saved-news-header/__query/saved-news-header__query.css);
+@import url(./blocks/saved-news-header/__keyword/saved-news-header__keyword.css);
 
 @import url(./blocks/about/about.css);
 @import url(./blocks/about/__container/about__container.css);
@@ -83,7 +83,6 @@
 @import url(./blocks/about/__text/about__text.css);
 
 @import url(./blocks/preload/preload.css);
-@import url(./blocks/preload/__container/preload__container.css);
 @import url(./blocks/preload/__content-error/preload__content-error.css);
 @import url(./blocks/preload/__error-img/preload__error-img.css);
 @import url(./blocks/preload/__heading-error/preload__heading-error.css);
@@ -104,6 +103,8 @@
 @import url(./blocks/footer/__icon-link/footer__icon-link.css);
 
 @import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/__opened/popup__opened.css);
+@import url(./blocks/popup/__closed/popup__closed.css);
 @import url(./blocks/popup/__form/popup__form.css);
 @import url(./blocks/popup/__heading/popup__heading.css);
 @import url(./blocks/popup/__field/popup__field.css);
@@ -120,3 +121,11 @@
 @import url(./blocks/popup/__sign-option/popup__sign-option.css);
 @import url(./blocks/popup/__or-text/popup__or-text.css);
 @import url(./blocks/popup/__sign-text/popup__sign-text.css);
+
+@import url(./blocks/infoToolTip/infoToolTip.css);
+@import url(./blocks/infoToolTip/__opened/infoToolTip__opened.css);
+@import url(./blocks/infoToolTip/__closed/infoToolTip__closed.css);
+@import url(./blocks/btn-info-tooltip-closed/btn-info-tooltip-closed.css);
+@import url(./blocks/infoToolTip/__container/infoToolTip__container.css);
+@import url(./blocks/infoToolTip/__heading/infoToolTip__heading.css);
+@import url(./blocks/infoToolTip/__signin-text/infoToolTip__signin-text.css);

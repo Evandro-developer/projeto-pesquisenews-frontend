@@ -8,7 +8,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer__container">
         <p className="footer__copyrights">
-          &copy; 2023, desenvolvido por Evandro de Melo com News API
+          &copy; 2023, desenvolvido por Evandro M Oliveira
         </p>
         <nav className="footer__list">
           <ul className="footer__content">

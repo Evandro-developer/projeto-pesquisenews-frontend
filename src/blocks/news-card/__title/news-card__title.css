@@ -1,4 +1,4 @@
-.news-card__heading {
+.news-card__title {
   height: 90px;
   max-block-size: 90px;
   max-inline-size: 352px;
@@ -13,14 +13,10 @@
   overflow: hidden;
   margin: 0 0 10px;
   padding: 0;
-  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-  .news-card__heading {
+  .news-card__title {
     height: 96px;
     max-block-size: 96px;
     max-inline-size: 192px;
@@ -32,11 +28,7 @@
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
-  .news-card__heading {
+  .news-card__title {
     height: 48px;
     max-block-size: 48px;
     max-inline-size: 256px;

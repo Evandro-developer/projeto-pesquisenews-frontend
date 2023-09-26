@@ -10,20 +10,12 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .footer {
     padding-top: 40px;
   }
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .footer {
     padding-top: 54px;
   }

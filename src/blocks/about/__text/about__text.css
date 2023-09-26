@@ -10,10 +10,6 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .about__text {
     display: block;
   }

@@ -9,19 +9,12 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .navigation__saved-articles_active {
     bottom: -10px;
   }
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .navigation__saved-articles_active {
     bottom: -12px;
   }

@@ -10,14 +10,12 @@
   position: absolute;
   top: 24px;
   right: 24px;
+  cursor: pointer;
   margin: 0;
   padding: 0;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .btn-default {
     top: 8px;
     right: 8px;
@@ -25,10 +23,6 @@
 }
 
 @media (max-width: 484px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .btn-default {
     top: 16px;
     right: 16px;

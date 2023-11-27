@@ -6,13 +6,9 @@
   color: #1a1b22;
   margin: 0;
   padding: 0;
-  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .new-card-list__heading {
     font-size: 30px;
     line-height: 34px;
@@ -20,10 +16,6 @@
 }
 
 @media (max-width: 580px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .new-card-list__heading {
     padding: 0 14px;
     max-width: 320px;

@@ -8,10 +8,11 @@ import bgimage_small from "../images/bgimage_small.png";
 function Header({
   isLoggedIn,
   setIsLoggedIn,
+  isPopupOpen,
   setIsPopupOpen,
-  onSearch,
   onLogout,
-  userName,
+  handleSignOut,
+  onSearch,
 }) {
   return (
     <header className="header">
@@ -19,9 +20,10 @@ function Header({
         <Navigation
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
+          isPopupOpen={isPopupOpen}
           setIsPopupOpen={setIsPopupOpen}
           onLogout={onLogout}
-          userName={userName}
+          handleSignOut={handleSignOut}
         />
         <SearchForm onSearch={onSearch} />
         <picture className="header__container-img">

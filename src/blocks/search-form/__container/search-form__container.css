@@ -9,10 +9,6 @@
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .search-form__container {
     align-items: center;
   }

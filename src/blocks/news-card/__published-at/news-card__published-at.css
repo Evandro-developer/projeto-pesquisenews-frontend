@@ -9,23 +9,15 @@
   overflow: hidden;
   margin: 0;
   padding: 0 0 12px;
-  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .news-card__published-at {
     padding-bottom: 14px;
   }
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .news-card__published-at {
     padding-bottom: 10px;
   }

@@ -1,16 +1,20 @@
 import React, { useEffect } from "react";
-import PopupWithForm from "./PopupWithForm";
+import { useNavigate } from "react-router-dom";
 import useFormWithValidation from "./FormValidation";
 import { errorClasses } from "../utils/globalValidationRules";
 import Input from "./Input";
 import ButtonSubmit from "./ButtonSubmit";
 
 function PopupRegister({
-  setIsPopupOpen,
-  setIsToggledPopup,
   isPopupOpen,
-  onSubmit,
+  formType,
+  toggleForm,
+  setIsToggledPopup,
+  handleSubmitPopup,
+  handleClosePopup,
 }) {
+  const navigate = useNavigate();
+
   const {
     values,
     errors,
@@ -19,7 +23,7 @@ function PopupRegister({
     handleChange,
     handleBlur,
     resetForm,
-  } = useFormWithValidation("register");
+  } = useFormWithValidation(formType);
 
   const {
     emailClassesError,
@@ -28,14 +32,20 @@ function PopupRegister({
     buttonClassesError,
   } = errorClasses(errors, isValid, inputActive);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSubmitPopup(values);
+    handleClosePopup();
+  };
+
   useEffect(() => {
     if (!isPopupOpen) {
-      resetForm();
+      resetForm;
     }
-  }, [isPopupOpen, resetForm]);
+  }, [resetForm]);
 
   return (
-    <PopupWithForm setIsPopupOpen={setIsPopupOpen} onSubmit={onSubmit}>
+    <>
       <div className="popup__field">
         <label className="popup__label">E-mail</label>
         <Input
@@ -81,19 +91,28 @@ function PopupRegister({
           className={`popup__input`}
         />
       </div>
-      <ButtonSubmit className={buttonClassesError} isValid={isValid}>
-        Entrar
+      <ButtonSubmit
+        className={buttonClassesError}
+        isValid={isValid}
+        onClick={(e) => handleSubmit(e)}
+      >
+        Inscrever
       </ButtonSubmit>
       <div className="popup__sign-option">
         <span className="popup__or-text">ou</span>
         <span
+          role="button"
           className="popup__sign-text"
-          onClick={() => setIsToggledPopup(true)}
+          onClick={() => {
+            toggleForm();
+            setIsToggledPopup(true);
+            navigate("/signin");
+          }}
         >
           Entrar
         </span>
       </div>
-    </PopupWithForm>
+    </>
   );
 }
 

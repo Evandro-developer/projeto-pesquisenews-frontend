@@ -9,22 +9,14 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .navigation__container {
     padding: 14px 40px 12px;
   }
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .navigation__container {
     flex-direction: column;
-    /* gap: 10px; */
     padding: 16px;
   }
 }

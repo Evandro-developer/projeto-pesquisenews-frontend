@@ -1,4 +1,4 @@
-.news-card__category {
+.news-card__keyword {
   max-width: 97px;
   max-height: 40px;
   font-family: "Roboto", Arial, sans-serif;
@@ -21,10 +21,7 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-  .news-card__category {
+  .news-card__keyword {
     max-width: 97px;
     top: 8px;
     left: 8px;
@@ -33,11 +30,7 @@
 }
 
 @media (max-width: 484px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
-  .news-card__category {
+  .news-card__keyword {
     top: 16px;
     left: 16px;
   }

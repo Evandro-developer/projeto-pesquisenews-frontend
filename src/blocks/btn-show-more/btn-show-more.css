@@ -15,18 +15,16 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
-  transition: 0.3s ease-in-out;
   align-self: center;
+  transition: 0.3s ease-in-out;
 }
 
 .btn-show-more:hover {
   background: #e8e8e8;
+  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .btn-show-more {
     width: 240px;
     height: 56px;

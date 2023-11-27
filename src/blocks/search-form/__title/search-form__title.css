@@ -8,13 +8,9 @@
   color: #ffffff;
   margin: 0;
   padding: 0 0 32px;
-  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .search-form__title {
     max-width: 425px;
     max-height: 80px;
@@ -25,9 +21,6 @@
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .search-form__title {
     max-width: 285px;
     max-height: 120px;

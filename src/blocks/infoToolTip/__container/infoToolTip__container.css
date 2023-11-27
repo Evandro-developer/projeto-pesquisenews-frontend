@@ -1,0 +1,26 @@
+.infoToolTip__container {
+  padding: 18px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 430px;
+  height: 182px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  margin: 0;
+  padding: 44px 36px 52px;
+  z-index: 1;
+}
+
+@media (max-width: 584px) {
+  .infoToolTip__container {
+    width: 320px;
+  }
+}

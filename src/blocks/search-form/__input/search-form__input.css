@@ -10,10 +10,8 @@
   border: none;
   outline: none;
   box-sizing: border-box;
-  cursor: pointer;
   margin: 0;
   padding: 0 0 0 24px;
-  transition: 0.3s ease-in-out;
 }
 
 .search-form__input::placeholder {
@@ -25,9 +23,6 @@
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
   .search-form__input {
     width: 448px;
     height: 56px;
@@ -35,10 +30,6 @@
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
   .search-form__input {
     width: 288px;
     height: 56px;

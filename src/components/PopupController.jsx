@@ -1,48 +1,79 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PopupLogin from "./PopupLogin";
 import PopupRegister from "./PopupRegister";
+import PopupWithForm from "./PopupWithForm";
 
-function PopupController({ setIsPopupOpen, handleLogin, setIsLoggedIn }) {
-  const [isToggledPopup, setIsToggledPopup] = useState(true);
+function PopupController({
+  isPopupOpen,
+  setIsPopupOpen,
+  handleSignIn,
+  handleSignUp,
+  isClosing,
+  setIsClosing,
+  isMounted,
+  setIsMounted,
+  handleClosePopup,
+}) {
+  const [isToggledPopup, setIsToggledPopup] = useState(
+    location.pathname === "/signup" ? false : true
+  );
 
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
+  const [formType, setFormType] = useState("login");
+
+  const toggleForm = () => {
+    if (isToggledPopup) {
+      setFormType("register");
+    } else {
+      setFormType("login");
+    }
+    setIsToggledPopup(!isToggledPopup);
   };
 
-  useEffect(() => {
-    const handleKeyPress = (e) => {
-      if (e.key === "Escape") {
-        handleClosePopup();
-      }
-    };
+  const handleLoginSubmit = (values) =>
+    values.email &&
+    values.password &&
+    handleSignIn(values.email, values.password);
 
-    const handleClickOutside = (e) => {
-      if (e.target.classList.contains("popup")) {
-        handleClosePopup();
-      }
-    };
+  const handleRegisterSubmit = (values) =>
+    values.email &&
+    values.password &&
+    values.name &&
+    handleSignUp(values.email, values.password, values.name);
 
-    document.addEventListener("keydown", handleKeyPress);
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [setIsPopupOpen]);
-
-  return isToggledPopup ? (
-    <PopupLogin
+  return (
+    <PopupWithForm
+      isClosing={isClosing}
+      setIsClosing={setIsClosing}
+      isMounted={isMounted}
+      setIsMounted={setIsMounted}
+      handleClosePopup={handleClosePopup}
+      isPopupOpen={isPopupOpen}
       setIsPopupOpen={setIsPopupOpen}
-      setIsToggledPopup={setIsToggledPopup}
-      onSubmit={handleLogin}
-      setIsLoggedIn={setIsLoggedIn}
-    />
-  ) : (
-    <PopupRegister
-      setIsPopupOpen={setIsPopupOpen}
-      setIsToggledPopup={setIsToggledPopup}
-    />
+      title={isToggledPopup ? "Entrar" : "Inscreva-se"}
+      onClick={(values) => {
+        isToggledPopup
+          ? handleLoginSubmit(values)
+          : handleRegisterSubmit(values);
+      }}
+    >
+      {isToggledPopup ? (
+        <PopupLogin
+          formType={formType}
+          toggleForm={toggleForm}
+          setIsToggledPopup={setIsToggledPopup}
+          handleSubmitPopup={handleLoginSubmit}
+          handleClosePopup={handleClosePopup}
+        />
+      ) : (
+        <PopupRegister
+          formType={formType}
+          toggleForm={toggleForm}
+          setIsToggledPopup={setIsToggledPopup}
+          handleSubmitPopup={handleRegisterSubmit}
+          handleClosePopup={handleClosePopup}
+        />
+      )}
+    </PopupWithForm>
   );
 }
 

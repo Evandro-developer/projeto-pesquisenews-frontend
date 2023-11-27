@@ -3,7 +3,6 @@
   cursor: default;
   color: #b6bcbf;
   border-bottom: none rgba(0, 0, 0, 0.2);
-  transition: 0.3s ease-in-out;
 }
 
 .btn-popup-submit_disabled:hover {

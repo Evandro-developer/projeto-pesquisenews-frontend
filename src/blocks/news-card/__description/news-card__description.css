@@ -1,4 +1,4 @@
-.news-card__article {
+.news-card__description {
   height: 88px;
   max-block-size: 88px;
   max-inline-size: 400px;
@@ -13,14 +13,10 @@
   color: #1a1b22;
   margin: 0 0 16px;
   padding: 0;
-  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-  .news-card__article {
+  .news-card__description {
     height: 66px;
     max-block-size: 66px;
     max-inline-size: 192px;
@@ -30,11 +26,7 @@
 }
 
 @media (max-width: 584px) {
-  * {
-    transition: 0.3s ease-in-out;
-  }
-
-  .news-card__article {
+  .news-card__description {
     max-inline-size: 256px;
     margin-bottom: 30px;
   }

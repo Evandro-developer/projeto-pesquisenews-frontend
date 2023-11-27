@@ -6,6 +6,18 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 0;
+  padding: 0 54px 0 0;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .navigation__home-container {
+    padding-right: 34px;
+  }
+}
+
+@media (max-width: 584px) {
+  .navigation__home-container {
+    padding-right: 14px;
+  }
 }

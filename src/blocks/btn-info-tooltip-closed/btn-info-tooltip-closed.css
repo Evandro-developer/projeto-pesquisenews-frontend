@@ -1,0 +1,24 @@
+.btn-info-tooltip-closed {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-info-tooltip-closed:hover {
+  transition: 0.3s ease-in-out;
+  opacity: 0.6;
+}
+
+@media (max-width: 584px) {
+  .btn-info-tooltip-closed {
+    width: 26px;
+    height: 26px;
+    top: -35px;
+    right: 0;
+  }
+}

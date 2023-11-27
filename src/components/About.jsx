@@ -14,6 +14,7 @@ function About() {
             alt="Lâmpada representando ideias"
           />
         </picture>
+
         <div className="about__briefing">
           <h2 className="about__title">Sobre o autor</h2>
           <div className="about__paragrafh">

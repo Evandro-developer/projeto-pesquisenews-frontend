@@ -45,9 +45,11 @@ function SavedNewsHeader({ savedArticles }) {
             ? "1 artigo salvo"
             : `${savedArticles.length} artigos salvos`}
         </h2>
-        <p className="saved-news-header__keyword">
-          Por palavras-chave: {displayKeywords}
-        </p>
+        {savedArticles.length > 0 && (
+          <p className="saved-news-header__keyword">
+            Por palavras-chave: {displayKeywords}
+          </p>
+        )}
       </div>
     </section>
   );

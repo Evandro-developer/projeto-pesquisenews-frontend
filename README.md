@@ -157,7 +157,7 @@ O frontend do [PesquiseNews](https://pesquisenews.com.br) pode ser configurado p
 **Contribuição ao projeto**: Desenvolvimento do front-end e back-end e hospedagem na **Google Cloud**.
 
 ### [**Tripleten**](https://tripleten.com/pt-bra/)
-**Contribuição ao projeto**: Design e experiência do usuário.
+**Contribuição ao projeto**: Design e experiência do usuário. Você pode visualizar o design fornecido pela [**Tripleten**](https://tripleten.com/pt-bra/) [aqui](https://www.figma.com/file/pjv6Im0hLJ0Rny2zSYZXQ3/Seu-projeto-final-pt?type=design&mode=design).
 
 ## Código-Fonte:
 Acesse o [repositório do projeto](https://github.com/Evandro-developer/projeto-pesquisenews-frontend) no GitHub para consultar o código-fonte completo e pode ser encontrado em nosso repositório no GitHub. Sinta-se à vontade para explorá-lo, fazer fork e contribuir com melhorias ou correções.

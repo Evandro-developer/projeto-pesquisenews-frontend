@@ -16,6 +16,7 @@ function InfoToolTip({
     handleCloseInfoToolTip();
     setIsPopupOpen(true);
   };
+
   const handleEscapeKey = (e) => {
     if (e.key === "Escape" && isToolTipOpen) {
       handleCloseInfoToolTip();

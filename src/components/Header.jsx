@@ -1,9 +1,8 @@
-import React from "react";
 import Navigation from "./Navigation";
 import SearchForm from "./SearchForm";
-import bgimage_large from "../images/bgimage_large.png";
-import bgimage_medium from "../images/bgimage_medium.png";
-import bgimage_small from "../images/bgimage_small.png";
+import bgimage_large from "../images/bgimage_large.svg";
+import bgimage_medium from "../images/bgimage_medium.svg";
+import bgimage_small from "../images/bgimage_small.svg";
 
 function Header({
   isLoggedIn,

@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import iconGithub from "../images/icon_github.png";
+import iconGithub from "../images/icon_github.svg";
 import iconLinkedin from "../images/icon_linkedin.svg";
 
 function Footer() {

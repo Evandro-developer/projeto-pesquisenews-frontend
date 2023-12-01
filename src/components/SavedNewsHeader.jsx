@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function SavedNewsHeader({ savedArticles }) {

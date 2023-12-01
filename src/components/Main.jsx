@@ -1,4 +1,3 @@
-import React from "react";
 import NewsCardList from "./NewsCardList";
 import Preload from "./Preload";
 import About from "./About";

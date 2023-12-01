@@ -1,5 +1,3 @@
-import React from "react";
-
 function ButtonSubmit({ className, isValid, onClick, children }) {
   return (
     <button

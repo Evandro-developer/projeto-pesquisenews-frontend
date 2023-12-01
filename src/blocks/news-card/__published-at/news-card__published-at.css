@@ -9,6 +9,7 @@
   overflow: hidden;
   margin: 0;
   padding: 0 0 12px;
+  cursor: default;
 }
 
 @media (max-width: 768px) {

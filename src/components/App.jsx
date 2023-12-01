@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import AppRoutes from "./AppRoutes";
@@ -119,7 +119,7 @@ function App() {
     handleAppFetchData(
       localStorage.getItem("token"),
       (userInfo, articles) => {
-        // Função handleFetchUserDataSuccess
+        // Function handleFetchUserDataSuccess
         setCurrentUser(userInfo);
         setSavedArticles(articles);
       },

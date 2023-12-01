@@ -1,4 +1,3 @@
-import React from "react";
 import Navigation from "./Navigation";
 import SavedNewsHeader from "./SavedNewsHeader";
 import NewsCardList from "./NewsCardList";

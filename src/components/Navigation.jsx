@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import CurrentUserContext from "../contexts/CurrentUserContext";
-import vectorWhiteImg from "../images/vector_white.png";
-import vectorDarkImg from "../images/vector_dark.png";
-import iconLoggedOut from "../images/icon_logged_out.png";
-import iconLoggedOutThemeDark from "../images/icon_logged_out_theme_dark.png";
+import vectorWhiteImg from "../images/vector_white.svg";
+import vectorDarkImg from "../images/vector_dark.svg";
+import iconLoggedOut from "../images/icon_logged_out.svg";
+import iconLoggedOutThemeDark from "../images/icon_logged_out_theme_dark.svg";
 
 function Navigation({
   isLoggedIn,

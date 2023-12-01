@@ -1,6 +1,5 @@
-import React from "react";
 import imgSpinner from "../images/img_spinner.svg";
-import imgErrorNews from "../images/img_error_news.png";
+import imgErrorSearchArticle from "../images/img_error_search_article.svg";
 
 function Preload({ isError }) {
   if (isError) {
@@ -10,7 +9,7 @@ function Preload({ isError }) {
           <picture>
             <img
               className="preload__error-img"
-              src={imgErrorNews}
+              src={imgErrorSearchArticle}
               alt="Imagem de erro ao carregar as notícias"
             />
           </picture>

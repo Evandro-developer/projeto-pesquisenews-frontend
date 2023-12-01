@@ -1,7 +1,4 @@
-import React from "react";
-
 function About() {
-  // Diretamente use o caminho para a imagem a partir do root
   const lightBulb = "/images/light-bulb.png";
 
   return (

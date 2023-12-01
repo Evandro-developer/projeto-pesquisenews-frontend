@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import CurrentUserContext from "../contexts/CurrentUserContext";
-import iconBookmark from "../images/icon_bookmark.png";
-import iconBookmarkHover from "../images/icon_bookmark_hover.png";
-import iconBookmarkActive from "../images/icon_bookmark_active.png";
-import iconTrash from "../images/icon_trash.png";
+import iconBookmark from "../images/icon_bookmark.svg";
+import iconBookmarkHover from "../images/icon_bookmark_hover.svg";
+import iconBookmarkActive from "../images/icon_bookmark_active.svg";
+import iconTrash from "../images/icon_trash.svg";
 
 function NewsCard({
   keyword,
@@ -50,7 +50,9 @@ function NewsCard({
       urlToImage,
     };
     onSaveArticle(articleToSave);
-    setIsBookmarkActive(true); // Torna o bookmark ativo
+    // Torna o bookmark ativo
+    // Makes the bookmark active
+    setIsBookmarkActive(true);
   };
 
   const findAndSetArticleIdToDelete = () => {
@@ -68,6 +70,7 @@ function NewsCard({
         saveArticle();
       }
       // Se o artigo já estiver marcado, não faz nada
+      // If the article is already bookmarked, does nothing
     } else if (isSavedNewsPath) {
       findAndSetArticleIdToDelete();
     }
@@ -86,7 +89,9 @@ function NewsCard({
     if (isSavedNewsPath && articleId) {
       onDeleteArticle(articleId);
       setIsBookmarkActive(false);
-      setArticleId(null); // Reseta o articleId após o uso
+      // Reseta o articleId após o uso
+      // Resets the articleId after use
+      setArticleId(null);
     }
   }, [articleId]);
 
@@ -113,13 +118,16 @@ function NewsCard({
 
   useEffect(() => {
     // Verifica se o artigo atual é uma array e se foi salvo usando a combinação de URL e title
+    // Checks if the current article is an array and if it was saved using the combination of URL and title
     if (Array.isArray(savedArticles)) {
       const isArticleSaved = savedArticles.some(
         (article) => article.url === url && article.title === title
       );
       setIsBookmarkActive(isArticleSaved);
     } else {
-      setIsBookmarkActive(false); // Define como false se savedArticles não for um array
+      // Define como false se savedArticles não for um array
+      // Sets to false if savedArticles is not an array
+      setIsBookmarkActive(false);
     }
   }, [url, title, savedArticles]);
 

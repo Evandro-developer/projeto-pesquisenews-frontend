@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import closedBtn from "../images/icon_close.png";
-import closedBtnSmall from "../images/icon_close_small.png";
+import { useEffect } from "react";
+import closedBtn from "../images/icon_close.svg";
+import closedBtnSmall from "../images/icon_close_small.svg";
 
 function InfoToolTip({
   isToolTipOpen,

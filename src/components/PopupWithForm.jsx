@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import iconClose from "../images/icon_close.png";
-import iconCloseSmall from "../images/icon_close_small.png";
+import { useEffect } from "react";
+import iconClose from "../images/icon_close.svg";
+import iconCloseSmall from "../images/icon_close_small.svg";
 
 function PopupWithForm({
   children,

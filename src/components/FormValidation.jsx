@@ -6,6 +6,7 @@ import {
 } from "../utils/globalValidationRules";
 
 // Inicializa o estado inputActive com todos os campos de validationConfig
+// Initializes the inputActive state with all fields from validationConfig
 const initialInputActiveState = Object.keys(validationConfig).reduce(
   (initialInputs, key) => {
     initialInputs[key] = false;
@@ -15,6 +16,7 @@ const initialInputActiveState = Object.keys(validationConfig).reduce(
 );
 
 // useForm é um hook personalizado para validação de formulários
+// useForm is a custom hook for form validation
 function useForm(formName) {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
@@ -22,6 +24,7 @@ function useForm(formName) {
   const [inputActive, setInputActive] = useState(initialInputActiveState);
 
   // Manipula a mudança no input e valida o campo
+  // Handles input change and validates the field
   const handleChange = (evt) => {
     const target = evt.target;
     const name = target.name;
@@ -32,10 +35,12 @@ function useForm(formName) {
     const newErrors = { ...errors, [name]: errorMessage };
 
     // Atualiza os estados de values e errors
+    // Updates the states of values and errors
     setValues(newValues);
     setErrors(newErrors);
 
     // Verifica se todos os campos obrigatórios são válidos
+    // Checks if all required fields are valid
     const requiredFields = requiredFieldsConfig[formName] || [];
     const allFieldsValid = requiredFields.every((field) => {
       return !newErrors[field] && newValues[field];
@@ -46,11 +51,13 @@ function useForm(formName) {
   };
 
   // Manipula o evento de desfocar do input
+  // Handles the input's blur event
   const handleBlur = (name) => {
     setInputActive({ ...inputActive, [name]: false });
   };
 
   // Reseta o formulário para o estado inicial ou valores fornecidos
+  // Resets the form to the initial state or provided values
   const resetForm = useCallback(
     (newValues = {}, newErrors = {}, newIsValid = false) => {
       setValues(newValues);
@@ -76,6 +83,7 @@ function useForm(formName) {
 }
 
 // Aprimora o useForm com funcionalidades adicionais específicas para validação
+// Enhances useForm with additional functionalities specific for validation
 function useFormWithValidation(formName) {
   const formControl = useForm(formName);
 

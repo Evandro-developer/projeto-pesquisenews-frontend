@@ -1,13 +1,13 @@
 import { useState, useCallback } from "react";
 import {
-  validationConfig,
+  useValidationConfig,
   requiredFieldsConfig,
   validateInput,
 } from "../utils/globalValidationRules";
 
 // Inicializa o estado inputActive com todos os campos de validationConfig
 // Initializes the inputActive state with all fields from validationConfig
-const initialInputActiveState = Object.keys(validationConfig).reduce(
+const initialInputActiveState = Object.keys(useValidationConfig).reduce(
   (initialInputs, key) => {
     initialInputs[key] = false;
     return initialInputs;
@@ -18,6 +18,10 @@ const initialInputActiveState = Object.keys(validationConfig).reduce(
 // useForm é um hook personalizado para validação de formulários
 // useForm is a custom hook for form validation
 function useForm(formName) {
+  // Obter validationConfig do contexto de linguagem
+  // Retrieve validationConfig from the language context
+  const validationConfig = useValidationConfig();
+
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
@@ -26,11 +30,8 @@ function useForm(formName) {
   // Manipula a mudança no input e valida o campo
   // Handles input change and validates the field
   const handleChange = (evt) => {
-    const target = evt.target;
-    const name = target.name;
-    const value = target.value;
-    const errorMessage = validateInput(name, value);
-
+    const { name, value } = evt.target;
+    const errorMessage = validateInput(name, value, validationConfig);
     const newValues = { ...values, [name]: value };
     const newErrors = { ...errors, [name]: errorMessage };
 

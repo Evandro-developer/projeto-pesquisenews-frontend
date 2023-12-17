@@ -15,6 +15,13 @@
   }
 }
 
+@media (max-width: 648px) {
+  .navigation__home-vector {
+    width: 56px;
+    bottom: -14px;
+  }
+}
+
 @media (max-width: 584px) {
   .navigation__home-vector {
     width: 56px;

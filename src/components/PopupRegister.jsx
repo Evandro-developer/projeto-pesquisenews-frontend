@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { LangContext } from "../contexts/LanguageContext";
 import useFormWithValidation from "./FormValidation";
 import { errorClasses } from "../utils/globalValidationRules";
 import Input from "./Input";
@@ -13,6 +14,8 @@ function PopupRegister({
   handleSubmitPopup,
   handleClosePopup,
 }) {
+  const { t } = useContext(LangContext);
+
   const navigate = useNavigate();
 
   const {
@@ -47,12 +50,12 @@ function PopupRegister({
   return (
     <>
       <div className="popup__field">
-        <label className="popup__label">E-mail</label>
+        <label className="popup__label">{t("default.email")}</label>
         <Input
           name="email"
           label="E-mail"
           type="email"
-          placeholder="Insira seu e-mail"
+          placeholder={t("default.emailPlaceholder")}
           value={values.email || ""}
           onChange={handleChange}
           onBlur={() => handleBlur("email")}
@@ -62,12 +65,12 @@ function PopupRegister({
         />
       </div>
       <div className="popup__field">
-        <label className="popup__label">Senha</label>
+        <label className="popup__label">{t("default.password")}</label>
         <Input
           name="password"
           label="Senha"
           type="password"
-          placeholder="Insira sua senha"
+          placeholder={t("default.passwordPlaceholder")}
           value={values.password || ""}
           onChange={handleChange}
           onBlur={() => handleBlur("password")}
@@ -77,12 +80,12 @@ function PopupRegister({
         />
       </div>
       <div className="popup__field">
-        <label className="popup__label">Nome de usuário</label>
+        <label className="popup__label">{t("popupRegister.name")}</label>
         <Input
           name="name"
           label="Nome de usuário"
           type="text"
-          placeholder="Insira seu nome de usuário"
+          placeholder={t("popupRegister.namePlaceholder")}
           value={values.name || ""}
           onChange={handleChange}
           onBlur={() => handleBlur("name")}
@@ -96,10 +99,10 @@ function PopupRegister({
         isValid={isValid}
         onClick={(e) => handleSubmit(e)}
       >
-        Inscrever
+        {t("popupRegister.btnSignUp")}
       </ButtonSubmit>
       <div className="popup__sign-option">
-        <span className="popup__or-text">ou</span>
+        <span className="popup__or-text">{t("default.orText")}</span>
         <span
           role="button"
           className="popup__sign-text"
@@ -109,7 +112,7 @@ function PopupRegister({
             navigate("/signin");
           }}
         >
-          Entrar
+          {t("popupRegister.signIn")}
         </span>
       </div>
     </>

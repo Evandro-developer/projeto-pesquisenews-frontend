@@ -1,0 +1,132 @@
+{
+  "header": {
+    "pictureAlt": "L'image montre un téléphone portable tenu par une main, l'écran étant orienté vers le haut. Il affiche une interface organisée avec des graphiques et des informations pertinentes."
+  },
+
+  "nav": {
+    "title": "ActuExplorateur",
+    "home": "Accueil",
+    "savedArticles": "Sauvegardés",
+    "signUp": "S'Inscrire",
+    "signIn": "Se Connecter",
+    "logOut": "Se Déconnecter",
+    "whiteThemeVector": "Image vectorielle marquant la page d'accueil",
+    "darkThemeVector": "Image vectorielle marquant la page des Articles Sauvegardés"
+  },
+
+  "searchNews": {
+    "title": "Quoi de neuf dans le monde ?",
+    "subtitle": "Trouvez les dernières actualités sur n'importe quel sujet et enregistrez-les dans votre compte personnel.",
+    "placeholder": "Entrez le sujet de recherche",
+    "btnSearch": "Rechercher"
+  },
+
+  "preload": {
+    "errorTitle": "Rien Trouvé",
+    "errorText": "Désolé, mais rien ne correspond à vos termes de recherche.",
+    "spinner": "Recherche d'actualités en cours...",
+    "pictureError": "Image d'erreur lorsque les actualités ne se chargent pas",
+    "pictureSpinner": "Image en rotation avant le chargement des actualités"
+  },
+
+  "about": {
+    "title": "À Propos de l'Auteur",
+    "textOne": "Evandro M Oliveira - Développeur Web Full-Stack en Node.js, Express et React. Avançant en Data Science et en Design UI/UX.",
+    "textTwo": "J'ai développé \"ActuExplorateur\" du back-end au front-end, hébergé sur Google Cloud. Je transforme les visions en réalité numérique.",
+    "pictureAlt": "Ampoule représentant des idées"
+  },
+
+  "newCardList": {
+    "title": "Résultats de la Recherche",
+    "btnShowMore": "Afficher plus"
+  },
+
+  "newCard": {
+    "btnTooltipHoverLoggedOut": "Connectez-vous pour enregistrer des articles",
+    "btnTooltipHoverLoggedIn": "Article enregistré",
+    "btnTooltipHoverDelete": "Retirer des enregistrements",
+    "pictureNews": "Image illustrative de l'article d'actualité"
+  },
+
+  "footer": {
+    "copyrights": "2023, développé par Evandro M Oliveira",
+    "home": "Accueil",
+    "iconGithub": "Image avec l'icône Github",
+    "iconLinkedin": "Image avec l'icône Linkedin"
+  },
+
+  "savedNewsHeader": {
+    "savedArticles": "Articles Sauvegardés",
+    "youHave": "vous avez",
+    "noSavedArticle": "aucun article enregistré",
+    "oneSavedArticle": "1 article enregistré",
+    "multipleSavedArticles": "articles enregistrés",
+    "byKeywords": "Par mots-clés",
+    "and": "et",
+    "others": "autres"
+  },
+
+  "popupController": {
+    "logInTitle": "Se Connecter",
+    "signUpTitle": "S'Inscrire"
+  },
+
+  "popupRegister": {
+    "name": "Nom",
+    "namePlaceholder": "Entrez votre nom d'utilisateur",
+    "btnSignUp": "S'Inscrire",
+    "signIn": "Se Connecter"
+  },
+
+  "popupLogin": {
+    "btnSignIn": "Se Connecter",
+    "signUp": "S'Inscrire"
+  },
+
+  "infoToolTip": {
+    "title": "Inscription Réussie !",
+    "signIn": "Se Connecter",
+    "pictureAlt": "Image de l'icône de fermeture de la fenêtre d'infobulle"
+  },
+
+  "default": {
+    "email": "E-mail",
+    "emailPlaceholder": "Entrez votre adresse e-mail",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "orText": "ou",
+    "closeIcon": "Icône de fermeture de la fenêtre contextuelle",
+    "saveButton": "Enregistrer"
+  },
+
+  "register": {
+    "title": "S'Inscrire",
+    "submitAuth": "S'Inscrire",
+    "emailPlaceholder": "Veuillez entrer votre adresse e-mail pour vous inscrire",
+    "passwordPlaceholder": "Veuillez entrer votre mot de passe pour vous inscrire",
+    "btnAuth": "S'Inscrire",
+    "alreadyAMember": "Déjà un membre ? Connectez-vous !"
+  },
+
+  "login": {
+    "title": "Se Connecter",
+    "submitAuth": "Se Connecter",
+    "emailPlaceholder": "Veuillez entrer votre adresse e-mail pour vous connecter",
+    "passwordPlaceholder": "Veuillez entrer votre mot de passe pour vous connecter",
+    "btnAuth": "Se Connecter",
+    "notAMember": "Pas encore membre ? Inscrivez-vous ici !"
+  },
+
+  "validation": {
+    "emailRequired": "L'adresse e-mail est requise, par exemple : 'nom@domaine.com'",
+    "emailPattern": "Entrez une adresse e-mail au format 'nom@domaine.com'",
+    "passwordRequired": "Le mot de passe est requis, par exemple : 'Ex@mpl3'",
+    "passwordMinLength": "Le mot de passe doit comporter au moins 6 caractères",
+    "passwordMaxLength": "Le mot de passe ne doit pas dépasser 100 caractères",
+    "passwordPattern": "'Ex@mpl3', au moins 6 caractères, avec des majuscules, des minuscules, des chiffres et des symboles.",
+    "nameRequired": "Le nom est requis, par exemple : 'John Doe'",
+    "namePattern": "Le nom doit contenir entre 2 et 200 caractères",
+    "searchMinLength": "Recherche avec au moins 2 caractères",
+    "searchRequired": "Le champ de recherche est requis"
+  }
+}

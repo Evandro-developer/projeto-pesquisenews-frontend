@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { LangContext } from "../contexts/LanguageContext";
 import iconClose from "../images/icon_close.svg";
 import iconCloseSmall from "../images/icon_close_small.svg";
 
@@ -12,6 +13,8 @@ function PopupWithForm({
   setIsMounted,
   handleClosePopup,
 }) {
+  const { t } = useContext(LangContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     handleClosePopup();
@@ -63,7 +66,7 @@ function PopupWithForm({
           <source media="(max-width: 584px)" srcSet={iconCloseSmall} />
           <img
             src={iconClose}
-            alt="Imagem do ícone de fechamento da janela do popup"
+            alt={t("default.closeIcon")}
             className="btn-popup-closed"
             onClick={handleClosePopup}
           />

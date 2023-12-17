@@ -20,11 +20,12 @@
 @media (max-width: 584px) {
   .search-form__input-container {
     max-width: 288px;
-    max-height: 592px;
+    max-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 26px;
+    gap: 22px;
+    align-self: flex-end;
   }
 }

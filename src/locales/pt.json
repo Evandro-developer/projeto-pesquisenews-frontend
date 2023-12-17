@@ -1,0 +1,114 @@
+{
+  "header": {
+    "pictureAlt": "A imagem mostra um celular segurado por uma mão, com a tela voltada para cima. Exibe uma interface organizada com gráficos e informações relevantes."
+  },
+
+  "nav": {
+    "title": "PesquiseNews",
+    "home": "Início",
+    "savedArticles": "Artigos Salvos",
+    "signUp": "Inscreva-se",
+    "signIn": "Entrar",
+    "logOut": "Sair",
+    "whiteThemeVector": "Vetor de imagem na marcando a página Home",
+    "darkThemeVector": "Vetor de imagem marcando a página artigos salvos"
+  },
+
+  "searchNews": {
+    "title": "O que está acontecendo no mundo?",
+    "subtitle": "Encontre as últimas notícias sobre quaisquer temas e as salve em sua conta pessoal.",
+    "placeholder": "Insira o tema da pesquisa",
+    "btnSearch": "Pesquisar"
+  },
+
+  "preload": {
+    "errorTitle": "Nada encontrado",
+    "errorText": "Desculpe, mas nada corresponde aos seus termos de pesquisa.",
+    "spinner": "Procurando notícias...",
+    "pictureError": "Imagem de erro ao carregar as notícias",
+    "pictureSpinner": "Imagem giratória antes de carregar as notícias"
+  },
+
+  "about": {
+    "title": "Sobre o autor",
+    "textOne": "Evandro M Oliveira - Desenvolvedor Web Full-Stack em Node.js, Express e React. Avançando em Ciência de Dados e Design UI/UX.",
+    "textTwo": "Desenvolvi \"PesquiseNews\" do back-end ao front-end, hospedado na Google Cloud. Transformo visões em realidade digital.",
+    "pictureAlt": "Lâmpada representando ideias"
+  },
+
+  "newCardList": {
+    "title": "Procurar resultados",
+    "btnShowMore": "Mostrar mais"
+  },
+
+  "newCard": {
+    "btnTooltipHoverLoggedOut": "Faça Login para salvar artigos",
+    "btnTooltipHoverLoggedIn": "Artigo salvo",
+    "btnTooltipHoverDelete": "Remover dos salvos",
+    "pictureNews": "Imagem ilustrativa da notícia"
+  },
+
+  "footer": {
+    "copyrights": "2023, desenvolvido por Evandro M Oliveira",
+    "home": "Início",
+    "iconGithub": "Imagem com o ícone do Github",
+    "iconLinkedin": "Imagem com o ícone do Linkedin"
+  },
+
+  "savedNewsHeader": {
+    "savedArticles": "Artigos salvos",
+    "youHave": "você tem",
+    "noSavedArticle": "nenhum artigo salvo",
+    "oneSavedArticle": "1 artigo salvo",
+    "multipleSavedArticles": "artigos salvos",
+    "byKeywords": "Por palavras-chave",
+    "and": "e",
+    "others": "outras"
+  },
+
+  "popupController": {
+    "logInTitle": "Entrar",
+    "signUpTitle": "Inscreva-se"
+  },
+
+  "popupRegister": {
+    "name": "Nome",
+    "namePlaceholder": "Insira seu nome de usuário",
+    "btnSignUp": "Inscrever",
+    "signIn": "Entrar"
+  },
+
+  "popupLogin": {
+    "btnSignIn": "Entrar",
+    "signUp": "Inscreva-se"
+  },
+
+  "infoToolTip": {
+    "title": "Cadastro concluído com sucesso!",
+    "signIn": "Entrar",
+    "pictureAlt": "Imagem do ícone de fechamento da janela infotooltip"
+  },
+
+  "default": {
+    "email": "E-mail",
+    "emailPlaceholder": "Insira seu e-mail",
+    "password": "Senha",
+    "passwordPlaceholder": "Insira sua senha",
+    "orText": "ou",
+    "closeIcon": "Ícone de fechamento da janela popup",
+    "saveButton": "Salvar"
+  },
+
+  "validation": {
+    "emailRequired": "Email é requerido, ex.: 'nome@dominio.com'",
+    "emailPattern": "Informe um e-mail no formato 'nome@dominio.com'",
+    "passwordRequired": "Senha é requerida, ex.: 'Ex@mpl3'",
+    "passwordMinLength": "Senha deve ter pelo menos 6 caracteres",
+    "passwordMaxLength": "Senha deve ter no máximo 100 caracteres",
+    "passwordPattern": "'Ex@mpl3', mínimo 6 caracteres, inclua maiúsculas, minúsculas, números e símbolos.",
+    "nameRequired": "Nome é requerido, ex.: 'João Silva'",
+    "namePattern": "O nome deve ter entre 2 e 200 caracteres",
+    "searchMinLength": "Pesquisar com pelo menos 2 caracteres",
+    "searchRequired": "O campo de pesquisa é requerido"
+  }
+}

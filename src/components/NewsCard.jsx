@@ -1,6 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { LangContext } from "../contexts/LanguageContext";
 import CurrentUserContext from "../contexts/CurrentUserContext";
+import { localeOptions } from "../helpers/localesHelpers";
 import iconBookmark from "../images/icon_bookmark.svg";
 import iconBookmarkHover from "../images/icon_bookmark_hover.svg";
 import iconBookmarkActive from "../images/icon_bookmark_active.svg";
@@ -14,15 +16,19 @@ function NewsCard({
   source,
   url,
   urlToImage,
+  lang,
   isLoggedIn,
   savedArticles,
   onSaveArticle,
   onDeleteArticle,
 }) {
+  const { t } = useContext(LangContext);
   const { currentUser } = useContext(CurrentUserContext);
   const location = useLocation();
   const isSavedNewsPath = location.pathname === "/saved-news";
-  const formattedPublishedAt = formatDate(publishedAt);
+
+  const formattedPublishedAt = formatDate(publishedAt, lang);
+
   const [isHovered, setIsHovered] = useState(false);
   const [articleId, setArticleId] = useState(null);
   const [isBookmarkActive, setIsBookmarkActive] = useState(false);
@@ -48,6 +54,7 @@ function NewsCard({
       source,
       url,
       urlToImage,
+      lang,
     };
     onSaveArticle(articleToSave);
     // Torna o bookmark ativo
@@ -76,13 +83,9 @@ function NewsCard({
     }
   };
 
-  function formatDate(publishedAt) {
-    const options = { day: "numeric", month: "long", year: "numeric" };
-    const formattedDate = new Date(publishedAt).toLocaleDateString(
-      "pt-BR",
-      options
-    );
-    return formattedDate;
+  function formatDate(publishedAt, lang) {
+    const { locale, options } = localeOptions[lang] || localeOptions["en"];
+    return new Date(publishedAt).toLocaleDateString(locale, options);
   }
 
   useEffect(() => {
@@ -156,19 +159,27 @@ function NewsCard({
         <>
           {!isSavedNewsPath && !isLoggedIn && !isBookmarkActive && (
             <p className="btn-tooltip-hover visible">
-              Faça Login para salvar artigos
+              {t("newCard.btnTooltipHoverLoggedOut")}
             </p>
           )}
           {!isSavedNewsPath && isLoggedIn && isBookmarkActive && (
-            <p className="btn-tooltip-hover visible">Artigo salvo</p>
+            <p className="btn-tooltip-hover visible">
+              {t("newCard.btnTooltipHoverLoggedIn")}
+            </p>
           )}
           {isSavedNewsPath && isLoggedIn && (
-            <p className="btn-tooltip-hover visible">Remover dos salvos</p>
+            <p className="btn-tooltip-hover visible">
+              {t("newCard.btnTooltipHoverDelete")}
+            </p>
           )}
         </>
       )}
       <picture>
-        <img src={urlToImage} className="news-card__url-to-img" alt="News" />
+        <img
+          src={urlToImage}
+          className="news-card__url-to-img"
+          alt={t("newCard.pictureNews")}
+        />
       </picture>
       <li className="news-card__briefing">
         <p className="news-card__published-at">{formattedPublishedAt}</p>

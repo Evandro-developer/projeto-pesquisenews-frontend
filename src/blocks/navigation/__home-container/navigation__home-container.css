@@ -1,5 +1,5 @@
 .navigation__home-container {
-  max-width: 64px;
+  width: 64px;
   max-height: 24px;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
 
 @media (max-width: 768px) {
   .navigation__home-container {
-    padding-right: 34px;
+    padding-right: 20px;
   }
 }
 

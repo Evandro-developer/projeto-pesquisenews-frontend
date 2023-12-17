@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { LangProvider } from "../contexts/LanguageContext";
 import CurrentUserContext from "../contexts/CurrentUserContext";
+
 import AppRoutes from "./AppRoutes";
 import Footer from "./Footer";
 import InfoToolTip from "./InfoToolTip";
@@ -11,24 +13,23 @@ import {
   handleAppSignUp,
   handleAppSignIn,
   handleAppSignOut,
-} from "../utils/helpers";
+} from "../helpers/apiHelpers";
 
 function App() {
   const navigate = useNavigate();
-
   const [currentUser, setCurrentUser] = useState(false);
   const [newsData, setNewsData] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
   const [query, setQuery] = useState("");
   const [userName, setUserName] = useState("");
   const [registerSuccess, setRegisterSuccess] = useState("");
+  const [isClosing, setIsClosing] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
   const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isToolTipOpen, setIsToolTipOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
   const closeWithAnimation = (setOpenState) => {
     setIsClosing(true);
@@ -130,50 +131,53 @@ function App() {
   }, [isLoggedIn]);
 
   return (
-    <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
-      <>
-        <AppRoutes
-          isLoggedIn={isLoggedIn}
-          setIsLoggedIn={setIsLoggedIn}
-          isPopupOpen={isPopupOpen}
-          setIsPopupOpen={setIsPopupOpen}
-          handleSignOut={handleSignOutCallback}
-          onSearch={handleSearchNewsCallback}
-          isLoading={isLoading}
-          isError={isError}
-          newsData={newsData}
-          savedArticles={savedArticles}
-          setSavedArticles={setSavedArticles}
-        />
-        <Footer />
-
-        {isPopupOpen && (
-          <PopupController
+    <LangProvider>
+      <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
+        <>
+          <AppRoutes
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
             isPopupOpen={isPopupOpen}
             setIsPopupOpen={setIsPopupOpen}
-            handleSignIn={handleSignInCallback}
-            handleSignUp={handleSignUpCallback}
-            isClosing={isClosing}
-            setIsClosing={setIsClosing}
-            isMounted={isMounted}
-            setIsMounted={setIsMounted}
-            handleClosePopup={handleClosePopup}
+            handleSignOut={handleSignOutCallback}
+            onSearch={handleSearchNewsCallback}
+            isLoading={isLoading}
+            isError={isError}
+            newsData={newsData}
+            savedArticles={savedArticles}
+            setSavedArticles={setSavedArticles}
           />
-        )}
-        {isToolTipOpen && (
-          <InfoToolTip
-            isToolTipOpen={isToolTipOpen}
-            setIsPopupOpen={setIsPopupOpen}
-            isClosing={isClosing}
-            setIsClosing={setIsClosing}
-            isMounted={isMounted}
-            setIsMounted={setIsMounted}
-            registerSuccess={registerSuccess}
-            handleCloseInfoToolTip={handleCloseInfoToolTip}
-          />
-        )}
-      </>
-    </CurrentUserContext.Provider>
+          <Footer />
+
+          {isPopupOpen && (
+            <PopupController
+              isPopupOpen={isPopupOpen}
+              setIsPopupOpen={setIsPopupOpen}
+              handleSignIn={handleSignInCallback}
+              handleSignUp={handleSignUpCallback}
+              isClosing={isClosing}
+              setIsClosing={setIsClosing}
+              isMounted={isMounted}
+              setIsMounted={setIsMounted}
+              handleClosePopup={handleClosePopup}
+            />
+          )}
+
+          {isToolTipOpen && (
+            <InfoToolTip
+              isToolTipOpen={isToolTipOpen}
+              setIsPopupOpen={setIsPopupOpen}
+              isClosing={isClosing}
+              setIsClosing={setIsClosing}
+              isMounted={isMounted}
+              setIsMounted={setIsMounted}
+              registerSuccess={registerSuccess}
+              handleCloseInfoToolTip={handleCloseInfoToolTip}
+            />
+          )}
+        </>
+      </CurrentUserContext.Provider>
+    </LangProvider>
   );
 }
 

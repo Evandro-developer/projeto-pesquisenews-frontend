@@ -9,13 +9,13 @@
   padding: 40px 104px 56px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .saved-news-header__container {
     padding: 24px 40px 32px;
   }
 }
 
-@media (max-width: 584px) {
+@media (max-width: 648px) {
   .saved-news-header__container {
     padding: 8px 16px 32px;
   }

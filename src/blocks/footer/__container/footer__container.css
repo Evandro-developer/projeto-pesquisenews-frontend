@@ -1,5 +1,6 @@
 .footer__container {
   width: 100%;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,8 +22,10 @@
   }
 }
 
-@media (max-width: 484px) {
+@media (max-width: 648px) {
   .footer__container {
-    padding: 0 16px 22px;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding: 21px 16px 19px;
   }
 }

@@ -4,9 +4,27 @@
   max-height: 576px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   box-sizing: border-box;
   position: relative;
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 768px) {
+  .header {
+    max-height: 396px;
+  }
+}
+
+@media (max-width: 648px) {
+  .header {
+    max-height: 452px;
+  }
+}
+
+@media (max-width: 584px) {
+  .header {
+    max-height: 544px;
+  }
 }

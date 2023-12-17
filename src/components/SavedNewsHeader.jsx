@@ -1,9 +1,10 @@
 import { useContext, useState, useEffect } from "react";
+import { LangContext } from "../contexts/LanguageContext";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function SavedNewsHeader({ savedArticles }) {
+  const { t } = useContext(LangContext);
   const { currentUser } = useContext(CurrentUserContext);
-
   const [displayKeywords, setDisplayKeywords] = useState("");
 
   useEffect(() => {
@@ -21,9 +22,9 @@ function SavedNewsHeader({ savedArticles }) {
         return sortedKeywords.join(", ");
       }
 
-      return `${sortedKeywords[0]}, ${sortedKeywords[1]} e ${
-        sortedKeywords.length - 2
-      } outras`;
+      return `${sortedKeywords[0]}, ${sortedKeywords[1]} ${t(
+        "savedNewsHeader.and"
+      )} ${sortedKeywords.length - 2} ${t("savedNewsHeader.others")}`;
     }
 
     const keywords = savedArticles
@@ -31,23 +32,27 @@ function SavedNewsHeader({ savedArticles }) {
       .map((article) => article.keyword);
 
     setDisplayKeywords(formatKeywords(keywords));
-  }, [savedArticles]);
+  }, [savedArticles, t]);
 
   return (
     <section className="saved-news-header">
       <div className="saved-news-header__container">
-        <p className="saved-news-header__saved-articles">Artigos salvos</p>
+        <p className="saved-news-header__saved-articles">
+          {t("savedNewsHeader.savedArticles")}
+        </p>
         <h2 className="saved-news-header__heading">
-          {currentUser?.name}, você tem{" "}
+          {currentUser?.name}, {t("savedNewsHeader.youHave")}{" "}
           {savedArticles.length === 0
-            ? "nenhum artigo salvo"
+            ? t("savedNewsHeader.noSavedArticle")
             : savedArticles.length === 1
-            ? "1 artigo salvo"
-            : `${savedArticles.length} artigos salvos`}
+            ? t("savedNewsHeader.oneSavedArticle")
+            : `${savedArticles.length} ${t(
+                "savedNewsHeader.multipleSavedArticles"
+              )}`}
         </h2>
         {savedArticles.length > 0 && (
           <p className="saved-news-header__keyword">
-            Por palavras-chave: {displayKeywords}
+            {t("savedNewsHeader.byKeywords")}: {displayKeywords}
           </p>
         )}
       </div>

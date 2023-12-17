@@ -1,0 +1,132 @@
+{
+  "header": {
+    "pictureAlt": "L'immagine mostra uno smartphone tenuto da una mano, con lo schermo rivolto verso l'alto. Mostra un'interfaccia organizzata con grafici e informazioni rilevanti."
+  },
+
+  "nav": {
+    "title": "EsploraNotizie",
+    "home": "Inizio",
+    "savedArticles": "Articoli Salvati",
+    "signUp": "Registrati",
+    "signIn": "Accedi",
+    "logOut": "Esci",
+    "whiteThemeVector": "Immagine vettoriale che indica la Pagina Iniziale",
+    "darkThemeVector": "Immagine vettoriale che indica la Pagina degli Articoli Salvati"
+  },
+
+  "searchNews": {
+    "title": "Cosa succede nel mondo?",
+    "subtitle": "Trova le ultime notizie su qualsiasi argomento e salvale nel tuo account personale.",
+    "placeholder": "Inserisci l'argomento di ricerca",
+    "btnSearch": "Cerca"
+  },
+
+  "preload": {
+    "errorTitle": "Nessun Risultato",
+    "errorText": "Spiacenti, ma niente corrisponde ai tuoi criteri di ricerca.",
+    "spinner": "Ricerca notizie in corso...",
+    "pictureError": "Immagine di errore quando le notizie non si caricano",
+    "pictureSpinner": "Immagine rotante prima del caricamento delle notizie"
+  },
+
+  "about": {
+    "title": "Sull'Autore",
+    "textOne": "Evandro M Oliveira - Sviluppatore Web Full-Stack in Node.js, Express e React. Avanzo in Data Science e Design UI/UX.",
+    "textTwo": "Ho sviluppato \"EsploraNotizie\" dal back-end al front-end, ospitato su Google Cloud. Trasformo le visioni in realtà digitale.",
+    "pictureAlt": "Lampadina che rappresenta le idee"
+  },
+
+  "newCardList": {
+    "title": "Risultati della Ricerca",
+    "btnShowMore": "Mostra di più"
+  },
+
+  "newCard": {
+    "btnTooltipHoverLoggedOut": "Accedi per salvare gli articoli",
+    "btnTooltipHoverLoggedIn": "Articolo salvato",
+    "btnTooltipHoverDelete": "Rimuovi dai salvati",
+    "pictureNews": "Immagine illustrativa dell'articolo di notizie"
+  },
+
+  "footer": {
+    "copyrights": "2023, sviluppato da Evandro M Oliveira",
+    "home": "Inizio",
+    "iconGithub": "Immagine con l'icona di Github",
+    "iconLinkedin": "Immagine con l'icona di Linkedin"
+  },
+
+  "savedNewsHeader": {
+    "savedArticles": "Articoli Salvati",
+    "youHave": "hai",
+    "noSavedArticle": "nessun articolo salvato",
+    "oneSavedArticle": "1 articolo salvato",
+    "multipleSavedArticles": "articoli salvati",
+    "byKeywords": "Per parole chiave",
+    "and": "e",
+    "others": "altri"
+  },
+
+  "popupController": {
+    "logInTitle": "Accedi",
+    "signUpTitle": "Registrati"
+  },
+
+  "popupRegister": {
+    "name": "Nome",
+    "namePlaceholder": "Inserisci il tuo nome utente",
+    "btnSignUp": "Registrati",
+    "signIn": "Accedi"
+  },
+
+  "popupLogin": {
+    "btnSignIn": "Accedi",
+    "signUp": "Registrati"
+  },
+
+  "infoToolTip": {
+    "title": "Registrazione Completata con Successo!",
+    "signIn": "Accedi",
+    "pictureAlt": "Immagine dell'icona di chiusura della finestra delle informazioni"
+  },
+
+  "default": {
+    "email": "E-mail",
+    "emailPlaceholder": "Inserisci la tua email",
+    "password": "Password",
+    "passwordPlaceholder": "Inserisci la tua password",
+    "orText": "o",
+    "closeIcon": "Icona di chiusura della finestra popup",
+    "saveButton": "Salva"
+  },
+
+  "register": {
+    "title": "Registrati",
+    "submitAuth": "Registrati",
+    "emailPlaceholder": "Inserisci la tua email per registrarti",
+    "passwordPlaceholder": "Inserisci la tua password per registrarti",
+    "btnAuth": "Registrati",
+    "alreadyAMember": "Già registrato? Accedi!"
+  },
+
+  "login": {
+    "title": "Accedi",
+    "submitAuth": "Accedi",
+    "emailPlaceholder": "Inserisci la tua email per accedere",
+    "passwordPlaceholder": "Inserisci la tua password per accedere",
+    "btnAuth": "Accedi",
+    "notAMember": "Non sei ancora membro? Registrati qui!"
+  },
+
+  "validation": {
+    "emailRequired": "L'email è obbligatoria, ad esempio: 'nome@dominio.com'",
+    "emailPattern": "Inserisci un'email nel formato 'nome@dominio.com'",
+    "passwordRequired": "La password è obbligatoria, ad esempio: 'Ex@mpl3'",
+    "passwordMinLength": "La password deve contenere almeno 6 caratteri",
+    "passwordMaxLength": "La password non può superare i 100 caratteri",
+    "passwordPattern": "'Ex@mpl3', almeno 6 caratteri, includere maiuscole, minuscole, numeri e simboli.",
+    "nameRequired": "Il nome è obbligatorio, ad esempio: 'Mario Rossi'",
+    "namePattern": "Il nome dovrebbe contenere tra 2 e 200 caratteri",
+    "searchMinLength": "Ricerca con almeno 2 caratteri",
+    "searchRequired": "Il campo di ricerca è obbligatorio"
+  }
+}

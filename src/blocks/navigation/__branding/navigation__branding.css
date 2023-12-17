@@ -1,0 +1,35 @@
+.navigation__branding {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 868px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .navigation__branding {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .navigation__branding {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 658px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .navigation__branding {
+    gap: 19px;
+  }
+}

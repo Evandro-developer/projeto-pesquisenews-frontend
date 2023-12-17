@@ -23,9 +23,9 @@ class ThirdPartyApi {
     return res.json();
   }
 
-  async fetchEverything({ q }) {
+  async fetchEverything({ q, lang }) {
     try {
-      const response = await fetch(`${this._baseUrl}?q=${q}`, {
+      const response = await fetch(`${this._baseUrl}?q=${q}&lang=${lang}`, {
         headers: getHeaders(),
       });
       return this._checkResponse(response);

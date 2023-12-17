@@ -1,9 +1,13 @@
+import { useContext } from "react";
+import { LangContext } from "../contexts/LanguageContext";
 import useFormWithValidation from "./FormValidation";
 import { errorClasses } from "../utils/globalValidationRules";
 import Input from "./Input";
 import ButtonSubmit from "./ButtonSubmit";
 
 function SearchForm({ onSearch }) {
+  const { t } = useContext(LangContext);
+
   const {
     values,
     errors,
@@ -36,16 +40,13 @@ function SearchForm({ onSearch }) {
   return (
     <form className="search-form" onSubmit={handleSubmit}>
       <div className="search-form__container">
-        <h2 className="search-form__title">O que está acontecendo no mundo?</h2>
-        <p className="search-form__subtitle">
-          Encontre as últimas notícias sobre quaisquer temas e as salve em sua
-          conta pessoal
-        </p>
+        <h2 className="search-form__title"> {t("searchNews.title")}</h2>
+        <p className="search-form__subtitle">{t("searchNews.subtitle")}</p>
         <div className="search-form__input-container">
           <Input
             name="query"
             type="text"
-            placeholder="Insira o tema da pesquisa"
+            placeholder={t("searchNews.placeholder")}
             value={values.query || ""}
             onChange={handleChange}
             onBlur={() => handleBlur("query")}
@@ -54,7 +55,7 @@ function SearchForm({ onSearch }) {
             className={`search-form__input`}
           />
           <ButtonSubmit className="btn-search-form" isValid={isValid}>
-            Procurar
+            {t("searchNews.btnSearch")}
           </ButtonSubmit>
         </div>
       </div>

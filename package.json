@@ -1,6 +1,6 @@
 {
   "name": "projeto-pesquisenews-frontend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "main": "index.js",
   "homepage": "https://pesquisenews.com.br",
@@ -15,6 +15,7 @@
     "api",
     "articles",
     "Brazil",
+    "Pixel Perfect Design",
     "filtering",
     "frontend",
     "interactive",
@@ -25,7 +26,6 @@
     "news",
     "open-source",
     "optimization",
-    "Portuguese",
     "react",
     "react-router-dom",
     "real-time",
@@ -37,14 +37,24 @@
     "user-experience",
     "user-friendly",
     "vite",
-    "webapp"
+    "webapp",
+    "multilingual",
+    "i18N",
+    "internationalization",
+    "localization",
+    "English",
+    "German",
+    "Spanish",
+    "French",
+    "Italian",
+    "Portuguese"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Evandro-developer/projeto-pesquisenews-frontend.git"
   },
   "author": "Evandro M Oliveira",
-  "description": "PesquiseNews frontend application.",
+  "description": "PesquiseNews frontend application, supporting multiple languages including English, German, Spanish, French, Italian, and Portuguese.",
   "license": "MIT",
   "dependencies": {
     "react": "^18.2.0",

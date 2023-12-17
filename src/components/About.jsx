@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { LangContext } from "../contexts/LanguageContext";
+
 function About() {
+  const { t } = useContext(LangContext);
   const lightBulb = "/images/light-bulb.png";
 
   return (
@@ -8,21 +12,15 @@ function About() {
           <img
             className="about__img"
             src={lightBulb}
-            alt="Lâmpada representando ideias"
+            alt={t("about.pictureAlt")}
           />
         </picture>
 
         <div className="about__briefing">
-          <h2 className="about__title">Sobre o autor</h2>
+          <h2 className="about__title">{t("about.title")}</h2>
           <div className="about__paragrafh">
-            <p className="about__text">
-              Evandro M Oliveira - Desenvolvedor Web em Node.js, Express e
-              React. Avançando em Ciência de Dados e Design UI/UX.
-            </p>
-            <p className="about__text">
-              Desenvolvi "PesquiseNews" do back-end ao front-end, hospedado na
-              Google Cloud. Transformo visões em realidade digital.
-            </p>
+            <p className="about__text">{t("about.textOne")}</p>
+            <p className="about__text">{t("about.textTwo")}</p>
           </div>
         </div>
       </div>

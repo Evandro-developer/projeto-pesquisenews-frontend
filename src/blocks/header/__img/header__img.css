@@ -6,12 +6,18 @@
 
 @media (max-width: 768px) {
   .header__img {
-    height: 400px;
+    height: 396px;
+  }
+}
+
+@media (max-width: 648px) {
+  .header__img {
+    height: 452px;
   }
 }
 
 @media (max-width: 584px) {
   .header__img {
-    height: 556px;
+    height: 544px;
   }
 }

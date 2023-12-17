@@ -1,4 +1,5 @@
 .navigation__title {
+  width: 164px;
   font-family: "Roboto Slab", Arial, sans-serif;
   font-weight: 700;
   font-size: 20px;
@@ -10,10 +11,12 @@
   padding: 0;
 }
 
-@media (max-width: 584px) {
+@media (max-width: 598px) {
   .navigation__title {
     align-self: flex-start;
     font-size: 16px;
     line-height: 22px;
+
+    /* width: 128px; */
   }
 }

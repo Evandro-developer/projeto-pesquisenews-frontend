@@ -18,9 +18,8 @@
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 584px) {
   .new-card-list__item {
     gap: 10px;
-    padding: 58px 0 21px;
   }
 }

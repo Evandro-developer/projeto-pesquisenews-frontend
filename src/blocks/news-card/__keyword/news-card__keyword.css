@@ -32,7 +32,7 @@
 
 @media (max-width: 484px) {
   .news-card__keyword {
-    top: 16px;
-    left: 16px;
+    top: 8px;
+    right: 8px;
   }
 }

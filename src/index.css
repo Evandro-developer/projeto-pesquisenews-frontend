@@ -11,6 +11,9 @@
 
 @import url(./blocks/navigation/navigation.css);
 @import url(./blocks/navigation/__container/navigation__container.css);
+@import url(./blocks/navigation/__branding/navigation__branding.css);
+@import url(./blocks/navigation/__lang-dropdown/navigation__lang-dropdown.css);
+@import url(./blocks/navigation/__lang-dropdown/_theme/navigation__lang-dropdown_theme_dark.css);
 @import url(./blocks/navigation/__link/navigation__link.css);
 @import url(./blocks/navigation/__title/navigation__title.css);
 @import url(./blocks/navigation/__title/_theme/navigation__title_theme_dark.css);
@@ -22,12 +25,14 @@
 @import url(./blocks/navigation/__home-vector/navigation__home-vector.css);
 @import url(./blocks/navigation/__saved-articles-container/navigation__saved-articles-container.css);
 @import url(./blocks/navigation/__saved-articles/navigation__saved-articles.css);
+@import url(./blocks/navigation/__saved-articles/_empty/navigation__saved-articles_empty.css);
 @import url(./blocks/navigation/__saved-articles/_theme/navigation__saved-articles_theme_dark.css);
 @import url(./blocks/navigation/__saved-articles/_active/navigation__saved-articles_active.css);
 @import url(./blocks/navigation/__saved-articles-vector/navigation__saved-articles-vector.css);
 @import url(./blocks/navigation/__loggout-container/navigation__loggout-container.css);
 @import url(./blocks/navigation/__icon-logged-out/navigation__icon-logged-out.css);
 @import url(./blocks/navigation/__logged-out/navigation__logged-out.css);
+
 @import url(./blocks/btn-logged-in/btn-logged-in.css);
 @import url(./blocks//btn-logged-in/_theme/btn-logged-in_theme_dark.css);
 @import url(./blocks/btn-logged-out/btn-logged-out.css);
@@ -44,20 +49,19 @@
 @import url(./blocks/search-form/__input/_active/search-form__input_active.css);
 @import url(./blocks/search-form/__input/_type/search-form__input_type_error.css);
 @import url(./blocks/search-form/__input-error/search-form__input-error.css);
+
 @import url(./blocks/btn-search-form/btn-search-form.css);
 
 @import url(./blocks/new-card-list/new-card-list.css);
 @import url(./blocks/new-card-list/__container/new-card-list__container.css);
 @import url(./blocks/new-card-list/__heading/new-card-list__heading.css);
 @import url(./blocks/new-card-list/__item/new-card-list__item.css);
+
 @import url(./blocks/btn-show-more/btn-show-more.css);
 @import url(./blocks/btn-show-more/btn-show-more__visible.css);
 
 @import url(./blocks/news-card/news-card.css);
 @import url(./blocks/news-card/__keyword/news-card__keyword.css);
-@import url(./blocks/btn-default/btn-default.css);
-@import url(./blocks/btn-default/__container/btn-default__container.css);
-@import url(./blocks/btn-tooltip-hover/btn-tooltip-hover.css);
 @import url(./blocks/news-card/__url-to-img/news-card__url-to-img.css);
 @import url(./blocks/news-card/__briefing/news-card__briefing.css);
 @import url(./blocks/news-card/__published-at/news-card__published-at.css);
@@ -65,9 +69,12 @@
 @import url(./blocks/news-card/__description/news-card__description.css);
 @import url(./blocks/news-card/__source/news-card__source.css);
 
+@import url(./blocks/btn-default/btn-default.css);
+@import url(./blocks/btn-default/__container/btn-default__container.css);
+@import url(./blocks/btn-tooltip-hover/btn-tooltip-hover.css);
+
 @import url(./blocks/saved-news/saved-news.css);
 @import url(./blocks/saved-news/__container/saved-news__container.css);
-
 @import url(./blocks/saved-news-header/saved-news-header.css);
 @import url(./blocks/saved-news-header/__container/saved-news-header__container.css);
 @import url(./blocks/saved-news-header/__saved-articles/saved-news-header__saved-articles.css);
@@ -93,7 +100,8 @@
 
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__container/footer__container.css);
-@import url(./blocks/footer/__footer__copyrights/footer__copyrights.css);
+@import url(./blocks/footer/__copyrights/footer__copyrights.css);
+@import url(./blocks/footer/__copyrights/_not-main-route/footer__copyrights_not-main-route.css);
 @import url(./blocks/footer/__list/footer__list.css);
 @import url(./blocks/footer/__content/footer__content.css);
 @import url(./blocks/footer/__text/footer__text.css);
@@ -115,17 +123,19 @@
 @import url(./blocks/popup/__input-error/popup__input-error.css);
 @import url(./blocks/popup/__error/popup__error.css);
 @import url(./blocks/popup/__error/_visible/popup__error_visible.css);
-@import url(./blocks/btn-popup-submit/btn-popup-submit.css);
-@import url(./blocks/btn-popup-submit/_disabled/btn-popup-submit_disabled.css);
-@import url(./blocks/btn-popup-closed/btn-popup-closed.css);
 @import url(./blocks/popup/__sign-option/popup__sign-option.css);
 @import url(./blocks/popup/__or-text/popup__or-text.css);
 @import url(./blocks/popup/__sign-text/popup__sign-text.css);
 
+@import url(./blocks/btn-popup-submit/btn-popup-submit.css);
+@import url(./blocks/btn-popup-submit/_disabled/btn-popup-submit_disabled.css);
+@import url(./blocks/btn-popup-closed/btn-popup-closed.css);
+
 @import url(./blocks/infoToolTip/infoToolTip.css);
 @import url(./blocks/infoToolTip/__opened/infoToolTip__opened.css);
 @import url(./blocks/infoToolTip/__closed/infoToolTip__closed.css);
-@import url(./blocks/btn-info-tooltip-closed/btn-info-tooltip-closed.css);
 @import url(./blocks/infoToolTip/__container/infoToolTip__container.css);
 @import url(./blocks/infoToolTip/__heading/infoToolTip__heading.css);
 @import url(./blocks/infoToolTip/__signin-text/infoToolTip__signin-text.css);
+
+@import url(./blocks/btn-info-tooltip-closed/btn-info-tooltip-closed.css);

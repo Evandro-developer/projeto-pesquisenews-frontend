@@ -10,3 +10,9 @@
   padding: 0;
   cursor: default;
 }
+
+@media (max-width: 484px) {
+  .preload__text-error {
+    padding: 0 16px;
+  }
+}

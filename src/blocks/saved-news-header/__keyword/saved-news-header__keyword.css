@@ -14,10 +14,3 @@
     padding-top: 16px;
   }
 }
-
-@media (max-width: 584px) {
-  .saved-news-header__keyword {
-    max-width: 288px;
-    padding-top: 50px;
-  }
-}

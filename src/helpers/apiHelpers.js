@@ -1,35 +1,7 @@
-import ThirdPartyApi from "./ThirdPartyApi";
-import ApiService from "./ApiService";
-import Auth from "./Auth";
-
-const setItem = (key, value) => {
-  localStorage.setItem(key, value);
-};
-
-const removeItem = (key) => {
-  localStorage.removeItem(key);
-};
-
-const localStorageHelpers = {
-  saveNews: (query, articles) => {
-    setItem("newsData", JSON.stringify({ query, articles }));
-  },
-  saveToken: (token) => {
-    setItem("token", token);
-  },
-  saveUserEmail: (email) => {
-    setItem("userEmail", email);
-  },
-  saveUserName: (name) => {
-    setItem("name", name);
-  },
-  removeToken: () => {
-    removeItem("token");
-  },
-  removeUserEmail: () => {
-    removeItem("userEmail");
-  },
-};
+import ThirdPartyApi from "../utils/ThirdPartyApi";
+import ApiService from "../utils/ApiService";
+import Auth from "../utils/Auth";
+import { localStorageManager } from "./localStorageHelpers";
 
 export const handleAppNewsSearch = async (
   query,
@@ -37,14 +9,21 @@ export const handleAppNewsSearch = async (
   onSearchError
 ) => {
   try {
-    const { articles = [] } = await ThirdPartyApi.fetchEverything({ q: query });
+    // Obter o idioma atual de localStorage
+    // Get the current language from localStorage;
+    const currentLang = localStorageManager.getCurrentLang();
+
+    const { articles = [] } = await ThirdPartyApi.fetchEverything({
+      q: query,
+      lang: currentLang,
+    });
 
     if (articles.length === 0) {
       onSearchError();
       return;
     }
 
-    localStorageHelpers.saveNews(query, articles);
+    localStorageManager.saveNews(query, articles);
     onSearchSuccess(articles);
   } catch (err) {
     onSearchError(err.message || "Erro ao buscar notícias.");
@@ -109,12 +88,12 @@ export const handleAppSignIn = async (
     const data = await Auth.login(email, password);
 
     if (data.token) {
-      localStorageHelpers.saveToken(data.token);
-      localStorageHelpers.saveUserEmail(email);
+      localStorageManager.saveToken(data.token);
+      localStorageManager.saveUserEmail(email);
 
       if (data.name) {
         setUserName(data.name);
-        localStorageHelpers.saveUserName(data.name);
+        localStorageManager.saveUserName(data.name);
       }
 
       setIsLoggedIn(true);
@@ -133,8 +112,8 @@ export const handleAppSignOut = async (
   navigate
 ) => {
   try {
-    localStorageHelpers.removeToken();
-    localStorageHelpers.removeUserEmail();
+    localStorageManager.removeToken();
+    localStorageManager.removeUserEmail();
     setIsLoggedIn(false);
     setUserName("");
     navigate("/signin");

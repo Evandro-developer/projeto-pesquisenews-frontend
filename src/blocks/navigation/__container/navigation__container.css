@@ -8,15 +8,28 @@
   padding: 19px 104px 13px;
 }
 
+@media (max-width: 968px) {
+  .navigation__container {
+    padding: 19px 40px 13px;
+  }
+}
+
+@media (max-width: 868x) {
+  .navigation__container {
+    padding: 19px 40px 13px;
+  }
+}
+
 @media (max-width: 768px) {
   .navigation__container {
     padding: 14px 40px 12px;
   }
 }
 
-@media (max-width: 584px) {
+@media (max-width: 648px) {
   .navigation__container {
     flex-direction: column;
     padding: 16px;
+    gap: 26px;
   }
 }

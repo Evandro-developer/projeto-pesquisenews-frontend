@@ -1,0 +1,132 @@
+{
+  "header": {
+    "pictureAlt": "The image shows a cell phone held by a hand, with the screen facing upwards. It displays an organized interface with graphs and relevant information."
+  },
+
+  "nav": {
+    "title": "NewsExplorer",
+    "home": "Home",
+    "savedArticles": "Saved Articles",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "logOut": "Log Out",
+    "whiteThemeVector": "Image vector marking the Home page",
+    "darkThemeVector": "Image vector marking the Saved Articles page"
+  },
+
+  "searchNews": {
+    "title": "What's going on in the world?",
+    "subtitle": "Find the latest news on any topics and save them in your personal account.",
+    "placeholder": "Enter the search topic",
+    "btnSearch": "Search"
+  },
+
+  "preload": {
+    "errorTitle": "Nothing Found",
+    "errorText": "Sorry, but nothing matches your search terms.",
+    "spinner": "Searching for news...",
+    "pictureError": "Error image when news fails to load",
+    "pictureSpinner": "Spinning image before news loads"
+  },
+
+  "about": {
+    "title": "About the Author",
+    "textOne": "Evandro M Oliveira - Full-Stack Web Developer in Node.js, Express, and React. Advancing in Data Science and UI/UX Design.",
+    "textTwo": "I developed \"NewsExplorer\" from back-end to front-end, hosted on Google Cloud. I transform visions into digital reality.",
+    "pictureAlt": "Light bulb representing ideas"
+  },
+
+  "newCardList": {
+    "title": "Search Results",
+    "btnShowMore": "Show more"
+  },
+
+  "newCard": {
+    "btnTooltipHoverLoggedOut": "Log in to save articles",
+    "btnTooltipHoverLoggedIn": "Article saved",
+    "btnTooltipHoverDelete": "Remove from saved",
+    "pictureNews": "Illustrative image of the news article"
+  },
+
+  "footer": {
+    "copyrights": "2023, developed by Evandro M Oliveira",
+    "home": "Home",
+    "iconGithub": "Image with the Github icon",
+    "iconLinkedin": "Image with the Linkedin icon"
+  },
+
+  "savedNewsHeader": {
+    "savedArticles": "Saved Articles",
+    "youHave": "you have",
+    "noSavedArticle": "no saved article",
+    "oneSavedArticle": "1 saved article",
+    "multipleSavedArticles": "saved articles",
+    "byKeywords": "By keywords",
+    "and": "and",
+    "others": "others"
+  },
+
+  "popupController": {
+    "logInTitle": "Sign In",
+    "signUpTitle": "Sign Up"
+  },
+
+  "popupRegister": {
+    "name": "Name",
+    "namePlaceholder": "Enter your username",
+    "btnSignUp": "Sign Up",
+    "signIn": "Sign In"
+  },
+
+  "popupLogin": {
+    "btnSignIn": "Sign In",
+    "signUp": "Sign Up"
+  },
+
+  "infoToolTip": {
+    "title": "Registration Successfully Completed!",
+    "signIn": "Sign In",
+    "pictureAlt": "Image of the infotooltip window close icon"
+  },
+
+  "default": {
+    "email": "E-mail",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "orText": "or",
+    "closeIcon": "Close window popup icon",
+    "saveButton": "Save"
+  },
+
+  "register": {
+    "title": "Sign Up",
+    "submitAuth": "Register",
+    "emailPlaceholder": "Please enter your email to register",
+    "passwordPlaceholder": "Please enter your password to register",
+    "btnAuth": "Register",
+    "alreadyAMember": "Already have an account? Log in!"
+  },
+
+  "login": {
+    "title": "Login",
+    "submitAuth": "Log in",
+    "emailPlaceholder": "Please enter your email to log in",
+    "passwordPlaceholder": "Please enter your password to log in",
+    "btnAuth": "Log in",
+    "notAMember": "Not a member yet? Sign up here!"
+  },
+
+  "validation": {
+    "emailRequired": "Email is required, e.g., 'name@domain.com'",
+    "emailPattern": "Enter an email in the format 'name@domain.com'",
+    "passwordRequired": "Password is required, e.g., 'Ex@mpl3'",
+    "passwordMinLength": "Password must be at least 6 characters long",
+    "passwordMaxLength": "Password must be no more than 100 characters long",
+    "passwordPattern": "'Ex@mpl3', minimum 6 characters, include uppercase, lowercase, numbers, and symbols.",
+    "nameRequired": "Name is required, e.g., 'John Doe'",
+    "namePattern": "Name should be between 2 and 200 characters",
+    "searchMinLength": "Search with at least 2 characters",
+    "searchRequired": "Search field is required"
+  }
+}

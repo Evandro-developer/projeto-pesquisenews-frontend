@@ -1,10 +1,11 @@
-import { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { LangContext } from "../contexts/LanguageContext";
+import { languages } from "../helpers/localesHelpers";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import vectorWhiteImg from "../images/vector_white.svg";
 import vectorDarkImg from "../images/vector_dark.svg";
-import iconLoggedOut from "../images/icon_logged_out.svg";
-import iconLoggedOutThemeDark from "../images/icon_logged_out_theme_dark.svg";
+import getNavThemeClasses from "../helpers/getNavThemeClasses";
 
 function Navigation({
   isLoggedIn,
@@ -12,9 +13,11 @@ function Navigation({
   setIsPopupOpen,
   handleSignOut,
 }) {
-  const { currentUser } = useContext(CurrentUserContext);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const { t, lang, setLang } = useContext(LangContext);
+  const { currentUser } = useContext(CurrentUserContext);
 
   const [buttonLabel, setButtonLabel] = useState("Entrar");
   const [popupType, setPopupType] = useState("login");
@@ -23,17 +26,11 @@ function Navigation({
     location.pathname === "/saved-news" ? "dark" : "light"
   );
 
-  const showVectorWhite = theme === "light";
-  const showVectorDark = theme === "dark";
-  const titleClass = theme === "dark" ? "navigation__title_theme_dark" : "";
-  const navigationHomeClass =
-    theme === "dark" ? "navigation__home_theme_dark" : "";
-  const navigationSavedArticlesClass =
-    theme === "dark" ? "navigation__saved-articles_theme_dark" : "";
-  const btnLoggedInClass = theme === "dark" ? "btn-logged-in_theme_dark" : "";
-  const btnLoggedOutClass = theme === "dark" ? "btn-logged-out_theme_dark" : "";
-  const iconLoggedOutClass =
-    theme === "dark" ? iconLoggedOutThemeDark : iconLoggedOut;
+  const themeClasses = getNavThemeClasses(theme);
+
+  const handleLangChange = (event) => {
+    setLang(event.target.value);
+  };
 
   const handleButtonClick = (evt) => {
     evt.preventDefault();
@@ -52,38 +49,56 @@ function Navigation({
 
   useEffect(() => {
     if (location.pathname === "/signup") {
-      setButtonLabel("Inscreva-se");
+      setButtonLabel(t("nav.signUp"));
       setPopupType("PopupRegister");
       setNavigatePath("/signin");
       setIsLoggedIn(false);
     } else if (location.pathname === "/signin") {
-      setButtonLabel("Entrar");
+      setButtonLabel(t("nav.signIn"));
       setPopupType("PopupLogin");
       setNavigatePath("/");
       setIsLoggedIn(false);
     }
-  }, [location.pathname]);
+  }, [location.pathname, t]);
 
   return (
     <section className="navigation">
       <nav className="navigation__container">
-        <h1 className={`navigation__title ${titleClass}`}>
-          <Link to="/" className="navigation__link">
-            PesquiseNews
-          </Link>
-        </h1>
+        <div className="navigation__branding">
+          <h1 className={`navigation__title ${themeClasses.titleClass}`}>
+            <Link to="/" className="navigation__link">
+              {t("nav.title")}
+            </Link>
+          </h1>
+
+          <select
+            value={lang}
+            onChange={handleLangChange}
+            className={`navigation__lang-dropdown ${themeClasses.dropdownClass}`}
+          >
+            {languages.map((langOption) => (
+              <option key={langOption} value={langOption}>
+                {langOption.toUpperCase()}
+              </option>
+            ))}
+          </select>
+        </div>
         <ul className="navigation__content">
           <li className="navigation__home-container">
             <Link to="/" className="navigation__link">
-              <p className={`navigation__home ${navigationHomeClass}`}>Home</p>
+              <p
+                className={`navigation__home ${themeClasses.navigationHomeClass}`}
+              >
+                {t("nav.home")}
+              </p>
             </Link>
-            {showVectorWhite && (
+            {themeClasses.showVectorWhite && (
               <span className="navigation__home_active">
                 <picture>
                   <img
                     className="navigation__home-vector"
                     src={vectorWhiteImg}
-                    alt="Vetor de imagem marcando a página Home"
+                    alt={t("nav.whiteThemeVector")}
                   />
                 </picture>
               </span>
@@ -95,18 +110,18 @@ function Navigation({
               <li className="navigation__saved-articles-container">
                 <Link to="/saved-news" className="navigation__link">
                   <p
-                    className={`navigation__saved-articles ${navigationSavedArticlesClass}`}
+                    className={`navigation__saved-articles ${themeClasses.navigationSavedArticlesClass}`}
                   >
-                    Artigos Salvos
+                    {t("nav.savedArticles")}
                   </p>
                 </Link>
-                {showVectorDark && (
+                {themeClasses.showVectorDark && (
                   <span className="navigation__saved-articles_active">
                     <picture>
                       <img
                         className="navigation__saved-articles-vector"
                         src={vectorDarkImg}
-                        alt="Vetor de imagem marcando a página artigos salvos"
+                        alt={t("nav.darkThemeVector")}
                       />
                     </picture>
                   </span>
@@ -116,15 +131,15 @@ function Navigation({
               <li className="navigation__loggout-container">
                 <button
                   type="submit"
-                  className={`btn-logged-out ${btnLoggedOutClass}`}
+                  className={`btn-logged-out ${themeClasses.btnLoggedOutClass}`}
                   onClick={() => handleSignOut()}
                 >
                   <span>{currentUser?.name}</span>
                   <picture className="navigation__icon-logged-out">
                     <img
                       className="navigation__logged-out"
-                      src={iconLoggedOutClass}
-                      alt="Ícone do botão loggout"
+                      src={themeClasses.iconLoggedOutClass}
+                      alt={t("nav.logOut")}
                     />
                   </picture>
                 </button>
@@ -136,7 +151,7 @@ function Navigation({
             {!isLoggedIn && (
               <button
                 type="submit"
-                className={`btn-logged-in ${btnLoggedInClass}`}
+                className={`btn-logged-in ${themeClasses.btnLoggedInClass}`}
                 onClick={handleButtonClick}
               >
                 {buttonLabel}

@@ -1,0 +1,19 @@
+.navigation__lang-dropdown {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  color: #bcbcbf;
+  cursor: pointer;
+  align-self: last baseline;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__lang-dropdown option {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 16px;
+  background-color: #bcbcbf;
+  color: #ffffff;
+}

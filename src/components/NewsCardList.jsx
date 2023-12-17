@@ -1,4 +1,5 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import { LangContext } from "../contexts/LanguageContext";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import ApiService from "../utils/ApiService";
 import NewsCard from "./NewsCard";
@@ -10,6 +11,7 @@ function NewsCardList({
   savedArticles,
   setSavedArticles,
 }) {
+  const { t } = useContext(LangContext);
   const { currentUser } = useContext(CurrentUserContext);
 
   const ITEMS_PER_PAGE = 3;
@@ -52,7 +54,7 @@ function NewsCardList({
     <section className="new-card-list">
       <div className="new-card-list__container">
         {!isSavedNews && (
-          <h2 className="new-card-list__heading">Procurar resultados</h2>
+          <h2 className="new-card-list__heading"> {t("newCardList.title")}</h2>
         )}
         <div className="new-card-list__item">
           {newsData &&
@@ -69,6 +71,7 @@ function NewsCardList({
                   source={newsItem.source}
                   url={newsItem.url}
                   urlToImage={newsItem.urlToImage}
+                  lang={newsItem.lang}
                   isLoggedIn={isLoggedIn}
                   savedArticles={savedArticles}
                   onSaveArticle={saveArticle}
@@ -78,7 +81,7 @@ function NewsCardList({
         </div>
         {newsData && visibleItems < newsData.length && (
           <button className="btn-show-more" onClick={handleShowMore}>
-            Mostrar mais
+            {t("newCardList.btnShowMore")}
           </button>
         )}
       </div>

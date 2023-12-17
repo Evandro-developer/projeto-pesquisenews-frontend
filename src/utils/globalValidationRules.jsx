@@ -1,33 +1,50 @@
-export const validationConfig = {
-  email: {
-    required: true,
-    errorMessage: "Email é requerido",
-    pattern: {
-      value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-      message: "E-mail no formato 'nome@dominio.com'.",
+import { useContext } from "react";
+import { LangContext } from "../contexts/LanguageContext";
+
+export const emailRegex = /^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/;
+export const passwordRegex =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{6,100}$/;
+export const nameRegex = /^.{2,40}$/;
+
+export const useValidationConfig = () => {
+  const { t } = useContext(LangContext);
+
+  return {
+    email: {
+      required: true,
+      errorMessage: t("validation.emailRequired"),
+      pattern: {
+        value: emailRegex,
+        message: t("validation.emailPattern"),
+      },
     },
-  },
-  password: {
-    required: true,
-    errorMessage: "Senha é requerida",
-    minLength: { value: 6, message: "Senha deve ter pelo menos 6 caracteres" },
-    maxLength: {
-      value: 100,
-      message: "Senha deve ter no máximo 100 caracteres",
+    password: {
+      required: true,
+      errorMessage: t("validation.passwordRequired"),
+      minLength: { value: 6, message: t("validation.passwordMinLength") },
+      maxLength: { value: 100, message: t("validation.passwordMaxLength") },
+      pattern: {
+        value: passwordRegex,
+        message: t("validation.passwordPattern"),
+      },
     },
-  },
-  name: {
-    required: true,
-    errorMessage: "Nome é requerido",
-    minLength: { value: 2, message: "Nome deve ter pelo menos 2 caracteres" },
-    maxLength: { value: 40, message: "Nome deve ter no máximo 40 caracteres" },
-  },
-  query: {
-    required: true,
-    errorMessage: "O campo de pesquisa é requerido",
-    minLength: { value: 2, message: "Pesquisar com pelo menos 2 caracteres" },
-    maxLength: { value: 40, message: "Pesquisar com no máximo 40 caracteres" },
-  },
+    name: {
+      required: true,
+      errorMessage: t("validation.nameRequired"),
+      pattern: {
+        value: nameRegex,
+        message: t("validation.namePattern"),
+      },
+    },
+    query: {
+      required: true,
+      errorMessage: t("validation.searchRequired"),
+      minLength: {
+        value: 2,
+        message: t("validation.searchMinLength"),
+      },
+    },
+  };
 };
 
 export const requiredFieldsConfig = {
@@ -36,7 +53,7 @@ export const requiredFieldsConfig = {
   searchNews: ["query"],
 };
 
-export function validateInput(name, value) {
+export function validateInput(name, value, validationConfig) {
   const validationRules = validationConfig[name];
   if (!validationRules) return "";
 

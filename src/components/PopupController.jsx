@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { LangContext } from "../contexts/LanguageContext";
 import PopupLogin from "./PopupLogin";
 import PopupRegister from "./PopupRegister";
 import PopupWithForm from "./PopupWithForm";
@@ -14,6 +15,8 @@ function PopupController({
   setIsMounted,
   handleClosePopup,
 }) {
+  const { t } = useContext(LangContext);
+
   const [isToggledPopup, setIsToggledPopup] = useState(
     location.pathname === "/signup" ? false : true
   );
@@ -49,7 +52,11 @@ function PopupController({
       handleClosePopup={handleClosePopup}
       isPopupOpen={isPopupOpen}
       setIsPopupOpen={setIsPopupOpen}
-      title={isToggledPopup ? "Entrar" : "Inscreva-se"}
+      title={
+        isToggledPopup
+          ? t("popupController.logInTitle")
+          : t("popupController.signUpTitle")
+      }
       onClick={(values) => {
         isToggledPopup
           ? handleLoginSubmit(values)

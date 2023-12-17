@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { LangContext } from "../contexts/LanguageContext";
 import closedBtn from "../images/icon_close.svg";
 import closedBtnSmall from "../images/icon_close_small.svg";
 
@@ -12,6 +13,8 @@ function InfoToolTip({
   registerSuccess,
   handleCloseInfoToolTip,
 }) {
+  const { t } = useContext(LangContext);
+
   const handleLoginFromTooltip = () => {
     handleCloseInfoToolTip();
     setIsPopupOpen(true);
@@ -56,7 +59,7 @@ function InfoToolTip({
       <div className="infoToolTip__container">
         <h2 className="infoToolTip__heading">
           {registerSuccess === "success"
-            ? "Cadastro concluído com sucesso!"
+            ? t("infoToolTip.title")
             : registerSuccess}
         </h2>
         <span
@@ -64,7 +67,7 @@ function InfoToolTip({
           className="infoToolTip__signin-text"
           onClick={handleLoginFromTooltip}
         >
-          Entrar
+          {t("infoToolTip.signIn")}
         </span>
 
         <picture>
@@ -74,7 +77,7 @@ function InfoToolTip({
             onClick={handleCloseInfoToolTip}
             className="btn-info-tooltip-closed"
             src={closedBtn}
-            alt="Imagem do ícone de fechamento da janela infotooltip"
+            alt={t("infoToolTip.pictureAlt")}
           />
         </picture>
       </div>

@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { LangContext } from "../contexts/LanguageContext";
 import useFormWithValidation from "./FormValidation";
 import { errorClasses } from "../utils/globalValidationRules";
 import Input from "./Input";
@@ -13,6 +14,8 @@ function PopupLogin({
   handleSubmitPopup,
   handleClosePopup,
 }) {
+  const { t } = useContext(LangContext);
+
   const navigate = useNavigate();
 
   const {
@@ -43,12 +46,12 @@ function PopupLogin({
   return (
     <>
       <div className="popup__field">
-        <label className="popup__label">E-mail</label>
+        <label className="popup__label">{t("default.email")}</label>
         <Input
           name="email"
           label="E-mail"
           type="email"
-          placeholder="Insira seu e-mail"
+          placeholder={t("default.emailPlaceholder")}
           value={values.email || ""}
           onChange={handleChange}
           onBlur={() => handleBlur("email")}
@@ -58,12 +61,12 @@ function PopupLogin({
         />
       </div>
       <div className="popup__field">
-        <label className="popup__label">Senha</label>
+        <label className="popup__label">{t("default.password")}</label>
         <Input
           name="password"
           label="Senha"
           type="password"
-          placeholder="Insira sua senha"
+          placeholder={t("default.passwordPlaceholder")}
           value={values.password || ""}
           onChange={handleChange}
           onBlur={() => handleBlur("password")}
@@ -77,11 +80,11 @@ function PopupLogin({
         isValid={isValid}
         onClick={(e) => handleSubmit(e)}
       >
-        Entrar
+        {t("popupLogin.btnSignIn")}
       </ButtonSubmit>
 
       <div className="popup__sign-option">
-        <span className="popup__or-text">ou</span>
+        <span className="popup__or-text">{t("default.orText")}</span>
         <span
           role="button"
           className="popup__sign-text"
@@ -91,7 +94,7 @@ function PopupLogin({
             navigate("/signup");
           }}
         >
-          Inscreva-se
+          {t("popupLogin.signUp")}
         </span>
       </div>
     </>

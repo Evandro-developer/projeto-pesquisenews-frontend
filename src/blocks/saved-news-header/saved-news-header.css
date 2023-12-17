@@ -7,15 +7,3 @@
   margin: 0;
   padding: 0;
 }
-
-@media (max-width: 768px) {
-  .saved-news-header {
-    max-height: 270px;
-  }
-}
-
-@media (max-width: 584px) {
-  .saved-news-header {
-    max-height: 246px;
-  }
-}

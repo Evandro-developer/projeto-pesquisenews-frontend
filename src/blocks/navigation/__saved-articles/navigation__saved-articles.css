@@ -1,5 +1,5 @@
 .navigation__saved-articles {
-  max-width: 118px;
+  width: 118px;
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -11,6 +11,7 @@
   background-image: none;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 @media (max-width: 768px) {

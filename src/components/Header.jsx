@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { LangContext } from "../contexts/LanguageContext";
 import Navigation from "./Navigation";
 import SearchForm from "./SearchForm";
 import bgimage_large from "../images/bgimage_large.svg";
@@ -13,6 +15,8 @@ function Header({
   handleSignOut,
   onSearch,
 }) {
+  const { t } = useContext(LangContext);
+
   return (
     <header className="header">
       <div className="header__container">
@@ -26,12 +30,11 @@ function Header({
         />
         <SearchForm onSearch={onSearch} />
         <picture className="header__container-img">
-          <source media="(max-width: 584px)" srcSet={bgimage_small} />
+          <source media="(max-width: 484px)" srcSet={bgimage_small} />
           <source media="(max-width: 768px)" srcSet={bgimage_medium} />
           <img
             srcSet={bgimage_large}
-            alt="A imagem mostra um celular segurado por uma mão, com a tela voltada para cima.
-            Exibe uma interface organizada com gráficos e informações relevantes."
+            alt={t("header.pictureAlt")}
             className="header__img"
           />
         </picture>

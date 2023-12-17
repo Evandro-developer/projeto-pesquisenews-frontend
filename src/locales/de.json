@@ -1,0 +1,132 @@
+{
+  "header": {
+    "pictureAlt": "Das Bild zeigt ein Mobiltelefon, das von einer Hand gehalten wird, mit dem Bildschirm nach oben. Es zeigt eine organisierte Benutzeroberfläche mit Grafiken und relevanten Informationen."
+  },
+
+  "nav": {
+    "title": "AktuellErkunder",
+    "home": "Start",
+    "savedArticles": "Lesezeichen",
+    "signUp": "Registrieren",
+    "signIn": "Anmelden",
+    "logOut": "Abmelden",
+    "whiteThemeVector": "Bildvektor zur Kennzeichnung der Startseite",
+    "darkThemeVector": "Bildvektor zur Kennzeichnung der Seite Gespeicherte Artikel"
+  },
+
+  "searchNews": {
+    "title": "Was passiert in der Welt?",
+    "subtitle": "Finden Sie die neuesten Nachrichten zu beliebigen Themen und speichern Sie sie in Ihrem persönlichen Konto.",
+    "placeholder": "Geben Sie das Suchthema ein",
+    "btnSearch": "Suchen"
+  },
+
+  "preload": {
+    "errorTitle": "Nichts gefunden",
+    "errorText": "Es tut uns leid, aber nichts entspricht Ihren Suchbegriffen.",
+    "spinner": "Suche nach Nachrichten...",
+    "pictureError": "Fehlerbild, wenn Nachrichten nicht geladen werden können",
+    "pictureSpinner": "Drehendes Bild, bevor Nachrichten geladen werden"
+  },
+
+  "about": {
+    "title": "Über den Autor",
+    "textOne": "Evandro M Oliveira - Full-Stack Webentwickler in Node.js, Express und React. Fortgeschritten in Data Science und UI/UX Design.",
+    "textTwo": "Ich habe \"AktuellErkunder\" von Backend bis Frontend entwickelt, gehostet auf Google Cloud. Ich verwandle Visionen in digitale Realität.",
+    "pictureAlt": "Glühbirne, die Ideen repräsentiert"
+  },
+
+  "newCardList": {
+    "title": "Suchergebnisse",
+    "btnShowMore": "Mehr anzeigen"
+  },
+
+  "newCard": {
+    "btnTooltipHoverLoggedOut": "Melden Sie sich an, um Artikel zu speichern",
+    "btnTooltipHoverLoggedIn": "Artikel gespeichert",
+    "btnTooltipHoverDelete": "Aus den Gespeicherten entfernen",
+    "pictureNews": "Veranschaulichendes Bild des Nachrichtenartikels"
+  },
+
+  "footer": {
+    "copyrights": "2023, entwickelt von Evandro M Oliveira",
+    "home": "Start",
+    "iconGithub": "Bild mit dem Github-Symbol",
+    "iconLinkedin": "Bild mit dem Linkedin-Symbol"
+  },
+
+  "savedNewsHeader": {
+    "savedArticles": "Gespeicherte Artikel",
+    "youHave": "Sie haben",
+    "noSavedArticle": "keinen gespeicherten Artikel",
+    "oneSavedArticle": "einen gespeicherten Artikel",
+    "multipleSavedArticles": "gespeicherte Artikel",
+    "byKeywords": "Nach Stichworten",
+    "and": "und",
+    "others": "andere"
+  },
+
+  "popupController": {
+    "logInTitle": "Anmelden",
+    "signUpTitle": "Registrieren"
+  },
+
+  "popupRegister": {
+    "name": "Name",
+    "namePlaceholder": "Geben Sie Ihren Benutzernamen ein",
+    "btnSignUp": "Registrieren",
+    "signIn": "Anmelden"
+  },
+
+  "popupLogin": {
+    "btnSignIn": "Anmelden",
+    "signUp": "Registrieren"
+  },
+
+  "infoToolTip": {
+    "title": "Registrierung erfolgreich abgeschlossen!",
+    "signIn": "Anmelden",
+    "pictureAlt": "Bild des Schließen-Symbols im Infotooltip-Fenster"
+  },
+
+  "default": {
+    "email": "E-Mail",
+    "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "password": "Passwort",
+    "passwordPlaceholder": "Geben Sie Ihr Passwort ein",
+    "orText": "oder",
+    "closeIcon": "Symbol zum Schließen des Popup-Fensters",
+    "saveButton": "Speichern"
+  },
+
+  "register": {
+    "title": "Registrieren",
+    "submitAuth": "Registrieren",
+    "emailPlaceholder": "Bitte geben Sie Ihre E-Mail-Adresse zur Registrierung ein",
+    "passwordPlaceholder": "Bitte geben Sie Ihr Passwort zur Registrierung ein",
+    "btnAuth": "Registrieren",
+    "alreadyAMember": "Bereits registriert? Melden Sie sich an!"
+  },
+
+  "login": {
+    "title": "Anmelden",
+    "submitAuth": "Anmelden",
+    "emailPlaceholder": "Bitte geben Sie Ihre E-Mail-Adresse zur Anmeldung ein",
+    "passwordPlaceholder": "Bitte geben Sie Ihr Passwort zur Anmeldung ein",
+    "btnAuth": "Anmelden",
+    "notAMember": "Noch kein Mitglied? Hier registrieren!"
+  },
+
+  "validation": {
+    "emailRequired": "E-Mail ist erforderlich, z. B. 'name@domain.com'",
+    "emailPattern": "Geben Sie eine E-Mail-Adresse im Format 'name@domain.com' ein",
+    "passwordRequired": "Passwort ist erforderlich, z. B. 'Ex@mpl3'",
+    "passwordMinLength": "Das Passwort muss mindestens 6 Zeichen lang sein",
+    "passwordMaxLength": "Das Passwort darf maximal 100 Zeichen lang sein",
+    "passwordPattern": "'Ex@mpl3', mindestens 6 Zeichen, mit Großbuchstaben, Kleinbuchstaben, Zahlen und Symbolen.",
+    "nameRequired": "Name ist erforderlich, z. B. 'John Doe'",
+    "namePattern": "Der Name sollte zwischen 2 und 200 Zeichen lang sein",
+    "searchMinLength": "Mindestens 2 Zeichen eingeben",
+    "searchRequired": "Das Suchfeld ist erforderlich"
+  }
+}

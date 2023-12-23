@@ -139,3 +139,24 @@
 @import url(./blocks/infoToolTip/__signin-text/infoToolTip__signin-text.css);
 
 @import url(./blocks/btn-info-tooltip-closed/btn-info-tooltip-closed.css);
+
+@import url(./blocks/view-news/view-news.css);
+@import url(./blocks/view-news/__container/view-news__container.css);
+
+@import url(./blocks/view-news-header/view-news-header.css);
+@import url(./blocks/view-news-header/__container/view-news-header__container.css);
+@import url(./blocks/view-news-header/__url-to-img-container/view-news-header__url-to-img-container.css);
+@import url(./blocks/view-news-header/__url-to-img/view-news-header__url-to-img.css);
+@import url(./blocks/view-news-header/__briefing/view-news-header__briefing.css);
+@import url(./blocks/view-news-header/__published-at/view-news-header__published-at.css);
+@import url(./blocks/view-news-header/__title/view-news-header__title.css);
+@import url(./blocks/view-news-header/__description/view-news-header__description.css);
+@import url(./blocks/view-news-header/__visit-source-link/view-news-header__visit-source-link.css);
+@import url(./blocks/view-news-header/__source/view-news-header__source.css);
+
+@import url(./blocks/img-popup/img-popup.css);
+@import url(./blocks/img-popup/__opened/img-popup__opened.css);
+@import url(./blocks/img-popup/__container/img-popup__container.css);
+@import url(./blocks/img-popup/__image/img-popup__image.css);
+@import url(./blocks/img-popup/__title-container/img-popup__title-container.css);
+@import url(./blocks/img-popup/__title/img-popup__title.css);

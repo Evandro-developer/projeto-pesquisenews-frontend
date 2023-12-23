@@ -1,0 +1,6 @@
+.img-popup__title-container {
+  height: 66px;
+  position: absolute;
+  bottom: -66px;
+  left: 0;
+}

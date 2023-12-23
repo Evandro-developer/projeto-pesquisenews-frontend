@@ -3,6 +3,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Header from "./Header";
 import Main from "./Main";
 import SavedNews from "./SavedNews";
+import ViewNews from "./ViewNews";
 
 function AppRoutes(props) {
   const {
@@ -39,6 +40,21 @@ function AppRoutes(props) {
           isLoading={isLoading}
           isError={isError}
           newsData={newsData}
+          savedArticles={savedArticles}
+          setSavedArticles={setSavedArticles}
+        />
+      </>
+    );
+  }
+
+  function renderViewNewsRoute() {
+    return (
+      <>
+        <ViewNews
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          setIsPopupOpen={setIsPopupOpen}
+          handleSignOut={handleSignOut}
           savedArticles={savedArticles}
           setSavedArticles={setSavedArticles}
         />
@@ -91,6 +107,7 @@ function AppRoutes(props) {
     <Routes>
       <Route path="/signup" element={renderAuthRoute()} />
       <Route path="/signin" element={renderAuthRoute()} />
+      <Route path="/view-news" element={renderViewNewsRoute()} />
       <Route path="/" element={renderMainRoute()} />
       <Route path="/saved-news" element={renderSavedNewsRoute()} />
       <Route path="*" element={<Navigate to="/signin" />} />

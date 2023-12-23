@@ -1,12 +1,15 @@
-import { useState, useContext, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { LangContext } from "../contexts/LanguageContext";
-import CurrentUserContext from "../contexts/CurrentUserContext";
 import { localeOptions } from "../helpers/localesHelpers";
-import iconBookmark from "../images/icon_bookmark.svg";
-import iconBookmarkHover from "../images/icon_bookmark_hover.svg";
-import iconBookmarkActive from "../images/icon_bookmark_active.svg";
-import iconTrash from "../images/icon_trash.svg";
+import CurrentUserContext from "../contexts/CurrentUserContext";
+import formatDate from "../utils/formatDate";
+import useBookmarkHover from "../hooks/useBookmarkHover";
+import useFindArticleById from "../hooks/UseFindArticleById";
+import useArticleSavedStatus from "../hooks/useArticleSavedStatus";
+import useBookmarkImage from "../hooks/useBookmarkImage";
+import useSaveArticleToAPI from "../hooks/useSaveArticleToAPI";
+import useDeleteArticleFromAPI from "../hooks/useDeleteArticleFromAPI";
 
 function NewsCard({
   keyword,
@@ -19,120 +22,74 @@ function NewsCard({
   lang,
   isLoggedIn,
   savedArticles,
-  onSaveArticle,
-  onDeleteArticle,
+  setSavedArticles,
 }) {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { t } = useContext(LangContext);
   const { currentUser } = useContext(CurrentUserContext);
-  const location = useLocation();
+
+  const formattedPublishedAt = formatDate(publishedAt, lang, localeOptions);
   const isSavedNewsPath = location.pathname === "/saved-news";
 
-  const formattedPublishedAt = formatDate(publishedAt, lang);
+  const { isHovered, handleMouseEnter, handleMouseLeave } = useBookmarkHover();
+  const articleId = useFindArticleById(savedArticles, url);
+  const { isBookmarkActive, setIsBookmarkActive } = useArticleSavedStatus(
+    savedArticles,
+    url,
+    title
+  );
+  const bookmarkImageInfo = useBookmarkImage(
+    isBookmarkActive,
+    isHovered,
+    isSavedNewsPath
+  );
+  const saveArticleHookToAPI = useSaveArticleToAPI(
+    savedArticles,
+    setSavedArticles,
+    currentUser
+  );
+  const deleteArticleHookFromAPI = useDeleteArticleFromAPI(
+    savedArticles,
+    setSavedArticles,
+    currentUser
+  );
 
-  const [isHovered, setIsHovered] = useState(false);
-  const [articleId, setArticleId] = useState(null);
-  const [isBookmarkActive, setIsBookmarkActive] = useState(false);
-  const [bookmarkImageInfo, setBookmarkImageInfo] = useState({
-    src: iconBookmark,
-    alt: "Imagem do ícone do botão salvar inativo",
-  });
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
+  const navigateToViewNews = () => {
+    navigate("/view-news", {
+      state: {
+        keyword,
+        title,
+        description,
+        publishedAt,
+        source,
+        url,
+        urlToImage,
+        lang,
+      },
+    });
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
-  const saveArticle = () => {
-    const articleToSave = {
-      keyword,
-      title,
-      description,
-      publishedAt,
-      source,
-      url,
-      urlToImage,
-      lang,
-    };
-    onSaveArticle(articleToSave);
-    // Torna o bookmark ativo
-    // Makes the bookmark active
-    setIsBookmarkActive(true);
-  };
-
-  const findAndSetArticleIdToDelete = () => {
-    const savedArticle = savedArticles.find((article) => article.url === url);
-    if (savedArticle && savedArticle._id) {
-      setArticleId(savedArticle._id);
-    }
+  const articleToSave = {
+    keyword,
+    title,
+    description,
+    publishedAt,
+    source,
+    url,
+    urlToImage,
+    lang,
   };
 
   const handleBookmarkClick = () => {
     if (!isLoggedIn) return;
-
-    if (!isSavedNewsPath) {
-      if (!isBookmarkActive) {
-        saveArticle();
-      }
-      // Se o artigo já estiver marcado, não faz nada
-      // If the article is already bookmarked, does nothing
+    if (!isSavedNewsPath && !isBookmarkActive) {
+      saveArticleHookToAPI(articleToSave);
+      setIsBookmarkActive(true);
     } else if (isSavedNewsPath) {
-      findAndSetArticleIdToDelete();
+      deleteArticleHookFromAPI(articleId);
     }
   };
-
-  function formatDate(publishedAt, lang) {
-    const { locale, options } = localeOptions[lang] || localeOptions["en"];
-    return new Date(publishedAt).toLocaleDateString(locale, options);
-  }
-
-  useEffect(() => {
-    if (isSavedNewsPath && articleId) {
-      onDeleteArticle(articleId);
-      setIsBookmarkActive(false);
-      // Reseta o articleId após o uso
-      // Resets the articleId after use
-      setArticleId(null);
-    }
-  }, [articleId]);
-
-  useEffect(() => {
-    if (isSavedNewsPath) {
-      setBookmarkImageInfo({
-        src: iconTrash,
-        alt: "Imagem do ícone da lixeira",
-      });
-    } else if (isBookmarkActive) {
-      setBookmarkImageInfo({
-        src: iconBookmarkActive,
-        alt: "Imagem do ícone do botão salvar ativo",
-      });
-    } else {
-      setBookmarkImageInfo({
-        src: isHovered ? iconBookmarkHover : iconBookmark,
-        alt: isHovered
-          ? "Imagem do ícone do botão salvar sobreposto"
-          : "Imagem do ícone do botão salvar inativo",
-      });
-    }
-  }, [isSavedNewsPath, isBookmarkActive, isHovered]);
-
-  useEffect(() => {
-    // Verifica se o artigo atual é uma array e se foi salvo usando a combinação de URL e title
-    // Checks if the current article is an array and if it was saved using the combination of URL and title
-    if (Array.isArray(savedArticles)) {
-      const isArticleSaved = savedArticles.some(
-        (article) => article.url === url && article.title === title
-      );
-      setIsBookmarkActive(isArticleSaved);
-    } else {
-      // Define como false se savedArticles não for um array
-      // Sets to false if savedArticles is not an array
-      setIsBookmarkActive(false);
-    }
-  }, [url, title, savedArticles]);
 
   return (
     <ul className="news-card">
@@ -159,17 +116,17 @@ function NewsCard({
         <>
           {!isSavedNewsPath && !isLoggedIn && !isBookmarkActive && (
             <p className="btn-tooltip-hover visible">
-              {t("newCard.btnTooltipHoverLoggedOut")}
+              {t("bookmark.btnTooltipHoverLoggedOut")}
             </p>
           )}
           {!isSavedNewsPath && isLoggedIn && isBookmarkActive && (
             <p className="btn-tooltip-hover visible">
-              {t("newCard.btnTooltipHoverLoggedIn")}
+              {t("bookmark.btnTooltipHoverLoggedIn")}
             </p>
           )}
           {isSavedNewsPath && isLoggedIn && (
             <p className="btn-tooltip-hover visible">
-              {t("newCard.btnTooltipHoverDelete")}
+              {t("bookmark.btnTooltipHoverDelete")}
             </p>
           )}
         </>
@@ -178,12 +135,17 @@ function NewsCard({
         <img
           src={urlToImage}
           className="news-card__url-to-img"
-          alt={t("newCard.pictureNews")}
+          onClick={() => navigateToViewNews()}
+          alt={`${t("default.newsAbout")} ${title}: ${t(
+            "default.imageShowing"
+          )} ${description}`}
         />
       </picture>
       <li className="news-card__briefing">
         <p className="news-card__published-at">{formattedPublishedAt}</p>
-        <h2 className="news-card__title">{title}</h2>
+        <h2 className="news-card__title" onClick={() => navigateToViewNews()}>
+          {title}
+        </h2>
         <article className="news-card__description">{description}</article>
         <address className="news-card__source">{source}</address>
       </li>

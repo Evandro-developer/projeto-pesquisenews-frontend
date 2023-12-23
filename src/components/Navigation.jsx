@@ -23,13 +23,13 @@ function Navigation({
   const [popupType, setPopupType] = useState("login");
   const [navigatePath, setNavigatePath] = useState("/");
   const [theme, setTheme] = useState(
-    location.pathname === "/saved-news" ? "dark" : "light"
+    location.pathname !== "/" ? "dark" : "light"
   );
 
   const themeClasses = getNavThemeClasses(theme);
 
-  const handleLangChange = (event) => {
-    setLang(event.target.value);
+  const handleLangChange = (evt) => {
+    setLang(evt.target.value);
   };
 
   const handleButtonClick = (evt) => {
@@ -44,7 +44,15 @@ function Navigation({
   };
 
   useEffect(() => {
-    setTheme(location.pathname === "/saved-news" ? "dark" : "light");
+    if (
+      location.pathname === "/" ||
+      location.pathname === "/signin" ||
+      location.pathname === "/signup"
+    ) {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
   }, [location.pathname]);
 
   useEffect(() => {
@@ -115,17 +123,18 @@ function Navigation({
                     {t("nav.savedArticles")}
                   </p>
                 </Link>
-                {themeClasses.showVectorDark && (
-                  <span className="navigation__saved-articles_active">
-                    <picture>
-                      <img
-                        className="navigation__saved-articles-vector"
-                        src={vectorDarkImg}
-                        alt={t("nav.darkThemeVector")}
-                      />
-                    </picture>
-                  </span>
-                )}
+                {themeClasses.showVectorDark &&
+                  location.pathname === "/saved-news" && (
+                    <span className="navigation__saved-articles_active">
+                      <picture>
+                        <img
+                          className="navigation__saved-articles-vector"
+                          src={vectorDarkImg}
+                          alt={t("nav.darkThemeVector")}
+                        />
+                      </picture>
+                    </span>
+                  )}
               </li>
 
               <li className="navigation__loggout-container">

@@ -7,20 +7,21 @@ import PT from "../locales/pt.json";
 
 // Objeto com o formato padrão de data usado para localização.
 // Object with the standard date format used for localization.
-const defaultOptions = { day: "numeric", month: "long", year: "numeric" };
+const defaultFormatDate = { day: "numeric", month: "long", year: "numeric" };
+
+// Especifica o formato da data para o local em inglês (EUA).
+// Specifies the date format for English (US) locale.
+const enFormatDate = { month: "long", day: "numeric", year: "numeric" };
 
 // Mapeamento de locais e opções específicas por idioma
 // Mapping of locales and specific options by language
 const localeOptions = {
-  en: {
-    locale: "en-US",
-    options: { month: "long", day: "numeric", year: "numeric" },
-  },
-  es: { locale: "es-ES", options: defaultOptions },
-  de: { locale: "de-DE", options: defaultOptions },
-  fr: { locale: "fr-FR", options: defaultOptions },
-  it: { locale: "it-IT", options: defaultOptions },
-  pt: { locale: "pt-BR", options: defaultOptions },
+  de: { locale: "de-DE", options: defaultFormatDate },
+  en: { locale: "en-US", options: enFormatDate },
+  es: { locale: "es-ES", options: defaultFormatDate },
+  fr: { locale: "fr-FR", options: defaultFormatDate },
+  it: { locale: "it-IT", options: defaultFormatDate },
+  pt: { locale: "pt-BR", options: defaultFormatDate },
 };
 
 // Array de códigos de idiomas suportados
@@ -38,4 +39,33 @@ const i18nJsonMaps = {
   pt: PT,
 };
 
-export { localeOptions, defaultOptions, languages, i18nJsonMaps };
+// Busca e retorna a tradução para uma chave hierárquica, ou a chave se não encontrada.
+// Searches and returns the translation for a hierarchical key, or the key if not found.
+const getNestedTranslationValue = (translations, key) => {
+  const keys = key.split(".");
+  let value = translations;
+
+  for (let k of keys) {
+    value = value[k];
+    if (!value) break;
+  }
+
+  return value;
+};
+
+// Fornece contexto de tradução para elementos específicos, independente da configuração global de idioma.
+// Retrieves localized translation for the element, independent of the global language context.
+const getStateLangForKey = (key, articleLang, defaultLang = "en") => {
+  const translations = i18nJsonMaps[articleLang] || i18nJsonMaps[defaultLang];
+  const nestedValue = getNestedTranslationValue(translations, key);
+
+  return nestedValue || t(key);
+};
+
+export {
+  localeOptions,
+  languages,
+  i18nJsonMaps,
+  getNestedTranslationValue,
+  getStateLangForKey,
+};

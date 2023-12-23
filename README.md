@@ -18,6 +18,38 @@ Adotamos o **"Pixel Perfect Design"** para garantir que cada elemento da interfa
 ## Conectando Frontend e Backend no [PesquiseNews](https://pesquisenews.com.br)
 Para uma visão completa da arquitetura do [PesquiseNews](https://pesquisenews.com.br), além das funcionalidades do frontend, explore também os bastidores do sistema. Visite o [código fonte do projeto-pesquisenews-backend](https://github.com/Evandro-developer/projeto-pesquisenews-backend) para entender como integramos frontend e backend para uma solução de notícias robusta e eficiente.
 
+## Descrição das Rotas da Aplicação
+1. **Main**
+**Função**: É a página principal do aplicativo onde os usuários podem realizar pesquisas e visualizar os resultados das notícias.
+**Componentes**:
+- SearchForm: Permite aos usuários pesquisar notícias usando critérios específicos. Equipado com validação de formulário e mensagens de erro, ele oferece uma experiência de pesquisa intuitiva e eficaz.
+- NewsCardList: Lista de cartões de notícias baseada nos resultados da pesquisa.
+- Preload: Exibe o status de carregamento ou erros.
+Experiência do Usuário: Uma interface interativa e responsiva que facilita as pesquisas dos usuários e a visualização das últimas notícias.
+
+2. **SavedNews**
+**Função**: Rota onde os usuários visualizam e gerenciam as notícias que salvaram.
+**Componentes**:
+- SavedNewsHeader: Cabeçalho específico para notícias salvas.
+- NewsCardList: Lista de cartões de notícias salvas pelo usuário.
+Experiência do Usuário: Permite que usuários logados acessem e gerenciem suas notícias favoritas, melhorando a personalização e a retenção do usuário.
+
+3. **ViewNews**
+**Função**: Permite aos usuários visualizar detalhes de uma notícia específica, seja ela pesquisada ou salva.
+**Componentes**:
+- ViewNewsHeader: Exibe informações detalhadas como título, descrição e elementos essenciais, além do Link para artigo completo.
+- ImagePopup: Permite visualização ampliada da imagem da notícia.
+Experiência do Usuário: Design intuitivo e informativo, com acesso direto às fontes de notícias.
+
+4. **SignIn e SignUp**
+**Função**: Autenticação e registro de usuários.
+Experiência do Usuário: Projetadas para serem intuitivas e seguras, estas rotas facilitam o processo de login e cadastro.
+
+**Descrição do Componente Navigation e Footer**
+**Presentes em todas as rotas**. O componente **Navigation** é vital para a experiência do usuário oferecendo controle sobre a navegação, gestão de idioma e autenticação. **Footer** é um componente funcional e estilizada, contendo links para navegação interna e externa, além de ícones de redes sociais.
+
+Neste aplicativo, as rotas são cuidadosamente projetadas para oferecer uma experiência de usuário intuitiva e engajante. Desde a página principal **Main**, onde as notícias são pesquisadas e visualizadas, passando pela **SavedNews**, que permite o gerenciamento de notícias favoritas, até **ViewNews**, que oferece uma imersão detalhada em cada notícia. Complementando a experiência, as rotas de **SignIn** e **SignUp** garantem um processo de autenticação fluido.
+
 ## Sumário:
 1. [Descrição do Projeto](#descrição-do-projeto)
 2. [Funcionalidades](#funcionalidades)
@@ -48,7 +80,6 @@ O frontend do [PesquiseNews](https://pesquisenews.com.br) é a interface do usu�
 - **Design Pixel Perfeito**: Precisão e Estética no [PesquiseNews](https://pesquisenews.com.br). No [PesquiseNews](https://pesquisenews.com.br), a fidelidade visual é primordial. Adotamos o **"Pixel Perfect Design"** para assegurar que cada elemento da interface corresponda exatamente aos nossos rigorosos padrões de design.
   - **Fidelidade aos Mockups**: Cada detalhe, desde cores até espaçamentos, é meticulosamente alinhado com os designs originais.
   - **Tecnologia de Ponta**: Empregamos ferramentas avançadas para traduzir precisão visual em realidade digital.
-O resultado é uma experiência de usuário fluida e esteticamente agradável, refletindo nosso compromisso com a qualidade e a inovação no design.
 
 ## Suporte Multilíngue Avançado no [PesquiseNews](https://pesquisenews.com.br)
 - **Integração Inovadora com [NEWSAPI](https://newsapi.org)**
@@ -62,7 +93,7 @@ No [PesquiseNews](https://pesquisenews.com.br), adotamos uma abordagem centrada 
 ### Impacto e Benefícios
 - **Experiência de Usuário Aprimorada**: Acesso a notícias em várias línguas aumenta a acessibilidade e o engajamento.
 - **Flexibilidade Global**: Os usuários têm a liberdade de escolher e mudar idiomas, adaptando o aplicativo às suas preferências.
-- **Escalabilidade Internaciona**l: A possibilidade de adicionar novos idiomas torna o [PesquiseNews](https://pesquisenews.com.br) uma plataforma de notícias verdadeiramente global.
+- **Escalabilidade Internaciona**: A possibilidade de adicionar novos idiomas torna o [PesquiseNews](https://pesquisenews.com.br) uma plataforma de notícias verdadeiramente global.
 
 ### Conclusão
 A integração multilíngue no [PesquiseNews](https://pesquisenews.com.br), combinada com a funcionalidade avançada da [NEWSAPI](https://newsapi.org), reflete nosso compromisso com a inclusão e acessibilidade global. Oferecemos uma experiência de notícias personalizada para um público diversificado, destacando nossa inovação e adaptabilidade no campo do desenvolvimento web. Visite o [PesquiseNews](https://pesquisenews.com.br) para uma experiência informativa em sua própria língua e descubra como a tecnologia pode unir o mundo através da notícia.
@@ -124,10 +155,14 @@ Quando surgem atualizações ou correções, a componentização facilita a loca
 
 ## Estrutura de Pastas
 A estrutura de pastas do projeto é organizada da seguinte forma:
-- `src/`: Contém o código-fonte do frontend.
+- `src/`: Contém o código-fonte do frontend:
+  - `blocks/`: Contém arquivos CSS específicos para cada componente.
   - `components/`: Componentes reutilizáveis.
   - `contexts/`: Contextos para gerenciamento de estado global.
+  - `fonts/`: Contém as fontes tipográficas usadas no projeto.
   - `helpers/`: Funções auxiliares para lógica específica ou complexa.
+  - `hooks/`: Hooks personalizados para aprimorar a lógica de componentes e reutilizar funcionalidades.
+  - `images/:` Armazena todas as imagens utilizadas no aplicativo.
   - `locales/`: Arquivos de localização para suporte a múltiplos idiomas.
   - `utils/`: Funções e utilitários genéricos.
   - `index.js`: Ponto de entrada do aplicativo.
@@ -199,6 +234,38 @@ We adopted the **"Pixel Perfect Design"** to ensure that every interface element
 ## Connecting Frontend and Backend at [PesquiseNews](https://pesquisenews.com.br)
 For a complete view of the [PesquiseNews](https://pesquisenews.com.br) architecture, beyond frontend functionalities, delve into the system's inner workings. Visit the PesquiseNews-backend project source code to understand how we integrated the frontend and backend for a robust and efficient news solution.
 
+## Application Routes Description
+1. **Main**
+**Function**: The main page of the application where users can conduct searches and view news results.
+**Components**:
+- SearchForm: Allows users to search for news using specific criteria. Equipped with form validation and error messages, it offers an intuitive and effective search experience.
+- NewsCardList: A list of news cards based on the search results.
+- Preload: Displays loading status or errors.
+User Experience: An interactive and responsive interface that makes it easy for users to conduct searches and view the latest news.
+
+2. **SavedNews**
+**Function**: A route where users view and manage the news they have saved.
+**Components**:
+- SavedNewsHeader: A specific header for saved news.
+- NewsCardList: A list of news cards saved by the user.
+User Experience: Allows logged-in users to access and manage their favorite news, enhancing personalization and user retention.
+
+3. **ViewNews**
+**Function**: Allows users to view details of a specific news item, whether searched or saved.
+**Components**:
+- ViewNewsHeader: Displays detailed information such as title, description, and essential elements, as well as the link to the full article.
+- ImagePopup: Allows for enlarged viewing of the news image.
+User Experience: An intuitive and informative design, with direct access to news sources.
+
+4. **SignIn and SignUp**
+**Function**: User authentication and registration.
+User Experience: Designed to be intuitive and secure, these routes facilitate the login and registration process.
+
+**Description of Navigation and Footer Components**
+**Present in all routes**. The **Navigation** component is vital for user experience, offering control over navigation, language management, and authentication. The **Footer** is a functional and stylized component, containing links for internal and external navigation, as well as social media icons.
+
+In this application, the routes are carefully designed to offer an intuitive and engaging user experience. From the main page **Main**, where news is searched and viewed, to **SavedNews**, which allows for the management of favorite news, and **ViewNews**, which offers detailed immersion in each news item. Complementing the experience, the **SignIn** and **SignUp** routes ensure a smooth authentication process.
+
 ## Summary:
 1. [Project Description](#project-description)
 2. [Functionalities](#functionalities)
@@ -228,8 +295,6 @@ The frontend of [PesquiseNews](https://pesquisenews.com.br) is the user interfac
 - **Pixel Perfect Design**: Precision and Aesthetics at [PesquiseNews](https://pesquisenews.com.br). At [PesquiseNews](https://pesquisenews.com.br), visual fidelity is paramount. We adopted the "**Pixel Perfect Desig**n" to ensure that each interface element precisely matches our rigorous design standards.
   - **Fidelity to Mockups**: Every detail, from colors to spacings, is meticulously aligned with the original designs.
   - **Cutting-Edge Technology**: We employ advanced tools to translate visual precision into digital reality.
-The result is a fluid and aesthetically pleasing user experience, reflecting our commitment to quality and innovation in design.
-
 
 ## Advanced Multilingual Support at [PesquiseNews](https://pesquisenews.com.br)
 - **Innovative Integration with [NEWSAPI](https://newsapi.org)**
@@ -305,10 +370,14 @@ When updates or fixes are needed, componentization makes it easier to locate and
 
 ## Folder Structure
 The project's folder structure is organized as follows:
-- `src/`: Contains the frontend source code.
+- `src/`: Contains the frontend source code:
+  - `blocks/`: Contains specific CSS files for each component.
   - `components/`: Reusable components.
   - `contexts/`: Contexts for global state management.
+  - `fonts/`: Holds the typographic fonts used in the project.
   - `helpers/`: Auxiliary functions for specific or complex logic.
+  - `hooks/`: Features custom hooks to enhance component logic and facilitate functionality reuse across the application.
+  - `images/`: Stores all images used in the app.
   - `locales/`: Localization files for multi-language support.
   - `utils/`: Generic functions and utilities.
   - `index.js`: Entry point of the application.

@@ -10,7 +10,6 @@
 
 @media (max-width: 968px) {
   .footer__container {
-    gap: 38px;
     padding: 21px 40px 19px;
   }
 }
@@ -19,6 +18,7 @@
   .footer__container {
     flex-direction: column-reverse;
     align-items: flex-start;
+    gap: 36px;
   }
 }
 

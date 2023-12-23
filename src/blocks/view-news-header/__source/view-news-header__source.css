@@ -1,0 +1,17 @@
+.view-news-header__source {
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #b6bcbf;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-style: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+}

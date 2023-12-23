@@ -41,11 +41,14 @@
     "btnShowMore": "Mehr anzeigen"
   },
 
-  "newCard": {
+  "bookmark": {
     "btnTooltipHoverLoggedOut": "Melden Sie sich an, um Artikel zu speichern",
     "btnTooltipHoverLoggedIn": "Artikel gespeichert",
-    "btnTooltipHoverDelete": "Aus den Gespeicherten entfernen",
-    "pictureNews": "Veranschaulichendes Bild des Nachrichtenartikels"
+    "btnTooltipHoverDelete": "Aus Gespeichertem entfernen",
+    "altIconBookmarkInactive": "Bild des inaktiven Speicher-Icons",
+    "altIconTrash": "Bild des Papierkorb-Icons",
+    "altIconBookmarkActive": "Bild des aktiven Speicher-Icons",
+    "altIconBookmarkHover": "Bild des Speicher-Icons beim Überfahren"
   },
 
   "footer": {
@@ -64,6 +67,10 @@
     "byKeywords": "Nach Stichworten",
     "and": "und",
     "others": "andere"
+  },
+
+  "viewNewsHeader": {
+    "visitSourceLink": "Lesen Sie den vollständigen Artikel auf "
   },
 
   "popupController": {
@@ -96,7 +103,9 @@
     "passwordPlaceholder": "Geben Sie Ihr Passwort ein",
     "orText": "oder",
     "closeIcon": "Symbol zum Schließen des Popup-Fensters",
-    "saveButton": "Speichern"
+    "saveButton": "Speichern",
+    "newsAbout": "Nachricht über",
+    "imageShowing": "Bild zeigt"
   },
 
   "register": {

@@ -1,0 +1,20 @@
+.img-popup__image {
+  max-width: 75vw;
+  max-height: 75vh;
+  border-radius: 15px;
+  object-fit: inherit;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 480px) {
+  * {
+    transition: 0.3s ease-in-out;
+  }
+  .img-popup__image {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+}

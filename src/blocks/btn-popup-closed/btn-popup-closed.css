@@ -3,8 +3,8 @@
   height: 40px;
   cursor: pointer;
   position: absolute;
-  top: -45px;
-  right: -45px;
+  top: -40px;
+  right: -40px;
   transition: 0.3s ease-in-out;
 }
 
@@ -13,11 +13,11 @@
   opacity: 0.6;
 }
 
-@media (max-width: 584px) {
+@media (max-width: 768px) {
   .btn-popup-closed {
     width: 26px;
     height: 26px;
-    top: -35px;
+    top: -30px;
     right: 0;
   }
 }

@@ -1,4 +1,5 @@
 .navigation__content {
+  max-width: 452px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;

@@ -13,7 +13,12 @@
   overflow: hidden;
   margin: 0 0 10px;
   padding: 0;
-  cursor: default;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.news-card__title:hover {
+  color: rgba(26, 27, 34, 0.5);
 }
 
 @media (max-width: 768px) {

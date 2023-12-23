@@ -2,21 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: 48px;
   margin: 0;
   padding: 0;
-}
-
-@media (max-width: 968px) {
-  .footer__list {
-    gap: 20px;
-  }
 }
 
 @media (max-width: 768px) {
   .footer__list {
     width: 100%;
     align-items: flex-start;
-    gap: 0;
   }
 }

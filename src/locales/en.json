@@ -41,11 +41,14 @@
     "btnShowMore": "Show more"
   },
 
-  "newCard": {
+  "bookmark": {
     "btnTooltipHoverLoggedOut": "Log in to save articles",
     "btnTooltipHoverLoggedIn": "Article saved",
     "btnTooltipHoverDelete": "Remove from saved",
-    "pictureNews": "Illustrative image of the news article"
+    "altIconBookmarkInactive": "Image of the inactive save button icon",
+    "altIconTrash": "Image of the trash bin icon",
+    "altIconBookmarkActive": "Image of the active save button icon",
+    "altIconBookmarkHover": "Image of the save button icon when hovered over"
   },
 
   "footer": {
@@ -64,6 +67,10 @@
     "byKeywords": "By keywords",
     "and": "and",
     "others": "others"
+  },
+
+  "viewNewsHeader": {
+    "visitSourceLink": "Read the full story at "
   },
 
   "popupController": {
@@ -96,7 +103,9 @@
     "passwordPlaceholder": "Enter your password",
     "orText": "or",
     "closeIcon": "Close window popup icon",
-    "saveButton": "Save"
+    "saveButton": "Save",
+    "newsAbout": "News about",
+    "imageShowing": "Image showing"
   },
 
   "register": {

@@ -1,8 +1,8 @@
 import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { LangContext } from "../contexts/LanguageContext";
-import useFormWithValidation from "./FormValidation";
-import { errorClasses } from "../utils/globalValidationRules";
+import useFormWithValidation from "../hooks/useFormValidation";
+import { errorClasses } from "../helpers/errorClassHelpers";
 import Input from "./Input";
 import ButtonSubmit from "./ButtonSubmit";
 

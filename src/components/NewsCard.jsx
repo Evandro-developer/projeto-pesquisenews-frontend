@@ -136,9 +136,10 @@ function NewsCard({
           src={urlToImage}
           className="news-card__url-to-img"
           onClick={() => navigateToViewNews()}
-          alt={`${t("default.newsAbout")} ${title}: ${t(
-            "default.imageShowing"
-          )} ${description}`}
+          alt={t("default.newsCardAltText", {
+            title: title,
+            description: description,
+          })}
         />
       </picture>
       <li className="news-card__briefing">

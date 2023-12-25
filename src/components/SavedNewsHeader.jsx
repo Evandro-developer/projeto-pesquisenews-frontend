@@ -1,13 +1,12 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useMemo } from "react";
 import { LangContext } from "../contexts/LanguageContext";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function SavedNewsHeader({ savedArticles }) {
   const { t } = useContext(LangContext);
   const { currentUser } = useContext(CurrentUserContext);
-  const [displayKeywords, setDisplayKeywords] = useState("");
 
-  useEffect(() => {
+  const displayKeywords = useMemo(() => {
     function formatKeywords(keywords) {
       const keywordCounts = keywords.reduce((acc, keyword) => {
         acc[keyword] = (acc[keyword] || 0) + 1;
@@ -22,17 +21,32 @@ function SavedNewsHeader({ savedArticles }) {
         return sortedKeywords.join(", ");
       }
 
-      return `${sortedKeywords[0]}, ${sortedKeywords[1]} ${t(
-        "savedNewsHeader.and"
-      )} ${sortedKeywords.length - 2} ${t("savedNewsHeader.others")}`;
+      return t("savedNewsHeader.keywordsSummary", {
+        firstKeyword: sortedKeywords[0],
+        secondKeyword: sortedKeywords[1],
+        remainingCount: sortedKeywords.length - 2,
+      });
     }
 
     const keywords = savedArticles
       .filter((article) => article.keyword)
       .map((article) => article.keyword);
 
-    setDisplayKeywords(formatKeywords(keywords));
+    return formatKeywords(keywords);
   }, [savedArticles, t]);
+
+  const articlesCountMessage = useMemo(() => {
+    const articlesCount = savedArticles.length;
+    if (articlesCount === 0) {
+      return t("savedNewsHeader.noSavedArticle");
+    } else if (articlesCount === 1) {
+      return t("savedNewsHeader.oneSavedArticle");
+    } else {
+      return t("savedNewsHeader.multipleSavedArticles", {
+        count: articlesCount,
+      });
+    }
+  }, [savedArticles.length, t]);
 
   return (
     <section className="saved-news-header">
@@ -41,14 +55,7 @@ function SavedNewsHeader({ savedArticles }) {
           {t("savedNewsHeader.savedArticles")}
         </p>
         <h2 className="saved-news-header__heading">
-          {currentUser?.name}, {t("savedNewsHeader.youHave")}{" "}
-          {savedArticles.length === 0
-            ? t("savedNewsHeader.noSavedArticle")
-            : savedArticles.length === 1
-            ? t("savedNewsHeader.oneSavedArticle")
-            : `${savedArticles.length} ${t(
-                "savedNewsHeader.multipleSavedArticles"
-              )}`}
+          {currentUser?.name}, {articlesCountMessage}
         </h2>
         {savedArticles.length > 0 && (
           <p className="saved-news-header__keyword">

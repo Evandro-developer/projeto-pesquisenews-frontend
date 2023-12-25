@@ -1,11 +1,15 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { LangContext } from "../contexts/LanguageContext";
 import iconCloseSmall from "../images/icon_close_small.svg";
 import iconClose from "../images/icon_close.svg";
 
-function ImagePopup({ selectedImage, onCloseImageClick }) {
+function ImagePopup({
+  selectedImage,
+  onCloseImageClick,
+  isClosing,
+  setIsClosing,
+}) {
   const { t } = useContext(LangContext);
-  const [isClosing, setIsClosing] = useState(false);
 
   const handleEscapeKey = (e) => {
     if (e.key === "Escape" && selectedImage && !isClosing) {

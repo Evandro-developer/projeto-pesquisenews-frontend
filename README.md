@@ -10,43 +10,43 @@ O [PesquiseNews](https://pesquisenews.com.br) é uma plataforma moderna, oferece
 ## Design Pixel Perfeito: Precisão e Estética no [PesquiseNews](https://pesquisenews.com.br)
 Adotamos o **"Pixel Perfect Design"** para garantir que cada elemento da interface corresponda exatamente aos nossos padrões de design. Isso inclui fidelidade aos mockups e o uso de tecnologia de ponta para traduzir precisão visual em realidade digital. O resultado é uma experiência de usuário fluida e visualmente agradável.
 
-- Suporte Multilíngue Avançado no [PesquiseNews](https://pesquisenews.com.br)
-**Integração Inovadora com [NEWSAPI](https://newsapi.org)**: Sincronizamos as preferências de idioma dos usuários com as buscas de notícias, garantindo conteúdo relevante e acessível.
-**Flexibilidade Global**: Capacidade de adicionar novos idiomas facilmente, sem alterações em componentes ou backend.
-**Experiência de Usuário Aprimorada**: Acesso a notícias em várias línguas aumenta a acessibilidade e engajamento.
+## Suporte Multilíngue Avançado no [PesquiseNews](https://pesquisenews.com.br)
+- **Integração Inovadora com [NEWSAPI](https://newsapi.org)**: Sincronizamos as preferências de idioma dos usuários com as buscas de notícias, garantindo conteúdo relevante e acessível.
+- **Flexibilidade Global**: Capacidade de adicionar novos idiomas facilmente, sem alterações em componentes ou backend.
+- **Experiência de Usuário Aprimorada**: Acesso a notícias em várias línguas aumenta a acessibilidade e engajamento.
 
 ## Conectando Frontend e Backend no [PesquiseNews](https://pesquisenews.com.br)
 Para uma visão completa da arquitetura do [PesquiseNews](https://pesquisenews.com.br), além das funcionalidades do frontend, explore também os bastidores do sistema. Visite o [código fonte do projeto-pesquisenews-backend](https://github.com/Evandro-developer/projeto-pesquisenews-backend) para entender como integramos frontend e backend para uma solução de notícias robusta e eficiente.
 
 ## Descrição das Rotas da Aplicação
-1. **Main**
-**Função**: É a página principal do aplicativo onde os usuários podem realizar pesquisas e visualizar os resultados das notícias.
-**Componentes**:
-- SearchForm: Permite aos usuários pesquisar notícias usando critérios específicos. Equipado com validação de formulário e mensagens de erro, ele oferece uma experiência de pesquisa intuitiva e eficaz.
-- NewsCardList: Lista de cartões de notícias baseada nos resultados da pesquisa.
-- Preload: Exibe o status de carregamento ou erros.
+### Main
+- **Função**: É a página principal do aplicativo onde os usuários podem realizar pesquisas e visualizar os resultados das notícias.
+- **Componentes**:
+  - SearchForm: Permite aos usuários pesquisar notícias usando critérios específicos. Equipado com validação de formulário e mensagens de erro, ele oferece uma experiência de pesquisa intuitiva e eficaz.
+  - NewsCardList: Lista de cartões de notícias baseada nos resultados da pesquisa.
+  - Preload: Exibe o status de carregamento ou erros.
 Experiência do Usuário: Uma interface interativa e responsiva que facilita as pesquisas dos usuários e a visualização das últimas notícias.
 
-2. **SavedNews**
-**Função**: Rota onde os usuários visualizam e gerenciam as notícias que salvaram.
-**Componentes**:
-- SavedNewsHeader: Cabeçalho específico para notícias salvas.
-- NewsCardList: Lista de cartões de notícias salvas pelo usuário.
+### SavedNews
+- **Função**: Rota onde os usuários visualizam e gerenciam as notícias que salvaram.
+- **Componentes**:
+  - SavedNewsHeader: Cabeçalho específico para notícias salvas.
+  - NewsCardList: Lista de cartões de notícias salvas pelo usuário.
 Experiência do Usuário: Permite que usuários logados acessem e gerenciem suas notícias favoritas, melhorando a personalização e a retenção do usuário.
 
-3. **ViewNews**
-**Função**: Permite aos usuários visualizar detalhes de uma notícia específica, seja ela pesquisada ou salva.
-**Componentes**:
-- ViewNewsHeader: Exibe informações detalhadas como título, descrição e elementos essenciais, além do Link para artigo completo.
-- ImagePopup: Permite visualização ampliada da imagem da notícia.
+### ViewNews
+- **Função**: Permite aos usuários visualizar detalhes de uma notícia específica, seja ela pesquisada ou salva.
+- **Componentes**:
+  - ViewNewsHeader: Exibe informações detalhadas como título, descrição e elementos essenciais, além do Link para artigo completo.
+  - ImagePopup: Permite visualização ampliada da imagem da notícia.
 Experiência do Usuário: Design intuitivo e informativo, com acesso direto às fontes de notícias.
 
-4. **SignIn e SignUp**
-**Função**: Autenticação e registro de usuários.
+### SignIn e SignUp
+- **Função**: Autenticação e registro de usuários.
 Experiência do Usuário: Projetadas para serem intuitivas e seguras, estas rotas facilitam o processo de login e cadastro.
 
-**Descrição do Componente Navigation e Footer**
-**Presentes em todas as rotas**. O componente **Navigation** é vital para a experiência do usuário oferecendo controle sobre a navegação, gestão de idioma e autenticação. **Footer** é um componente funcional e estilizada, contendo links para navegação interna e externa, além de ícones de redes sociais.
+### Descrição do Componente Navigation e Footer
+- **Presentes em todas as rotas**. O componente **Navigation** é vital para a experiência do usuário oferecendo controle sobre a navegação, gestão de idioma e autenticação. **Footer** é um componente funcional e estilizada, contendo links para navegação interna e externa, além de ícones de redes sociais.
 
 Neste aplicativo, as rotas são cuidadosamente projetadas para oferecer uma experiência de usuário intuitiva e engajante. Desde a página principal **Main**, onde as notícias são pesquisadas e visualizadas, passando pela **SavedNews**, que permite o gerenciamento de notícias favoritas, até **ViewNews**, que oferece uma imersão detalhada em cada notícia. Complementando a experiência, as rotas de **SignIn** e **SignUp** garantem um processo de autenticação fluido.
 
@@ -93,7 +93,7 @@ No [PesquiseNews](https://pesquisenews.com.br), adotamos uma abordagem centrada 
 ### Impacto e Benefícios
 - **Experiência de Usuário Aprimorada**: Acesso a notícias em várias línguas aumenta a acessibilidade e o engajamento.
 - **Flexibilidade Global**: Os usuários têm a liberdade de escolher e mudar idiomas, adaptando o aplicativo às suas preferências.
-- **Escalabilidade Internaciona**: A possibilidade de adicionar novos idiomas torna o [PesquiseNews](https://pesquisenews.com.br) uma plataforma de notícias verdadeiramente global.
+- **Escalabilidade Internacional**: A possibilidade de adicionar novos idiomas torna o [PesquiseNews](https://pesquisenews.com.br) uma plataforma de notícias verdadeiramente global.
 
 ### Conclusão
 A integração multilíngue no [PesquiseNews](https://pesquisenews.com.br), combinada com a funcionalidade avançada da [NEWSAPI](https://newsapi.org), reflete nosso compromisso com a inclusão e acessibilidade global. Oferecemos uma experiência de notícias personalizada para um público diversificado, destacando nossa inovação e adaptabilidade no campo do desenvolvimento web. Visite o [PesquiseNews](https://pesquisenews.com.br) para uma experiência informativa em sua própria língua e descubra como a tecnologia pode unir o mundo através da notícia.
@@ -226,43 +226,43 @@ This project is the frontend part of the [PesquiseNews](https://pesquisenews.com
 ## Pixel Perfect Design: Precision and Aesthetics at [PesquiseNews](https://pesquisenews.com.br)
 We adopted the **"Pixel Perfect Design"** to ensure that every interface element exactly matches our design standards. This includes fidelity to mockups and the use of cutting-edge technology to translate visual precision into digital reality. The result is a fluid and visually pleasing user experience.
 
-**Advanced Multilingual Support at [PesquiseNews](https://pesquisenews.com.br)**
-**Innovative Integration with [NEWSAPI](https://newsapi.org/)**: We synchronize user language preferences with news searches, ensuring relevant and accessible content.
-**Global Flexibility**: Ability to easily add new languages without alterations in components or backend.
-**Enhanced User Experience**: Access to news in multiple languages increases accessibility and engagement.
+## Advanced Multilingual Support at [PesquiseNews](https://pesquisenews.com.br)
+- **Innovative Integration with [NEWSAPI](https://newsapi.org/)**: We synchronize user language preferences with news searches, ensuring relevant and accessible content.
+- **Global Flexibility**: Ability to easily add new languages without alterations in components or backend.
+- **Enhanced User Experience**: Access to news in multiple languages increases accessibility and engagement.
 
 ## Connecting Frontend and Backend at [PesquiseNews](https://pesquisenews.com.br)
 For a complete view of the [PesquiseNews](https://pesquisenews.com.br) architecture, beyond frontend functionalities, delve into the system's inner workings. Visit the PesquiseNews-backend project source code to understand how we integrated the frontend and backend for a robust and efficient news solution.
 
 ## Application Routes Description
-1. **Main**
-**Function**: The main page of the application where users can conduct searches and view news results.
-**Components**:
-- SearchForm: Allows users to search for news using specific criteria. Equipped with form validation and error messages, it offers an intuitive and effective search experience.
-- NewsCardList: A list of news cards based on the search results.
-- Preload: Displays loading status or errors.
+### Main
+- **Function**: The main page of the application where users can conduct searches and view news results.
+- **Components**:
+  - SearchForm: Allows users to search for news using specific criteria. Equipped with form validation and error messages, it offers an intuitive and effective search experience.
+  - NewsCardList: A list of news cards based on the search results.
+  - Preload: Displays loading status or errors.
 User Experience: An interactive and responsive interface that makes it easy for users to conduct searches and view the latest news.
 
-2. **SavedNews**
-**Function**: A route where users view and manage the news they have saved.
-**Components**:
-- SavedNewsHeader: A specific header for saved news.
-- NewsCardList: A list of news cards saved by the user.
+### SavedNews
+- **Function**: A route where users view and manage the news they have saved.
+- **Components**:
+  - SavedNewsHeader: A specific header for saved news.
+  - NewsCardList: A list of news cards saved by the user.
 User Experience: Allows logged-in users to access and manage their favorite news, enhancing personalization and user retention.
 
-3. **ViewNews**
-**Function**: Allows users to view details of a specific news item, whether searched or saved.
-**Components**:
-- ViewNewsHeader: Displays detailed information such as title, description, and essential elements, as well as the link to the full article.
-- ImagePopup: Allows for enlarged viewing of the news image.
+### **ViewNews**
+- **Function**: Allows users to view details of a specific news item, whether searched or saved.
+- **Components**:
+  - ViewNewsHeader: Displays detailed information such as title, description, and essential elements, as well as the link to the full article.
+  - ImagePopup: Allows for enlarged viewing of the news image.
 User Experience: An intuitive and informative design, with direct access to news sources.
 
-4. **SignIn and SignUp**
-**Function**: User authentication and registration.
+### **SignIn and SignUp**
+- **Function**: User authentication and registration.
 User Experience: Designed to be intuitive and secure, these routes facilitate the login and registration process.
 
-**Description of Navigation and Footer Components**
-**Present in all routes**. The **Navigation** component is vital for user experience, offering control over navigation, language management, and authentication. The **Footer** is a functional and stylized component, containing links for internal and external navigation, as well as social media icons.
+### Description of Navigation and Footer Components
+- **Present in all routes**. The **Navigation** component is vital for user experience, offering control over navigation, language management, and authentication. The **Footer** is a functional and stylized component, containing links for internal and external navigation, as well as social media icons.
 
 In this application, the routes are carefully designed to offer an intuitive and engaging user experience. From the main page **Main**, where news is searched and viewed, to **SavedNews**, which allows for the management of favorite news, and **ViewNews**, which offers detailed immersion in each news item. Complementing the experience, the **SignIn** and **SignUp** routes ensure a smooth authentication process.
 

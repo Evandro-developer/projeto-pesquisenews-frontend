@@ -15,9 +15,3 @@
     line-height: 34px;
   }
 }
-
-@media (max-width: 336px) {
-  .new-card-list__heading {
-    padding-left: 16px;
-  }
-}

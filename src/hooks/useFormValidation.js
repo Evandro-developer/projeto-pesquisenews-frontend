@@ -1,9 +1,10 @@
 import { useState, useCallback } from "react";
+
 import {
-  useValidationConfig,
   requiredFieldsConfig,
-  validateInput,
-} from "../utils/globalValidationRules";
+  useValidationConfig,
+} from "./useValidationConfig";
+import { validateInput } from "../helpers/formValidationHelpers";
 
 // Inicializa o estado inputActive com todos os campos de validationConfig
 // Initializes the inputActive state with all fields from validationConfig

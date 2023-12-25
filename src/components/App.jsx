@@ -7,13 +7,14 @@ import AppRoutes from "./AppRoutes";
 import Footer from "./Footer";
 import InfoToolTip from "./InfoToolTip";
 import PopupController from "./PopupController";
+import { localStorageManager } from "../helpers/localStorageHelpers";
 import {
   handleAppNewsSearch,
   handleAppFetchData,
   handleAppSignUp,
   handleAppSignIn,
   handleAppSignOut,
-} from "../helpers/apiHelpers";
+} from "../helpers/apiHelpersToApp";
 
 function App() {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function App() {
   const [registerSuccess, setRegisterSuccess] = useState("");
   const [isClosing, setIsClosing] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorageManager.getToken());
   const [isLoading, setIsLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -55,6 +56,7 @@ function App() {
         setIsLoading(false);
         setNewsData(articles);
       },
+
       () => {
         // Callback onSearchError
         setIsError(true);
@@ -86,47 +88,41 @@ function App() {
   };
 
   const handleSignOutCallback = () => {
-    handleAppSignOut(setIsLoggedIn, setUserName, navigate);
+    handleAppSignOut(setIsLoggedIn, setUserName, setSavedArticles, navigate);
   };
 
   useEffect(() => {
-    const dataToSave = {
-      query: query,
-      articles: newsData,
-    };
-    localStorage.setItem("newsData", JSON.stringify(dataToSave));
-  }, [newsData, query]);
-
-  useEffect(() => {
-    const savedNewsData = localStorage.getItem("newsData");
-    if (savedNewsData) {
-      const parsedData = JSON.parse(savedNewsData);
+    const parsedData = localStorageManager.getNewsData();
+    if (parsedData) {
       setQuery(parsedData.query);
       setNewsData(parsedData.articles);
     }
   }, []);
 
   useEffect(() => {
-    const savedName = localStorage.getItem("name");
+    const savedName = localStorageManager.getUserName();
     if (savedName && !userName) {
       setUserName(savedName);
     }
     if (userName) {
-      localStorage.setItem("name", userName);
+      localStorageManager.saveUserName(userName);
     }
   }, [userName]);
 
   useEffect(() => {
+    const token = localStorageManager.getToken();
     handleAppFetchData(
-      localStorage.getItem("token"),
+      token,
       (userInfo, articles) => {
         // Function handleFetchUserDataSuccess
         setCurrentUser(userInfo);
         setSavedArticles(articles);
       },
-      setIsLoggedIn,
-      setSavedArticles,
-      setCurrentUser
+      () => {
+        setIsLoggedIn(false);
+        setSavedArticles([]);
+        localStorageManager.removeCurrentUser();
+      }
     );
   }, [isLoggedIn]);
 
@@ -139,38 +135,43 @@ function App() {
             setIsLoggedIn={setIsLoggedIn}
             isPopupOpen={isPopupOpen}
             setIsPopupOpen={setIsPopupOpen}
-            handleSignOut={handleSignOutCallback}
-            onSearch={handleSearchNewsCallback}
+            isClosing={isClosing}
+            setIsClosing={setIsClosing}
+            query={query}
+            setQuery={setQuery}
+            savedArticles={savedArticles}
+            setSavedArticles={setSavedArticles}
             isLoading={isLoading}
             isError={isError}
             newsData={newsData}
-            savedArticles={savedArticles}
-            setSavedArticles={setSavedArticles}
+            onSearch={handleSearchNewsCallback}
+            setNewsData={setNewsData}
+            handleSignOut={handleSignOutCallback}
           />
           <Footer />
 
           {isPopupOpen && (
             <PopupController
-              isPopupOpen={isPopupOpen}
-              setIsPopupOpen={setIsPopupOpen}
-              handleSignIn={handleSignInCallback}
-              handleSignUp={handleSignUpCallback}
               isClosing={isClosing}
               setIsClosing={setIsClosing}
               isMounted={isMounted}
               setIsMounted={setIsMounted}
+              isPopupOpen={isPopupOpen}
+              setIsPopupOpen={setIsPopupOpen}
+              handleSignIn={handleSignInCallback}
+              handleSignUp={handleSignUpCallback}
               handleClosePopup={handleClosePopup}
             />
           )}
 
           {isToolTipOpen && (
             <InfoToolTip
-              isToolTipOpen={isToolTipOpen}
-              setIsPopupOpen={setIsPopupOpen}
               isClosing={isClosing}
               setIsClosing={setIsClosing}
               isMounted={isMounted}
               setIsMounted={setIsMounted}
+              isToolTipOpen={isToolTipOpen}
+              setIsPopupOpen={setIsPopupOpen}
               registerSuccess={registerSuccess}
               handleCloseInfoToolTip={handleCloseInfoToolTip}
             />

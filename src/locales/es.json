@@ -38,7 +38,8 @@
 
   "newCardList": {
     "title": "Resultados de la Búsqueda",
-    "btnShowMore": "Mostrar más"
+    "btnShowMore": "Mostrar más",
+    "clearSearch": "Borrar resultados de '{query}' en '{lang}'"
   },
 
   "bookmark": {
@@ -61,12 +62,13 @@
   "savedNewsHeader": {
     "savedArticles": "Artículos Guardados",
     "youHave": "tienes",
-    "noSavedArticle": "ningún artículo guardado",
-    "oneSavedArticle": "1 artículo guardado",
-    "multipleSavedArticles": "artículos guardados",
+    "noSavedArticle": "no tienes ningún artículo guardado",
+    "oneSavedArticle": "tienes 1 artículo guardado",
+    "multipleSavedArticles": "tienes {count} artículos guardados",
     "byKeywords": "Por palabras clave",
     "and": "y",
-    "others": "otros"
+    "others": "otros",
+    "keywordsSummary": "{firstKeyword}, {secondKeyword} y {remainingCount} más"
   },
 
   "viewNewsHeader": {
@@ -104,8 +106,7 @@
     "orText": "o",
     "closeIcon": "Icono de cierre de ventana emergente",
     "saveButton": "Guardar",
-    "newsAbout": "Noticia sobre",
-    "imageShowing": "Imagen mostrando"
+    "newsCardAltText": "Noticias sobre {title}: Mostrando {description}"
   },
 
   "register": {

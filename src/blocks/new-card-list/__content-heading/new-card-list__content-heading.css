@@ -1,0 +1,22 @@
+.new-card-list__content-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .new-card-list__content-heading {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 336px) {
+  .new-card-list__content-heading {
+    gap: 6px;
+    padding: 0 16px;
+  }
+}

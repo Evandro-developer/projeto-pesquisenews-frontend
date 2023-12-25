@@ -12,7 +12,7 @@ function useArticleSavedStatus(savedArticles, url, title) {
       );
     setIsArticleSaved(articleSaved);
     setIsBookmarkActive(articleSaved);
-  }, [url, title, savedArticles]);
+  }, [savedArticles, url, title]);
 
   return { isArticleSaved, isBookmarkActive, setIsBookmarkActive };
 }

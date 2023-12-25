@@ -38,7 +38,8 @@
 
   "newCardList": {
     "title": "Search Results",
-    "btnShowMore": "Show more"
+    "btnShowMore": "Show more",
+    "clearSearch": "Clear search results for '{query}' in '{lang}'"
   },
 
   "bookmark": {
@@ -62,11 +63,12 @@
     "savedArticles": "Saved Articles",
     "youHave": "you have",
     "noSavedArticle": "no saved article",
-    "oneSavedArticle": "1 saved article",
-    "multipleSavedArticles": "saved articles",
+    "oneSavedArticle": "you have 1 saved article",
+    "multipleSavedArticles": "you have {count} saved articles",
     "byKeywords": "By keywords",
     "and": "and",
-    "others": "others"
+    "others": "others",
+    "keywordsSummary": "{firstKeyword}, {secondKeyword} and {remainingCount} more"
   },
 
   "viewNewsHeader": {
@@ -104,8 +106,7 @@
     "orText": "or",
     "closeIcon": "Close window popup icon",
     "saveButton": "Save",
-    "newsAbout": "News about",
-    "imageShowing": "Image showing"
+    "newsCardAltText": "News about {title}: Showing {description}"
   },
 
   "register": {

@@ -5,14 +5,14 @@ import PopupRegister from "./PopupRegister";
 import PopupWithForm from "./PopupWithForm";
 
 function PopupController({
-  isPopupOpen,
-  setIsPopupOpen,
-  handleSignIn,
-  handleSignUp,
   isClosing,
   setIsClosing,
   isMounted,
   setIsMounted,
+  isPopupOpen,
+  setIsPopupOpen,
+  handleSignIn,
+  handleSignUp,
   handleClosePopup,
 }) {
   const { t } = useContext(LangContext);
@@ -49,9 +49,9 @@ function PopupController({
       setIsClosing={setIsClosing}
       isMounted={isMounted}
       setIsMounted={setIsMounted}
-      handleClosePopup={handleClosePopup}
       isPopupOpen={isPopupOpen}
       setIsPopupOpen={setIsPopupOpen}
+      handleClosePopup={handleClosePopup}
       title={
         isToggledPopup
           ? t("popupController.logInTitle")

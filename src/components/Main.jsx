@@ -9,6 +9,9 @@ function Main({
   newsData,
   savedArticles,
   setSavedArticles,
+  query,
+  setQuery,
+  setNewsData,
 }) {
   return (
     <div>
@@ -22,6 +25,9 @@ function Main({
             isLoggedIn={isLoggedIn}
             savedArticles={savedArticles}
             setSavedArticles={setSavedArticles}
+            query={query}
+            setQuery={setQuery}
+            setNewsData={setNewsData}
           />
         )
       )}

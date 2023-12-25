@@ -103,12 +103,13 @@ function ViewNewsHeader({
             </>
           )}
           <img
-            src={urlToImage}
-            alt={`${t("default.newsAbout")} ${title}: ${t(
-              "default.imageShowing"
-            )} ${description}`}
             className="view-news-header__url-to-img"
             onClick={handleImageClickOpen}
+            src={urlToImage}
+            alt={t("default.newsCardAltText", {
+              title: title,
+              description: description,
+            })}
           />
         </div>
         <div className="view-news-header__briefing">

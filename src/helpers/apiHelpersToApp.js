@@ -13,6 +13,8 @@ export const handleAppNewsSearch = async (
     // Get the current language from localStorage;
     const currentLang = localStorageManager.getCurrentLang();
 
+    localStorageManager.removeNewsData();
+
     const { articles = [] } = await ThirdPartyApi.fetchEverything({
       q: query,
       lang: currentLang,
@@ -23,7 +25,7 @@ export const handleAppNewsSearch = async (
       return;
     }
 
-    localStorageManager.saveNews(query, articles);
+    localStorageManager.saveNewsData(query, articles);
     onSearchSuccess(articles);
   } catch (err) {
     onSearchError(err.message || "Erro ao buscar notícias.");
@@ -34,8 +36,8 @@ export const handleAppFetchData = async (
   token,
   handleFetchUserDataSuccess,
   handleFetchUserDataError,
-  setIsLoggedIn,
   setSavedArticles,
+  setIsLoggedIn,
   setCurrentUser
 ) => {
   if (token) {
@@ -49,8 +51,8 @@ export const handleAppFetchData = async (
       );
     }
   } else {
-    setIsLoggedIn(false);
-    setSavedArticles([]);
+    () => setSavedArticles([]);
+    () => setIsLoggedIn(false);
     () => setCurrentUser(false);
   }
 };
@@ -109,6 +111,7 @@ export const handleAppSignIn = async (
 export const handleAppSignOut = async (
   setIsLoggedIn,
   setUserName,
+  setSavedArticles,
   navigate
 ) => {
   try {
@@ -116,6 +119,7 @@ export const handleAppSignOut = async (
     localStorageManager.removeUserEmail();
     setIsLoggedIn(false);
     setUserName("");
+    setSavedArticles([]);
     navigate("/signin");
   } catch (error) {
     console.error(error.message || "Erro durante o processo de logout.");

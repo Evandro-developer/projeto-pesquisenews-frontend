@@ -1,15 +1,23 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { LangContext } from "../contexts/LanguageContext";
 import NewsCard from "./NewsCard";
+import { localStorageManager } from "../helpers/localStorageHelpers";
 
 function NewsCardList({
   newsData,
-  isSavedNews = false,
   isLoggedIn,
   savedArticles,
   setSavedArticles,
+  query,
+  setQuery,
+  setNewsData,
 }) {
+  const location = useLocation();
   const { t } = useContext(LangContext);
+
+  const [firstArticleLang, setFirstArticleLang] = useState("");
+  const isHomePage = location.pathname === "/";
 
   const ITEMS_PER_PAGE = 3;
   const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE);
@@ -18,11 +26,43 @@ function NewsCardList({
     setVisibleItems((prevCount) => prevCount + ITEMS_PER_PAGE);
   };
 
+  const handleClearSearch = () => {
+    localStorageManager.removeNewsData();
+    setNewsData([]);
+    setQuery("");
+  };
+
+  useEffect(() => {
+    const newsDataFromLocalStorage = localStorageManager.getNewsData();
+    if (
+      newsDataFromLocalStorage &&
+      newsDataFromLocalStorage.articles &&
+      newsDataFromLocalStorage.articles.length > 0
+    ) {
+      const extractedLang = newsDataFromLocalStorage.articles[0].lang;
+      setFirstArticleLang(extractedLang);
+    }
+  }, [newsData]);
+
   return (
     <section className="new-card-list">
       <div className="new-card-list__container">
-        {!isSavedNews && (
-          <h2 className="new-card-list__heading"> {t("newCardList.title")}</h2>
+        {isHomePage && (
+          <div className="new-card-list__content-heading">
+            <h2 className="new-card-list__heading">
+              {" "}
+              {t("newCardList.title")}
+            </h2>
+            <span
+              className="new-card-list__clear-search"
+              onClick={handleClearSearch}
+            >
+              {t("newCardList.clearSearch", {
+                query: query,
+                lang: firstArticleLang.toUpperCase(),
+              })}
+            </span>
+          </div>
         )}
         <div className="new-card-list__item">
           {newsData &&

@@ -11,13 +11,18 @@ function AppRoutes(props) {
     setIsLoggedIn,
     isPopupOpen,
     setIsPopupOpen,
-    handleSignOut,
-    onSearch,
+    isClosing,
+    setIsClosing,
+    query,
+    setQuery,
+    savedArticles,
+    setSavedArticles,
     isLoading,
     isError,
     newsData,
-    savedArticles,
-    setSavedArticles,
+    setNewsData,
+    onSearch,
+    handleSignOut,
   } = props;
 
   function renderAuthRoute() {
@@ -42,6 +47,9 @@ function AppRoutes(props) {
           newsData={newsData}
           savedArticles={savedArticles}
           setSavedArticles={setSavedArticles}
+          query={query}
+          setQuery={setQuery}
+          setNewsData={setNewsData}
         />
       </>
     );
@@ -57,6 +65,8 @@ function AppRoutes(props) {
           handleSignOut={handleSignOut}
           savedArticles={savedArticles}
           setSavedArticles={setSavedArticles}
+          isClosing={isClosing}
+          setIsClosing={setIsClosing}
         />
       </>
     );
@@ -80,6 +90,9 @@ function AppRoutes(props) {
             newsData={newsData}
             savedArticles={savedArticles}
             setSavedArticles={setSavedArticles}
+            query={query}
+            setQuery={setQuery}
+            setNewsData={setNewsData}
           />
         </>
       </ProtectedRoute>

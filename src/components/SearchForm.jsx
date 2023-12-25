@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { LangContext } from "../contexts/LanguageContext";
-import useFormWithValidation from "./FormValidation";
-import { errorClasses } from "../utils/globalValidationRules";
+import useFormWithValidation from "../hooks/useFormValidation";
+import { errorClasses } from "../helpers/errorClassHelpers";
 import Input from "./Input";
 import ButtonSubmit from "./ButtonSubmit";
 

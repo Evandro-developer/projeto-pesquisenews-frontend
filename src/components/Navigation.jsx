@@ -5,7 +5,7 @@ import { languages } from "../helpers/localesHelpers";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import vectorWhiteImg from "../images/vector_white.svg";
 import vectorDarkImg from "../images/vector_dark.svg";
-import getNavThemeClasses from "../helpers/getNavThemeClasses";
+import navThemeClassesHelpers from "../helpers/navThemeClassesHelpers";
 
 function Navigation({
   isLoggedIn,
@@ -26,7 +26,7 @@ function Navigation({
     location.pathname !== "/" ? "dark" : "light"
   );
 
-  const themeClasses = getNavThemeClasses(theme);
+  const themeClasses = navThemeClassesHelpers(theme);
 
   const handleLangChange = (evt) => {
     setLang(evt.target.value);

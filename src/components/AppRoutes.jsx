@@ -22,6 +22,8 @@ function AppRoutes(props) {
     newsData,
     setNewsData,
     onSearch,
+    searchLang,
+    setSearchLang,
     handleSignOut,
   } = props;
 
@@ -39,6 +41,8 @@ function AppRoutes(props) {
           setIsPopupOpen={setIsPopupOpen}
           handleSignOut={handleSignOut}
           onSearch={onSearch}
+          searchLang={searchLang}
+          setSearchLang={setSearchLang}
         />
         <Main
           isLoggedIn={isLoggedIn}
@@ -82,6 +86,8 @@ function AppRoutes(props) {
             setIsPopupOpen={setIsPopupOpen}
             handleSignOut={handleSignOut}
             onSearch={onSearch}
+            searchLang={searchLang}
+            setSearchLang={setSearchLang}
           />
           <Main
             isLoggedIn={isLoggedIn}

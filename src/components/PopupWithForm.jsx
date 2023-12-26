@@ -1,5 +1,6 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { LangContext } from "../contexts/LanguageContext";
+import useClosePopup from "../hooks/useClosePopupAndTooltip";
 import iconClose from "../images/icon_close.svg";
 import iconCloseSmall from "../images/icon_close_small.svg";
 
@@ -8,47 +9,16 @@ function PopupWithForm({
   title,
   isPopupOpen,
   isClosing,
-  setIsClosing,
-  isMounted,
-  setIsMounted,
   handleClosePopup,
 }) {
   const { t } = useContext(LangContext);
+
+  useClosePopup(isPopupOpen, handleClosePopup, isClosing, "popup__opened");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     handleClosePopup();
   };
-
-  const handleEscapeKey = (e) => {
-    if (e.key === "Escape" && isPopupOpen) {
-      handleClosePopup();
-    }
-  };
-
-  const handleClickOutside = (e) => {
-    if (e.target.classList.contains("popup__opened")) {
-      handleClosePopup();
-    }
-  };
-
-  useEffect(() => {
-    if (isPopupOpen) {
-      setIsMounted(true);
-      setIsClosing(false);
-      window.addEventListener("keydown", handleEscapeKey);
-      document.addEventListener("click", handleClickOutside);
-    } else {
-      setIsClosing(true);
-      window.removeEventListener("keydown", handleEscapeKey);
-      document.removeEventListener("click", handleClickOutside);
-    }
-
-    return () => {
-      window.removeEventListener("keydown", handleEscapeKey);
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [isPopupOpen, isMounted]);
 
   return (
     <section

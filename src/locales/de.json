@@ -17,7 +17,7 @@
   "searchNews": {
     "title": "Was passiert in der Welt?",
     "subtitle": "Finden Sie die neuesten Nachrichten zu beliebigen Themen und speichern Sie sie in Ihrem persönlichen Konto.",
-    "placeholder": "Geben Sie das Suchthema ein",
+    "placeholder": "Thema eingeben",
     "btnSearch": "Suchen"
   },
 

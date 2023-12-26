@@ -1,5 +1,6 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { LangContext } from "../contexts/LanguageContext";
+import useClosePopup from "../hooks/useClosePopupAndTooltip";
 import iconCloseSmall from "../images/icon_close_small.svg";
 import iconClose from "../images/icon_close.svg";
 
@@ -11,37 +12,20 @@ function ImagePopup({
 }) {
   const { t } = useContext(LangContext);
 
-  const handleEscapeKey = (e) => {
-    if (e.key === "Escape" && selectedImage && !isClosing) {
-      startClosingAnimation();
-    }
-  };
-
-  const handleClickOutside = (e) => {
-    if (e.target.classList.contains("img-popup__opened") && !isClosing) {
-      startClosingAnimation();
-    }
-  };
-
   const startClosingAnimation = () => {
     setIsClosing(true);
     setTimeout(() => {
       setIsClosing(false);
       onCloseImageClick();
-    }, 300);
+    }, 200);
   };
 
-  useEffect(() => {
-    if (selectedImage) {
-      window.addEventListener("keydown", handleEscapeKey);
-      document.addEventListener("click", handleClickOutside);
-    }
-
-    return () => {
-      window.removeEventListener("keydown", handleEscapeKey);
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [selectedImage, isClosing]);
+  useClosePopup(
+    selectedImage,
+    startClosingAnimation,
+    isClosing,
+    "img-popup__opened"
+  );
 
   if (!selectedImage && !isClosing) {
     return null;

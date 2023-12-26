@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { LangProvider } from "../contexts/LanguageContext";
 import CurrentUserContext from "../contexts/CurrentUserContext";
+import { LangContext } from "../contexts/LanguageContext";
 
 import AppRoutes from "./AppRoutes";
 import Footer from "./Footer";
@@ -18,19 +19,21 @@ import {
 
 function App() {
   const navigate = useNavigate();
+  const { lang } = useContext(LangContext);
+
   const [currentUser, setCurrentUser] = useState(false);
-  const [newsData, setNewsData] = useState([]);
-  const [savedArticles, setSavedArticles] = useState([]);
-  const [query, setQuery] = useState("");
-  const [userName, setUserName] = useState("");
-  const [registerSuccess, setRegisterSuccess] = useState("");
   const [isClosing, setIsClosing] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(localStorageManager.getToken());
   const [isLoading, setIsLoading] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isToolTipOpen, setIsToolTipOpen] = useState(false);
+  const [newsData, setNewsData] = useState([]);
+  const [query, setQuery] = useState("");
+  const [registerSuccess, setRegisterSuccess] = useState("");
+  const [savedArticles, setSavedArticles] = useState([]);
+  const [searchLang, setSearchLang] = useState(lang);
+  const [userName, setUserName] = useState("");
 
   const closeWithAnimation = (setOpenState) => {
     setIsClosing(true);
@@ -43,13 +46,14 @@ function App() {
   const handleClosePopup = () => closeWithAnimation(setIsPopupOpen);
   const handleCloseInfoToolTip = () => closeWithAnimation(setIsToolTipOpen);
 
-  const handleSearchNewsCallback = (query) => {
+  const handleSearchNewsCallback = (query, searchLang) => {
     setIsLoading(true);
     setNewsData([]);
     setQuery(query);
 
     handleAppNewsSearch(
       query,
+      searchLang,
       (articles) => {
         // Callback onSearchSuccess
         setIsError(false);
@@ -146,6 +150,8 @@ function App() {
             newsData={newsData}
             onSearch={handleSearchNewsCallback}
             setNewsData={setNewsData}
+            searchLang={searchLang}
+            setSearchLang={setSearchLang}
             handleSignOut={handleSignOutCallback}
           />
           <Footer />
@@ -154,8 +160,6 @@ function App() {
             <PopupController
               isClosing={isClosing}
               setIsClosing={setIsClosing}
-              isMounted={isMounted}
-              setIsMounted={setIsMounted}
               isPopupOpen={isPopupOpen}
               setIsPopupOpen={setIsPopupOpen}
               handleSignIn={handleSignInCallback}
@@ -168,9 +172,8 @@ function App() {
             <InfoToolTip
               isClosing={isClosing}
               setIsClosing={setIsClosing}
-              isMounted={isMounted}
-              setIsMounted={setIsMounted}
               isToolTipOpen={isToolTipOpen}
+              setIsToolTipOpen={setIsToolTipOpen}
               setIsPopupOpen={setIsPopupOpen}
               registerSuccess={registerSuccess}
               handleCloseInfoToolTip={handleCloseInfoToolTip}

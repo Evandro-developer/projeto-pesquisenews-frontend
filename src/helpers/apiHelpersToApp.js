@@ -5,19 +5,16 @@ import { localStorageManager } from "./localStorageHelpers";
 
 export const handleAppNewsSearch = async (
   query,
+  language,
   onSearchSuccess,
   onSearchError
 ) => {
   try {
-    // Obter o idioma atual de localStorage
-    // Get the current language from localStorage;
-    const currentLang = localStorageManager.getCurrentLang();
-
     localStorageManager.removeNewsData();
 
     const { articles = [] } = await ThirdPartyApi.fetchEverything({
       q: query,
-      lang: currentLang,
+      lang: language,
     });
 
     if (articles.length === 0) {

@@ -14,6 +14,8 @@ function Header({
   onLogout,
   handleSignOut,
   onSearch,
+  searchLang,
+  setSearchLang,
 }) {
   const { t } = useContext(LangContext);
 
@@ -28,7 +30,11 @@ function Header({
           onLogout={onLogout}
           handleSignOut={handleSignOut}
         />
-        <SearchForm onSearch={onSearch} />
+        <SearchForm
+          onSearch={onSearch}
+          searchLang={searchLang}
+          setSearchLang={setSearchLang}
+        />
         <picture className="header__container-img">
           <source media="(max-width: 384px)" srcSet={bgimage_small} />
           <source media="(max-width: 968px)" srcSet={bgimage_medium} />

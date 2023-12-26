@@ -6,9 +6,6 @@ import PopupWithForm from "./PopupWithForm";
 
 function PopupController({
   isClosing,
-  setIsClosing,
-  isMounted,
-  setIsMounted,
   isPopupOpen,
   setIsPopupOpen,
   handleSignIn,
@@ -20,7 +17,6 @@ function PopupController({
   const [isToggledPopup, setIsToggledPopup] = useState(
     location.pathname === "/signup" ? false : true
   );
-
   const [formType, setFormType] = useState("login");
 
   const toggleForm = () => {
@@ -46,9 +42,6 @@ function PopupController({
   return (
     <PopupWithForm
       isClosing={isClosing}
-      setIsClosing={setIsClosing}
-      isMounted={isMounted}
-      setIsMounted={setIsMounted}
       isPopupOpen={isPopupOpen}
       setIsPopupOpen={setIsPopupOpen}
       handleClosePopup={handleClosePopup}

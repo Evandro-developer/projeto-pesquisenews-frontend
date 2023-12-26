@@ -1,5 +1,6 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { LangContext } from "../contexts/LanguageContext";
+import useCloseTooltip from "../hooks/useClosePopupAndTooltip";
 import closedBtn from "../images/icon_close.svg";
 import closedBtnSmall from "../images/icon_close_small.svg";
 
@@ -7,9 +8,6 @@ function InfoToolTip({
   isToolTipOpen,
   setIsPopupOpen,
   isClosing,
-  setIsClosing,
-  isMounted,
-  setIsMounted,
   registerSuccess,
   handleCloseInfoToolTip,
 }) {
@@ -20,35 +18,12 @@ function InfoToolTip({
     setIsPopupOpen(true);
   };
 
-  const handleEscapeKey = (e) => {
-    if (e.key === "Escape" && isToolTipOpen) {
-      handleCloseInfoToolTip();
-    }
-  };
-
-  const handleClickOutside = (e) => {
-    if (e.target.classList.contains("infoToolTip__opened")) {
-      handleCloseInfoToolTip();
-    }
-  };
-
-  useEffect(() => {
-    if (isToolTipOpen) {
-      setIsMounted(true);
-      setIsClosing(false);
-      window.addEventListener("keydown", handleEscapeKey);
-      document.addEventListener("click", handleClickOutside);
-    } else {
-      setIsClosing(true);
-      window.removeEventListener("keydown", handleEscapeKey);
-      document.removeEventListener("click", handleClickOutside);
-    }
-
-    return () => {
-      window.removeEventListener("keydown", handleEscapeKey);
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [isToolTipOpen, isMounted]);
+  useCloseTooltip(
+    isToolTipOpen,
+    handleCloseInfoToolTip,
+    isClosing,
+    "infoToolTip__opened"
+  );
 
   return (
     <section

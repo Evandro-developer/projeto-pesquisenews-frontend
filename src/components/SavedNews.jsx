@@ -26,7 +26,6 @@ function SavedNews({
         {savedArticles && savedArticles.length > 0 && (
           <NewsCardList
             newsData={savedArticles}
-            isSavedNews={true}
             isLoggedIn={isLoggedIn}
             savedArticles={savedArticles}
             setSavedArticles={setSavedArticles}

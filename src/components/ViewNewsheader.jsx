@@ -74,6 +74,7 @@ function ViewNewsHeader({
     <section className="view-news-header">
       <div className="view-news-header__container">
         <div className="view-news-header__url-to-img-container">
+          <p className="news-card__keyword">{keyword}</p>
           <picture
             className="btn-default"
             onClick={handleBookmarkClick}

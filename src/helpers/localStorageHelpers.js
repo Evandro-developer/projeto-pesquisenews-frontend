@@ -24,4 +24,9 @@ export const localStorageManager = {
   removeToken: () => removeItem("token"),
   removeUserEmail: () => removeItem("userEmail"),
   removeNewsData: () => removeItem("newsData"),
+  removeCurrentUser: () => {
+    removeItem("token");
+    removeItem("userEmail");
+    removeItem("name");
+  },
 };

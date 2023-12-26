@@ -1,6 +1,6 @@
 .img-popup__opened {
   display: block;
-  animation: fadeIn 0.3s ease-in-out forwards;
+  animation: fadeIn 0.2s ease-in-out forwards;
   z-index: 2;
 }
 

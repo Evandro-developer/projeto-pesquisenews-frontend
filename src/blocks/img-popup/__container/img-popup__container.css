@@ -8,3 +8,9 @@
   padding: 0;
   margin: 0;
 }
+
+@media (max-width: 484px) {
+  .img-popup__container {
+    top: 32%;
+  }
+}

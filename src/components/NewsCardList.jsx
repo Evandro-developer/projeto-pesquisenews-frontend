@@ -17,7 +17,10 @@ function NewsCardList({
   const { t } = useContext(LangContext);
 
   const [firstArticleLang, setFirstArticleLang] = useState("");
-  const isHomePage = location.pathname === "/";
+  const isHomePage =
+    location.pathname === "/" ||
+    location.pathname === "/signin" ||
+    location.pathname === "/signup";
 
   const ITEMS_PER_PAGE = 3;
   const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE);
@@ -49,19 +52,18 @@ function NewsCardList({
       <div className="new-card-list__container">
         {isHomePage && (
           <div className="new-card-list__content-heading">
-            <h2 className="new-card-list__heading">
-              {" "}
-              {t("newCardList.title")}
-            </h2>
-            <span
-              className="new-card-list__clear-search"
-              onClick={handleClearSearch}
-            >
-              {t("newCardList.clearSearch", {
-                query: query,
-                lang: firstArticleLang.toUpperCase(),
-              })}
-            </span>
+            <h2 className="new-card-list__heading">{t("newCardList.title")}</h2>
+            {query && (
+              <span
+                className="new-card-list__clear-search"
+                onClick={handleClearSearch}
+              >
+                {t("newCardList.clearSearch", {
+                  query: query,
+                  lang: firstArticleLang.toUpperCase(),
+                })}
+              </span>
+            )}
           </div>
         )}
         <div className="new-card-list__item">

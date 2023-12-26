@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import LanguageSelector from "./LanguageSelector";
 import { LangContext } from "../contexts/LanguageContext";
-import { languages } from "../helpers/localesHelpers";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import vectorWhiteImg from "../images/vector_white.svg";
 import vectorDarkImg from "../images/vector_dark.svg";
@@ -78,18 +78,11 @@ function Navigation({
               {t("nav.title")}
             </Link>
           </h1>
-
-          <select
+          <LanguageSelector
             value={lang}
             onChange={handleLangChange}
             className={`navigation__lang-dropdown ${themeClasses.dropdownClass}`}
-          >
-            {languages.map((langOption) => (
-              <option key={langOption} value={langOption}>
-                {langOption.toUpperCase()}
-              </option>
-            ))}
-          </select>
+          />
         </div>
         <ul className="navigation__content">
           <li className="navigation__home-container">

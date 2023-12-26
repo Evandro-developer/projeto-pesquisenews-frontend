@@ -17,7 +17,7 @@
   "searchNews": {
     "title": "Quoi de neuf dans le monde ?",
     "subtitle": "Trouvez les dernières actualités sur n'importe quel sujet et enregistrez-les dans votre compte personnel.",
-    "placeholder": "Entrez le sujet de recherche",
+    "placeholder": "Sujet de recherche",
     "btnSearch": "Rechercher"
   },
 

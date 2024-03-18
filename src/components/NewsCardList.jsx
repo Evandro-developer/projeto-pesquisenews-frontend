@@ -1,8 +1,15 @@
-import { useState, useContext, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useContext } from "react";
 import { LangContext } from "../contexts/LanguageContext";
+import { FilterContext } from "../contexts/FilterContext";
+import { SelectedArticleContext } from "../contexts/SelectedArticleContext";
+import useRouteChecker from "../hooks/useRouteChecker";
+import useFilteredArticles from "../hooks/useFilteredArticles";
+import { useArticleDisplay } from "../hooks/useArticleDisplay";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 import NewsCard from "./NewsCard";
-import { localStorageManager } from "../helpers/localStorageHelpers";
+import FilterPanelDisplay from "./FilterPanelDisplay";
+import iconTrash from "../images/icon_trash.svg";
+import iconArrowScrollToTop from "../images/scroll_top.svg";
 
 function NewsCardList({
   newsData,
@@ -12,86 +19,139 @@ function NewsCardList({
   query,
   setQuery,
   setNewsData,
+  searchScrollY,
+  setSearchScrollY,
 }) {
-  const location = useLocation();
   const { t } = useContext(LangContext);
+  const { selectedArticle, setSelectedArticle } = useContext(
+    SelectedArticleContext
+  );
+  const {
+    showFilterPanel,
+    setShowFilterPanel,
+    filteredHomeArticles,
+    setFilteredHomeArticles,
+    filteredSavedArticles,
+    handleApplyFilters,
+    onClearFilteredHomeArticles,
+    onClearFilteredSavedArticles,
+  } = useContext(FilterContext);
 
-  const [firstArticleLang, setFirstArticleLang] = useState("");
-  const isHomePage =
-    location.pathname === "/" ||
-    location.pathname === "/signin" ||
-    location.pathname === "/signup";
+  const { isSavedNewsRoute, isHomePage } = useRouteChecker();
+  const currentArticles = isHomePage
+    ? newsData || filteredHomeArticles
+    : savedArticles || filteredSavedArticles;
+  const { isScrollVisible, scrollToTop } = useScrollToTop(
+    currentArticles.length
+  );
+  useFilteredArticles(isSavedNewsRoute);
+  const {
+    handleShowMore,
+    handleClearSearch,
+    articlesToRender,
+    visibleItems,
+    firstArticleLang,
+    articleKeywords,
+    lastNewsCardRef,
+  } = useArticleDisplay(
+    isHomePage,
+    isSavedNewsRoute,
+    newsData,
+    savedArticles,
+    filteredHomeArticles,
+    filteredSavedArticles,
+    setNewsData,
+    setFilteredHomeArticles,
+    setQuery,
+    searchScrollY,
+    setSearchScrollY
+  );
 
-  const ITEMS_PER_PAGE = 3;
-  const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE);
-
-  const handleShowMore = () => {
-    setVisibleItems((prevCount) => prevCount + ITEMS_PER_PAGE);
-  };
-
-  const handleClearSearch = () => {
-    localStorageManager.removeNewsData();
-    setNewsData([]);
-    setQuery("");
-  };
-
-  useEffect(() => {
-    const newsDataFromLocalStorage = localStorageManager.getNewsData();
-    if (
-      newsDataFromLocalStorage &&
-      newsDataFromLocalStorage.articles &&
-      newsDataFromLocalStorage.articles.length > 0
-    ) {
-      const extractedLang = newsDataFromLocalStorage.articles[0].lang;
-      setFirstArticleLang(extractedLang);
-    }
-  }, [newsData]);
+  const renderNewsCard = (newsItem, index) =>
+    index < visibleItems && (
+      <NewsCard
+        key={newsItem.url}
+        keyword={newsItem.keyword}
+        title={newsItem.title}
+        description={newsItem.description}
+        publishedAt={newsItem.publishedAt}
+        source={newsItem.source}
+        url={newsItem.url}
+        urlToImage={newsItem.urlToImage}
+        lang={newsItem.lang}
+        isLoggedIn={isLoggedIn}
+        savedArticles={savedArticles}
+        setSavedArticles={setSavedArticles}
+        selectedArticle={selectedArticle}
+        setSelectedArticle={setSelectedArticle}
+        lastCardRef={
+          index === articlesToRender.length - 1 ? lastNewsCardRef : null
+        }
+      />
+    );
 
   return (
     <section className="new-card-list">
       <div className="new-card-list__container">
         {isHomePage && (
-          <div className="new-card-list__content-heading">
-            <h2 className="new-card-list__heading">{t("newCardList.title")}</h2>
+          <div className="new-card-list__main-container">
+            <h3 className="new-card-list__main-heading">
+              {t("newCardList.title")}
+            </h3>
             {query && (
-              <span
-                className="new-card-list__clear-search"
-                onClick={handleClearSearch}
-              >
-                {t("newCardList.clearSearch", {
-                  query: query,
-                  lang: firstArticleLang.toUpperCase(),
-                })}
-              </span>
+              <div className="new-card-list__main-clear-search-container">
+                <img
+                  src={iconTrash}
+                  alt={t("newCardList.altIconTrashClear")}
+                  className="new-card-list__clear-search-icon"
+                  onClick={handleClearSearch}
+                />
+                <span className="new-card-list__main-clear-search">
+                  {t("newCardList.clearSearch", {
+                    query: query,
+                    lang: firstArticleLang.toUpperCase(),
+                  })}
+                </span>
+              </div>
             )}
           </div>
         )}
-        <div className="new-card-list__item">
-          {newsData &&
-            newsData.length > 0 &&
-            newsData
-              .slice(0, visibleItems)
-              .map((newsItem) => (
-                <NewsCard
-                  key={newsItem.url}
-                  keyword={newsItem.keyword}
-                  title={newsItem.title}
-                  description={newsItem.description}
-                  publishedAt={newsItem.publishedAt}
-                  source={newsItem.source}
-                  url={newsItem.url}
-                  urlToImage={newsItem.urlToImage}
-                  lang={newsItem.lang}
-                  isLoggedIn={isLoggedIn}
-                  savedArticles={savedArticles}
-                  setSavedArticles={setSavedArticles}
-                />
-              ))}
+        {isHomePage && (
+          <FilterPanelDisplay
+            showFilterPanel={showFilterPanel}
+            setShowFilterPanel={setShowFilterPanel}
+            newsData={newsData}
+            filteredArticles={filteredHomeArticles}
+            articleKeywords={articleKeywords}
+            isHomePage={isHomePage}
+            handleApplyFilters={handleApplyFilters}
+            clearFilteredArticles={onClearFilteredHomeArticles}
+          />
+        )}
+        {isSavedNewsRoute && (
+          <FilterPanelDisplay
+            showFilterPanel={showFilterPanel}
+            setShowFilterPanel={setShowFilterPanel}
+            savedArticles={savedArticles}
+            filteredArticles={filteredSavedArticles}
+            articleKeywords={articleKeywords}
+            isSavedNewsRoute={isSavedNewsRoute}
+            handleApplyFilters={handleApplyFilters}
+            clearFilteredArticles={onClearFilteredSavedArticles}
+          />
+        )}
+        <div className="new-card-list__item" ref={lastNewsCardRef}>
+          {articlesToRender.map(renderNewsCard)}
         </div>
-        {newsData && visibleItems < newsData.length && (
+        {articlesToRender.length > visibleItems && (
           <button className="btn-show-more" onClick={handleShowMore}>
             {t("newCardList.btnShowMore")}
           </button>
+        )}
+        {isScrollVisible && (
+          <picture onClick={scrollToTop} className="btn-scroll-top">
+            <img src={iconArrowScrollToTop} alt={t("default.iconArrow")} />
+          </picture>
         )}
       </div>
     </section>

@@ -67,6 +67,19 @@ Neste aplicativo, as rotas são cuidadosamente projetadas para oferecer uma expe
 14. [Licença](#licença)
 15. [Agradecimentos](#agradecimentos)
 
+## Novas Funcionalidades
+### Resumos Multilíngues
+Agora, os usuários podem selecionar resumos de notícias em 6 idiomas diferentes, proporcionando uma experiência mais inclusiva e personalizada. Isso é possível graças à integração com a API OpenAI no backend.
+
+### Cache Avançado para Performance
+Melhoramos a navegação com um sistema de cache que reduz os tempos de espera. Conteúdos e resumos acessados anteriormente são carregados instantaneamente, graças ao armazenamento inteligente.
+
+### Como Usar
+Acesso Imediato a Conteúdo e Resumos
+Usuários podem facilmente acessar e alternar entre idiomas para resumos de notícias através de um interface simplificada. A experiência de leitura é otimizada pelo sistema de cache, que fornece carregamento rápido de conteúdo já visitado.
+
+### Início Rápido
+A experiência aprimorada já está disponível na interface do usuário, sem necessidade de configuração adicional. Desfrute de acesso instantâneo e multilíngue a notícias com tempos de carregamento reduzidos.
 
 ## Descrição do Projeto
 O frontend do [PesquiseNews](https://pesquisenews.com.br) é a interface do usuário que o permite pesquisar e visualizar notícias em tempo real. Ele se integra ao backend para fornecer uma experiência completa. Este frontend foi desenvolvido com tecnologias modernas para criar uma experiência de usuário agradável e intuitiva.
@@ -282,6 +295,20 @@ In this application, the routes are carefully designed to offer an intuitive and
 13. [Source Code](#source-code)
 14. [License](#license)
 15. [Acknowledgments](#acknowledgments)
+
+## New Features
+### Multilingual Summaries
+Users can now select news summaries in 6 different languages, offering a more inclusive and personalized experience. This is made possible through integration with the OpenAI API on the backend.
+
+### Advanced Cache for Performance
+We've enhanced navigation with a caching system that reduces wait times. Previously accessed contents and summaries are loaded instantly, thanks to smart storage.
+
+### How to Use
+Instant Access to Content and Summaries
+Users can easily access and switch between languages for news summaries through a simplified interface. The reading experience is optimized by the cache system, which provides quick loading of previously visited content.
+
+### Quick Start
+The enhanced experience is already available on the user interface, with no additional setup required. Enjoy instant and multilingual access to news with reduced loading times.
 
 ## Project Description
 The frontend of [PesquiseNews](https://pesquisenews.com.br) is the user interface that allows you to search and view news in real-time. It integrates with the backend to provide a complete experience. This frontend was developed with modern technologies to create a pleasant and intuitive user experience.

@@ -5,27 +5,24 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 64px;
   margin: 0;
   padding: 80px 104px;
 }
 
 @media (max-width: 968px) {
   .new-card-list__container {
-    gap: 32px;
-    padding: 40px;
+    padding: 40px 40px 64px;
   }
 }
 
 @media (max-width: 648px) {
   .new-card-list__container {
-    gap: 24px;
-    padding: 40px 16px;
+    padding: 40px 0 64px;
   }
 }
 
 @media (max-width: 584px) {
   .new-card-list__container {
-    padding: 32x 16px 24px;
+    padding: 32px 0 64px;
   }
 }

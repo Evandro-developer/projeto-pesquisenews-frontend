@@ -1,6 +1,97 @@
 {
+  "about": {
+    "title": "Sobre o autor",
+    "textOne": "Evandro M Oliveira - Desenvolvedor Web Full-Stack em Node.js, Express e React. Avançando em Ciência de Dados e Design UI/UX.",
+    "textTwo": "Desenvolvi \"PesquiseNews\" do back-end ao front-end, hospedado na Google Cloud. Transformo visões em realidade digital.",
+    "pictureAlt": "Lâmpada representando ideias"
+  },
+
+  "analyticalSummaryParams": {
+    "author": "Autor do artigo",
+    "title": "Título do artigo",
+    "fiveWsAnd1H": {
+      "who": "Principais indivíduos, grupos ou organizações envolvidos",
+      "what": "Detalhes do evento ou assunto principal",
+      "when": "Data ou período de tempo relevante",
+      "where": "Localização geográfica do evento ou assunto",
+      "why": "Razões ou causas subjacentes",
+      "how": "Modo ou processo dos eventos ou ações"
+    },
+    "importantStatements": "Declarações ou Citações Importantes",
+    "opinionsAndAnalyses": "Opiniões ou Análises especializadas",
+    "conclusions": "Conclusões ou Resultados do artigo",
+    "sourceIdentification": "Fontes de Informação utilizadas",
+    "linksToIssues": "Ligações com Questões Maiores ou Tendências",
+    "visuals": "Fotos ou Gráficos significativos que acompanham o artigo",
+    "relatedTopics": "Tópicos relacionados"
+  },
+
+  "bookmark": {
+    "btnTooltipHoverLoggedOut": "Faça Login para salvar artigos",
+    "btnTooltipHoverLoggedIn": "Artigo salvo",
+    "btnTooltipHoverDelete": "Remover dos salvos",
+    "altIconBookmarkInactive": "Imagem do ícone do botão salvar inativo",
+    "altIconTrash": "Imagem do ícone da lixeira",
+    "altIconBookmarkActive": "Imagem do ícone do botão salvar ativo",
+    "altIconBookmarkHover": "Imagem do ícone do botão salvar sobreposto"
+  },
+
+  "default": {
+    "email": "E-mail",
+    "emailPlaceholder": "Insira seu e-mail",
+    "password": "Senha",
+    "passwordPlaceholder": "Insira sua senha",
+    "orText": "ou",
+    "closeIcon": "Ícone de fechamento da janela popup",
+    "saveButton": "Salvar",
+    "newsCardAltText": "Notícias sobre {title}: Mostrando {description}",
+    "clearFilters": "Redefinir Campos",
+    "iconArrow": "Ícone de seta para voltar ao topo da página"
+  },
+
+  "filterPanel": {
+    "applyFilters": "Aplicar filtros",
+    "from": "De:",
+    "to": "Até:",
+    "keywordLabel": "Palavra-chave:",
+    "languageLabel": "Idioma da notícia:",
+    "summaryLanguageLabel": "Idioma do resumo:",
+    "allOption": "Todos",
+    "sortByLabel": "Ordenar por:",
+    "newestOption": "Mais recentes",
+    "oldestOption": "Mais antigos",
+    "sourceLabel": "Fonte:",
+    "allSourcesOption": "Todas",
+    "noResultsFoundMessage": "Nenhum resultado encontrado"
+  },
+
+  "filterPanelDisplay": {
+    "sortBy": "Ordenar por",
+    "filter": "Filtrar",
+    "altFilterBtn": "Imagem do botão para aplicar filtros",
+    "clearFilteredArticles": "Remover filtro"
+  },
+
+  "footer": {
+    "copyrights": "2023, desenvolvido por Evandro M Oliveira",
+    "home": "Início",
+    "iconGithub": "Imagem com o ícone do Github",
+    "iconLinkedin": "Imagem com o ícone do Linkedin"
+  },
+
   "header": {
     "pictureAlt": "A imagem mostra um celular segurado por uma mão, com a tela voltada para cima. Exibe uma interface organizada com gráficos e informações relevantes."
+  },
+
+  "infoToolTip": {
+    "successMessage": "Cadastro concluído com sucesso!",
+    "errorMessage": "Ocorreu um erro durante o processo. Tente novamente.",
+    "loginErrorMessage": "Erro no login. Verifique seu e-mail/senha e tente novamente.",
+    "registerErrorMessage": "Erro no cadastro. Verifique suas informações e tente novamente.",
+    "signIn": "Entrar",
+    "retrySignUp": "Inscreva-se",
+    "retrySignIn": "Entrar",
+    "pictureAlt": "Imagem do ícone de fechamento da janela infotooltip"
   },
 
   "nav": {
@@ -14,49 +105,47 @@
     "darkThemeVector": "Vetor de imagem marcando a página artigos salvos"
   },
 
-  "searchNews": {
-    "title": "O que está acontecendo no mundo?",
-    "subtitle": "Encontre as últimas notícias sobre quaisquer temas e as salve em sua conta pessoal.",
-    "placeholder": "Insira o tema da pesquisa",
-    "btnSearch": "Pesquisar"
-  },
-
-  "preload": {
-    "errorTitle": "Nada encontrado",
-    "errorText": "Desculpe, mas nada corresponde aos seus termos de pesquisa.",
-    "spinner": "Procurando notícias...",
-    "pictureError": "Imagem de erro ao carregar as notícias",
-    "pictureSpinner": "Imagem giratória antes de carregar as notícias"
-  },
-
-  "about": {
-    "title": "Sobre o autor",
-    "textOne": "Evandro M Oliveira - Desenvolvedor Web Full-Stack em Node.js, Express e React. Avançando em Ciência de Dados e Design UI/UX.",
-    "textTwo": "Desenvolvi \"PesquiseNews\" do back-end ao front-end, hospedado na Google Cloud. Transformo visões em realidade digital.",
-    "pictureAlt": "Lâmpada representando ideias"
-  },
-
   "newCardList": {
     "title": "Procurar resultados",
     "btnShowMore": "Mostrar mais",
+    "altIconTrashClear": "Imagem do ícone da lixeira para limpar artigos pesquisados",
     "clearSearch": "Limpar resultados de '{query}' em '{lang}'"
   },
 
-  "bookmark": {
-    "btnTooltipHoverLoggedOut": "Faça Login para salvar artigos",
-    "btnTooltipHoverLoggedIn": "Artigo salvo",
-    "btnTooltipHoverDelete": "Remover dos salvos",
-    "altIconBookmarkInactive": "Imagem do ícone do botão salvar inativo",
-    "altIconTrash": "Imagem do ícone da lixeira",
-    "altIconBookmarkActive": "Imagem do ícone do botão salvar ativo",
-    "altIconBookmarkHover": "Imagem do ícone do botão salvar sobreposto"
+  "popupController": {
+    "logInTitle": "Entrar",
+    "signUpTitle": "Inscreva-se"
   },
 
-  "footer": {
-    "copyrights": "2023, desenvolvido por Evandro M Oliveira",
-    "home": "Início",
-    "iconGithub": "Imagem com o ícone do Github",
-    "iconLinkedin": "Imagem com o ícone do Linkedin"
+  "popupLogin": {
+    "btnSignIn": "Entrar",
+    "signUp": "Inscreva-se"
+  },
+
+  "popupRegister": {
+    "name": "Nome",
+    "namePlaceholder": "Insira seu nome de usuário",
+    "btnSignUp": "Inscrever",
+    "signIn": "Entrar"
+  },
+
+  "preload": {
+    "errorTitleSeachNews": "Nada encontrado",
+    "errorTitleExtractingNews": "📡 Lendo a notícia em {source}",
+    "errorTitleSummarizingNews": "🌐 Resumo em \"{lang}\"",
+    "errorTitleSavingNews": "📥 Salvar o resumo",
+    "errorTitleRateLimitExceeded": "Limite de resumos excedido",
+    "errorTextSeachNews": "Desculpe, mas nada corresponde aos seus termos de pesquisa",
+    "errorTextExtractingNews": "Não conseguimos obter o conteúdo da notícia. Por favor, tente novamente mais tarde",
+    "errorTextSummarizingNews": "Ops! Algo deu errado ao tentar resumir a notícia. Por favor, tente novamente mais tarde",
+    "errorTextSavingNews": "Houve um problema ao tentar salvar o resumo. Por favor, tente novamente mais tarde",
+    "errorTextRateLimitExceeded": "Você excedeu o número máximo de solicitações permitidas. Por favor, tente novamente mais tarde",
+    "headingSearchNews": "Procurando notícias...",
+    "headingExtractNews": "Lendo a notícia em ",
+    "headingSummaryNews": "Resumindo a notícia...",
+    "headingSavingNews": "Salvando o resumo...",
+    "pictureError": "Imagem de erro ao carregar as notícias",
+    "pictureSpinner": "Imagem giratória antes de carregar as notícias"
   },
 
   "savedNewsHeader": {
@@ -71,42 +160,11 @@
     "keywordsSummary": "{firstKeyword}, {secondKeyword} e mais {remainingCount} outras"
   },
 
-  "viewNewsHeader": {
-    "visitSourceLink": "Leia a notícia na íntegra em "
-  },
-
-  "popupController": {
-    "logInTitle": "Entrar",
-    "signUpTitle": "Inscreva-se"
-  },
-
-  "popupRegister": {
-    "name": "Nome",
-    "namePlaceholder": "Insira seu nome de usuário",
-    "btnSignUp": "Inscrever",
-    "signIn": "Entrar"
-  },
-
-  "popupLogin": {
-    "btnSignIn": "Entrar",
-    "signUp": "Inscreva-se"
-  },
-
-  "infoToolTip": {
-    "title": "Cadastro concluído com sucesso!",
-    "signIn": "Entrar",
-    "pictureAlt": "Imagem do ícone de fechamento da janela infotooltip"
-  },
-
-  "default": {
-    "email": "E-mail",
-    "emailPlaceholder": "Insira seu e-mail",
-    "password": "Senha",
-    "passwordPlaceholder": "Insira sua senha",
-    "orText": "ou",
-    "closeIcon": "Ícone de fechamento da janela popup",
-    "saveButton": "Salvar",
-    "newsCardAltText": "Notícias sobre {title}: Mostrando {description}"
+  "searchNews": {
+    "title": "O que está acontecendo no mundo?",
+    "subtitle": "Encontre as últimas notícias sobre quaisquer temas e as salve em sua conta pessoal.",
+    "placeholder": "Qual tema e local?",
+    "btnSearch": "Pesquisar"
   },
 
   "validation": {
@@ -120,5 +178,57 @@
     "namePattern": "O nome deve ter entre 2 e 200 caracteres",
     "searchMinLength": "Pesquisar com pelo menos 2 caracteres",
     "searchRequired": "O campo de pesquisa é requerido"
+  },
+
+  "viewNewsArticleOverview": {
+    "visitSourceLink": "Leia a notícia na íntegra em "
+  },
+
+  "viewNewsArticleOverviews": {
+    "articleInsightsWithAI": "Com inteligência artificial, sua notícia é uma aventura fascinante",
+    "partialLanguagesExplored": "Seus resumos capturam a essência da notícia",
+    "allLanguagesExplored": "A IA ajudou, mas a conquista linguística é toda sua. Você é Incrível!"
+  },
+
+  "viewNewsHeader": {
+    "readingArticle": "Visão Geral do Artigo",
+    "exploreArticleLoggedOut": "Entre para desbloquear análises detalhadas com IA",
+    "exploreArticle": "ao seu alcance nuances e análises desse artigo com IA",
+    "oneSummary": "você tem 1 resumo salvo com IA nesse artigo",
+    "multipleSummaries": "você tem {count} resumos salvos com IA nesse artigo",
+    "translatedLanguages": "Por idioma",
+    "and": "e",
+    "more": "mais 1 outro",
+    "others": "mais {count} outros",
+    "oneTranslation": "Resumo disponível em {language}",
+    "twoTranslations": "Resumos disponíveis em {firstLanguage} e {secondLanguage}",
+    "multipleTranslations": "Resumos disponíveis em {firstLanguage}, {secondLanguage} e {remainingCount}"
+  },
+
+  "viewNewsSummaries": {
+    "heading": "Resumos do Artigo",
+    "altIconTrash": "Imagem do ícone da lixeira para excluir resumos salvos",
+    "deleteSummaryText": "Remover dos salvos"
+  },
+
+  "viewNewsSummary": {
+    "lang": "Idioma",
+    "url": "Link da noticia",
+    "title": "Título",
+    "fiveWsAnd1H": {
+      "who": "Quem",
+      "what": "O que",
+      "when": "Quando",
+      "where": "Onde",
+      "why": "Por que",
+      "how": "Como"
+    },
+    "importantStatements": "Declarações Importantes",
+    "opinionsAndAnalyses": "Opiniões e Análises",
+    "conclusions": "Conclusões",
+    "sourceIdentification": "Identificação da Fonte",
+    "linksToIssues": "Ligações com Questões Maiores ou Tendências",
+    "visuals": "Fotos ou Gráficos",
+    "relatedTopics": "Tópicos Relacionados"
   }
 }

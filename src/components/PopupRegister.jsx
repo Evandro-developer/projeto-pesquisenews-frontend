@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { LangContext } from "../contexts/LanguageContext";
 import useFormWithValidation from "../hooks/useFormValidation";
 import { errorClasses } from "../helpers/errorClassHelpers";
+import NAV_PATHS from "../utils/navPaths";
 import Input from "./Input";
 import ButtonSubmit from "./ButtonSubmit";
 
@@ -15,7 +16,6 @@ function PopupRegister({
   handleClosePopup,
 }) {
   const { t } = useContext(LangContext);
-
   const navigate = useNavigate();
 
   const {
@@ -43,7 +43,7 @@ function PopupRegister({
 
   useEffect(() => {
     if (!isPopupOpen) {
-      resetForm;
+      resetForm();
     }
   }, [resetForm]);
 
@@ -109,7 +109,7 @@ function PopupRegister({
           onClick={() => {
             toggleForm();
             setIsToggledPopup(true);
-            navigate("/signin");
+            navigate(NAV_PATHS.SIGNIN);
           }}
         >
           {t("popupRegister.signIn")}

@@ -1,6 +1,6 @@
 .search-form__lang-dropdown {
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   background-color: transparent;
   border: none;
   color: #bcbcbf;
@@ -14,19 +14,22 @@
   transition: 0.3s ease-in-out;
 }
 
-.search-form__lang-dropdown:hover {
-  color: rgba(26, 27, 34, 0.5);
-}
-
 .search-form__lang-dropdown option {
-  font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
-  background-color: #bcbcbf;
+  background-color: rgba(26, 27, 34, 0.5);
   color: #ffffff;
 }
 
 @media (max-width: 768px) {
   .search-form__lang-dropdown {
+    font-size: 18px;
+    right: 168px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-form__lang-dropdown option {
+    /* font-size: 16px; */
     right: 168px;
   }
 }

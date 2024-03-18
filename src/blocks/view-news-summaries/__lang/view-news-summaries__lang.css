@@ -1,0 +1,16 @@
+.view-news-summaries__lang {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.view-news-summaries__lang.selected {
+  color: #1a1b22;
+  cursor: pointer;
+}
+
+.view-news-summaries__lang:hover {
+  transition: 0.3s ease-in-out;
+  color: #1a1b22;
+}

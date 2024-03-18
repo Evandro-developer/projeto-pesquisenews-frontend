@@ -55,10 +55,14 @@
 
 @import url(./blocks/new-card-list/new-card-list.css);
 @import url(./blocks/new-card-list/__container/new-card-list__container.css);
-@import url(./blocks/new-card-list/__content-heading/new-card-list__content-heading.css);
-@import url(./blocks/new-card-list/__clear-search/new-card-list__clear-search.css);
-@import url(./blocks/new-card-list/__heading/new-card-list__heading.css);
+@import url(./blocks/new-card-list/__main-container/new-card-list__main-container.css);
+@import url(./blocks/new-card-list/__main-heading/new-card-list__main-heading.css);
+@import url(./blocks/new-card-list/__main-clear-search-container/new-card-list__main-clear-search-container.css);
+@import url(./blocks/new-card-list/__clear-search-icon/new-card-list__clear-search-icon.css);
+@import url(./blocks/new-card-list/__main-clear-search/new-card-list__main-clear-search.css);
 @import url(./blocks/new-card-list/__item/new-card-list__item.css);
+
+@import url(./blocks/btn-scroll-top/btn-scroll-top.css);
 
 @import url(./blocks/btn-show-more/btn-show-more.css);
 @import url(./blocks/btn-show-more/btn-show-more__visible.css);
@@ -93,13 +97,18 @@
 @import url(./blocks/about/__text/about__text.css);
 
 @import url(./blocks/preload/preload.css);
+@import url(./blocks/preload/_theme/preload_theme_transparent.css);
 @import url(./blocks/preload/__content-error/preload__content-error.css);
+
 @import url(./blocks/preload/__error-img/preload__error-img.css);
 @import url(./blocks/preload/__heading-error/preload__heading-error.css);
 @import url(./blocks/preload/__text-error/preload__text-error.css);
 @import url(./blocks/preload/__content-spinner/preload__content-spinner.css);
 @import url(./blocks/preload/__spinner-img/preload__spinner-img.css);
-@import url(./blocks/preload/__heading-spinner/preload__heading-spinner.css);
+@import url(./blocks/preload/__circle-AI-img/preload__circle-AI-img.css);
+@import url(./blocks/preload/__heading-animation/preload__heading-animation.css);
+@import url(./blocks/preload/__source/preload__source.css);
+@import url(./blocks/preload/__text-analyticalSummaryParams/preload__text-analyticalSummaryParams.css);
 
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__container/footer__container.css);
@@ -139,7 +148,7 @@
 @import url(./blocks/infoToolTip/__closed/infoToolTip__closed.css);
 @import url(./blocks/infoToolTip/__container/infoToolTip__container.css);
 @import url(./blocks/infoToolTip/__heading/infoToolTip__heading.css);
-@import url(./blocks/infoToolTip/__signin-text/infoToolTip__signin-text.css);
+@import url(./blocks/infoToolTip/__signin_or_retry-text/infoToolTip__signin_or_retry-text.css);
 
 @import url(./blocks/btn-info-tooltip-closed/btn-info-tooltip-closed.css);
 
@@ -148,14 +157,40 @@
 
 @import url(./blocks/view-news-header/view-news-header.css);
 @import url(./blocks/view-news-header/__container/view-news-header__container.css);
-@import url(./blocks/view-news-header/__url-to-img-container/view-news-header__url-to-img-container.css);
-@import url(./blocks/view-news-header/__url-to-img/view-news-header__url-to-img.css);
-@import url(./blocks/view-news-header/__briefing/view-news-header__briefing.css);
-@import url(./blocks/view-news-header/__published-at/view-news-header__published-at.css);
-@import url(./blocks/view-news-header/__title/view-news-header__title.css);
-@import url(./blocks/view-news-header/__description/view-news-header__description.css);
-@import url(./blocks/view-news-header/__visit-source-link/view-news-header__visit-source-link.css);
-@import url(./blocks/view-news-header/__source/view-news-header__source.css);
+@import url(./blocks/view-news-header/__reading-article/view-news-header__reading-article.css);
+@import url(./blocks/view-news-header/__heading/view-news-header__heading.css);
+@import url(./blocks/view-news-header/__translated-languages/view-news-header__translated-languages.css);
+
+@import url(./blocks/view-news-summaries/view-news-summaries.css);
+@import url(./blocks/view-news-summaries/__container/view-news-summaries__container.css);
+@import url(./blocks/view-news-summaries/__lang/view-news-summaries__lang.css);
+@import url(./blocks/view-news-summaries/__lang-switch/view-news-summaries__lang-switch.css);
+@import url(./blocks/view-news-summaries/__title/view-news-summaries__title.css);
+@import url(./blocks/view-news-summaries/__delete-summary/view-news-summaries__delete-summary.css);
+@import url(./blocks/view-news-summaries/__delete-summary-icon/view-news-summaries__delete-summary-icon.css);
+@import url(./blocks/view-news-summaries/__delete-summary-text/view-news-summaries__delete-summary-text.css);
+
+@import url(./blocks/view-news-summary/view-news-summary.css);
+@import url(./blocks/view-news-summary/__heading/view-news-summary__heading.css);
+@import url(./blocks/view-news-summary/__container/view-news-summary__container.css);
+@import url(./blocks/view-news-summary/__param-text/view-news-summary__param-text.css);
+@import url(./blocks/view-news-summary/__key-text/view-news-summary__key-text.css);
+@import url(./blocks/view-news-summary/__value-text/view-news-summary__value-text.css);
+
+@import url(./blocks/view-news-article-overviews/view-news-article-overviews.css);
+@import url(./blocks/view-news-article-overviews/__container/view-news-article-overviews__container.css);
+@import url(./blocks/view-news-article-overviews/__heading/view-news-article-overviews__heading.css);
+@import url(./blocks/view-news-article-overviews/__lang-dropdown/view-news-article-overviews__lang-dropdown.css);
+
+@import url(./blocks/view-news-article-overview/view-news-article-overview.css);
+@import url(./blocks/view-news-article-overview/__url-to-img-container/view-news-article-overview__url-to-img-container.css);
+@import url(./blocks/view-news-article-overview/__url-to-img/view-news-article-overview__url-to-img.css);
+@import url(./blocks/view-news-article-overview/__briefing/view-news-article-overview__briefing.css);
+@import url(./blocks/view-news-article-overview/__published-at/view-news-article-overview__published-at.css);
+@import url(./blocks/view-news-article-overview/__title/view-news-article-overview__title.css);
+@import url(./blocks/view-news-article-overview/__description/view-news-article-overview__description.css);
+@import url(./blocks/view-news-article-overview/__visit-source-link/view-news-article-overview__visit-source-link.css);
+@import url(./blocks/view-news-article-overview/__source/view-news-article-overview__source.css);
 
 @import url(./blocks/img-popup/img-popup.css);
 @import url(./blocks/img-popup/__opened/img-popup__opened.css);
@@ -163,3 +198,25 @@
 @import url(./blocks/img-popup/__image/img-popup__image.css);
 @import url(./blocks/img-popup/__title-container/img-popup__title-container.css);
 @import url(./blocks/img-popup/__title/img-popup__title.css);
+
+@import url(./blocks/filter-panel/filter-panel.css);
+@import url(./blocks/filter-panel/__form/filter-panel__form.css);
+@import url(./blocks/filter-panel/__field/filter-panel__field.css);
+@import url(./blocks/filter-panel/__select/filter-panel__select.css);
+@import url(./blocks/filter-panel/__input/filter-panel__input.css);
+@import url(./blocks/filter-panel/__font/filter-panel__font.css);
+@import url(./blocks/filter-panel/__clear-filters/filter-panel__clear-filters.css);
+@import url(./blocks/filter-panel/__no-results/filter-panel__no-results.css);
+
+@import url(./blocks/btn-filter-panel/btn-filter-panel.css);
+
+@import url(./blocks/filter-panel-display/filter-panel-display.css);
+@import url(./blocks/filter-panel-display/__content/filter-panel-display__content.css);
+@import url(./blocks/filter-panel-display/__item/filter-panel-display__item.css);
+@import url(./blocks/filter-panel-display/__heading/filter-panel-display__heading.css);
+@import url(./blocks/filter-panel-display/__btn/filter-panel-display__btn.css);
+@import url(./blocks/filter-panel-display/__clear-filters/filter-panel-display__clear-filters.css);
+
+@import url(./blocks/ai-animation-circle/ai-animation-circle.css);
+
+@import url(./blocks/background/background.css);

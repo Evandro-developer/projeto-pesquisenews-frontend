@@ -1,6 +1,14 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useMemo,
+} from "react";
 import { localStorageManager } from "../helpers/localStorageHelpers";
+import EN from "../locales/en.json";
 import {
+  languages,
   i18nJsonMaps,
   getNestedTranslationValue,
 } from "../helpers/localesHelpers";
@@ -18,25 +26,37 @@ export const LangProvider = ({ children }) => {
     localStorageManager.saveCurrentLang(lang);
   }, [lang]);
 
-  // Seleciona o arquivo de tradução correto com base no idioma atual
-  // Selects the correct translation file based on the current language
-  const translations = i18nJsonMaps[lang] || EN;
-
-  // Função para traduzir chaves com base nos valores fornecidos
-  // Function to translate keys based on provided values
-  const t = (key, replacements = {}) => {
-    let value = getNestedTranslationValue(translations, key) || key;
-
-    // Substitui cada chave de substituição no texto traduzido
-    // Replaces each replacement key in the translated text
-    Object.keys(replacements).forEach((replacementKey) => {
-      const regex = new RegExp(`{${replacementKey}}`, "g");
-      value = value.replace(regex, replacements[replacementKey]);
-    });
-    return value;
+  // Function to generate language options
+  // Função para gerar opções de idioma
+  const allLangOptions = () => {
+    return languages.map((langOption) => (
+      <option key={langOption} value={langOption}>
+        {langOption.toUpperCase()}
+      </option>
+    ));
   };
 
-  const value = { t, lang, setLang };
+  // Memorizes the translation object based on the current language
+  // Memoriza o objeto de tradução com base no idioma atual
+  const translations = useMemo(() => i18nJsonMaps[lang] || EN, [lang]);
+
+  // Function to translate keys based on provided values
+  // Função para traduzir chaves com base nos valores fornecidos
+  const t = (key, replacements = {}) => {
+    let value = getNestedTranslationValue(translations, key) || key;
+    if (typeof value === "object" && value !== null) {
+      return value;
+    } else {
+      Object.keys(replacements).forEach((replacementKey) => {
+        const replacementValueStr = String(replacements[replacementKey]);
+        const regex = new RegExp(`{${replacementKey}}`, "g");
+        value = value.replace(regex, replacementValueStr);
+      });
+      return value;
+    }
+  };
+
+  const value = { t, lang, setLang, allLangOptions };
 
   return <LangContext.Provider value={value}>{children}</LangContext.Provider>;
 };

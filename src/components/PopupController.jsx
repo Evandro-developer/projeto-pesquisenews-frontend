@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { LangContext } from "../contexts/LanguageContext";
+import useRouteChecker from "../hooks/useRouteChecker";
 import PopupLogin from "./PopupLogin";
 import PopupRegister from "./PopupRegister";
 import PopupWithForm from "./PopupWithForm";
@@ -13,9 +14,10 @@ function PopupController({
   handleClosePopup,
 }) {
   const { t } = useContext(LangContext);
+  const { isSignupRoute } = useRouteChecker();
 
   const [isToggledPopup, setIsToggledPopup] = useState(
-    location.pathname === "/signup" ? false : true
+    isSignupRoute ? false : true
   );
   const [formType, setFormType] = useState("login");
 

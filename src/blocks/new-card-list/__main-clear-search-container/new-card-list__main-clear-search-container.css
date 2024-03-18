@@ -1,0 +1,22 @@
+.new-card-list__main-clear-search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0;
+  padding: 8px 0 28px;
+}
+
+@media (max-width: 768px) {
+  .new-card-list__main-clear-search-container {
+    font-size: 16px;
+    line-height: 20px;
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 414px) {
+  .new-card-list__main-clear-search-container {
+    max-width: 288px;
+    padding-bottom: 20px;
+  }
+}

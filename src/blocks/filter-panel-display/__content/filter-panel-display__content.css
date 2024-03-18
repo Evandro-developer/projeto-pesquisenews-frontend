@@ -1,0 +1,14 @@
+.filter-panel-display__content {
+  min-width: 288px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 648px) {
+  .filter-panel-display__content {
+    padding-left: 16px;
+  }
+}

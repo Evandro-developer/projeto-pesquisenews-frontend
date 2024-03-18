@@ -1,0 +1,38 @@
+.btn-filter-panel {
+  width: 100%;
+  height: 46px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+  background: #2f71e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 5px 15px 0px rgba(14, 26, 57, 0.2);
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    font-size 0.3s ease-in-out;
+  align-self: center;
+}
+
+.btn-filter-panel:hover {
+  background: #347eff;
+  box-shadow: 0px 5px 15px 0px rgba(14, 26, 57, 0.2);
+}
+
+.btn-popup-submit:focus {
+  outline: none;
+}
+
+.btn-filter-panel:active {
+  background: #2a65cc;
+  box-shadow: 0px 5px 15px 0px rgba(14, 26, 57, 0.2);
+}

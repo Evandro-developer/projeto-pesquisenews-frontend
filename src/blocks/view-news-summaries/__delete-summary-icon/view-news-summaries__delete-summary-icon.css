@@ -1,0 +1,20 @@
+.view-news-summaries__delete-summary-icon {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0 8px 0 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.view-news-summaries__delete-summary-icon:hover
+  + .view-news-summaries__delete-summary-text {
+  display: inline;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .view-news-summaries__delete-summary-text {
+    font-size: 16px;
+  }
+}

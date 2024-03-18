@@ -16,6 +16,7 @@ function Header({
   onSearch,
   searchLang,
   setSearchLang,
+  setSearchScrollY,
 }) {
   const { t } = useContext(LangContext);
 
@@ -34,6 +35,7 @@ function Header({
           onSearch={onSearch}
           searchLang={searchLang}
           setSearchLang={setSearchLang}
+          setSearchScrollY={setSearchScrollY}
         />
         <picture className="header__container-img">
           <source media="(max-width: 384px)" srcSet={bgimage_small} />

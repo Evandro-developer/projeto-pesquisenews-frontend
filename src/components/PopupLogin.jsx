@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { LangContext } from "../contexts/LanguageContext";
 import useFormWithValidation from "../hooks/useFormValidation";
 import { errorClasses } from "../helpers/errorClassHelpers";
+import NAV_PATHS from "../utils/navPaths";
 import Input from "./Input";
 import ButtonSubmit from "./ButtonSubmit";
 
@@ -15,7 +16,6 @@ function PopupLogin({
   handleClosePopup,
 }) {
   const { t } = useContext(LangContext);
-
   const navigate = useNavigate();
 
   const {
@@ -91,7 +91,7 @@ function PopupLogin({
           onClick={() => {
             toggleForm();
             setIsToggledPopup(false);
-            navigate("/signup");
+            navigate(NAV_PATHS.SIGNUP);
           }}
         >
           {t("popupLogin.signUp")}

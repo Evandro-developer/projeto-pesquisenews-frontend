@@ -2,7 +2,7 @@
   max-width: 268px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: last baseline;
   gap: 60px;
   margin: 0;
   padding: 0;

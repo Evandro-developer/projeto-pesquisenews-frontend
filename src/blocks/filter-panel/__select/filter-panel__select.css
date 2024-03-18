@@ -1,0 +1,25 @@
+.filter-panel__select {
+  width: 100%;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: transparent;
+  border: none;
+  color: rgba(26, 27, 34, 0.5);
+  outline: none;
+  transition: 0.3s ease-in-out;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.filter-panel__select:focus {
+  color: #1a1b22;
+}
+
+.filter-panel__select option {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 14px;
+  background-color: rgba(26, 27, 34, 0.5);
+  color: #ffffff;
+}

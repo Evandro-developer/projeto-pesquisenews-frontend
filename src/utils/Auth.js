@@ -11,25 +11,25 @@ class Auth {
     if (!res.ok) {
       const errorMessages = {
         "/signup": {
-          400: "Um dos campos foi preenchido incorretamente",
+          400: "One of the fields was filled out incorrectly",
         },
         "/signin": {
-          400: "Um ou mais campos não foram fornecidos",
-          401: "O usuário com o e-mail especificado não foi encontrado",
+          400: "One or more fields were not provided",
+          401: "The user with the specified email was not found",
         },
         "/users/me": {
-          400: "Token não fornecido ou fornecido em formato errado",
-          401: "O token fornecido é inválido",
+          400: "Token not provided or provided in the wrong format",
+          401: "The provided token is invalid",
         },
         default: {
-          200: "Requisição bem-sucedida",
-          201: "Recurso criado com sucesso",
-          400: "Requisição malformada",
-          401: "Não autorizado",
-          403: "Acesso proibido",
-          404: "Recurso não encontrado",
-          409: "Conflito",
-          500: "Erro interno do servidor",
+          200: "Request successful",
+          201: "Resource successfully created",
+          400: "Malformed request",
+          401: "Unauthorized",
+          403: "Access forbidden",
+          404: "Resource not found",
+          409: "Conflict",
+          500: "Internal server error",
         },
       };
 
@@ -70,11 +70,11 @@ class Auth {
       if (data && data.token) {
         localStorage.setItem("token", data.token);
       } else {
-        console.warn("Token não foi recebido após a tentativa de login.");
+        console.warn("Token was not received after login attempt.");
       }
       return data;
     } catch (error) {
-      console.error("Erro ao fazer login:", error);
+      console.error("Error while logging in:", error);
       throw error;
     }
   }

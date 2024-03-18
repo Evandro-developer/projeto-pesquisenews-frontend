@@ -12,7 +12,6 @@ function PopupWithForm({
   handleClosePopup,
 }) {
   const { t } = useContext(LangContext);
-
   useClosePopup(isPopupOpen, handleClosePopup, isClosing, "popup__opened");
 
   const handleSubmit = (e) => {

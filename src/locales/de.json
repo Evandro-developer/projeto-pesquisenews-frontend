@@ -1,6 +1,97 @@
 {
+  "about": {
+    "title": "Über den Autor",
+    "textOne": "Evandro M Oliveira - Full-Stack Webentwickler in Node.js, Express und React. Fortgeschritten in Data Science und UI/UX Design.",
+    "textTwo": "Ich habe \"AktuellErkunder\" von Backend bis Frontend entwickelt, gehostet auf Google Cloud. Ich verwandle Visionen in digitale Realität.",
+    "pictureAlt": "Glühbirne, die Ideen repräsentiert"
+  },
+
+  "analyticalSummaryParams": {
+    "author": "Autor des Artikels",
+    "title": "Artikeltitel",
+    "fiveWsAnd1H": {
+      "who": "Hauptpersonen, Gruppen oder Organisationen",
+      "what": "Details des Hauptereignisses oder -themas",
+      "when": "Relevantes Datum oder Zeitraum",
+      "where": "Geografischer Ort des Ereignisses oder Themas",
+      "why": "Grundlegende Gründe oder Ursachen",
+      "how": "Methode oder Prozess der Ereignisse oder Handlungen"
+    },
+    "importantStatements": "Wichtige Aussagen oder Zitate",
+    "opinionsAndAnalyses": "Expertenmeinungen oder -analysen",
+    "conclusions": "Schlussfolgerungen oder Ergebnisse des Artikels",
+    "sourceIdentification": "Verwendete Informationsquellen",
+    "linksToIssues": "Verbindungen zu größeren Problemen oder Trends",
+    "visuals": "Bedeutende Fotos oder Grafiken, die den Artikel begleiten",
+    "relatedTopics": "Verwandte Themen"
+  },
+
+  "bookmark": {
+    "btnTooltipHoverLoggedOut": "Melden Sie sich an, um Artikel zu speichern",
+    "btnTooltipHoverLoggedIn": "Artikel gespeichert",
+    "btnTooltipHoverDelete": "Aus Gespeichertem entfernen",
+    "altIconBookmarkInactive": "Bild des inaktiven Speicher-Icons",
+    "altIconTrash": "Bild des Papierkorb-Icons",
+    "altIconBookmarkActive": "Bild des aktiven Speicher-Icons",
+    "altIconBookmarkHover": "Bild des Speicher-Icons beim Überfahren"
+  },
+
+  "default": {
+    "email": "E-Mail",
+    "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "password": "Passwort",
+    "passwordPlaceholder": "Geben Sie Ihr Passwort ein",
+    "orText": "oder",
+    "closeIcon": "Symbol zum Schließen des Popup-Fensters",
+    "saveButton": "Speichern",
+    "newsCardAltText": "Nachricht über {title}: Bild zeigt {description}",
+    "clearFilters": "Felder zurücksetzen",
+    "iconArrow": "Pfeil-Symbol, um zum Seitenanfang zurückzukehren"
+  },
+
+  "filterPanel": {
+    "applyFilters": "Filter anwenden",
+    "from": "Von:",
+    "to": "Bis:",
+    "keywordLabel": "Schlüsselwort:",
+    "languageLabel": "Nachrichtensprache:",
+    "summaryLanguageLabel": "Zusammenfassungssprache:",
+    "allOption": "Alle",
+    "sortByLabel": "Sortieren nach:",
+    "newestOption": "Neueste",
+    "oldestOption": "Älteste",
+    "sourceLabel": "Quelle:",
+    "allSourcesOption": "Alle",
+    "noResultsFoundMessage": "Keine Ergebnisse gefunden"
+  },
+
+  "filterPanelDisplay": {
+    "sortBy": "Sortieren nach",
+    "filter": "Filtern",
+    "altFilterBtn": "Bild der Schaltfläche zum Anwenden von Filtern",
+    "clearFilteredArticles": "Filter entfernen"
+  },
+
+  "footer": {
+    "copyrights": "2023, entwickelt von Evandro M Oliveira",
+    "home": "Start",
+    "iconGithub": "Bild mit dem Github-Symbol",
+    "iconLinkedin": "Bild mit dem Linkedin-Symbol"
+  },
+
   "header": {
     "pictureAlt": "Das Bild zeigt ein Mobiltelefon, das von einer Hand gehalten wird, mit dem Bildschirm nach oben. Es zeigt eine organisierte Benutzeroberfläche mit Grafiken und relevanten Informationen."
+  },
+
+  "infoToolTip": {
+    "successMessage": "Registrierung erfolgreich abgeschlossen!",
+    "errorMessage": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "loginErrorMessage": "Anmeldefehler. Bitte E-Mail/Passwort überprüfen und erneut versuchen.",
+    "registerErrorMessage": "Registrierungsfehler. Bitte überprüfen Sie Ihre Angaben und versuchen Sie es erneut.",
+    "signIn": "Anmelden",
+    "retrySignUp": "Registrieren",
+    "retrySignIn": "Anmelden",
+    "pictureAlt": "Bild des Schließen-Symbols im Infotooltip-Fenster"
   },
 
   "nav": {
@@ -14,49 +105,47 @@
     "darkThemeVector": "Bildvektor zur Kennzeichnung der Seite Gespeicherte Artikel"
   },
 
-  "searchNews": {
-    "title": "Was passiert in der Welt?",
-    "subtitle": "Finden Sie die neuesten Nachrichten zu beliebigen Themen und speichern Sie sie in Ihrem persönlichen Konto.",
-    "placeholder": "Thema eingeben",
-    "btnSearch": "Suchen"
-  },
-
-  "preload": {
-    "errorTitle": "Nichts gefunden",
-    "errorText": "Es tut uns leid, aber nichts entspricht Ihren Suchbegriffen.",
-    "spinner": "Suche nach Nachrichten...",
-    "pictureError": "Fehlerbild, wenn Nachrichten nicht geladen werden können",
-    "pictureSpinner": "Drehendes Bild, bevor Nachrichten geladen werden"
-  },
-
-  "about": {
-    "title": "Über den Autor",
-    "textOne": "Evandro M Oliveira - Full-Stack Webentwickler in Node.js, Express und React. Fortgeschritten in Data Science und UI/UX Design.",
-    "textTwo": "Ich habe \"AktuellErkunder\" von Backend bis Frontend entwickelt, gehostet auf Google Cloud. Ich verwandle Visionen in digitale Realität.",
-    "pictureAlt": "Glühbirne, die Ideen repräsentiert"
-  },
-
   "newCardList": {
     "title": "Suchergebnisse",
     "btnShowMore": "Mehr anzeigen",
+    "altIconTrashClear": "Bild des Papierkorbsymbols zum Löschen gesuchter Artikel",
     "clearSearch": "Suchergebnisse für '{query}' in '{lang}' löschen"
   },
 
-  "bookmark": {
-    "btnTooltipHoverLoggedOut": "Melden Sie sich an, um Artikel zu speichern",
-    "btnTooltipHoverLoggedIn": "Artikel gespeichert",
-    "btnTooltipHoverDelete": "Aus Gespeichertem entfernen",
-    "altIconBookmarkInactive": "Bild des inaktiven Speicher-Icons",
-    "altIconTrash": "Bild des Papierkorb-Icons",
-    "altIconBookmarkActive": "Bild des aktiven Speicher-Icons",
-    "altIconBookmarkHover": "Bild des Speicher-Icons beim Überfahren"
+  "popupController": {
+    "logInTitle": "Anmelden",
+    "signUpTitle": "Registrieren"
   },
 
-  "footer": {
-    "copyrights": "2023, entwickelt von Evandro M Oliveira",
-    "home": "Start",
-    "iconGithub": "Bild mit dem Github-Symbol",
-    "iconLinkedin": "Bild mit dem Linkedin-Symbol"
+  "popupLogin": {
+    "btnSignIn": "Anmelden",
+    "signUp": "Registrieren"
+  },
+
+  "popupRegister": {
+    "name": "Name",
+    "namePlaceholder": "Geben Sie Ihren Benutzernamen ein",
+    "btnSignUp": "Registrieren",
+    "signIn": "Anmelden"
+  },
+
+  "preload": {
+    "errorTitleSeachNews": "Nichts gefunden",
+    "errorTitleExtractingNews": "📡 Lesen auf {source}",
+    "errorTitleSummarizingNews": "🌐 Zusammenfassung in \"{lang}\"",
+    "errorTitleSavingNews": "📥 Zusammenfassung speichern",
+    "errorTitleRateLimitExceeded": "Limit der Zusammenfassungen überschritten",
+    "errorTextSeachNews": "Leider entspricht nichts Ihren Suchbegriffen",
+    "errorTextExtractingNews": "Wir konnten den Inhalt der Nachricht nicht abrufen. Bitte versuchen Sie es später noch einmal",
+    "errorTextSummarizingNews": "Hoppla! Beim Versuch, die Nachricht zusammenzufassen, ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal",
+    "errorTextSavingNews": "Beim Versuch, die Zusammenfassung zu speichern, trat ein Problem auf. Bitte versuchen Sie es später noch einmal",
+    "errorTextRateLimitExceeded": "Sie haben die maximale Anzahl erlaubter Anfragen überschritten. Bitte versuchen Sie es später noch einmal",
+    "headingSearchNews": "Suche nach Nachrichten...",
+    "headingExtractNews": "Lese die Nachricht in ",
+    "headingSummaryNews": "Zusammenfassung der Nachricht...",
+    "headingSavingNews": "Speichern der Zusammenfassung...",
+    "pictureError": "Fehlerbild beim Laden der Nachrichten",
+    "pictureSpinner": "Drehendes Bild vor dem Laden der Nachrichten"
   },
 
   "savedNewsHeader": {
@@ -71,60 +160,11 @@
     "keywordsSummary": "{firstKeyword}, {secondKeyword} und {remainingCount} weitere"
   },
 
-  "viewNewsHeader": {
-    "visitSourceLink": "Lesen Sie den vollständigen Artikel auf "
-  },
-
-  "popupController": {
-    "logInTitle": "Anmelden",
-    "signUpTitle": "Registrieren"
-  },
-
-  "popupRegister": {
-    "name": "Name",
-    "namePlaceholder": "Geben Sie Ihren Benutzernamen ein",
-    "btnSignUp": "Registrieren",
-    "signIn": "Anmelden"
-  },
-
-  "popupLogin": {
-    "btnSignIn": "Anmelden",
-    "signUp": "Registrieren"
-  },
-
-  "infoToolTip": {
-    "title": "Registrierung erfolgreich abgeschlossen!",
-    "signIn": "Anmelden",
-    "pictureAlt": "Bild des Schließen-Symbols im Infotooltip-Fenster"
-  },
-
-  "default": {
-    "email": "E-Mail",
-    "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
-    "password": "Passwort",
-    "passwordPlaceholder": "Geben Sie Ihr Passwort ein",
-    "orText": "oder",
-    "closeIcon": "Symbol zum Schließen des Popup-Fensters",
-    "saveButton": "Speichern",
-    "newsCardAltText": "Nachricht über {title}: Bild zeigt {description}"
-  },
-
-  "register": {
-    "title": "Registrieren",
-    "submitAuth": "Registrieren",
-    "emailPlaceholder": "Bitte geben Sie Ihre E-Mail-Adresse zur Registrierung ein",
-    "passwordPlaceholder": "Bitte geben Sie Ihr Passwort zur Registrierung ein",
-    "btnAuth": "Registrieren",
-    "alreadyAMember": "Bereits registriert? Melden Sie sich an!"
-  },
-
-  "login": {
-    "title": "Anmelden",
-    "submitAuth": "Anmelden",
-    "emailPlaceholder": "Bitte geben Sie Ihre E-Mail-Adresse zur Anmeldung ein",
-    "passwordPlaceholder": "Bitte geben Sie Ihr Passwort zur Anmeldung ein",
-    "btnAuth": "Anmelden",
-    "notAMember": "Noch kein Mitglied? Hier registrieren!"
+  "searchNews": {
+    "title": "Was passiert in der Welt?",
+    "subtitle": "Finden Sie die neuesten Nachrichten zu beliebigen Themen und speichern Sie sie in Ihrem persönlichen Konto.",
+    "placeholder": "Welches Thema und Ort?",
+    "btnSearch": "Suchen"
   },
 
   "validation": {
@@ -138,5 +178,57 @@
     "namePattern": "Der Name sollte zwischen 2 und 200 Zeichen lang sein",
     "searchMinLength": "Mindestens 2 Zeichen eingeben",
     "searchRequired": "Das Suchfeld ist erforderlich"
+  },
+
+  "viewNewsArticleOverview": {
+    "visitSourceLink": "Lesen Sie den vollständigen Artikel auf "
+  },
+
+  "viewNewsArticleOverviews": {
+    "articleInsightsWithAI": "Mit künstlicher Intelligenz wird Ihre Nachricht zu einem faszinierenden Abenteuer",
+    "partialLanguagesExplored": "Ihre Resümees erfassen die Essenz der Nachricht",
+    "allLanguagesExplored": "KI hat geholfen, aber die sprachliche Leistung gehört ganz Ihnen. Sie sind unglaublich!"
+  },
+
+  "viewNewsHeader": {
+    "readingArticle": "Artikelübersicht",
+    "exploreArticleLoggedOut": "Melden Sie sich an, um detaillierte KI-Analysen freizuschalten",
+    "exploreArticle": "Nuancen und KI-Analysen dieses Artikels sofort verfügbar",
+    "oneSummary": "Sie haben 1 Resümee mit KI in diesem Artikel gespeichert",
+    "multipleSummaries": "Sie haben {count} Resümees mit KI in diesem Artikel gespeichert",
+    "translatedLanguages": "Nach Sprache",
+    "and": "und",
+    "more": "noch 1 weiteres",
+    "others": "noch {count} weitere",
+    "oneTranslation": "Kurzfassung verfügbar in {language}",
+    "twoTranslations": "Kurzfassungen verfügbar in {firstLanguage} und {secondLanguage}",
+    "multipleTranslations": "Kurzfassungen verfügbar in {firstLanguage}, {secondLanguage} und {remainingCount}"
+  },
+
+  "viewNewsSummaries": {
+    "heading": "Artikel-Übersichten",
+    "altIconTrash": "Bild des Papierkorbsymbols zum Löschen gespeicherter Zusammenfassungen",
+    "deleteSummaryText": "Aus den Gespeicherten entfernen"
+  },
+
+  "viewNewsSummary": {
+    "lang": "Sprache",
+    "url": "Nachrichtenlink",
+    "title": "Titel",
+    "fiveWsAnd1H": {
+      "who": "Wer",
+      "what": "Was",
+      "when": "Wann",
+      "where": "Wo",
+      "why": "Warum",
+      "how": "Wie"
+    },
+    "importantStatements": "Wichtige Aussagen",
+    "opinionsAndAnalyses": "Meinungen und Analysen",
+    "conclusions": "Schlussfolgerungen",
+    "sourceIdentification": "Quellenidentifikation",
+    "linksToIssues": "Verknüpfungen zu größeren Themen oder Trends",
+    "visuals": "Grafiken oder Abbildungen",
+    "relatedTopics": "Verwandte Themen"
   }
 }

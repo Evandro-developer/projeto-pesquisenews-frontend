@@ -1,0 +1,47 @@
+.filter-panel-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0 0 64px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 968px) {
+  .filter-panel-display {
+    padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 648px) {
+  .filter-panel-display {
+    padding-bottom: 24px;
+  }
+}
+
+.filter-panel-display__enter {
+  animation: fadeIn 0.2s ease-in-out forwards;
+}
+
+.filter-panel-display__exit {
+  animation: fadeOut 0.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

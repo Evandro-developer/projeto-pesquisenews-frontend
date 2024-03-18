@@ -1,6 +1,6 @@
 {
   "name": "projeto-pesquisenews-frontend",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "type": "module",
   "main": "index.js",
   "homepage": "https://pesquisenews.com.br",
@@ -47,7 +47,21 @@
     "Spanish",
     "French",
     "Italian",
-    "Portuguese"
+    "Portuguese",
+    "openai",
+    "chatgpt",
+    "chatgpt4",
+    "newsapi",
+    "AI",
+    "machine learning",
+    "natural language processing",
+    "deep learning",
+    "technology",
+    "artificial-intelligence",
+    "Data analysis and visualization",
+    "Version control with Git",
+    "Web application development",
+    "web scraping"
   ],
   "repository": {
     "type": "git",
@@ -58,6 +72,7 @@
   "license": "MIT",
   "dependencies": {
     "react": "^18.2.0",
+    "react-animate-height": "^3.2.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0"
   },
@@ -65,10 +80,13 @@
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.1.0",
+    "cssnano": "^6.0.2",
     "eslint": "^8.50.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "vite": "^4.4.5"
+    "postcss": "^8.4.32",
+    "vite": "^4.4.5",
+    "vite-plugin-compression": "^0.5.1"
   }
 }

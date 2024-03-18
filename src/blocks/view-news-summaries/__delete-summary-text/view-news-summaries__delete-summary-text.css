@@ -1,0 +1,14 @@
+.view-news-summaries__delete-summary-text {
+  font-family: "Roboto slab", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #1a1b2280;
+  cursor: default;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  display: hidden;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}

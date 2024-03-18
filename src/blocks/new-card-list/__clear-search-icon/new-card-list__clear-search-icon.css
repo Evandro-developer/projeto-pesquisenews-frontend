@@ -1,0 +1,18 @@
+.new-card-list__clear-search-icon {
+  width: 18px;
+  height: 18px;
+  margin: 0 10px 0 0;
+  padding: 0;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  align-self: center;
+}
+
+@media (max-width: 768px) {
+  .new-card-list__clear-search-icon {
+    margin-right: 8px;
+    align-self: baseline;
+    width: 16px;
+    height: 16px;
+  }
+}

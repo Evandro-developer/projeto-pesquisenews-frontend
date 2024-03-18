@@ -1,6 +1,97 @@
 {
+  "about": {
+    "title": "About the Author",
+    "textOne": "Evandro M Oliveira - Full-Stack Web Developer in Node.js, Express, and React. Advancing in Data Science and UI/UX Design.",
+    "textTwo": "I developed \"NewsExplorer\" from back-end to front-end, hosted on Google Cloud. I transform visions into digital reality.",
+    "pictureAlt": "Light bulb representing ideas"
+  },
+
+  "analyticalSummaryParams": {
+    "author": "Article's Author",
+    "title": "Article Title",
+    "fiveWsAnd1H": {
+      "who": "Main individuals, groups, or organizations involved",
+      "what": "Details of the main event or subject",
+      "when": "Relevant date or time period",
+      "where": "Geographic location of the event or subject",
+      "why": "Underlying reasons or causes",
+      "how": "Method or process of the events or actions"
+    },
+    "importantStatements": "Important Statements or Quotes",
+    "opinionsAndAnalyses": "Expert Opinions or Analyses",
+    "conclusions": "Article Conclusions or Findings",
+    "sourceIdentification": "Information Sources used",
+    "linksToIssues": "Links to Larger Issues or Trends",
+    "visuals": "Significant Photos or Graphics accompanying the article",
+    "relatedTopics": "Related Topics"
+  },
+
+  "bookmark": {
+    "btnTooltipHoverLoggedOut": "Log in to save articles",
+    "btnTooltipHoverLoggedIn": "Article saved",
+    "btnTooltipHoverDelete": "Remove from saved",
+    "altIconBookmarkInactive": "Image of the inactive save button icon",
+    "altIconTrash": "Image of the trash bin icon",
+    "altIconBookmarkActive": "Image of the active save button icon",
+    "altIconBookmarkHover": "Image of the save button icon when hovered over"
+  },
+
+  "default": {
+    "email": "E-mail",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "orText": "or",
+    "closeIcon": "Close window popup icon",
+    "saveButton": "Save",
+    "newsCardAltText": "News about {title}: Showing {description}",
+    "clearFilters": "Reset Fields",
+    "iconArrow": "Arrow icon to return to the top of the page"
+  },
+
+  "filterPanel": {
+    "applyFilters": "Apply Filters",
+    "from": "From:",
+    "to": "To:",
+    "keywordLabel": "Keyword:",
+    "languageLabel": "News language:",
+    "summaryLanguageLabel": "Summary language:",
+    "allOption": "All",
+    "sortByLabel": "Sort by:",
+    "newestOption": "Newest",
+    "oldestOption": "Oldest",
+    "sourceLabel": "Source:",
+    "allSourcesOption": "All",
+    "noResultsFoundMessage": "No results found"
+  },
+
+  "filterPanelDisplay": {
+    "sortBy": "Sort by",
+    "filter": "Filter",
+    "altFilterBtn": "Image of the button to apply filters",
+    "clearFilteredArticles": "Remove Filter"
+  },
+
+  "footer": {
+    "copyrights": "2023, developed by Evandro M Oliveira",
+    "home": "Home",
+    "iconGithub": "Image with the Github icon",
+    "iconLinkedin": "Image with the Linkedin icon"
+  },
+
   "header": {
     "pictureAlt": "The image shows a cell phone held by a hand, with the screen facing upwards. It displays an organized interface with graphs and relevant information."
+  },
+
+  "infoToolTip": {
+    "successMessage": "Registration Successfully Completed!",
+    "errorMessage": "An error occurred. Please try again.",
+    "loginErrorMessage": "Login error. Check your email/password and try again.",
+    "registerErrorMessage": "Registration error. Please check your information and try again.",
+    "signIn": "Sign in",
+    "retrySignUp": "Sign Up",
+    "retrySignIn": "Sign in",
+    "pictureAlt": "Image of the infotooltip window close icon"
   },
 
   "nav": {
@@ -14,49 +105,47 @@
     "darkThemeVector": "Image vector marking the Saved Articles page"
   },
 
-  "searchNews": {
-    "title": "What's going on in the world?",
-    "subtitle": "Find the latest news on any topics and save them in your personal account.",
-    "placeholder": "Enter the search topic",
-    "btnSearch": "Search"
-  },
-
-  "preload": {
-    "errorTitle": "Nothing Found",
-    "errorText": "Sorry, but nothing matches your search terms.",
-    "spinner": "Searching for news...",
-    "pictureError": "Error image when news fails to load",
-    "pictureSpinner": "Spinning image before news loads"
-  },
-
-  "about": {
-    "title": "About the Author",
-    "textOne": "Evandro M Oliveira - Full-Stack Web Developer in Node.js, Express, and React. Advancing in Data Science and UI/UX Design.",
-    "textTwo": "I developed \"NewsExplorer\" from back-end to front-end, hosted on Google Cloud. I transform visions into digital reality.",
-    "pictureAlt": "Light bulb representing ideas"
-  },
-
   "newCardList": {
     "title": "Search Results",
     "btnShowMore": "Show more",
+    "altIconTrashClear": "Trash can icon image to clear searched articles",
     "clearSearch": "Clear search results for '{query}' in '{lang}'"
   },
 
-  "bookmark": {
-    "btnTooltipHoverLoggedOut": "Log in to save articles",
-    "btnTooltipHoverLoggedIn": "Article saved",
-    "btnTooltipHoverDelete": "Remove from saved",
-    "altIconBookmarkInactive": "Image of the inactive save button icon",
-    "altIconTrash": "Image of the trash bin icon",
-    "altIconBookmarkActive": "Image of the active save button icon",
-    "altIconBookmarkHover": "Image of the save button icon when hovered over"
+  "popupController": {
+    "logInTitle": "Sign In",
+    "signUpTitle": "Sign Up"
   },
 
-  "footer": {
-    "copyrights": "2023, developed by Evandro M Oliveira",
-    "home": "Home",
-    "iconGithub": "Image with the Github icon",
-    "iconLinkedin": "Image with the Linkedin icon"
+  "popupLogin": {
+    "btnSignIn": "Sign In",
+    "signUp": "Sign Up"
+  },
+
+  "popupRegister": {
+    "name": "Name",
+    "namePlaceholder": "Enter your username",
+    "btnSignUp": "Sign Up",
+    "signIn": "Sign In"
+  },
+
+  "preload": {
+    "errorTitleSeachNews": "Nothing Found",
+    "errorTitleExtractingNews": "📡 Reading the news on {source}",
+    "errorTitleSummarizingNews": "🌐 Summary in  \"{lang}\"",
+    "errorTitleSavingNews": "📥 Save Summary",
+    "errorTitleRateLimitExceeded": "Summary limit exceeded",
+    "errorTextSeachNews": "Sorry, but nothing matches your search terms",
+    "errorTextExtractingNews": "We couldn't fetch the content of the news. Please try again later",
+    "errorTextSummarizingNews": "Oops! Something went wrong while trying to summarize the news. Please try again later",
+    "errorTextSavingNews": "There was a problem trying to save the summary. Please try again later",
+    "errorTextRateLimitExceeded": "You have exceeded the maximum number of allowed requests. Please try again later",
+    "headingSearchNews": "Searching for news...",
+    "headingExtractNews": "Reading the news in ",
+    "headingSummaryNews": "Summarizing the news...",
+    "headingSavingNews": "Saving the summary...",
+    "pictureError": "Error image while loading the news",
+    "pictureSpinner": "Spinning image before loading the news"
   },
 
   "savedNewsHeader": {
@@ -71,60 +160,11 @@
     "keywordsSummary": "{firstKeyword}, {secondKeyword} and {remainingCount} more"
   },
 
-  "viewNewsHeader": {
-    "visitSourceLink": "Read the full story at "
-  },
-
-  "popupController": {
-    "logInTitle": "Sign In",
-    "signUpTitle": "Sign Up"
-  },
-
-  "popupRegister": {
-    "name": "Name",
-    "namePlaceholder": "Enter your username",
-    "btnSignUp": "Sign Up",
-    "signIn": "Sign In"
-  },
-
-  "popupLogin": {
-    "btnSignIn": "Sign In",
-    "signUp": "Sign Up"
-  },
-
-  "infoToolTip": {
-    "title": "Registration Successfully Completed!",
-    "signIn": "Sign In",
-    "pictureAlt": "Image of the infotooltip window close icon"
-  },
-
-  "default": {
-    "email": "E-mail",
-    "emailPlaceholder": "Enter your email",
-    "password": "Password",
-    "passwordPlaceholder": "Enter your password",
-    "orText": "or",
-    "closeIcon": "Close window popup icon",
-    "saveButton": "Save",
-    "newsCardAltText": "News about {title}: Showing {description}"
-  },
-
-  "register": {
-    "title": "Sign Up",
-    "submitAuth": "Register",
-    "emailPlaceholder": "Please enter your email to register",
-    "passwordPlaceholder": "Please enter your password to register",
-    "btnAuth": "Register",
-    "alreadyAMember": "Already have an account? Log in!"
-  },
-
-  "login": {
-    "title": "Login",
-    "submitAuth": "Log in",
-    "emailPlaceholder": "Please enter your email to log in",
-    "passwordPlaceholder": "Please enter your password to log in",
-    "btnAuth": "Log in",
-    "notAMember": "Not a member yet? Sign up here!"
+  "searchNews": {
+    "title": "What's going on in the world?",
+    "subtitle": "Find the latest news on any topics and save them in your personal account.",
+    "placeholder": "What theme and location?",
+    "btnSearch": "Search"
   },
 
   "validation": {
@@ -138,5 +178,57 @@
     "namePattern": "Name should be between 2 and 200 characters",
     "searchMinLength": "Search with at least 2 characters",
     "searchRequired": "Search field is required"
+  },
+
+  "viewNewsArticleOverview": {
+    "visitSourceLink": "Read the full story at "
+  },
+
+  "viewNewsArticleOverviews": {
+    "articleInsightsWithAI": "With artificial intelligence, your news is a fascinating adventure",
+    "partialLanguagesExplored": "Your summaries capture the essence of the news",
+    "allLanguagesExplored": "AI helped, but the linguistic achievement is all yours. You're amazing!"
+  },
+
+  "viewNewsHeader": {
+    "readingArticle": "Article Overview",
+    "exploreArticleLoggedOut": "Log in to unlock detailed AI analyses",
+    "exploreArticle": "AI-driven nuances and analyses of this article at your fingertips",
+    "oneSummary": "You have 1 summary saved with AI in this article",
+    "multipleSummaries": "You have {count} summaries saved with AI in this article",
+    "translatedLanguages": "By language",
+    "and": "and",
+    "more": "1 more",
+    "others": "{count} more",
+    "oneTranslation": "Summary available in {language}",
+    "twoTranslations": "Summaries available in {firstLanguage} and {secondLanguage}",
+    "multipleTranslations": "Summaries available in {firstLanguage}, {secondLanguage} and {remainingCount}"
+  },
+
+  "viewNewsSummaries": {
+    "heading": "Article Summaries",
+    "altIconTrash": "Image of the trash can icon to delete saved summaries",
+    "deleteSummaryText": "Remove from Saved"
+  },
+
+  "viewNewsSummary": {
+    "lang": "Language",
+    "url": "News link",
+    "title": "Title",
+    "fiveWsAnd1H": {
+      "who": "Who",
+      "what": "What",
+      "when": "When",
+      "where": "Where",
+      "why": "Why",
+      "how": "How"
+    },
+    "importantStatements": "Important Statements",
+    "opinionsAndAnalyses": "Opinions and Analyses",
+    "conclusions": "Conclusions",
+    "sourceIdentification": "Source Identification",
+    "linksToIssues": "Links to Major Issues or Trends",
+    "visuals": "Images or Graphics",
+    "relatedTopics": "Related Topics"
   }
 }

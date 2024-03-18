@@ -1,137 +1,95 @@
-import { useContext } from "react";
-import { useLocation } from "react-router-dom";
-import { LangContext } from "../contexts/LanguageContext";
-import { localeOptions, getStateLangForKey } from "../helpers/localesHelpers";
+import React, { useContext, useMemo, useEffect } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext";
-import formatDate from "../utils/formatDate";
-import useBookmarkHover from "../hooks/useBookmarkHover";
-import useArticleSavedStatus from "../hooks/useArticleSavedStatus";
-import useBookmarkImage from "../hooks/useBookmarkImage";
-import useSaveArticleToAPI from "../hooks/useSaveArticleToAPI";
+import { LangContext } from "../contexts/LanguageContext";
+import { SelectedArticleContext } from "../contexts/SelectedArticleContext";
 
-function ViewNewsHeader({
-  onImageClick,
-  isLoggedIn,
-  savedArticles,
-  setSavedArticles,
-}) {
-  const location = useLocation();
+function ViewNewsHeader({ isLoggedIn }) {
+  const { selectedArticle } = useContext(SelectedArticleContext);
   const { t } = useContext(LangContext);
-  const { currentUser } = useContext(CurrentUserContext);
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
-  const {
-    keyword,
-    title,
-    description,
-    publishedAt,
-    source,
-    url,
-    urlToImage,
-    lang,
-  } = location.state;
-
-  const articleToSave = location.state;
-  const formattedPublishedAt = formatDate(publishedAt, lang, localeOptions);
-
-  const { isHovered, handleMouseEnter, handleMouseLeave } = useBookmarkHover();
-  const { isBookmarkActive, setIsBookmarkActive } = useArticleSavedStatus(
-    savedArticles,
-    url,
-    title
-  );
-  const bookmarkImageInfo = useBookmarkImage(isBookmarkActive, isHovered);
-  const saveArticleHookToAPI = useSaveArticleToAPI(
-    savedArticles,
-    setSavedArticles,
-    currentUser
-  );
-
-  const handleBookmarkClick = () => {
-    if (!isLoggedIn) return;
-    if (!isBookmarkActive) {
-      saveArticleHookToAPI(articleToSave);
-      setIsBookmarkActive(true);
+  useEffect(() => {
+    if (!isLoggedIn) {
+      setCurrentUser(null);
     }
-  };
+  }, [isLoggedIn, setCurrentUser]);
 
-  const openArticleUrl = () => {
-    window.open(url, "_blank");
-  };
+  const summaryCount = useMemo(() => {
+    return selectedArticle && selectedArticle.summaries
+      ? selectedArticle.summaries.length
+      : 0;
+  }, [selectedArticle]);
 
-  const handleImageClickOpen = () => {
-    onImageClick({ urlToImage, title });
-  };
+  const summaryMessage = useMemo(() => {
+    if (!isLoggedIn) {
+      return t("viewNewsHeader.exploreArticleLoggedOut");
+    }
 
-  // Obtém tradução localizada para o elemento, independente do contexto global de idioma.
-  // Retrieves localized translation for the element, independent of the global language context.
-  const visitSourceLink = getStateLangForKey(
-    "viewNewsHeader.visitSourceLink",
-    lang,
-    "en"
-  );
+    switch (summaryCount) {
+      case 0:
+        return t("viewNewsHeader.exploreArticle");
+      case 1:
+        return t("viewNewsHeader.oneSummary");
+      default:
+        return t("viewNewsHeader.multipleSummaries").replace(
+          "{count}",
+          summaryCount
+        );
+    }
+  }, [summaryCount, t, isLoggedIn]);
+
+  const languageCountMessage = useMemo(() => {
+    if (!selectedArticle || !selectedArticle.summaries) {
+      return "";
+    }
+
+    const languageCounts = selectedArticle.summaries.reduce((acc, summary) => {
+      acc[summary.lang] = (acc[summary.lang] || 0) + 1;
+      return acc;
+    }, {});
+
+    const languages = Object.keys(languageCounts).sort();
+    const totalLanguages = languages.length;
+
+    if (totalLanguages === 1) {
+      return t("viewNewsHeader.oneTranslation").replace(
+        "{language}",
+        languages[0].toUpperCase()
+      );
+    } else if (totalLanguages === 2) {
+      return t("viewNewsHeader.twoTranslations")
+        .replace("{firstLanguage}", languages[0].toUpperCase())
+        .replace("{secondLanguage}", languages[1].toUpperCase());
+    } else if (totalLanguages > 2) {
+      const remainingCount = totalLanguages - 2;
+      let othersLabel =
+        remainingCount === 1
+          ? t("viewNewsHeader.more")
+          : t("viewNewsHeader.others").replace("{count}", remainingCount);
+      return t("viewNewsHeader.multipleTranslations")
+        .replace("{firstLanguage}", languages[0].toUpperCase())
+        .replace("{secondLanguage}", languages[1].toUpperCase())
+        .replace("{remainingCount}", othersLabel);
+    } else {
+      return "";
+    }
+  }, [selectedArticle, t]);
 
   return (
     <section className="view-news-header">
       <div className="view-news-header__container">
-        <div className="view-news-header__url-to-img-container">
-          <p className="news-card__keyword">{keyword}</p>
-          <picture
-            className="btn-default"
-            onClick={handleBookmarkClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <img
-              className={`btn-default__container ${
-                isBookmarkActive ? "active" : ""
-              }`}
-              src={bookmarkImageInfo.src}
-              alt={bookmarkImageInfo.alt}
-            />
-          </picture>
-          {isHovered && (
-            <>
-              {!isLoggedIn && !isBookmarkActive && (
-                <p className="btn-tooltip-hover visible">
-                  {t("bookmark.btnTooltipHoverLoggedOut")}
-                </p>
-              )}
-              {isLoggedIn && isBookmarkActive && (
-                <p className="btn-tooltip-hover visible">
-                  {t("bookmark.btnTooltipHoverLoggedIn")}
-                </p>
-              )}
-            </>
-          )}
-          <img
-            className="view-news-header__url-to-img"
-            onClick={handleImageClickOpen}
-            src={urlToImage}
-            alt={t("default.newsCardAltText", {
-              title: title,
-              description: description,
-            })}
-          />
-        </div>
-        <div className="view-news-header__briefing">
-          <p className="view-news-header__published-at">
-            {formattedPublishedAt}
+        <p className="view-news-header__reading-article">
+          {t("viewNewsHeader.readingArticle")}
+        </p>
+        <h2 className="view-news-header__heading">
+          {isLoggedIn && currentUser?.name ? `${currentUser.name}, ` : ""}
+          {summaryMessage}
+        </h2>
+        {isLoggedIn && languageCountMessage && (
+          <p className="view-news-header__translated-languages">
+            {t("viewNewsHeader.translatedLanguages")}: {languageCountMessage}
           </p>
-          <h2 className="view-news-header__title" onClick={openArticleUrl}>
-            {title}
-          </h2>
-          <article className="view-news-header__description">
-            {description}{" "}
-            <span
-              className="view-news-header__visit-source-link"
-              onClick={openArticleUrl}
-            >
-              {visitSourceLink}
-              {source.toUpperCase()}.
-            </span>
-          </article>
-          <address className="view-news-header__source">{source}</address>
-        </div>
+        )}
       </div>
     </section>
   );

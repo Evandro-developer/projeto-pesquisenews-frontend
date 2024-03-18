@@ -1,13 +1,18 @@
 import { useContext, useEffect } from "react";
 import LanguageSelector from "./LanguageSelector";
+import { FilterContext } from "../contexts/FilterContext";
 import { LangContext } from "../contexts/LanguageContext";
 import useFormWithValidation from "../hooks/useFormValidation";
+import useRouteChecker from "../hooks/useRouteChecker";
 import { errorClasses } from "../helpers/errorClassHelpers";
 import Input from "./Input";
 import ButtonSubmit from "./ButtonSubmit";
 
-function SearchForm({ onSearch, searchLang, setSearchLang }) {
-  const { t, lang } = useContext(LangContext);
+function SearchForm({ onSearch, searchLang, setSearchLang, setSearchScrollY }) {
+  const { t, lang, allLangOptions } = useContext(LangContext);
+  const { onClearFilteredHomeArticles, setPersistFilters } =
+    useContext(FilterContext);
+  const { isHomePage } = useRouteChecker();
 
   const {
     values,
@@ -33,8 +38,19 @@ function SearchForm({ onSearch, searchLang, setSearchLang }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (onSearch) {
+    if (onSearch && isHomePage) {
+      // Only on the Home page: Deactivate filters persistence
+      // Apenas na página Home: Desativa a persistência dos filtros
+      setPersistFilters(false);
+      // Clear filters applied on the Home page
+      // Limpa os filtros aplicados na página Home
+      onClearFilteredHomeArticles();
+      // Execute the search function
+      // Executa a função de busca
       onSearch(values.query, searchLang);
+      // Trigger scroll to Preload component
+      // Disparar a rolagem até o componente Preload
+      setSearchScrollY(true);
     }
   };
 
@@ -63,6 +79,7 @@ function SearchForm({ onSearch, searchLang, setSearchLang }) {
             value={searchLang}
             onChange={(e) => setSearchLang(e.target.value)}
             className="search-form__lang-dropdown"
+            renderOptions={allLangOptions()}
           />
           <ButtonSubmit className="btn-search-form" isValid={isValid}>
             {t("searchNews.btnSearch")}

@@ -11,6 +11,8 @@
   border-radius: 50%;
   transition: none;
   animation: spin 0.75s infinite linear;
+  margin: 0 0 18px 0;
+  padding: 0;
 }
 
 @keyframes spin {

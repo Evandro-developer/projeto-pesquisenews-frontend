@@ -1,0 +1,15 @@
+.new-card-list__main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+@media (max-width: 648px) {
+  .new-card-list__main-container {
+    padding-left: 16px;
+  }
+}

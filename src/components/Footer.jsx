@@ -1,13 +1,15 @@
 import { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LangContext } from "../contexts/LanguageContext";
+import useRouteChecker from "../hooks/useRouteChecker";
+import NAV_PATHS from "../utils/navPaths";
 import iconGithub from "../images/icon_github.svg";
 import iconLinkedin from "../images/icon_linkedin.svg";
 
 function Footer() {
   const { t } = useContext(LangContext);
-  const location = useLocation();
-  const isNotMainRoute = location.pathname !== "/";
+  const { isMainRoute } = useRouteChecker();
+  const isNotMainRoute = !isMainRoute;
 
   return (
     <footer className="footer">
@@ -23,7 +25,7 @@ function Footer() {
           <ul className="footer__content">
             <li>
               <p className="footer__text">
-                <Link to="/" className="footer__link">
+                <Link to={NAV_PATHS.MAIN} className="footer__link">
                   {t("footer.home")}
                 </Link>
               </p>

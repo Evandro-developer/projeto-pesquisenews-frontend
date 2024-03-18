@@ -1,0 +1,19 @@
+.view-news-summaries__title {
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1a1b22;
+  margin: 0;
+  padding: 0 0 16px;
+  transition: 0.3s ease-in-out;
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .view-news-summaries__title {
+    font-size: 22px;
+    line-height: 24px;
+    padding-bottom: 16px;
+  }
+}

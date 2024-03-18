@@ -1,14 +1,16 @@
-import React from "react";
-import { languages } from "../helpers/localesHelpers";
-
-function LanguageSelector({ value, onChange, className }) {
+function LanguageSelector({
+  value,
+  onChange,
+  className,
+  renderOptions,
+  iconType,
+}) {
   return (
     <select value={value} onChange={onChange} className={className}>
-      {languages.map((langOption) => (
-        <option key={langOption} value={langOption}>
-          {langOption.toUpperCase()}
-        </option>
-      ))}
+      <option value="" aria-label="Select Language">
+        {iconType === "globe" ? "🌐" : "🌍"}
+      </option>
+      {typeof renderOptions === "function" ? renderOptions() : renderOptions}
     </select>
   );
 }

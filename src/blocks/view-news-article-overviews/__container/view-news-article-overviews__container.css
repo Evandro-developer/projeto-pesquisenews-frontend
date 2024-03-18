@@ -1,0 +1,29 @@
+.view-news-article-overviews__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0;
+  padding: 80px 104px;
+  /* gap: 24px; */
+}
+
+@media (max-width: 968px) {
+  .view-news-article-overviews__container {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 648px) {
+  .view-news-article-overviews__container {
+    padding: 40px 16px;
+  }
+}
+
+@media (max-width: 584px) {
+  .view-news-article-overviews__container {
+    padding: 32x 16px 24px;
+  }
+}

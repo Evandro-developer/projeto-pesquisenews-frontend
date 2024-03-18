@@ -1,26 +1,9 @@
 import { API_URL, getHeaders } from "./apiConfig";
+import { checkResponse } from "./checkResponse";
 
 class ApiService {
   constructor() {
     this._baseUrl = API_URL;
-  }
-
-  async _checkResponse(res) {
-    if (!res.ok) {
-      let errorMessage = `Error: ${res.statusText}`;
-
-      try {
-        const errorData = await res.json();
-
-        if (errorData && errorData.message) {
-          errorMessage += ` - ${errorData.message}`;
-        }
-      } catch (err) {
-        console.error("Erro ao analisar a resposta de erro:", err);
-      }
-      throw new Error(errorMessage);
-    }
-    return res.json();
   }
 
   async getUserInfo() {
@@ -29,9 +12,9 @@ class ApiService {
         method: "GET",
         headers: getHeaders(),
       });
-      return this._checkResponse(response);
+      return checkResponse(response);
     } catch (error) {
-      console.error("Erro ao buscar o usuário logado:", error);
+      console.error("Error while fetching the logged-in user:", error);
       throw error;
     }
   }
@@ -42,9 +25,9 @@ class ApiService {
         method: "GET",
         headers: getHeaders(),
       });
-      return this._checkResponse(response);
+      return checkResponse(response);
     } catch (error) {
-      console.error("Erro ao buscar artigos salvos:", error);
+      console.error("Error while fetching saved articles:", error);
       throw error;
     }
   }
@@ -56,9 +39,9 @@ class ApiService {
         headers: getHeaders(),
         body: JSON.stringify(article),
       });
-      return this._checkResponse(response);
+      return checkResponse(response);
     } catch (error) {
-      console.error("Erro ao criar o artigo:", error);
+      console.error("Error while creating the article:", error);
       throw error;
     }
   }
@@ -69,9 +52,9 @@ class ApiService {
         method: "DELETE",
         headers: getHeaders(),
       });
-      return this._checkResponse(response);
+      return checkResponse(response);
     } catch (error) {
-      console.error("Erro ao deletar o artigo:", error);
+      console.error("Error while deleting the article:", error);
       throw error;
     }
   }
@@ -83,9 +66,9 @@ class ApiService {
         headers: getHeaders(),
         body: JSON.stringify({ email, password, name }),
       });
-      return this._checkResponse(response);
+      return checkResponse(response);
     } catch (error) {
-      console.error("Erro ao realizar o cadastro:", error);
+      console.error("Error while performing the registration:", error);
       throw error;
     }
   }
@@ -98,16 +81,69 @@ class ApiService {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await this._checkResponse(response);
+      const data = await checkResponse(response);
 
       if (data.token) {
         localStorage.setItem("token", data.token);
       } else {
-        console.error("Token não encontrado na resposta.");
+        console.error("Token not found in the response.");
       }
       return data;
     } catch (error) {
-      console.error("Erro ao fazer login:", error);
+      console.error("Error while logging in:", error);
+      throw error;
+    }
+  }
+
+  async extractContent(url, lang, expireIn = 7, unit = "days") {
+    try {
+      const requestBody = { url, lang, expireIn, unit };
+
+      const response = await fetch(
+        `${this._baseUrl}/extract/extract-content-url`,
+        {
+          method: "POST",
+          headers: getHeaders(),
+          body: JSON.stringify(requestBody),
+        }
+      );
+
+      return checkResponse(response);
+    } catch (error) {
+      console.error("Error while extracting content:", error);
+      throw error;
+    }
+  }
+
+  async addSummaryToArticle(articleId, summary) {
+    try {
+      const response = await fetch(
+        `${this._baseUrl}/summary/articles/${articleId}`,
+        {
+          method: "PATCH",
+          headers: getHeaders(),
+          body: JSON.stringify({ summary }),
+        }
+      );
+      return checkResponse(response);
+    } catch (error) {
+      console.error("Error while adding summary to the article:", error);
+      throw error;
+    }
+  }
+
+  async deleteSummary(articleId, summaryId) {
+    try {
+      const response = await fetch(
+        `${this._baseUrl}/summary/articles/${articleId}/${summaryId}`,
+        {
+          method: "DELETE",
+          headers: getHeaders(),
+        }
+      );
+      return checkResponse(response);
+    } catch (error) {
+      console.error("Error while deleting summary:", error);
       throw error;
     }
   }

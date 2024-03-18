@@ -1,11 +1,10 @@
 .navigation__lang-dropdown_theme_dark {
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   background-color: transparent;
   border: none;
-  color: rgba(26, 27, 34, 0.5);
+  color: #bcbcbf;
   cursor: pointer;
-  align-self: last baseline;
   outline: none;
   margin: 0;
   padding: 0;
@@ -16,4 +15,10 @@
   background-color: rgba(26, 27, 34, 0.5);
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .navigation__lang-dropdown_theme_dark {
+    font-size: 16px;
+  }
 }

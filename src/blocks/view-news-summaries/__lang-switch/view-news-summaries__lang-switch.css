@@ -1,0 +1,15 @@
+.view-news-summaries__lang-switch {
+  font-size: 18px;
+  line-height: 22px;
+  color: #1a1b2280;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0 0 16px;
+}
+
+@media (max-width: 768px) {
+  .view-news-summaries__lang-switch {
+    padding-bottom: 12px;
+  }
+}

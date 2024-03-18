@@ -1,0 +1,23 @@
+.filter-panel {
+  position: absolute;
+  top: 56px;
+  left: 16px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  transition: 0.03s ease-in-out;
+  z-index: 2;
+}
+
+@media (max-width: 968px) {
+  .filter-panel {
+    top: 41px;
+  }
+}
+
+@media (max-width: 648px) {
+  .filter-panel {
+    top: 36px;
+    left: 16px;
+  }
+}

@@ -9,8 +9,9 @@
   padding: 0;
 }
 
-@media (max-width: 584px) {
+@media (max-width: 648px) {
   .navigation__content {
-    width: 288px;
+    width: 100%;
+    min-width: 288px;
   }
 }

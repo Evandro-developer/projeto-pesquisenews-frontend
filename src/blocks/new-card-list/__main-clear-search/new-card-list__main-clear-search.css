@@ -1,0 +1,22 @@
+.new-card-list__main-clear-search {
+  display: flex;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #1a1b2280;
+  text-decoration: none;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  transition: color 0.3s ease-in-out;
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .new-card-list__main-clear-search {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

@@ -14,12 +14,7 @@
   margin: 0 0 16px;
   padding: 0;
   cursor: default;
-  /* transition: color 0.3s ease-in-out; */
 }
-
-/* .news-card__description:hover {
-  color: rgba(26, 27, 34, 0.5);
-} */
 
 @media (max-width: 768px) {
   .news-card__description {

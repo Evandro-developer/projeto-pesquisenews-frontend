@@ -1,0 +1,13 @@
+.view-news-summary__heading {
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1a1b2280;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  font-style: normal;
+  margin: 0;
+  padding: 0 0 10px;
+  cursor: default;
+}

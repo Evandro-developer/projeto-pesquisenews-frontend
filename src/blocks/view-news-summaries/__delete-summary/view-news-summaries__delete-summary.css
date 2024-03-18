@@ -1,0 +1,15 @@
+.view-news-summaries__delete-summary {
+  max-width: 288px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 0;
+  padding: 16px 0 0;
+}
+
+@media (max-width: 584px) {
+  .view-news-summaries__delete-summary {
+    padding-top: 12px;
+  }
+}

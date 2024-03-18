@@ -1,0 +1,17 @@
+.filter-panel-display__heading {
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  color: #1a1b22;
+  cursor: default;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .filter-panel-display__heading {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

@@ -1,42 +1,95 @@
-import { useContext } from "react";
+import React, { useContext, forwardRef } from "react";
 import { LangContext } from "../contexts/LanguageContext";
-import imgSpinner from "../images/img_spinner.svg";
-import imgErrorSearchArticle from "../images/img_error_search_article.svg";
+import { useSummaryProcess } from "../contexts/SummaryProcessContext";
+import usePreloadContentAndJsx from "../hooks/usePreloadContentAndJsx";
+import useSummaryParamsList from "../hooks/useSummaryParamsList";
+import useSummaryAnimation from "../hooks/useSummaryAnimation";
+import useIsReqToCurrentArticle from "../hooks/useIsReqToCurrentArticle";
+import useRouteChecker from "../hooks/useRouteChecker";
+import defaultSpinnerImage from "../images/img_spinner.svg";
+import AIAnimationCircle from "./AIAnimationCircle";
 
-function Preload({ isError }) {
-  const { t } = useContext(LangContext);
+const Preload = forwardRef(
+  ({ isError, source, preloadRef, errorLimiter }, ref) => {
+    const { t } = useContext(LangContext);
 
-  if (isError) {
+    const {
+      stageCompleted,
+      preloadSummaryStage,
+      isErrorSummary,
+      errorStage,
+      lastFailedReqUrl,
+      lastFailedReqLang,
+      lastFailedReqArticleId,
+    } = useSummaryProcess();
+    const isReqToCurrentArticle = useIsReqToCurrentArticle(
+      lastFailedReqUrl,
+      lastFailedReqArticleId
+    );
+    const summaryParamsList = useSummaryParamsList();
+    const currentParamIndex = useSummaryAnimation(
+      stageCompleted,
+      preloadSummaryStage,
+      errorLimiter,
+      summaryParamsList.length
+    );
+    const { message, errorContent } = usePreloadContentAndJsx({
+      source,
+      preloadSummaryStage,
+      isError,
+      isErrorSummary,
+      errorStage,
+      errorLimiter,
+      lastFailedReqLang,
+      isReqToCurrentArticle: isReqToCurrentArticle,
+    });
+    const { isViewNewsRoute } = useRouteChecker();
+
+    const contentSummaryParamsList = summaryParamsList[currentParamIndex] || "";
+    const imgSrc = defaultSpinnerImage;
+    const altText = t("preload.pictureSpinner");
+    const imgClass = "preload__spinner-img";
+    const contentClass = "preload__content-spinner";
+
+    const isSummarizing =
+      isViewNewsRoute && preloadSummaryStage === "summarizing";
+
+    let animationToShow = isSummarizing ? (
+      <AIAnimationCircle animate={true} completed={stageCompleted} />
+    ) : (
+      <picture>
+        <img className={imgClass} src={imgSrc} alt={altText} />
+      </picture>
+    );
+
+    let hasExceededRateLimit =
+      isErrorSummary && errorLimiter === "RATE_LIMIT_EXCEEDED";
+
+    let contentToShow =
+      isError || isErrorSummary || hasExceededRateLimit ? (
+        errorContent
+      ) : (
+        <>
+          {animationToShow}
+          <h3 className="preload__heading-animation">{message}</h3>
+          {isSummarizing && (
+            <p className="preload__text-analyticalSummaryParams">
+              {contentSummaryParamsList}
+            </p>
+          )}
+        </>
+      );
+
+    const preloadClassName = `preload ${
+      isViewNewsRoute ? "preload_theme_transparent" : ""
+    }`;
+
     return (
-      <section className="preload">
-        <div className="preload__content-error">
-          <picture>
-            <img
-              className="preload__error-img"
-              src={imgErrorSearchArticle}
-              alt={t("preload.pictureError")}
-            />
-          </picture>
-          <h2 className="preload__heading-error">{t("preload.errorTitle")}</h2>
-          <p className="preload__text-error">{t("preload.errorText")}</p>
-        </div>
+      <section className={preloadClassName} ref={preloadRef}>
+        <div className={contentClass}>{contentToShow}</div>
       </section>
     );
   }
-  return (
-    <section className="preload">
-      <div className="preload__content-spinner">
-        <picture>
-          <img
-            className="preload__spinner-img"
-            src={imgSpinner}
-            alt={t("preload.pictureSpinner")}
-          />
-        </picture>
-        <h3 className="preload__heading-spinner">{t("preload.spinner")}</h3>
-      </div>
-    </section>
-  );
-}
+);
 
 export default Preload;

@@ -12,6 +12,8 @@ function Main({
   query,
   setQuery,
   setNewsData,
+  searchScrollY,
+  setSearchScrollY,
 }) {
   return (
     <div>
@@ -28,6 +30,8 @@ function Main({
             query={query}
             setQuery={setQuery}
             setNewsData={setNewsData}
+            searchScrollY={searchScrollY}
+            setSearchScrollY={setSearchScrollY}
           />
         )
       )}

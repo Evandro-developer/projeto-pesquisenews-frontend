@@ -1,0 +1,16 @@
+.filter-panel__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #bcbcbf;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  color: #1a1b2280;
+  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+}
+
+.filter-panel__input:focus {
+  color: #1a1b22;
+  border-bottom: 1px solid rgba(26, 27, 34, 0.5);
+}

@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LanguageSelector from "./LanguageSelector";
 import { LangContext } from "../contexts/LanguageContext";
 import CurrentUserContext from "../contexts/CurrentUserContext";
+import useRouteChecker from "../hooks/useRouteChecker";
+import navThemeClassesHelpers from "../helpers/navThemeClassesHelpers";
+import NAV_PATHS from "../utils/navPaths";
 import vectorWhiteImg from "../images/vector_white.svg";
 import vectorDarkImg from "../images/vector_dark.svg";
-import navThemeClassesHelpers from "../helpers/navThemeClassesHelpers";
 
 function Navigation({
   isLoggedIn,
@@ -13,18 +15,16 @@ function Navigation({
   setIsPopupOpen,
   handleSignOut,
 }) {
-  const location = useLocation();
   const navigate = useNavigate();
-
-  const { t, lang, setLang } = useContext(LangContext);
+  const { t, lang, setLang, allLangOptions } = useContext(LangContext);
   const { currentUser } = useContext(CurrentUserContext);
+  const { isSigninRoute, isSignupRoute, isSavedNewsRoute, isHomePage } =
+    useRouteChecker();
 
   const [buttonLabel, setButtonLabel] = useState("Entrar");
   const [popupType, setPopupType] = useState("login");
-  const [navigatePath, setNavigatePath] = useState("/");
-  const [theme, setTheme] = useState(
-    location.pathname !== "/" ? "dark" : "light"
-  );
+  const [navigatePath, setNavigatePath] = useState(NAV_PATHS.MAIN);
+  const [theme, setTheme] = useState(!isHomePage ? "dark" : "light");
 
   const themeClasses = navThemeClassesHelpers(theme);
 
@@ -44,37 +44,29 @@ function Navigation({
   };
 
   useEffect(() => {
-    if (
-      location.pathname === "/" ||
-      location.pathname === "/signin" ||
-      location.pathname === "/signup"
-    ) {
-      setTheme("light");
-    } else {
-      setTheme("dark");
-    }
-  }, [location.pathname]);
+    isHomePage ? setTheme("light") : setTheme("dark");
+  }, [isHomePage]);
 
   useEffect(() => {
-    if (location.pathname === "/signup") {
+    if (isSignupRoute) {
       setButtonLabel(t("nav.signUp"));
       setPopupType("PopupRegister");
-      setNavigatePath("/signin");
+      setNavigatePath(NAV_PATHS.SIGNIN);
       setIsLoggedIn(false);
-    } else if (location.pathname === "/signin") {
+    } else if (isSigninRoute) {
       setButtonLabel(t("nav.signIn"));
       setPopupType("PopupLogin");
-      setNavigatePath("/");
+      setNavigatePath(NAV_PATHS.MAIN);
       setIsLoggedIn(false);
     }
-  }, [location.pathname, t]);
+  }, [isSignupRoute, isSigninRoute, t]);
 
   return (
     <section className="navigation">
       <nav className="navigation__container">
         <div className="navigation__branding">
           <h1 className={`navigation__title ${themeClasses.titleClass}`}>
-            <Link to="/" className="navigation__link">
+            <Link to={NAV_PATHS.MAIN} className="navigation__link">
               {t("nav.title")}
             </Link>
           </h1>
@@ -82,11 +74,12 @@ function Navigation({
             value={lang}
             onChange={handleLangChange}
             className={`navigation__lang-dropdown ${themeClasses.dropdownClass}`}
+            renderOptions={allLangOptions()}
           />
         </div>
         <ul className="navigation__content">
           <li className="navigation__home-container">
-            <Link to="/" className="navigation__link">
+            <Link to={NAV_PATHS.MAIN} className="navigation__link">
               <p
                 className={`navigation__home ${themeClasses.navigationHomeClass}`}
               >
@@ -109,25 +102,24 @@ function Navigation({
           {isLoggedIn && (
             <>
               <li className="navigation__saved-articles-container">
-                <Link to="/saved-news" className="navigation__link">
+                <Link to={NAV_PATHS.SAVED_NEWS} className="navigation__link">
                   <p
                     className={`navigation__saved-articles ${themeClasses.navigationSavedArticlesClass}`}
                   >
                     {t("nav.savedArticles")}
                   </p>
                 </Link>
-                {themeClasses.showVectorDark &&
-                  location.pathname === "/saved-news" && (
-                    <span className="navigation__saved-articles_active">
-                      <picture>
-                        <img
-                          className="navigation__saved-articles-vector"
-                          src={vectorDarkImg}
-                          alt={t("nav.darkThemeVector")}
-                        />
-                      </picture>
-                    </span>
-                  )}
+                {themeClasses.showVectorDark && isSavedNewsRoute && (
+                  <span className="navigation__saved-articles_active">
+                    <picture>
+                      <img
+                        className="navigation__saved-articles-vector"
+                        src={vectorDarkImg}
+                        alt={t("nav.darkThemeVector")}
+                      />
+                    </picture>
+                  </span>
+                )}
               </li>
 
               <li className="navigation__loggout-container">

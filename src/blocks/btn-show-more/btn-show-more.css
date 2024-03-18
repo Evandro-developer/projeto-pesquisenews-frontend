@@ -13,7 +13,7 @@
   border-radius: 100px;
   border: none;
   cursor: pointer;
-  margin: 0;
+  margin: 64px 0 0;
   padding: 0;
   align-self: center;
   transition: 0.3s ease-in-out;
@@ -24,9 +24,21 @@
   transition: 0.3s ease-in-out;
 }
 
+@media (max-width: 968px) {
+  .btn-show-more {
+    margin-top: 32px;
+  }
+}
+
 @media (max-width: 768px) {
   .btn-show-more {
     width: 240px;
     height: 56px;
+  }
+}
+
+@media (max-width: 648px) {
+  .btn-show-more {
+    margin-top: 24px;
   }
 }

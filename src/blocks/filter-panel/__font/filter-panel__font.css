@@ -1,0 +1,19 @@
+.filter-panel__font {
+  width: 100%;
+  font-family: "Roboto", Arial, sans-serif;
+  color: #1a1b2280;
+  font-size: 14px;
+  text-align: left;
+  font-weight: 400;
+  line-height: 18px;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filter-panel__font:focus {
+  color: #1a1b22;
+  outline: none;
+  border: none;
+}

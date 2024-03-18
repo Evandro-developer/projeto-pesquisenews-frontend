@@ -1,0 +1,23 @@
+.filter-panel-display__clear-filters {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #1a1b2280;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.filter-panel-display__clear-filters:hover {
+  color: #1a1b22;
+}
+
+@media (max-width: 768px) {
+  .filter-panel-display__clear-filters {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}

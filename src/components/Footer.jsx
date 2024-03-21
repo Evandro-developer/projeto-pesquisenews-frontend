@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "../hooks/useLang";
 import useRouteChecker from "../hooks/useRouteChecker";
 import NAV_PATHS from "../utils/navPaths";
 import iconGithub from "../images/icon_github.svg";
 import iconLinkedin from "../images/icon_linkedin.svg";
 
 function Footer() {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
   const { isMainRoute } = useRouteChecker();
   const isNotMainRoute = !isMainRoute;
 

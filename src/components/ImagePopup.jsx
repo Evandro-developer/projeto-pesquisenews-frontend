@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "../hooks/useLang";
 import useClosePopup from "../hooks/useClosePopupAndTooltip";
 import iconCloseSmall from "../images/icon_close_small.svg";
 import iconClose from "../images/icon_close.svg";
@@ -10,7 +9,7 @@ function ImagePopup({
   isClosing,
   setIsClosing,
 }) {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
 
   const startClosingAnimation = () => {
     setIsClosing(true);

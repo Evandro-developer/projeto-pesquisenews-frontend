@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "./useLang";
 
 import {
   emailRegex,
@@ -14,7 +13,7 @@ export const requiredFieldsConfig = {
 };
 
 export const useValidationConfig = () => {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
 
   return {
     email: {

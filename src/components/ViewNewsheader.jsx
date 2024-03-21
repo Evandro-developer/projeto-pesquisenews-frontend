@@ -1,12 +1,12 @@
-import React, { useContext, useMemo, useEffect } from "react";
-import CurrentUserContext from "../contexts/CurrentUserContext";
-import { LangContext } from "../contexts/LanguageContext";
-import { SelectedArticleContext } from "../contexts/SelectedArticleContext";
+import { useMemo, useEffect } from "react";
+import useCurrentUser from "../hooks/useCurrentUser";
+import useLang from "../hooks/useLang";
+import useSelectedArticle from "../hooks/useSelectedArticle";
 
 function ViewNewsHeader({ isLoggedIn }) {
-  const { selectedArticle } = useContext(SelectedArticleContext);
-  const { t } = useContext(LangContext);
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+  const { selectedArticle } = useSelectedArticle();
+  const { t } = useLang();
+  const { currentUser, setCurrentUser } = useCurrentUser();
 
   useEffect(() => {
     if (!isLoggedIn) {

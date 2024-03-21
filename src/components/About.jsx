@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "../hooks/useLang";
 
 function About() {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
   const lightBulb = "/images/light-bulb.png";
 
   return (

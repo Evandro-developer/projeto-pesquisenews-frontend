@@ -1,7 +1,6 @@
-import { useContext } from "react";
-import { LangContext } from "../contexts/LanguageContext";
-import { FilterContext } from "../contexts/FilterContext";
-import { SelectedArticleContext } from "../contexts/SelectedArticleContext";
+import useLang from "../hooks/useLang";
+import useFilter from "../hooks/useFilter";
+import useSelectedArticle from "../hooks/useSelectedArticle";
 import useRouteChecker from "../hooks/useRouteChecker";
 import useFilteredArticles from "../hooks/useFilteredArticles";
 import { useArticleDisplay } from "../hooks/useArticleDisplay";
@@ -22,10 +21,8 @@ function NewsCardList({
   searchScrollY,
   setSearchScrollY,
 }) {
-  const { t } = useContext(LangContext);
-  const { selectedArticle, setSelectedArticle } = useContext(
-    SelectedArticleContext
-  );
+  const { t } = useLang();
+  const { selectedArticle, setSelectedArticle } = useSelectedArticle();
   const {
     showFilterPanel,
     setShowFilterPanel,
@@ -35,8 +32,7 @@ function NewsCardList({
     handleApplyFilters,
     onClearFilteredHomeArticles,
     onClearFilteredSavedArticles,
-  } = useContext(FilterContext);
-
+  } = useFilter();
   const { isSavedNewsRoute, isHomePage } = useRouteChecker();
   const currentArticles = isHomePage
     ? newsData || filteredHomeArticles

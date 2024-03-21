@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "../hooks/useLang";
 import useCloseTooltip from "../hooks/useClosePopupAndTooltip";
 import useRouteChecker from "../hooks/useRouteChecker";
 import closedBtn from "../images/icon_close.svg";
@@ -12,7 +11,7 @@ function InfoToolTip({
   registerSuccess,
   handleCloseInfoToolTip,
 }) {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
   const { isSigninRoute, isSignupRoute } = useRouteChecker();
 
   useCloseTooltip(

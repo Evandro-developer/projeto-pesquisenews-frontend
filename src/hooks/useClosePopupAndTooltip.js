@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 
 function useClosePopupAndTooltip(
   isOpen,
@@ -6,17 +6,23 @@ function useClosePopupAndTooltip(
   isClosing,
   popupClassName
 ) {
-  const handleEscapeKey = (e) => {
-    if (e.key === "Escape" && isOpen && !isClosing) {
-      closeFunction();
-    }
-  };
+  const handleEscapeKey = useCallback(
+    (e) => {
+      if (e.key === "Escape" && isOpen && !isClosing) {
+        closeFunction();
+      }
+    },
+    [isOpen, isClosing, closeFunction]
+  );
 
-  const handleClickOutside = (e) => {
-    if (e.target.classList.contains(popupClassName) && !isClosing) {
-      closeFunction();
-    }
-  };
+  const handleClickOutside = useCallback(
+    (e) => {
+      if (e.target.classList.contains(popupClassName) && !isClosing) {
+        closeFunction();
+      }
+    },
+    [popupClassName, isClosing, closeFunction]
+  );
 
   useEffect(() => {
     if (isOpen) {
@@ -28,7 +34,7 @@ function useClosePopupAndTooltip(
       window.removeEventListener("keydown", handleEscapeKey);
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [isOpen, isClosing, handleClickOutside]);
+  }, [isOpen, isClosing, handleEscapeKey, handleClickOutside]);
 
   return null;
 }

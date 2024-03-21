@@ -1,10 +1,10 @@
-import { useContext, useMemo } from "react";
-import { LangContext } from "../contexts/LanguageContext";
-import CurrentUserContext from "../contexts/CurrentUserContext";
+import { useMemo } from "react";
+import useLang from "../hooks/useLang";
+import useCurrentUser from "../hooks/useCurrentUser";
 
 function SavedNewsHeader({ savedArticles }) {
-  const { t } = useContext(LangContext);
-  const { currentUser } = useContext(CurrentUserContext);
+  const { t } = useLang();
+  const { currentUser } = useCurrentUser();
 
   const displayKeywords = useMemo(() => {
     function formatKeywords(keywords) {

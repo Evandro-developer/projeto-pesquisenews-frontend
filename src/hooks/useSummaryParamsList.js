@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
-import { LangContext } from "../contexts/LanguageContext";
+import { useEffect, useState } from "react";
+import useLang from "./useLang";
 
 const useSummaryParamsList = () => {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
   const [summaryParamsList, setSummaryParamsList] = useState([]);
 
   useEffect(() => {

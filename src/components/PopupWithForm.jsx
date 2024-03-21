@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "../hooks/useLang";
 import useClosePopup from "../hooks/useClosePopupAndTooltip";
 import iconClose from "../images/icon_close.svg";
 import iconCloseSmall from "../images/icon_close_small.svg";
@@ -11,7 +10,7 @@ function PopupWithForm({
   isClosing,
   handleClosePopup,
 }) {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
   useClosePopup(isPopupOpen, handleClosePopup, isClosing, "popup__opened");
 
   const handleSubmit = (e) => {

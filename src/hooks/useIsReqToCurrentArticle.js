@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { SelectedArticleContext } from "../contexts/SelectedArticleContext";
+import useSelectedArticle from "./useSelectedArticle";
 
 const useIsReqToCurrentArticle = (lastFailedReqUrl, lastFailedReqArticleId) => {
-  const { selectedArticle } = useContext(SelectedArticleContext);
+  const { selectedArticle } = useSelectedArticle();
 
   return (
     selectedArticle &&

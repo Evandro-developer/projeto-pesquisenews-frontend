@@ -1,9 +1,9 @@
-import { useState, useEffect, useContext } from "react";
-import { SelectedArticleContext } from "../contexts/SelectedArticleContext";
+import { useState, useEffect } from "react";
+import useSelectedArticle from "./useSelectedArticle";
 import { languages } from "../helpers/localesHelpers";
 
 export const useSummariesArticle = () => {
-  const { selectedArticle } = useContext(SelectedArticleContext);
+  const { selectedArticle } = useSelectedArticle();
   const [newAvailableLangs, setNewAvailableLangs] = useState([]);
   const [someSummariesCompleted, setSomeSummariesCompleted] = useState(false);
   const [allSummariesCompleted, setAllSummariesCompleted] = useState(false);
@@ -34,7 +34,7 @@ export const useSummariesArticle = () => {
       setSomeSummariesCompleted(hasSomeSummaries(selectedArticle));
       setAllSummariesCompleted(hasAllSummaries(selectedArticle));
     }
-  }, [selectedArticle, languages]);
+  }, [selectedArticle]);
 
   return { newAvailableLangs, someSummariesCompleted, allSummariesCompleted };
 };

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 import useRouteChecker from "../hooks/useRouteChecker";
 
 import {

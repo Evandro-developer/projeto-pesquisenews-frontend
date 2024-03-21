@@ -1,23 +1,21 @@
-import { useState, useContext, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { LangContext } from "../contexts/LanguageContext";
-import { SelectedArticleContext } from "../contexts/SelectedArticleContext";
 import AppContextProvider from "../contexts/AppContextProvider";
+import useLang from "../hooks/useLang";
+import useSelectedArticle from "../hooks/useSelectedArticle";
+import { localStorageManager } from "../helpers/localStorageHelpers";
+import { handleAppFetchData } from "../helpers/apiArticleHelpers";
+import { handlersToAppHelpers } from "../helpers/handlersToAppHelpers";
 import AppRoutes from "./AppRoutes";
 import Footer from "./Footer";
 import PopupController from "./PopupController";
 import InfoToolTip from "./InfoToolTip";
 import Background from "./Background";
-import { localStorageManager } from "../helpers/localStorageHelpers";
-import { handleAppFetchData } from "../helpers/apiArticleHelpers";
-import { handlersToAppHelpers } from "../helpers/handlersToAppHelpers";
 
 function App() {
   const navigate = useNavigate();
-  const { lang } = useContext(LangContext);
-  const { selectedArticle, setSelectedArticle } = useContext(
-    SelectedArticleContext
-  );
+  const { lang } = useLang();
+  const { selectedArticle, setSelectedArticle } = useSelectedArticle();
   const preloadRef = useRef(null);
   const [currentUser, setCurrentUser] = useState(false);
   const [errorLimiter, setErrorLimiter] = useState(null);

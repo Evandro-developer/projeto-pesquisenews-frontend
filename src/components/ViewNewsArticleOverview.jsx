@@ -1,10 +1,9 @@
-import { useContext } from "react";
 import { useLocation } from "react-router-dom";
-import { LangContext } from "../contexts/LanguageContext";
-import { localeOptions, getStateLangForKey } from "../helpers/localesHelpers";
-import formatDate from "../utils/formatDate";
+import useLang from "../hooks/useLang";
 import useBookmarkHover from "../hooks/useBookmarkHover";
 import useBookmarkImage from "../hooks/useBookmarkImage";
+import { localeOptions, getStateLangForKey } from "../helpers/localesHelpers";
+import formatDate from "../utils/formatDate";
 
 function ViewNewsArticleOverview({
   onImageClick,
@@ -13,7 +12,7 @@ function ViewNewsArticleOverview({
   isBookmarkActive,
 }) {
   const location = useLocation();
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
   const {
     keyword,
     title,

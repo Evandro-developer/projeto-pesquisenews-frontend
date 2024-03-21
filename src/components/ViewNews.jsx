@@ -1,12 +1,12 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { SelectedArticleContext } from "../contexts/SelectedArticleContext";
-import { useSummaryProcess } from "../contexts/SummaryProcessContext";
+import useSelectedArticle from "../hooks/useSelectedArticle";
 import { useSummariesArticle } from "../hooks/useSummariesArticle";
+import useSummaryProcess from "../hooks/useSummaryProcess";
 import { languages } from "../helpers/localesHelpers";
 import NAV_PATHS from "../utils/navPaths";
 import Navigation from "./Navigation";
-import ViewNewsHeader from "./ViewNewsHeader";
+import ViewNewsHeader from "./ViewNewsheader";
 import ViewNewsArticleOverviews from "./ViewNewsArticleOverviews";
 import ViewNewsSummaries from "./ViewNewsSummaries";
 import ImagePopup from "./ImagePopup";
@@ -26,10 +26,7 @@ function ViewNews({
 }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { selectedArticle, setSelectedArticle } = useContext(
-    SelectedArticleContext
-  );
-
+  const { selectedArticle, setSelectedArticle } = useSelectedArticle();
   const {
     setPreloadSummaryStage,
     setProcessingSummaryLang,
@@ -65,16 +62,26 @@ function ViewNews({
       setErrorStage(null);
       setIsLoadingSummary(false);
     };
-  }, [selectedArticle]);
+  }, [
+    setPreloadSummaryStage,
+    setProcessingSummaryLang,
+    setIsErrorSummary,
+    setErrorStage,
+    setIsLoadingSummary,
+    selectedArticle,
+  ]);
+
+  const currentArticle = useMemo(() => {
+    return savedArticles.find((article) => article.url === url);
+  }, [savedArticles, url]);
 
   useEffect(() => {
-    const currentArticle = savedArticles.find((article) => article.url === url);
     if (currentArticle) {
       setSelectedArticle(currentArticle);
     } else {
       setSelectedArticle(articleData);
     }
-  }, [url, savedArticles, selectedArticle]);
+  }, [url, currentArticle, articleData, selectedArticle, setSelectedArticle]);
 
   useEffect(() => {
     if (!articleData) {
@@ -82,7 +89,7 @@ function ViewNews({
     } else {
       setSelectedArticle(articleData);
     }
-  }, [articleData, navigate]);
+  }, [articleData, navigate, setSelectedArticle]);
 
   if (!articleData) {
     return null;
@@ -103,7 +110,6 @@ function ViewNews({
           setIsPopupOpen={setIsPopupOpen}
           onLogout={onLogout}
           handleSignOut={handleSignOut}
-          savedArticles={savedArticles}
         />
         <ViewNewsHeader isLoggedIn={isLoggedIn} />
         <ViewNewsArticleOverviews
@@ -115,6 +121,7 @@ function ViewNews({
           someSummariesCompleted={someSummariesCompleted}
           allSummariesCompleted={allSummariesCompleted}
           preloadRef={preloadRef}
+          currentArticle={currentArticle}
         />
         {selectedImage && (
           <ImagePopup

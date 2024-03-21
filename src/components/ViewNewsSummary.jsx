@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "../hooks/useLang";
 import { getStateLangForKey } from "../helpers/localesHelpers";
 
 function ViewNewsSummary({ summary }) {
-  const { t, lang: globalLang } = useContext(LangContext);
+  const { t, lang: globalLang } = useLang();
 
   // Retrieves localized translation for the keys, independent of the global language context.
   // Obtém tradução localizada para as chaves, independente do contexto global de idioma.

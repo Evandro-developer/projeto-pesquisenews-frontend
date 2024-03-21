@@ -1,11 +1,7 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { LangContext } from "../contexts/LanguageContext";
-import { FilterContext } from "../contexts/FilterContext";
-import CurrentUserContext from "../contexts/CurrentUserContext";
-import { localeOptions } from "../helpers/localesHelpers";
-import NAV_PATHS from "../utils/navPaths";
-import formatDate from "../utils/formatDate";
+import useLang from "../hooks/useLang";
+import useFilter from "../hooks/useFilter";
+import useCurrentUser from "../hooks/useCurrentUser";
 import useRouteChecker from "../hooks/useRouteChecker";
 import useBookmarkHover from "../hooks/useBookmarkHover";
 import useFindArticleById from "../hooks/useFindArticleById";
@@ -13,6 +9,9 @@ import useArticleSavedStatus from "../hooks/useArticleSavedStatus";
 import useBookmarkImage from "../hooks/useBookmarkImage";
 import useSaveArticleToAPI from "../hooks/useSaveArticleToAPI";
 import useDeleteArticleFromAPI from "../hooks/useDeleteArticleFromAPI";
+import { localeOptions } from "../helpers/localesHelpers";
+import NAV_PATHS from "../utils/navPaths";
+import formatDate from "../utils/formatDate";
 
 function NewsCard({
   keyword,
@@ -30,13 +29,9 @@ function NewsCard({
   lastNewsCardRef,
 }) {
   const navigate = useNavigate();
-
-  const { t } = useContext(LangContext);
-  const { currentUser } = useContext(CurrentUserContext);
-  const { filteredSavedArticles, setFilteredSavedArticles } =
-    useContext(FilterContext);
-  const formattedPublishedAt = formatDate(publishedAt, lang, localeOptions);
-
+  const { t } = useLang();
+  const { currentUser } = useCurrentUser();
+  const { filteredSavedArticles, setFilteredSavedArticles } = useFilter();
   const { isSavedNewsRoute } = useRouteChecker();
   const { isHovered, handleMouseEnter, handleMouseLeave } = useBookmarkHover();
   const articleId = useFindArticleById(savedArticles, url);
@@ -97,6 +92,8 @@ function NewsCard({
       deleteArticleHookFromAPI(articleId);
     }
   };
+
+  const formattedPublishedAt = formatDate(publishedAt, lang, localeOptions);
 
   return (
     <ul className="news-card" onClick={onClick} ref={lastNewsCardRef || null}>

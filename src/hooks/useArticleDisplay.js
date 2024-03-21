@@ -1,5 +1,5 @@
-import { useState, useContext, useEffect, useMemo, useRef } from "react";
-import { FilterContext } from "../contexts/FilterContext";
+import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import useFilter from "./useFilter";
 import { localStorageManager } from "../helpers/localStorageHelpers";
 
 // Extracts a unique set of keywords from the articles, removing duplicates
@@ -22,7 +22,7 @@ export const useArticleDisplay = (
   searchdScrollY,
   setSearchdScrollY
 ) => {
-  const { setShowFilterPanel } = useContext(FilterContext);
+  const { setShowFilterPanel } = useFilter();
   const ITEMS_PER_PAGE = 3;
   const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE);
   const [firstArticleLang, setFirstArticleLang] = useState("");
@@ -38,7 +38,7 @@ export const useArticleDisplay = (
 
   useEffect(() => {
     setShowFilterPanel(false);
-  }, [isHomePage, isSavedNewsRoute]);
+  }, [isHomePage, isSavedNewsRoute, setShowFilterPanel]);
 
   useEffect(() => {
     const newsDataFromLocalStorage = localStorageManager.getNewsData();
@@ -66,7 +66,7 @@ export const useArticleDisplay = (
 
   // Function to determine which articles to render based on the current route.
   // Função para determinar quais artigos renderizar com base na rota atual.
-  const chooseArticlesToRender = () => {
+  const chooseArticlesToRender = useCallback(() => {
     if (isHomePage) {
       // Returns filtered articles for the home page, or all searched articles if there are no filters applied.
       // Retorna artigos filtrados para a página inicial, ou todos os artigos pesquisados se não houver filtros aplicados.
@@ -81,21 +81,20 @@ export const useArticleDisplay = (
     // Returns an empty array if there are no articles to render.
     // Retorna um array vazio se não houver artigos para renderizar.
     return [];
-  };
+  }, [
+    isHomePage,
+    isSavedNewsRoute,
+    filteredHomeArticles,
+    filteredSavedArticles,
+    newsData,
+    savedArticles,
+  ]);
 
   // Uses the useMemo hook to memorize the list of articles to be rendered. Reduces unnecessary re-renders and processing.
   // Utiliza o hook useMemo para memorizar a lista de artigos a ser renderizada. Reduz re-renderizações desnecessárias e processamento.
   const articlesToRender = useMemo(
     () => chooseArticlesToRender(),
-    [
-      isHomePage,
-      isSavedNewsRoute,
-      filteredHomeArticles,
-      filteredSavedArticles,
-      newsData,
-      savedArticles,
-      lastNewsCardRef,
-    ]
+    [chooseArticlesToRender]
   );
 
   useEffect(() => {
@@ -143,7 +142,7 @@ export const useArticleDisplay = (
     if (searchdScrollY) {
       setSearchdScrollY(false);
     }
-  }, [searchdScrollY]);
+  }, [searchdScrollY, setSearchdScrollY]);
 
   return {
     handleShowMore,

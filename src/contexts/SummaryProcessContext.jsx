@@ -1,13 +1,11 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import { handleGenerateSummary } from "../helpers/apiThirdPartyApiHelpers";
 import {
   handleCompleteSummaryProcess,
   handleDeleteSummaryWithStateUpdate,
 } from "../helpers/apiSummaryHelpers";
 
-const SummaryProcessContext = createContext();
-
-export const useSummaryProcess = () => useContext(SummaryProcessContext);
+export const SummaryProcessContext = createContext();
 
 export const SummaryProcessProvider = ({
   children,

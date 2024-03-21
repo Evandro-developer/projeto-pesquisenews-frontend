@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { LangContext } from "../contexts/LanguageContext";
+import { useState } from "react";
+import useLang from "../hooks/useLang";
 import useRouteChecker from "../hooks/useRouteChecker";
 import PopupLogin from "./PopupLogin";
 import PopupRegister from "./PopupRegister";
@@ -13,7 +13,7 @@ function PopupController({
   handleSignUp,
   handleClosePopup,
 }) {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
   const { isSignupRoute } = useRouteChecker();
 
   const [isToggledPopup, setIsToggledPopup] = useState(

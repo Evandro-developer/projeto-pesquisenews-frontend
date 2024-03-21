@@ -17,7 +17,7 @@ class ThirdPartyApiOpenAI {
       };
 
       const response = await fetch(
-        `${this._baseUrl}/summary-ai/generate-summary-ai`,
+        `${this._baseUrl}/summary-ai/generate-summary-ai1`,
         {
           method: "POST",
           headers: getHeaders(),

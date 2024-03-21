@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import { LangContext } from "../contexts/LanguageContext";
-import { FilterContext } from "../contexts/FilterContext";
+import { useEffect, useState } from "react";
+import useLang from "../hooks/useLang";
+import useFilter from "../hooks/useFilter";
 import useRouteChecker from "../hooks/useRouteChecker";
 import {
   extractAndSortLanguages,
@@ -28,8 +28,8 @@ const FilterPanel = ({ articles, articleKeywords }) => {
     handleApplyFilters,
     summaryLanguage,
     setSummaryLanguage,
-  } = useContext(FilterContext);
-  const { t } = useContext(LangContext);
+  } = useFilter();
+  const { t } = useLang();
   const { isSavedNewsRoute } = useRouteChecker();
   const [sortedData, setSortedData] = useState({
     languages: [],

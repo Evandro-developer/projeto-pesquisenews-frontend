@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LanguageSelector from "./LanguageSelector";
-import { LangContext } from "../contexts/LanguageContext";
-import CurrentUserContext from "../contexts/CurrentUserContext";
+import useLang from "../hooks/useLang";
+import useCurrentUser from "../hooks/useCurrentUser";
 import useRouteChecker from "../hooks/useRouteChecker";
 import navThemeClassesHelpers from "../helpers/navThemeClassesHelpers";
 import NAV_PATHS from "../utils/navPaths";
+import LanguageSelector from "./LanguageSelector";
 import vectorWhiteImg from "../images/vector_white.svg";
 import vectorDarkImg from "../images/vector_dark.svg";
 
@@ -16,12 +16,17 @@ function Navigation({
   handleSignOut,
 }) {
   const navigate = useNavigate();
-  const { t, lang, setLang, allLangOptions } = useContext(LangContext);
-  const { currentUser } = useContext(CurrentUserContext);
-  const { isSigninRoute, isSignupRoute, isSavedNewsRoute, isHomePage } =
-    useRouteChecker();
+  const { t, lang, setLang, allLangOptions } = useLang();
+  const { currentUser } = useCurrentUser();
+  const {
+    isSigninRoute,
+    isSignupRoute,
+    isSavedNewsRoute,
+    isHomePage,
+    isViewNewsRoute,
+  } = useRouteChecker();
 
-  const [buttonLabel, setButtonLabel] = useState("Entrar");
+  const [buttonLabel, setButtonLabel] = useState("");
   const [popupType, setPopupType] = useState("login");
   const [navigatePath, setNavigatePath] = useState(NAV_PATHS.MAIN);
   const [theme, setTheme] = useState(!isHomePage ? "dark" : "light");
@@ -34,12 +39,14 @@ function Navigation({
 
   const handleButtonClick = (evt) => {
     evt.preventDefault();
-
     if (popupType === "PopupRegister" || popupType === "PopupLogin") {
       setIsPopupOpen(true);
+
+      if (isViewNewsRoute && !isLoggedIn) {
+        navigate(NAV_PATHS.SIGNIN);
+      }
       return;
     }
-
     navigate(navigatePath);
   };
 
@@ -53,13 +60,20 @@ function Navigation({
       setPopupType("PopupRegister");
       setNavigatePath(NAV_PATHS.SIGNIN);
       setIsLoggedIn(false);
-    } else if (isSigninRoute) {
+    } else if (isSigninRoute || (isViewNewsRoute && !isLoggedIn)) {
       setButtonLabel(t("nav.signIn"));
       setPopupType("PopupLogin");
       setNavigatePath(NAV_PATHS.MAIN);
       setIsLoggedIn(false);
     }
-  }, [isSignupRoute, isSigninRoute, t]);
+  }, [
+    isSignupRoute,
+    isSigninRoute,
+    isViewNewsRoute,
+    t,
+    isLoggedIn,
+    setIsLoggedIn,
+  ]);
 
   return (
     <section className="navigation">

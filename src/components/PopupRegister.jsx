@@ -1,6 +1,6 @@
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "../hooks/useLang";
 import useFormWithValidation from "../hooks/useFormValidation";
 import { errorClasses } from "../helpers/errorClassHelpers";
 import NAV_PATHS from "../utils/navPaths";
@@ -15,9 +15,8 @@ function PopupRegister({
   handleSubmitPopup,
   handleClosePopup,
 }) {
-  const { t } = useContext(LangContext);
   const navigate = useNavigate();
-
+  const { t } = useLang();
   const {
     values,
     errors,
@@ -45,7 +44,7 @@ function PopupRegister({
     if (!isPopupOpen) {
       resetForm();
     }
-  }, [resetForm]);
+  }, [resetForm, isPopupOpen]);
 
   return (
     <>

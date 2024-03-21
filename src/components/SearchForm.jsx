@@ -1,17 +1,16 @@
-import { useContext, useEffect } from "react";
-import LanguageSelector from "./LanguageSelector";
-import { FilterContext } from "../contexts/FilterContext";
-import { LangContext } from "../contexts/LanguageContext";
+import { useEffect } from "react";
+import useFilter from "../hooks/useFilter";
+import useLang from "../hooks/useLang";
 import useFormWithValidation from "../hooks/useFormValidation";
 import useRouteChecker from "../hooks/useRouteChecker";
 import { errorClasses } from "../helpers/errorClassHelpers";
+import LanguageSelector from "./LanguageSelector";
 import Input from "./Input";
 import ButtonSubmit from "./ButtonSubmit";
 
 function SearchForm({ onSearch, searchLang, setSearchLang, setSearchScrollY }) {
-  const { t, lang, allLangOptions } = useContext(LangContext);
-  const { onClearFilteredHomeArticles, setPersistFilters } =
-    useContext(FilterContext);
+  const { t, lang, allLangOptions } = useLang();
+  const { onClearFilteredHomeArticles, setPersistFilters } = useFilter();
   const { isHomePage } = useRouteChecker();
 
   const {
@@ -56,7 +55,7 @@ function SearchForm({ onSearch, searchLang, setSearchLang, setSearchScrollY }) {
 
   useEffect(() => {
     setSearchLang(lang);
-  }, [lang]);
+  }, [lang, setSearchLang]);
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>

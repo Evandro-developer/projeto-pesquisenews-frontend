@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "../hooks/useLang";
 import Navigation from "./Navigation";
 import SearchForm from "./SearchForm";
 import bgimage_large from "../images/bgimage_large.png";
@@ -18,7 +17,7 @@ function Header({
   setSearchLang,
   setSearchScrollY,
 }) {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
 
   return (
     <header className="header">

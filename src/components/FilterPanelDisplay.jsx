@@ -1,7 +1,5 @@
-import React from "react";
-import { useContext } from "react";
 import AnimateHeight from "react-animate-height";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "../hooks/useLang";
 import useRouteChecker from "../hooks/useRouteChecker";
 import useCloseFilterPanel from "../hooks/useCloseFilterPanel";
 import FilterPanel from "./FilterPanel";
@@ -17,7 +15,7 @@ function FilterPanelDisplay({
   handleApplyFilters,
   clearFilteredArticles,
 }) {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
   const { isSavedNewsRoute } = useRouteChecker();
 
   const startClosingAnimation = () => {

@@ -1,19 +1,18 @@
-import React, { useContext, useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { useLocation } from "react-router-dom";
-import { LangContext } from "../contexts/LanguageContext";
-import { SelectedArticleContext } from "../contexts/SelectedArticleContext";
-import { useSummaryProcess } from "../contexts/SummaryProcessContext";
+import useLang from "../hooks/useLang";
+import useSelectedArticle from "../hooks/useSelectedArticle";
+import useSummaryProcess from "../hooks/useSummaryProcess";
+import { useScrollToTop } from "../hooks/useScrollToTop";
+import iconTrash from "../images/icon_trash.svg";
+import iconArrowScrollToTop from "../images/scroll_top.svg";
 import Preload from "./Preload";
 import ViewNewsSummary from "./ViewNewsSummary";
-import iconTrash from "../images/icon_trash.svg";
-import { useScrollToTop } from "../hooks/useScrollToTop";
-import iconArrowScrollToTop from "../images/scroll_top.svg";
 
 function ViewNewsSummaries({ errorLimiter, preloadRef, savedArticles }) {
-  const { t, lang: globalLang } = useContext(LangContext);
-  const { selectedArticle } = useContext(SelectedArticleContext);
   const location = useLocation();
-
+  const { t, lang: globalLang } = useLang();
+  const { selectedArticle } = useSelectedArticle();
   const {
     handleDeleteSummary,
     processingSummaryLang,
@@ -33,16 +32,19 @@ function ViewNewsSummaries({ errorLimiter, preloadRef, savedArticles }) {
     0
   );
 
-  const toggleView = (lang) => {
-    if (lang) {
-      setIsLoadingSummary(false);
-      setSelectedLang(lang);
-      setIsErrorSummary(false);
-    } else {
-      setIsLoadingSummary(true);
-      setSelectedLang(null);
-    }
-  };
+  const toggleView = useCallback(
+    (lang) => {
+      if (lang) {
+        setIsLoadingSummary(false);
+        setSelectedLang(lang);
+        setIsErrorSummary(false);
+      } else {
+        setIsLoadingSummary(true);
+        setSelectedLang(null);
+      }
+    },
+    [setIsLoadingSummary, setSelectedLang, setIsErrorSummary]
+  );
 
   useEffect(() => {
     const latestSummary =
@@ -103,11 +105,7 @@ function ViewNewsSummaries({ errorLimiter, preloadRef, savedArticles }) {
   const summarizedArticles = useMemo(() => {
     if (preloadOrError) {
       return (
-        <Preload
-          source={source}
-          preloadRef={preloadRef}
-          errorLimiter={errorLimiter}
-        />
+        <Preload source={source} ref={preloadRef} errorLimiter={errorLimiter} />
       );
     } else {
       return selectedArticle.summaries
@@ -137,8 +135,10 @@ function ViewNewsSummaries({ errorLimiter, preloadRef, savedArticles }) {
     selectedLang,
     source,
     preloadRef,
+    errorLimiter,
     t,
     handleDeleteSummary,
+    selectedArticle._id,
   ]);
 
   return (

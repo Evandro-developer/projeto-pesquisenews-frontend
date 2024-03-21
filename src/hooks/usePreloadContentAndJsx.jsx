@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { LangContext } from "../contexts/LanguageContext";
+import useLang from "./useLang";
 import useRouteChecker from "./useRouteChecker";
 import {
   determinePreloadMessage,
@@ -17,7 +16,7 @@ const usePreloadContentAndJsx = ({
   lastFailedReqLang,
   isReqToCurrentArticle,
 }) => {
-  const { t } = useContext(LangContext);
+  const { t } = useLang();
   const { isMainRoute, isViewNewsRoute } = useRouteChecker();
 
   const message = determinePreloadMessage({

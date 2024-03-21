@@ -1,5 +1,5 @@
-import { useContext, useEffect } from "react";
-import { FilterContext } from "../contexts/FilterContext";
+import { useEffect } from "react";
+import useFilter from "./useFilter";
 
 const useFilteredArticles = (isSavedNewsRoute) => {
   const {
@@ -8,7 +8,7 @@ const useFilteredArticles = (isSavedNewsRoute) => {
     filteredSavedArticles,
     setFilteredSavedArticles,
     persistFilters,
-  } = useContext(FilterContext);
+  } = useFilter();
 
   useEffect(() => {
     if (persistFilters) {

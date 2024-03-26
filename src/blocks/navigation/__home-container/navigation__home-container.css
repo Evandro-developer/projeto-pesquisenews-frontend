@@ -1,6 +1,6 @@
 .navigation__home-container {
-  width: 48px;
-  max-height: 24px;
+  max-width: 118px;
+  height: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;

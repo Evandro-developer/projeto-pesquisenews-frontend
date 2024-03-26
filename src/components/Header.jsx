@@ -10,8 +10,7 @@ function Header({
   setIsLoggedIn,
   isPopupOpen,
   setIsPopupOpen,
-  onLogout,
-  handleSignOut,
+  onSignOut,
   onSearch,
   searchLang,
   setSearchLang,
@@ -27,8 +26,7 @@ function Header({
           setIsLoggedIn={setIsLoggedIn}
           isPopupOpen={isPopupOpen}
           setIsPopupOpen={setIsPopupOpen}
-          onLogout={onLogout}
-          handleSignOut={handleSignOut}
+          onSignOut={onSignOut}
         />
         <SearchForm
           onSearch={onSearch}

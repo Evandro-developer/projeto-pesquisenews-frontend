@@ -20,9 +20,8 @@ function ViewNews({
   isClosing,
   setIsClosing,
   errorLimiter,
-  handleSignOut,
-  onLogout,
   preloadRef,
+  onSignOut,
 }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -72,7 +71,9 @@ function ViewNews({
   ]);
 
   const currentArticle = useMemo(() => {
-    return savedArticles.find((article) => article.url === url);
+    return Array.isArray(savedArticles)
+      ? savedArticles.find((article) => article.url === url)
+      : undefined;
   }, [savedArticles, url]);
 
   useEffect(() => {
@@ -108,12 +109,10 @@ function ViewNews({
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
           setIsPopupOpen={setIsPopupOpen}
-          onLogout={onLogout}
-          handleSignOut={handleSignOut}
+          onSignOut={onSignOut}
         />
         <ViewNewsHeader isLoggedIn={isLoggedIn} />
         <ViewNewsArticleOverviews
-          onImageClick={handleImageClick}
           isLoggedIn={isLoggedIn}
           savedArticles={savedArticles}
           setSavedArticles={setSavedArticles}
@@ -121,6 +120,7 @@ function ViewNews({
           someSummariesCompleted={someSummariesCompleted}
           allSummariesCompleted={allSummariesCompleted}
           preloadRef={preloadRef}
+          onImage={handleImageClick}
           currentArticle={currentArticle}
         />
         {selectedImage && (
@@ -128,7 +128,7 @@ function ViewNews({
             selectedImage={selectedImage}
             isClosing={isClosing}
             setIsClosing={setIsClosing}
-            onCloseImageClick={() => setSelectedImage(null)}
+            onClose={() => setSelectedImage(null)}
           />
         )}
 

@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 
 const useRouteChecker = () => {
   const location = useLocation();
-
   const routes = {
     isMainRoute: location.pathname === NAV_PATHS.MAIN,
     isSigninRoute: location.pathname === NAV_PATHS.SIGNIN,
@@ -14,7 +13,6 @@ const useRouteChecker = () => {
       location.pathname
     ),
   };
-
   return routes;
 };
 

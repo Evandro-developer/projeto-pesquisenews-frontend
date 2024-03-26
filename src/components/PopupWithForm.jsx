@@ -3,19 +3,13 @@ import useClosePopup from "../hooks/useClosePopupAndTooltip";
 import iconClose from "../images/icon_close.svg";
 import iconCloseSmall from "../images/icon_close_small.svg";
 
-function PopupWithForm({
-  children,
-  title,
-  isPopupOpen,
-  isClosing,
-  handleClosePopup,
-}) {
+function PopupWithForm({ children, title, isPopupOpen, isClosing, onClose }) {
   const { t } = useLang();
-  useClosePopup(isPopupOpen, handleClosePopup, isClosing, "popup__opened");
+  useClosePopup(isPopupOpen, onClose, isClosing, "popup__opened");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleClosePopup();
+    onClose();
   };
 
   return (
@@ -36,7 +30,8 @@ function PopupWithForm({
             src={iconClose}
             alt={t("default.closeIcon")}
             className="btn-popup-closed"
-            onClick={handleClosePopup}
+            onClick={onClose}
+            loading="lazy"
           />
         </picture>
         <h1 className="popup__heading">{title}</h1>

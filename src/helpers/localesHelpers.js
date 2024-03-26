@@ -44,12 +44,10 @@ const i18nJsonMaps = {
 const getNestedTranslationValue = (translations, key) => {
   const keys = key.split(".");
   let value = translations;
-
   for (let k of keys) {
     value = value[k];
     if (!value) break;
   }
-
   return value;
 };
 
@@ -58,7 +56,6 @@ const getNestedTranslationValue = (translations, key) => {
 const getStateLangForKey = (key, specificLang, defaultLang = "en", t) => {
   const translations = i18nJsonMaps[specificLang] || i18nJsonMaps[defaultLang];
   const nestedValue = getNestedTranslationValue(translations, key);
-
   return nestedValue || t(key);
 };
 

@@ -26,7 +26,7 @@ export const SummaryProcessProvider = ({
   const [preloadSummaryStage, setPreloadSummaryStage] = useState(null);
   const [stageCompleted, setStageCompleted] = useState(false);
 
-  const handleSummaryProcess = (url, lang, articleId) => {
+  const onSummary = (url, lang, articleId) => {
     setIsErrorSummary(false);
     setIsLoadingSummary(true);
     setSummaryScrollY(true);
@@ -48,14 +48,12 @@ export const SummaryProcessProvider = ({
       setErrorStage,
       setStageCompleted,
       setErrorLimiter,
-      // Success callback - called when summary processing completes successfully
-      // Callback de sucesso - chamado quando o processamento do resumo é concluído com sucesso
+      // Success callback
       () => {
         setIsErrorSummary(false);
         setIsLoadingSummary(false);
       },
-      // Error callback - called when an error occurs during summary processing
-      // Callback de erro - chamado quando ocorre um erro durante o processamento do resumo
+      // Error callback
       (stage) => {
         setIsErrorSummary(true);
         setIsLoadingSummary(false);
@@ -64,7 +62,7 @@ export const SummaryProcessProvider = ({
     );
   };
 
-  const handleDeleteSummary = (articleId, summaryId) => {
+  const onDeleteSummary = (articleId, summaryId) => {
     handleDeleteSummaryWithStateUpdate(
       articleId,
       summaryId,
@@ -96,8 +94,8 @@ export const SummaryProcessProvider = ({
         setPreloadSummaryStage,
         stageCompleted,
         setStageCompleted,
-        handleSummaryProcess,
-        handleDeleteSummary,
+        onSummary,
+        onDeleteSummary,
       }}
     >
       {children}

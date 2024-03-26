@@ -4,7 +4,6 @@ const removeItem = (key) => localStorage.removeItem(key);
 
 export const localStorageManager = {
   saveCurrentLang: (lang) => setItem("appLang", lang),
-  saveToken: (token) => setItem("token", token),
   saveUserName: (name) => setItem("name", name),
   saveUserEmail: (email) => setItem("userEmail", email),
   saveNewsData: (query, articles) =>
@@ -14,7 +13,6 @@ export const localStorageManager = {
     setItem("savedArticleFilters", JSON.stringify(filters)),
 
   getCurrentLang: () => getItem("appLang") || "en",
-  getToken: () => getItem("token"),
   getUserName: () => {
     return getItem("name");
   },
@@ -23,22 +21,21 @@ export const localStorageManager = {
     return parseData ? JSON.parse(parseData) : null;
   },
   getNewsFilters: () => {
-    const filters = getItem("newsFilters");
-    return filters ? JSON.parse(filters) : null;
+    const parseData = getItem("newsparseData");
+    return parseData ? JSON.parse(parseData) : null;
   },
   getSavedArticleFilters: () => {
-    const filters = getItem("savedArticleFilters");
-    return filters ? JSON.parse(filters) : null;
+    const parseData = getItem("savedArticleparseData");
+    return parseData ? JSON.parse(parseData) : null;
   },
 
   removeToken: () => removeItem("token"),
   removeUserEmail: () => removeItem("userEmail"),
-  removeNewsData: () => removeItem("newsData"),
   removeCurrentUser: () => {
-    removeItem("token");
     removeItem("userEmail");
     removeItem("name");
   },
+  removeNewsData: () => removeItem("newsData"),
   removeNewsFilters: () => removeItem("newsFilters"),
   removeSavedArticleFilters: () => removeItem("savedArticleFilters"),
 };

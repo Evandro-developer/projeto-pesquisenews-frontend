@@ -31,7 +31,7 @@ export const useArticleDisplay = (
 
   const lastNewsCardRef = useRef(null);
 
-  const handleShowMore = () => {
+  const onShowMore = () => {
     setVisibleItems((prevCount) => prevCount + ITEMS_PER_PAGE);
     setHasClickedShowMore(true);
   };
@@ -50,13 +50,12 @@ export const useArticleDisplay = (
       const extractedLang = newsDataFromLocalStorage.articles[0].lang;
       setFirstArticleLang(extractedLang);
     }
-
     savedArticles.length > 0
       ? setArticleKeywords(extractKeywords(savedArticles))
       : null;
   }, [newsData, savedArticles]);
 
-  const handleClearSearch = () => {
+  const onClearSearch = () => {
     localStorageManager.removeNewsData();
     localStorageManager.removeNewsFilters();
     setNewsData([]);
@@ -145,8 +144,8 @@ export const useArticleDisplay = (
   }, [searchdScrollY, setSearchdScrollY]);
 
   return {
-    handleShowMore,
-    handleClearSearch,
+    onShowMore,
+    onClearSearch,
     articlesToRender,
     visibleItems,
     firstArticleLang,

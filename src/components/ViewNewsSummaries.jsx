@@ -14,12 +14,12 @@ function ViewNewsSummaries({ errorLimiter, preloadRef, savedArticles }) {
   const { t, lang: globalLang } = useLang();
   const { selectedArticle } = useSelectedArticle();
   const {
-    handleDeleteSummary,
     processingSummaryLang,
     isLoadingSummary,
     setIsLoadingSummary,
     isErrorSummary,
     setIsErrorSummary,
+    onDeleteSummary,
   } = useSummaryProcess();
 
   const [selectedLang, setSelectedLang] = useState(null);
@@ -119,8 +119,9 @@ function ViewNewsSummaries({ errorLimiter, preloadRef, savedArticles }) {
                 alt={t("viewNewsSummaries.altIconTrash")}
                 className="view-news-summaries__delete-summary-icon"
                 onClick={() =>
-                  handleDeleteSummary(selectedArticle._id, summary._id)
+                  onDeleteSummary(selectedArticle._id, summary._id)
                 }
+                loading="lazy"
               />
               <span className="view-news-summaries__delete-summary-text">
                 {t("viewNewsSummaries.deleteSummaryText")}
@@ -137,7 +138,7 @@ function ViewNewsSummaries({ errorLimiter, preloadRef, savedArticles }) {
     preloadRef,
     errorLimiter,
     t,
-    handleDeleteSummary,
+    onDeleteSummary,
     selectedArticle._id,
   ]);
 
@@ -158,7 +159,11 @@ function ViewNewsSummaries({ errorLimiter, preloadRef, savedArticles }) {
         {summarizedArticles}
         {isScrollVisible && (
           <picture onClick={scrollToTop} className="btn-scroll-top">
-            <img src={iconArrowScrollToTop} alt={t("default.iconArrow")} />
+            <img
+              src={iconArrowScrollToTop}
+              alt={t("default.iconArrow")}
+              loading="lazy"
+            />
           </picture>
         )}
       </div>

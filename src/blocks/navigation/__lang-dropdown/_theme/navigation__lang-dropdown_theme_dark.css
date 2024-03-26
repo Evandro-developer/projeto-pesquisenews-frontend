@@ -11,10 +11,10 @@
 }
 
 .navigation__lang-dropdown_theme_dark option {
-  color: #ffffff;
-  background-color: rgba(26, 27, 34, 0.5);
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
+  color: #ffffff;
+  background-color: rgba(26, 27, 34, 0.5);
 }
 
 @media (max-width: 768px) {

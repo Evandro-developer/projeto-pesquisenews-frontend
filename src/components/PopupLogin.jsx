@@ -12,8 +12,8 @@ function PopupLogin({
   formType,
   toggleForm,
   setIsToggledPopup,
-  handleSubmitPopup,
-  handleClosePopup,
+  onSubmit,
+  onClose,
 }) {
   const navigate = useNavigate();
   const { t } = useLang();
@@ -32,8 +32,8 @@ function PopupLogin({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSubmitPopup(values);
-    handleClosePopup();
+    onSubmit(values);
+    onClose();
   };
 
   useEffect(() => {

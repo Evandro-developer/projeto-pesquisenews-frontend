@@ -9,20 +9,15 @@ function InfoToolTip({
   setIsPopupOpen,
   isClosing,
   registerSuccess,
-  handleCloseInfoToolTip,
+  onClose,
 }) {
   const { t } = useLang();
   const { isSigninRoute, isSignupRoute } = useRouteChecker();
 
-  useCloseTooltip(
-    isToolTipOpen,
-    handleCloseInfoToolTip,
-    isClosing,
-    "infoToolTip__opened"
-  );
+  useCloseTooltip(isToolTipOpen, onClose, isClosing, "infoToolTip__opened");
 
   const handleAction = () => {
-    handleCloseInfoToolTip();
+    onClose();
     setIsPopupOpen(true);
   };
 
@@ -75,10 +70,11 @@ function InfoToolTip({
           <source media="(max-width: 584px)" srcSet={closedBtnSmall} />
           <img
             aria-label="Close button"
-            onClick={handleCloseInfoToolTip}
+            onClick={onClose}
             className="btn-info-tooltip-closed"
             src={closedBtn}
             alt={t("infoToolTip.pictureAlt")}
+            loading="lazy"
           />
         </picture>
       </div>

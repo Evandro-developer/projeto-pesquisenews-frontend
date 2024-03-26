@@ -42,6 +42,7 @@ function FilterPanelDisplay({
               src={iconFilter}
               onClick={handleButtonClick}
               alt={t("filterPanelDisplay.altFilterBtn")}
+              loading="lazy"
             />
           </picture>
         </div>

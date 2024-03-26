@@ -8,7 +8,7 @@ import LanguageSelector from "./LanguageSelector";
 import Input from "./Input";
 import ButtonSubmit from "./ButtonSubmit";
 
-function SearchForm({ onSearch, searchLang, setSearchLang, setSearchScrollY }) {
+function SearchForm({ searchLang, setSearchLang, setSearchScrollY, onSearch }) {
   const { t, lang, allLangOptions } = useLang();
   const { onClearFilteredHomeArticles, setPersistFilters } = useFilter();
   const { isHomePage } = useRouteChecker();

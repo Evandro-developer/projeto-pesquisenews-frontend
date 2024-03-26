@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin/
+Sitemap: https://pesquisenews.com.br/sitemap.xml
+Sitemap: https://www.pesquisenews.com.br/sitemap.xml

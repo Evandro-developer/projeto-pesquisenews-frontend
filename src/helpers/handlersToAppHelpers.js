@@ -41,16 +41,14 @@ export const handlersToAppHelpers = ({
       query,
       searchLang,
       (articles) => {
-        // Callback onSearchSuccess, updates the 'newsData' state with the received articles.
-        // Callback onSearchSuccess, atualiza o estado 'newsData' com os artigos recebidos.
+        // Callback onSearchSuccess
         setIsError(false);
         setIsLoading(false);
         setNewsData(articles);
       },
 
       () => {
-        // Callback onSearchError, indicates that an error occurred during the search.
-        // Callback onSearchError, indica que ocorreu um erro durante a busca.
+        // Callback onSearchError
         setIsError(true);
         setIsLoading(false);
       }

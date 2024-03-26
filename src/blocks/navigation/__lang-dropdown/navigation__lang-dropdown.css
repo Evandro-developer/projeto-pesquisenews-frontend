@@ -1,6 +1,6 @@
 .navigation__lang-dropdown {
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   background-color: transparent;
   border: none;
   color: #bcbcbf;
@@ -19,6 +19,6 @@
 
 @media (max-width: 768px) {
   .navigation__lang-dropdown {
-    font-size: 18px;
+    font-size: 16px;
   }
 }

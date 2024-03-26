@@ -10,7 +10,7 @@ import LanguageSelector from "./LanguageSelector";
 import ViewNewsArticleOverview from "./ViewNewsArticleOverview";
 
 function ViewNewsArticleOverviews({
-  onImageClick,
+  onImage,
   isLoggedIn,
   savedArticles,
   setSavedArticles,
@@ -32,7 +32,7 @@ function ViewNewsArticleOverviews({
   const title = articleToSave.title;
   const url = articleToSave.url;
 
-  const { handleSummaryProcess } = useSummaryProcess();
+  const { onSummary } = useSummaryProcess();
   const { isBookmarkActive, setIsBookmarkActive } = useArticleSavedStatus(
     savedArticles,
     url,
@@ -61,14 +61,14 @@ function ViewNewsArticleOverviews({
   const processSummaryForSavedArticle = useCallback(async () => {
     setSelectedArticle(currentArticle);
     if (summaryReq) {
-      await handleSummaryProcess(url, summaryReqLang, currentArticle._id);
+      await onSummary(url, summaryReqLang, currentArticle._id);
       setSummaryReq(false);
       setSummaryReqLang("");
     }
   }, [
     setSelectedArticle,
     summaryReq,
-    handleSummaryProcess,
+    onSummary,
     url,
     summaryReqLang,
     setSummaryReq,
@@ -82,7 +82,7 @@ function ViewNewsArticleOverviews({
       if (summaryReq) {
         articleChecked = await handleBookmarkClick(articleChecked);
         if (articleChecked) {
-          await handleSummaryProcess(url, summaryReqLang, articleChecked._id);
+          await onSummary(url, summaryReqLang, articleChecked._id);
           setSummaryReq(false);
           setSummaryReqLang("");
         }
@@ -91,7 +91,7 @@ function ViewNewsArticleOverviews({
     [
       setSelectedArticle,
       summaryReq,
-      handleSummaryProcess,
+      onSummary,
       url,
       summaryReqLang,
       setSummaryReq,
@@ -159,7 +159,7 @@ function ViewNewsArticleOverviews({
       <div className="view-news-article-overviews__container">
         {isLoggedIn && renderHeading()}
         <ViewNewsArticleOverview
-          onImageClick={onImageClick}
+          onImage={onImage}
           isLoggedIn={isLoggedIn}
           handleBookmarkClick={handleBookmarkClick}
           isBookmarkActive={isBookmarkActive}

@@ -1,18 +1,14 @@
 ### [English Version](#pesquisenews-frontend-project)
 ---
-
 # Projeto PesquiseNews Frontend
-Este projeto é a parte frontend do aplicativo [PesquiseNews](https://pesquisenews.com.br), uma solução completa para buscar e gerenciar notícias em tempo real.
-
-## Explore o [PesquiseNews](https://pesquisenews.com.br)
-O [PesquiseNews](https://pesquisenews.com.br) é uma plataforma moderna, oferecendo acesso em tempo real a notícias de fontes confiáveis. Descubra detalhes sobre o frontend, incluindo suas funcionalidades e configurações avançadas que tornam a busca por notícias uma experiência dinâmica e interativa.
+Este projeto é a parte frontend do aplicativo [PesquiseNews](https://pesquisenews.com.br), uma solução completa para buscar e gerenciar notícias em tempo real com uso de IA.
 
 ## Design Pixel Perfeito: Precisão e Estética no [PesquiseNews](https://pesquisenews.com.br)
 Adotamos o **"Pixel Perfect Design"** para garantir que cada elemento da interface corresponda exatamente aos nossos padrões de design. Isso inclui fidelidade aos mockups e o uso de tecnologia de ponta para traduzir precisão visual em realidade digital. O resultado é uma experiência de usuário fluida e visualmente agradável.
 
 ## Suporte Multilíngue Avançado no [PesquiseNews](https://pesquisenews.com.br)
-- **Integração Inovadora com [NEWSAPI](https://newsapi.org)**: Sincronizamos as preferências de idioma dos usuários com as buscas de notícias, garantindo conteúdo relevante e acessível.
-- **Flexibilidade Global**: Capacidade de adicionar novos idiomas facilmente, sem alterações em componentes ou backend.
+- **Integração Inovadora da API [NEWSAPI](https://newsapi.org) com a API da [OpenAI](https://platform.openai.com/api-keys)**: Ampliamos as funcionalidades do [PesquiseNews](https://pesquisenews.com.br) com integração inovadora à [NEWSAPI](https://newsapi.org) e implementação de tecnologia de IA com [OpenAI](https://platform.openai.com/api-keys), para tradução e resumo de conteúdo, sincronizando as preferências de idioma dos usuários com as buscas de notícias.
+- **Flexibilidade Global**: Nosso sistema suporta a adição de novos idiomas de forma ágil, além de permitir a personalização de conteúdo através da criação de coleções de artigos salvos.
 - **Experiência de Usuário Aprimorada**: Acesso a notícias em várias línguas aumenta a acessibilidade e engajamento.
 
 ## Conectando Frontend e Backend no [PesquiseNews](https://pesquisenews.com.br)
@@ -35,11 +31,13 @@ Experiência do Usuário: Uma interface interativa e responsiva que facilita as 
 Experiência do Usuário: Permite que usuários logados acessem e gerenciem suas notícias favoritas, melhorando a personalização e a retenção do usuário.
 
 ### ViewNews
-- **Função**: Permite aos usuários visualizar detalhes de uma notícia específica, seja ela pesquisada ou salva.
+- **Função**: Permite aos usuários visualizar detalhes de uma notícia específica, seja ela pesquisada ou salva. Agora, com funcionalidades avançadas de IA, os usuários podem não apenas ler o conteúdo completo, mas também acessar resumos inteligentes em múltiplos idiomas.
 - **Componentes**:
-  - ViewNewsHeader: Exibe informações detalhadas como título, descrição e elementos essenciais, além do Link para artigo completo.
-  - ImagePopup: Permite visualização ampliada da imagem da notícia.
-Experiência do Usuário: Design intuitivo e informativo, com acesso direto às fontes de notícias.
+  - ViewNewsHeader: Exibe informações detalhadas, como título, descrição e elementos essenciais da notícia. Inclui um link para o artigo completo e opções para traduzir ou resumir o conteúdo.
+  - ViewNewsArticleOverviews: Mostra um resumo inicial do conteúdo da notícia, permitindo aos usuários terem uma compreensão rápida do tema abordado. Oferece aos usuários a capacidade de traduzir o artigo completo para diversos idiomas (DE, EN, ES, FR, IT, PT) e gerar um resumo conciso do conteúdo no idioma de preferência. Permite aos usuários clicar em imagens associadas ao artigo para uma visualização ampliada, através do componente ImagePopup.
+  - ViewNewsSummaries: Novo componente que apresenta resumos gerados por IA do conteúdo da notícia em diferentes idiomas selecionáveis pelo usuário
+  (DE, EN, ES, FR, IT, PT). Facilita a compreensão rápida do conteúdo para leitores multilíngues.
+ Experiência do Usuário: Oferece um design intuitivo e informativo, com acesso direto às fontes de notícias. Com a adição de tradução e resumo por IA, os usuários desfrutam de uma experiência de leitura personalizada e enriquecida, capaz de ultrapassar barreiras linguísticas e sintetizar conteúdos de forma inteligente.
 
 ### SignIn e SignUp
 - **Função**: Autenticação e registro de usuários.
@@ -48,28 +46,24 @@ Experiência do Usuário: Projetadas para serem intuitivas e seguras, estas rota
 ### Descrição do Componente Navigation e Footer
 - **Presentes em todas as rotas**. O componente **Navigation** é vital para a experiência do usuário oferecendo controle sobre a navegação, gestão de idioma e autenticação. **Footer** é um componente funcional e estilizada, contendo links para navegação interna e externa, além de ícones de redes sociais.
 
-Neste aplicativo, as rotas são cuidadosamente projetadas para oferecer uma experiência de usuário intuitiva e engajante. Desde a página principal **Main**, onde as notícias são pesquisadas e visualizadas, passando pela **SavedNews**, que permite o gerenciamento de notícias favoritas, até **ViewNews**, que oferece uma imersão detalhada em cada notícia. Complementando a experiência, as rotas de **SignIn** e **SignUp** garantem um processo de autenticação fluido.
-
 ## Sumário:
 1. [Descrição do Projeto](#descrição-do-projeto)
 2. [Funcionalidades](#funcionalidades)
 3. [Suporte Multilíngue Avançado](#suporte-multilíngue-avançado-no-pesquisenews)
 4. [Validação em Tempo Real de Campos (UX)](#validação-em-tempo-real-de-campos-ux)
-5. [Suavidade na Abertura e Fechamento dos Popups (UX)](#suavidade-na-abertura-e-fechamento-dos-popups-ux)
-6. [Componentização do Código](#componentização-do-código)
-7. [Tecnologias Utilizadas](#tecnologias-utilizadas)
-8. [Responsividade (UX)](#responsividade-ux)
-9. [Estrutura de Pastas](#estrutura-de-pastas)
-10. [Instalação e Execução](#instalação-e-execução)
-11. [Configuração Automatizada dos Ambientes de Desenvolvimento e Produção (DX)](#configuração-automatizada-dos-ambientes-de-desenvolvimento-e-produção-dx)
-12. [Desenvolvido por](#desenvolvido-por)
-13. [Código-Fonte](#código-fonte)
-14. [Licença](#licença)
-15. [Agradecimentos](#agradecimentos)
+5. [Tecnologias Utilizadas](#tecnologias-utilizadas)
+6. [Responsividade (UX)](#responsividade-ux)
+7. [Estrutura de Pastas](#estrutura-de-pastas)
+8. [Instalação e Execução](#instalação-e-execução)
+9. [Configuração Automatizada dos Ambientes de Desenvolvimento e Produção (DX)](#configuração-automatizada-dos-ambientes-de-desenvolvimento-e-produção-dx)
+10. [Desenvolvido por](#desenvolvido-por)
+11. [Código-Fonte](#código-fonte)
+12. [Licença](#licença)
+13. [Agradecimentos](#agradecimentos)
 
 ## Novas Funcionalidades
 ### Resumos Multilíngues
-Agora, os usuários podem selecionar resumos de notícias em 6 idiomas diferentes, proporcionando uma experiência mais inclusiva e personalizada. Isso é possível graças à integração com a API OpenAI no backend.
+Agora, os usuários podem selecionar resumos de notícias em 6 idiomas diferentes, proporcionando uma experiência mais inclusiva e personalizada. Isso é possível graças à integração com a API [OpenAI](https://platform.openai.com/api-keys) no backend.
 
 ### Cache Avançado para Performance
 Melhoramos a navegação com um sistema de cache que reduz os tempos de espera. Conteúdos e resumos acessados anteriormente são carregados instantaneamente, graças ao armazenamento inteligente.
@@ -82,17 +76,20 @@ Usuários podem facilmente acessar e alternar entre idiomas para resumos de not�
 A experiência aprimorada já está disponível na interface do usuário, sem necessidade de configuração adicional. Desfrute de acesso instantâneo e multilíngue a notícias com tempos de carregamento reduzidos.
 
 ## Descrição do Projeto
-O frontend do [PesquiseNews](https://pesquisenews.com.br) é a interface do usuário que o permite pesquisar e visualizar notícias em tempo real. Ele se integra ao backend para fornecer uma experiência completa. Este frontend foi desenvolvido com tecnologias modernas para criar uma experiência de usuário agradável e intuitiva.
+O [PesquiseNews](https://pesquisenews.com.br) é uma plataforma moderna e inovadora, que agora revoluciona o acesso a notícias globais combinada com Inteligência Artificial. Nossa plataforma permite a busca, leitura e o resumo de notícias em vários idiomas, incluindo DE, EN, ES, FR, IT, e PT, oferecendo uma experiência de usuário dinâmica, interativa e personalizada.
 
 ## Funcionalidades
 - **Pesquisa de Notícias em Tempo Real**: Os usuários podem pesquisar notícias de fontes confiáveis usando palavras-chave.
 - **Visualização de Notícias**: Os resultados da pesquisa são exibidos de forma organizada para fácil leitura.
+- **Leitura e Resumo com IA**: Revolucionamos a maneira como as notícias são consumidas:
+  - Resumo Inteligente: Com a tecnologia de IA, os usuários podem obter resumos precisos dos artigos, facilitando a compreensão rápida do conteúdo em múltiplos idiomas (DE, EN, ES, FR, IT, PT).
+  - Personalização de Leitura: A tecnologia permite traduzir e resumir qualquer artigo para o idioma de preferência do usuário, garantindo uma experiência informativa personalizada e acessível globalmente.
+  - Gerenciamento de Artigos e Resumos: Além de salvar artigos em listas de favoritos, os usuários autenticados podem gerenciar resumos criados pela IA, organizando suas leituras preferidas de forma ainda mais eficaz.
 - **Gerenciamento de Artigos**: Os usuários autenticados podem salvar artigos em suas listas de favoritos.
 - **Autenticação de Usuários**: Os usuários podem se registrar e fazer login para acessar recursos adicionais.
 - **Proteção de Rotas**: Algumas funcionalidades são protegidas e só podem ser acessadas por usuários autenticados.
 - **Design Pixel Perfeito**: Precisão e Estética no [PesquiseNews](https://pesquisenews.com.br). No [PesquiseNews](https://pesquisenews.com.br), a fidelidade visual é primordial. Adotamos o **"Pixel Perfect Design"** para assegurar que cada elemento da interface corresponda exatamente aos nossos rigorosos padrões de design.
   - **Fidelidade aos Mockups**: Cada detalhe, desde cores até espaçamentos, é meticulosamente alinhado com os designs originais.
-  - **Tecnologia de Ponta**: Empregamos ferramentas avançadas para traduzir precisão visual em realidade digital.
 
 ## Suporte Multilíngue Avançado no [PesquiseNews](https://pesquisenews.com.br)
 - **Integração Inovadora com [NEWSAPI](https://newsapi.org)**
@@ -108,9 +105,6 @@ No [PesquiseNews](https://pesquisenews.com.br), adotamos uma abordagem centrada 
 - **Flexibilidade Global**: Os usuários têm a liberdade de escolher e mudar idiomas, adaptando o aplicativo às suas preferências.
 - **Escalabilidade Internacional**: A possibilidade de adicionar novos idiomas torna o [PesquiseNews](https://pesquisenews.com.br) uma plataforma de notícias verdadeiramente global.
 
-### Conclusão
-A integração multilíngue no [PesquiseNews](https://pesquisenews.com.br), combinada com a funcionalidade avançada da [NEWSAPI](https://newsapi.org), reflete nosso compromisso com a inclusão e acessibilidade global. Oferecemos uma experiência de notícias personalizada para um público diversificado, destacando nossa inovação e adaptabilidade no campo do desenvolvimento web. Visite o [PesquiseNews](https://pesquisenews.com.br) para uma experiência informativa em sua própria língua e descubra como a tecnologia pode unir o mundo através da notícia.
-
 ## Responsividade (UX)
 O [PesquiseNews](https://pesquisenews.com.br) é projetado para oferecer uma experiência de usuário consistente em diferentes faixas de resolução:
 - **Dispositivos móveis (320px a 584px)**: O aplicativo é otimizado para smartphones e dispositivos móveis, proporcionando uma experiência de usuário intuitiva e fácil de usar em telas menores.
@@ -120,44 +114,6 @@ O [PesquiseNews](https://pesquisenews.com.br) é projetado para oferecer uma exp
 
 ## Validação em Tempo Real de Campos (UX)
 No [PesquiseNews](https://pesquisenews.com.br), nos esforçamos para tornar a experiência de nossos usuários o mais intuitiva e livre de erros possível. Uma maneira pela qual alcançamos isso é através da validação em tempo real de campos de preenchimento em várias partes do aplicativo.
-
-### Cadastro e Login
-#### Campos Obrigatórios
-Ao realizar o cadastro ou fazer login, os campos obrigatórios, como nome de usuário, senha e endereço de e-mail, são validados à medida que o usuário os preenche.
-
-### Pesquisa e Inserção de Dados
-#### Pesquisa em Tempo Real
-Durante a pesquisa de notícias ou a inserção de dados em qualquer parte do aplicativo, a validação em tempo real é aplicada para garantir que os critérios de pesquisa ou os dados inseridos sejam válidos e relevantes.
-
-### Feedback Amigável
-Nossas mensagens de erro são projetadas para orientar o usuário na correção do problema e continuar com a tarefa de forma tranquila.
-
-## Suavidade na Abertura e Fechamento dos Popups (UX)
-No [PesquiseNews](https://pesquisenews.com.br), valorizamos a experiência do usuário em todos os aspectos do design. Uma parte essencial disso é a suavidade na abertura e fechamento dos popups, que desempenha um papel crucial na interação dos usuários com nosso aplicativo.
-
-### Abertura Suave
-Quando os usuários interagem com elementos que acionam popups, como detalhes de uma notícia ou opções de configuração, garantimos que a transição para o popup seja suave e não abrupta.
-
-### Fechamento Amigável
-Tão importante quanto a abertura é o fechamento dos popups. Quando os usuários decidem fechar um popup, a transição é projetada para ser natural e intuitiva.
-
-## Componentização do Código
-Um projeto organizado, flexível e escalável. No [PesquiseNews](https://pesquisenews.com.br), adotamos uma abordagem de componentização rigorosa no desenvolvimento do frontend. Isso significa que o código do aplicativo é dividido em componentes reutilizáveis e independentes, o que traz vários benefícios, incluindo:
-
-### Modularidade
-Cada funcionalidade do aplicativo é representada por um ou mais componentes. Essa abordagem permite que desenvolvedores trabalhem em partes específicas do aplicativo sem afetar outras partes. Isso facilita a manutenção e o desenvolvimento contínuo.
-
-### Reutilização de Código
-Os componentes são projetados para serem reutilizáveis. Isso significa que, sempre que uma funcionalidade semelhante for necessária em diferentes partes do aplicativo, podemos simplesmente reutilizar o componente correspondente. Isso economiza tempo e reduz a duplicação de código.
-
-### Legibilidade e Organização
-A componentização torna o código mais legível e organizado. Cada componente representa uma unidade lógica clara do aplicativo, tornando mais fácil entender o fluxo de dados e interações.
-
-### Testabilidade
-Componentes independentes são mais fáceis de testar. Podemos escrever testes unitários para cada componente separadamente, garantindo que eles funcionem conforme o esperado.
-
-### Manutenção Simplificada
-Quando surgem atualizações ou correções, a componentização facilita a localização e a modificação das partes relevantes do código, reduzindo o risco de introduzir problemas em outras áreas do aplicativo.
 
 ## Tecnologias Utilizadas
 - **React**: Uma biblioteca JavaScript para construção de interfaces de usuário.
@@ -204,7 +160,7 @@ Para executar o frontend em seu ambiente de desenvolvimento, siga estas etapas:
 ### **Evandro M Oliveira**
 **Profissão**: Desenvolvedor Web Full-Stack.
 **Especialidade**: Domínio em **Node.js**, **Express.js**, otimização de consultas em **MongoDB** e **React**.
-**Formação**: Atualmente cursando Ciência de Dados e um Boot Camp em Análise de Dados. Também aprofundando conhecimentos em Design de UI/UX.
+**Formação**: Atualmente cursando Ciência de Dados e um Boot Camp em Análise de Dados.
 **Contribuição ao projeto**: Desenvolvimento do front-end e back-end e hospedagem na **Google Cloud**.
 
 ### [**Tripleten**](https://tripleten.com/pt-bra/)
@@ -226,22 +182,17 @@ Finalmente, obrigado a você, leitor, por se interessar e gastar seu tempo apren
 Obrigado por seu interesse no [PesquiseNews](https://pesquisenews.com.br).
 
 ---
-
 ### [Versão em Portuguës](#projeto-pesquisenews-frontend)
 ---
-
 # PesquiseNews Frontend Project
-This project is the frontend part of the [PesquiseNews](https://pesquisenews.com.br) application, a complete solution for searching and managing news in real-time.
-
-## Explore PesquiseNews
-[PesquiseNews](https://pesquisenews.com.br) is a modern platform, offering real-time access to news from reliable sources. Discover details about the frontend, including its functionalities and advanced settings that make news searching a dynamic and interactive experience.
+This project is the frontend part of the [PesquiseNews](https://pesquisenews.com.br) application, a comprehensive solution for searching and managing news in real time with the use of AI.
 
 ## Pixel Perfect Design: Precision and Aesthetics at [PesquiseNews](https://pesquisenews.com.br)
 We adopted the **"Pixel Perfect Design"** to ensure that every interface element exactly matches our design standards. This includes fidelity to mockups and the use of cutting-edge technology to translate visual precision into digital reality. The result is a fluid and visually pleasing user experience.
 
-## Advanced Multilingual Support at [PesquiseNews](https://pesquisenews.com.br)
-- **Innovative Integration with [NEWSAPI](https://newsapi.org/)**: We synchronize user language preferences with news searches, ensuring relevant and accessible content.
-- **Global Flexibility**: Ability to easily add new languages without alterations in components or backend.
+## Advanced Multilingual Support on [PesquiseNews](https://pesquisenews.com.br)
+- **Innovative Integration of [NEWSAPI](https://newsapi.org) with [OpenAI](https://platform.openai.com/api-keys) API**: We have expanded the functionalities of [PesquiseNews](https://pesquisenews.com.br) with innovative integration to [NEWSAPI](https://newsapi.org) and the implementation of AI technology with [OpenAI](https://platform.openai.com/api-keys), for content translation and summarization, syncing user language preferences with news searches.
+- **Global Flexibility**: Our system supports the addition of new languages swiftly, in addition to allowing content customization through the creation of saved article collections.
 - **Enhanced User Experience**: Access to news in multiple languages increases accessibility and engagement.
 
 ## Connecting Frontend and Backend at [PesquiseNews](https://pesquisenews.com.br)
@@ -263,12 +214,14 @@ User Experience: An interactive and responsive interface that makes it easy for 
   - NewsCardList: A list of news cards saved by the user.
 User Experience: Allows logged-in users to access and manage their favorite news, enhancing personalization and user retention.
 
-### **ViewNews**
-- **Function**: Allows users to view details of a specific news item, whether searched or saved.
+### ViewNews
+- **Function**: Allows users to view details of a specific news piece, whether searched for or saved. Now, with advanced AI functionalities, users can not only read the full content but also access smart summaries in multiple languages.
 - **Components**:
-  - ViewNewsHeader: Displays detailed information such as title, description, and essential elements, as well as the link to the full article.
-  - ImagePopup: Allows for enlarged viewing of the news image.
-User Experience: An intuitive and informative design, with direct access to news sources.
+  - ViewNewsHeader: Displays detailed information, such as title, description, and essential elements of the news. Includes a link to the full article and options to translate or summarize the content.
+  - ViewNewsArticleOverviews: Shows an initial summary of the news content, allowing users to quickly grasp the topic covered. Offers users the ability to translate the full article into various languages (DE, EN, ES, FR, IT, PT) and generate a concise summary of the content in the preferred language. Allows users to click on images associated with the article for an enlarged view, through the ImagePopup component.
+  - ViewNewsSummaries: A new component that presents AI-generated summaries of the news content in different languages selectable by the user
+  (DE, EN, ES, FR, IT, PT). Facilitates quick understanding of the content for multilingual readers.
+User Experience: Offers an intuitive and informative design, with direct access to news sources. With the addition of translation and summarization by AI, users enjoy a personalized and enriched reading experience, capable of overcoming language barriers and synthesizing content intelligently.
 
 ### **SignIn and SignUp**
 - **Function**: User authentication and registration.
@@ -277,24 +230,20 @@ User Experience: Designed to be intuitive and secure, these routes facilitate th
 ### Description of Navigation and Footer Components
 - **Present in all routes**. The **Navigation** component is vital for user experience, offering control over navigation, language management, and authentication. The **Footer** is a functional and stylized component, containing links for internal and external navigation, as well as social media icons.
 
-In this application, the routes are carefully designed to offer an intuitive and engaging user experience. From the main page **Main**, where news is searched and viewed, to **SavedNews**, which allows for the management of favorite news, and **ViewNews**, which offers detailed immersion in each news item. Complementing the experience, the **SignIn** and **SignUp** routes ensure a smooth authentication process.
-
 ## Summary:
 1. [Project Description](#project-description)
 2. [Functionalities](#functionalities)
 3. [Advanced Multilingual Support](#advanced-multilingual-support-at-pesquisenews)
 4. [Responsiveness (UX)](#responsiveness-ux)
-5. [Real-Time Field Validation (UX)](#real-time-field-validation-ux)
-6. [Smoothness in Opening and Closing Popups (UX)](#smoothness-in-opening-and-closing-popups-ux)
-7. [Code Componentization](#code-componentization)
-8. [Used Technologies](#used-technologies)
-9. [Folder Structure](#folder-structure)
-10. [Installation and Execution](#installation-and-execution)
-11. [Automated Configuration of Development and Production Environments (DX)](#automated-configuration-of-development-and-production-environments-dx)
-12. [Developed by](#developed-by)
-13. [Source Code](#source-code)
-14. [License](#license)
-15. [Acknowledgments](#acknowledgments)
+5. [Code Componentization](#code-componentization)
+6. [Used Technologies](#used-technologies)
+7. [Folder Structure](#folder-structure)
+8. [Installation and Execution](#installation-and-execution)
+9. [Automated Configuration of Development and Production Environments (DX)](#automated-configuration-of-development-and-production-environments-dx)
+10. [Developed by](#developed-by)
+11. [Source Code](#source-code)
+12. [License](#license)
+13. [Acknowledgments](#acknowledgments)
 
 ## New Features
 ### Multilingual Summaries
@@ -311,17 +260,20 @@ Users can easily access and switch between languages for news summaries through 
 The enhanced experience is already available on the user interface, with no additional setup required. Enjoy instant and multilingual access to news with reduced loading times.
 
 ## Project Description
-The frontend of [PesquiseNews](https://pesquisenews.com.br) is the user interface that allows you to search and view news in real-time. It integrates with the backend to provide a complete experience. This frontend was developed with modern technologies to create a pleasant and intuitive user experience.
+[PesquiseNews](https://pesquisenews.com.br) is a modern and innovative platform that now revolutionizes access to global news combined with Artificial Intelligence. Our platform enables the search, reading, and summarization of news in several languages, including DE, EN, ES, FR, IT, and PT, offering a dynamic, interactive, and personalized user experience.
 
 ## Functionalities
 - **Real-Time News Search**: Users can search for news from reliable sources using keywords.
 - **News Viewing**: Search results are displayed in an organized manner for easy reading.
+- **AI-Powered Reading and Summarization**: We've revolutionized the way news is consumed:
+  - Smart Summaries: With AI technology, users can obtain precise summaries of articles, facilitating quick understanding of the content in multiple languages (DE, EN, ES, FR, IT, PT).
+  - Reading Customization: The technology enables translating and summarizing any article into the user's preferred language, ensuring a personalized and globally accessible informative experience.
+  - Article and Summary Management: Beyond saving articles to favorite lists, authenticated users can manage summaries created by AI, organizing their preferred readings even more effectively.
 - **Article Management**: Authenticated users can save articles to their favorites lists.
 - **User Authentication**: Users can register and log in to access additional features.
 - **Route Protection**: Some functionalities are protected and can only be accessed by authenticated users.
 - **Pixel Perfect Design**: Precision and Aesthetics at [PesquiseNews](https://pesquisenews.com.br). At [PesquiseNews](https://pesquisenews.com.br), visual fidelity is paramount. We adopted the "**Pixel Perfect Desig**n" to ensure that each interface element precisely matches our rigorous design standards.
   - **Fidelity to Mockups**: Every detail, from colors to spacings, is meticulously aligned with the original designs.
-  - **Cutting-Edge Technology**: We employ advanced tools to translate visual precision into digital reality.
 
 ## Advanced Multilingual Support at [PesquiseNews](https://pesquisenews.com.br)
 - **Innovative Integration with [NEWSAPI](https://newsapi.org)**
@@ -337,9 +289,6 @@ At [PesquiseNews](https://pesquisenews.com.br), we adopt a user-centric approach
 - **Global Flexibility**: Users have the freedom to choose and switch languages, tailoring the app to their preferences.
 - **International Scalability**: The ability to add new languages makes [PesquiseNews](https://pesquisenews.com.br) a truly global news platform.
 
-### Conclusion
-The multilingual integration at [PesquiseNews](https://pesquisenews.com.br), combined with the advanced functionality of [NEWSAPI](https://newsapi.org), reflects our commitment to global inclusion and accessibility. We offer a personalized news experience for a diverse audience, highlighting our innovation and adaptability in the field of web development. Visit [PesquiseNews](https://pesquisenews.com.br) for an informative experience in your own language and discover how technology can unite the world through news.
-
 ## Responsiveness (UX)
 [PesquiseNews](https://pesquisenews.com.br) is designed to offer a consistent user experience across different resolution ranges:
 - **Mobile Devices (320px to 584px)**: The app is optimized for smartphones and mobile devices, providing an intuitive and user-friendly experience on smaller screens.
@@ -349,44 +298,6 @@ The multilingual integration at [PesquiseNews](https://pesquisenews.com.br), com
 
 ## Real-Time Field Validation (UX)
 At [PesquiseNews](https://pesquisenews.com.br), we strive to make our users' experience as intuitive and error-free as possible. One way we achieve this is through real-time field validation in various parts of the app.
-
-### Registration and Login
-#### Mandatory Fields
-When registering or logging in, mandatory fields such as username, password, and email address are validated as the user fills them out.
-
-### Search and Data Entry
-#### Real-Time Search
-During the news search or data entry in any part of the app, real-time validation is applied to ensure that search criteria or entered data are valid and relevant.
-
-### Friendly Feedback
-Our error messages are designed to guide the user in correcting the problem and continuing with the task smoothly.
-
-## Smoothness in Opening and Closing Popups (UX)
-At [PesquiseNews](https://pesquisenews.com.br), we value the user experience in every aspect of design. An essential part of this is the smoothness in opening and closing popups, which plays a crucial role in user interaction with our app.
-
-### Smooth Opening
-When users interact with elements that trigger popups, such as news details or configuration options , we ensure the transition to the popup is smooth and not abrupt.
-
-### Friendly Closing
-As important as the opening, the closing of popups is designed to be natural and intuitive.
-
-## Code Componentization
-An organized, flexible, and scalable project. At [PesquiseNews](https://pesquisenews.com.br), we adopt a rigorous componentization approach in frontend development. This means the app's code is divided into reusable and independent components, bringing several benefits, including:
-
-### Modularity
-Each functionality of the app is represented by one or more components. This approach allows developers to work on specific parts of the app without affecting others. It facilitates maintenance and ongoing development.
-
-### Code Reusability
-Components are designed to be reusable. This means that whenever similar functionality is needed in different parts of the app, we can simply reuse the corresponding component. This saves time and reduces code duplication.
-
-### Readability and Organization
-Componentization makes the code more readable and organized. Each component represents a clear logical unit of the app, making it easier to understand the data flow and interactions.
-
-### Testability
-Independent components are easier to test. We can write unit tests for each component separately, ensuring they function as expected.
-
-### Simplified Maintenance
-When updates or fixes are needed, componentization makes it easier to locate and modify relevant parts of the code, reducing the risk of introducing issues in other areas of the app.
 
 ## Used Technologies
 - **React**: A JavaScript library for building user interfaces.
@@ -433,7 +344,7 @@ To run the frontend in your development environment, follow these steps:
 ### **Evandro M Oliveira**
 **Profession**: Full-Stack Web Developer.
 **Expertise**: Proficiency in **Node.js**, **Express.js**, query optimization in **MongoDB**, and **React**.
-**Education**: Currently pursuing Data Science and a Boot Camp in Data Analysis. Also deepening knowledge in UI/UX Design.
+**Education**: Currently pursuing Data Science and a Boot Camp in Data Analysis.
 **Contribution to the project**: Development of the frontend and backend and hosting on **Google Cloud**.
 
 ### [**Tripleten**](https://tripleten.com/pt-bra/)

@@ -1,4 +1,4 @@
-import { API_URL, getHeaders } from "./apiConfig";
+import { API_URL, getFetchOptions } from "./apiConfig";
 import { checkResponse } from "./checkResponse";
 
 class ThirdPartyApiOpenAI {
@@ -17,12 +17,8 @@ class ThirdPartyApiOpenAI {
       };
 
       const response = await fetch(
-        `${this._baseUrl}/summary-ai/generate-summary-ai1`,
-        {
-          method: "POST",
-          headers: getHeaders(),
-          body: JSON.stringify(requestBody),
-        }
+        `${this._baseUrl}/summary-ai/generate-summary-ai`,
+        getFetchOptions("POST", requestBody)
       );
 
       return checkResponse(response);

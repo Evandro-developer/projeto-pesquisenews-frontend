@@ -114,6 +114,7 @@ function NewsCard({
           }`}
           src={bookmarkImageInfo.src}
           alt={bookmarkImageInfo.alt}
+          loading="lazy"
         />
       </picture>
       {isHovered && (
@@ -144,6 +145,7 @@ function NewsCard({
             title: title,
             description: description,
           })}
+          loading="lazy"
         />
       </picture>
       <li className="news-card__briefing">

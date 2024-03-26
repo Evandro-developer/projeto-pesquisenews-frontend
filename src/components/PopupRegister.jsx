@@ -12,8 +12,8 @@ function PopupRegister({
   formType,
   toggleForm,
   setIsToggledPopup,
-  handleSubmitPopup,
-  handleClosePopup,
+  onSubmit,
+  onClose,
 }) {
   const navigate = useNavigate();
   const { t } = useLang();
@@ -36,8 +36,8 @@ function PopupRegister({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSubmitPopup(values);
-    handleClosePopup();
+    onSubmit(values);
+    onClose();
   };
 
   useEffect(() => {

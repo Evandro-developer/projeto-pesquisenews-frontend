@@ -9,17 +9,16 @@ function PopupController({
   isClosing,
   isPopupOpen,
   setIsPopupOpen,
-  handleSignIn,
-  handleSignUp,
-  handleClosePopup,
+  onSignIn,
+  onSignUp,
+  onClose,
 }) {
   const { t } = useLang();
   const { isSignupRoute } = useRouteChecker();
-
+  const [formType, setFormType] = useState("login");
   const [isToggledPopup, setIsToggledPopup] = useState(
     isSignupRoute ? false : true
   );
-  const [formType, setFormType] = useState("login");
 
   const toggleForm = () => {
     if (isToggledPopup) {
@@ -31,22 +30,20 @@ function PopupController({
   };
 
   const handleLoginSubmit = (values) =>
-    values.email &&
-    values.password &&
-    handleSignIn(values.email, values.password);
+    values.email && values.password && onSignIn(values.email, values.password);
 
   const handleRegisterSubmit = (values) =>
     values.email &&
     values.password &&
     values.name &&
-    handleSignUp(values.email, values.password, values.name);
+    onSignUp(values.email, values.password, values.name);
 
   return (
     <PopupWithForm
       isClosing={isClosing}
       isPopupOpen={isPopupOpen}
       setIsPopupOpen={setIsPopupOpen}
-      handleClosePopup={handleClosePopup}
+      onClose={onClose}
       title={
         isToggledPopup
           ? t("popupController.logInTitle")
@@ -63,16 +60,16 @@ function PopupController({
           formType={formType}
           toggleForm={toggleForm}
           setIsToggledPopup={setIsToggledPopup}
-          handleSubmitPopup={handleLoginSubmit}
-          handleClosePopup={handleClosePopup}
+          onSubmit={handleLoginSubmit}
+          onClose={onClose}
         />
       ) : (
         <PopupRegister
           formType={formType}
           toggleForm={toggleForm}
           setIsToggledPopup={setIsToggledPopup}
-          handleSubmitPopup={handleRegisterSubmit}
-          handleClosePopup={handleClosePopup}
+          onSubmit={handleRegisterSubmit}
+          onClose={onClose}
         />
       )}
     </PopupWithForm>

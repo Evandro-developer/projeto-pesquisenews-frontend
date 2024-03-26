@@ -2,7 +2,6 @@ import useSelectedArticle from "./useSelectedArticle";
 
 const useIsReqToCurrentArticle = (lastFailedReqUrl, lastFailedReqArticleId) => {
   const { selectedArticle } = useSelectedArticle();
-
   return (
     selectedArticle &&
     (selectedArticle.url === lastFailedReqUrl ||

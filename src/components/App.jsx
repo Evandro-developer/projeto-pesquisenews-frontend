@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import AppContextProvider from "../contexts/AppContextProvider";
 import useLang from "../hooks/useLang";
 import useSelectedArticle from "../hooks/useSelectedArticle";
 import { localStorageManager } from "../helpers/localStorageHelpers";
-import { handleAppFetchData } from "../helpers/apiArticleHelpers";
+import { loadUserSessionData } from "../helpers/loadUserSessionDataHelpers";
 import { handlersToAppHelpers } from "../helpers/handlersToAppHelpers";
 import AppRoutes from "./AppRoutes";
 import Footer from "./Footer";
@@ -22,7 +22,7 @@ function App() {
   const [isBackgroundVisible, setIsBackgroundVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorageManager.getToken());
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isToolTipOpen, setIsToolTipOpen] = useState(false);
@@ -69,6 +69,31 @@ function App() {
     setErrorLimiter,
   };
 
+  const onSessionInitialize = useCallback(() => {
+    loadUserSessionData(
+      (userInfo, articles) => {
+        // Function handleFetchUserDataSuccess
+        setCurrentUser(userInfo);
+        setSavedArticles(articles);
+        setIsLoggedIn(true);
+      },
+      () => {
+        // Function handleFetchUserDataError
+        setCurrentUser({});
+        setSavedArticles([]);
+        setIsLoggedIn(false);
+      },
+      setCurrentUser,
+      setIsLoggedIn,
+      setSavedArticles,
+      isLoggedIn
+    );
+  }, [isLoggedIn]);
+
+  useEffect(() => {
+    onSessionInitialize();
+  }, [onSessionInitialize]);
+
   useEffect(() => {
     const visibility = isPopupOpen || isToolTipOpen;
     setIsBackgroundVisible(visibility);
@@ -99,24 +124,6 @@ function App() {
     }
   }, [userName]);
 
-  useEffect(() => {
-    const token = localStorageManager.getToken();
-    handleAppFetchData(
-      token,
-      (userInfo, articles) => {
-        // Function handleFetchUserDataSuccess, updates the state of users and saved articles.
-        // Function handleFetchUserDataSuccess, atualiza o estado dos usuários e artigos salvos.
-        setCurrentUser(userInfo);
-        setSavedArticles(articles);
-      },
-      () => {
-        setIsLoggedIn(false);
-        setSavedArticles([]);
-        localStorageManager.removeCurrentUser();
-      }
-    );
-  }, [isLoggedIn]);
-
   return (
     <AppContextProvider contextProps={contextProps}>
       <>
@@ -135,18 +142,18 @@ function App() {
           isError={isError}
           setIsError={setIsError}
           newsData={newsData}
-          onSearch={handleSearchNewsCallback}
           setNewsData={setNewsData}
           searchLang={searchLang}
           setSearchLang={setSearchLang}
           errorLimiter={errorLimiter}
           setErrorLimiter={setErrorLimiter}
-          handleSignOut={handleSignOutCallback}
           searchScrollY={searchScrollY}
           setSearchScrollY={setSearchScrollY}
           preloadRef={preloadRef}
+          onSearch={handleSearchNewsCallback}
+          onSignOut={handleSignOutCallback}
         />
-        <Footer />
+
         {isBackgroundVisible && <Background isVisible={isBackgroundVisible} />}
         {isPopupOpen && (
           <PopupController
@@ -154,9 +161,9 @@ function App() {
             setIsClosing={setIsClosing}
             isPopupOpen={isPopupOpen}
             setIsPopupOpen={setIsPopupOpen}
-            handleSignIn={handleSignInCallback}
-            handleSignUp={handleSignUpCallback}
-            handleClosePopup={handleClosePopupCallBack}
+            onSignIn={handleSignInCallback}
+            onSignUp={handleSignUpCallback}
+            onClose={handleClosePopupCallBack}
           />
         )}
         {isToolTipOpen && (
@@ -167,9 +174,10 @@ function App() {
             setIsToolTipOpen={setIsToolTipOpen}
             setIsPopupOpen={setIsPopupOpen}
             registerSuccess={registerSuccess}
-            handleCloseInfoToolTip={handleCloseInfoToolTipCallBack}
+            onClose={handleCloseInfoToolTipCallBack}
           />
         )}
+        <Footer />
       </>
     </AppContextProvider>
   );

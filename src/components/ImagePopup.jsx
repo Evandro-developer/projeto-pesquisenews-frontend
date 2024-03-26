@@ -3,19 +3,14 @@ import useClosePopup from "../hooks/useClosePopupAndTooltip";
 import iconCloseSmall from "../images/icon_close_small.svg";
 import iconClose from "../images/icon_close.svg";
 
-function ImagePopup({
-  selectedImage,
-  onCloseImageClick,
-  isClosing,
-  setIsClosing,
-}) {
+function ImagePopup({ selectedImage, onClose, isClosing, setIsClosing }) {
   const { t } = useLang();
 
   const startClosingAnimation = () => {
     setIsClosing(true);
     setTimeout(() => {
       setIsClosing(false);
-      onCloseImageClick();
+      onClose();
     }, 200);
   };
 
@@ -41,6 +36,7 @@ function ImagePopup({
             src={selectedImage.urlToImage}
             alt={selectedImage.title}
             className="img-popup__image"
+            loading="lazy"
           />
         </picture>
         <div className="img-popup__title-container">
@@ -53,6 +49,7 @@ function ImagePopup({
             alt={t("default.closeIcon")}
             className="btn-popup-closed"
             onClick={startClosingAnimation}
+            loading="lazy"
           />
         </picture>
       </div>

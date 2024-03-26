@@ -11,8 +11,7 @@ export const handleAppSignUp = async (
   setIsToolTipOpen
 ) => {
   try {
-    const response = await Auth.register(email, password, name);
-
+    const response = await Auth.signUp(email, password, name);
     if (response) {
       setRegisterSuccess("success");
       setIsToolTipOpen(true);
@@ -34,21 +33,21 @@ export const handleAppSignIn = async (
   setIsToolTipOpen
 ) => {
   try {
-    const data = await Auth.login(email, password);
-
-    if (data.token) {
-      localStorageManager.saveToken(data.token);
-      localStorageManager.saveUserEmail(email);
-
-      if (data.name) {
-        setUserName(data.name);
-        localStorageManager.saveUserName(data.name);
+    const response = await Auth.signIn(email, password);
+    if (response) {
+      if (response.name) {
+        setUserName(response.name);
+        localStorageManager.saveUserName(response.name);
+        localStorageManager.saveUserEmail(email);
       }
-
       setIsLoggedIn(true);
       navigate(NAV_PATHS.MAIN);
+    } else {
+      setRegisterSuccess("loginError");
+      setIsToolTipOpen(true);
     }
   } catch (error) {
+    console.error("Error while logging in:", error);
     setRegisterSuccess("loginError");
     setIsToolTipOpen(true);
   }
@@ -61,13 +60,13 @@ export const handleAppSignOut = async (
   navigate
 ) => {
   try {
-    localStorageManager.removeToken();
-    localStorageManager.removeUserEmail();
+    await Auth.signOut();
     setIsLoggedIn(false);
     setUserName("");
     setSavedArticles([]);
+    localStorageManager.removeCurrentUser();
     navigate(NAV_PATHS.SIGNIN);
   } catch (error) {
-    console.error(error.message || "Error during the logout process.");
+    console.error("Error during the logout process:", error);
   }
 };

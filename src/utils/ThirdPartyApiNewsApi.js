@@ -1,4 +1,4 @@
-import { API_URL, getHeaders } from "./apiConfig";
+import { API_URL, getFetchOptions } from "./apiConfig";
 import { checkResponse } from "./checkResponse";
 
 class ThirdPartyApiNewsApi {
@@ -8,9 +8,10 @@ class ThirdPartyApiNewsApi {
 
   async fetchEverything({ q, lang }) {
     try {
-      const response = await fetch(`${this._baseUrl}?q=${q}&lang=${lang}`, {
-        headers: getHeaders(),
-      });
+      const encodedQuery = encodeURIComponent(q);
+      const encodedLang = encodeURIComponent(lang);
+      const url = `${this._baseUrl}?q=${encodedQuery}&lang=${encodedLang}`;
+      const response = await fetch(url, getFetchOptions("GET"));
       return checkResponse(response);
     } catch (error) {
       console.error("Error while searching for news:", error);

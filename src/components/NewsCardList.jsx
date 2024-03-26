@@ -42,8 +42,8 @@ function NewsCardList({
   );
   useFilteredArticles(isSavedNewsRoute);
   const {
-    handleShowMore,
-    handleClearSearch,
+    onShowMore,
+    onClearSearch,
     articlesToRender,
     visibleItems,
     firstArticleLang,
@@ -100,7 +100,8 @@ function NewsCardList({
                   src={iconTrash}
                   alt={t("newCardList.altIconTrashClear")}
                   className="new-card-list__clear-search-icon"
-                  onClick={handleClearSearch}
+                  onClick={onClearSearch}
+                  loading="lazy"
                 />
                 <span className="new-card-list__main-clear-search">
                   {t("newCardList.clearSearch", {
@@ -140,13 +141,17 @@ function NewsCardList({
           {articlesToRender.map(renderNewsCard)}
         </div>
         {articlesToRender.length > visibleItems && (
-          <button className="btn-show-more" onClick={handleShowMore}>
+          <button className="btn-show-more" onClick={onShowMore}>
             {t("newCardList.btnShowMore")}
           </button>
         )}
         {isScrollVisible && (
           <picture onClick={scrollToTop} className="btn-scroll-top">
-            <img src={iconArrowScrollToTop} alt={t("default.iconArrow")} />
+            <img
+              src={iconArrowScrollToTop}
+              alt={t("default.iconArrow")}
+              loading="lazy"
+            />
           </picture>
         )}
       </div>

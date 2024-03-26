@@ -33,7 +33,6 @@ function useBookmarkImage(isBookmarkActive, isHovered, isSavedNewsPath) {
       });
     }
   }, [isBookmarkActive, isHovered, isSavedNewsPath, t]);
-
   return bookmarkImageInfo;
 }
 

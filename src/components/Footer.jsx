@@ -71,6 +71,7 @@ function Footer() {
                     className="footer__icon-link"
                     src={iconLinkedin}
                     alt={t("footer.iconLinkedin")}
+                    loading="lazy"
                   />
                 </picture>
               </a>

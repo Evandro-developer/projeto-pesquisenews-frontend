@@ -6,10 +6,9 @@ function SavedNews({
   isLoggedIn,
   setIsLoggedIn,
   setIsPopupOpen,
-  onLogout,
-  handleSignOut,
   savedArticles,
   setSavedArticles,
+  onSignOut,
 }) {
   return (
     <section className="saved-news">
@@ -18,9 +17,8 @@ function SavedNews({
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
           setIsPopupOpen={setIsPopupOpen}
-          onLogout={onLogout}
-          handleSignOut={handleSignOut}
           savedArticles={savedArticles}
+          onSignOut={onSignOut}
         />
         <SavedNewsHeader savedArticles={savedArticles} />
         {savedArticles && savedArticles.length > 0 && (

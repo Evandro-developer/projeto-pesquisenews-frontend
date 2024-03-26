@@ -12,6 +12,7 @@ function About() {
             className="about__img"
             src={lightBulb}
             alt={t("about.pictureAlt")}
+            loading="lazy"
           />
         </picture>
 

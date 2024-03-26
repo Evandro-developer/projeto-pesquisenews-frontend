@@ -9,12 +9,7 @@ import LanguageSelector from "./LanguageSelector";
 import vectorWhiteImg from "../images/vector_white.svg";
 import vectorDarkImg from "../images/vector_dark.svg";
 
-function Navigation({
-  isLoggedIn,
-  setIsLoggedIn,
-  setIsPopupOpen,
-  handleSignOut,
-}) {
+function Navigation({ isLoggedIn, setIsLoggedIn, setIsPopupOpen, onSignOut }) {
   const navigate = useNavigate();
   const { t, lang, setLang, allLangOptions } = useLang();
   const { currentUser } = useCurrentUser();
@@ -22,32 +17,31 @@ function Navigation({
     isSigninRoute,
     isSignupRoute,
     isSavedNewsRoute,
-    isHomePage,
     isViewNewsRoute,
+    isHomePage,
   } = useRouteChecker();
 
   const [buttonLabel, setButtonLabel] = useState("");
   const [popupType, setPopupType] = useState("login");
-  const [navigatePath, setNavigatePath] = useState(NAV_PATHS.MAIN);
   const [theme, setTheme] = useState(!isHomePage ? "dark" : "light");
-
   const themeClasses = navThemeClassesHelpers(theme);
-
-  const handleLangChange = (evt) => {
-    setLang(evt.target.value);
-  };
+  const shouldOpenSignupPopup = isSignupRoute && popupType === "PopupRegister";
+  const shouldOpenSigninPopup = isSigninRoute && popupType === "PopupLogin";
 
   const handleButtonClick = (evt) => {
     evt.preventDefault();
-    if (popupType === "PopupRegister" || popupType === "PopupLogin") {
+    if (shouldOpenSignupPopup || shouldOpenSigninPopup) {
       setIsPopupOpen(true);
-
-      if (isViewNewsRoute && !isLoggedIn) {
-        navigate(NAV_PATHS.SIGNIN);
-      }
-      return;
+    } else if (isViewNewsRoute) {
+      setIsPopupOpen(true);
+      navigate(NAV_PATHS.SIGNIN);
+    } else {
+      navigate(NAV_PATHS.MAIN);
     }
-    navigate(navigatePath);
+  };
+
+  const handleLangChange = (evt) => {
+    setLang(evt.target.value);
   };
 
   useEffect(() => {
@@ -58,22 +52,14 @@ function Navigation({
     if (isSignupRoute) {
       setButtonLabel(t("nav.signUp"));
       setPopupType("PopupRegister");
-      setNavigatePath(NAV_PATHS.SIGNIN);
-      setIsLoggedIn(false);
-    } else if (isSigninRoute || (isViewNewsRoute && !isLoggedIn)) {
+    } else if (isSigninRoute) {
       setButtonLabel(t("nav.signIn"));
       setPopupType("PopupLogin");
-      setNavigatePath(NAV_PATHS.MAIN);
-      setIsLoggedIn(false);
+    } else {
+      setButtonLabel(t("nav.signIn"));
+      setPopupType("PopupLogin");
     }
-  }, [
-    isSignupRoute,
-    isSigninRoute,
-    isViewNewsRoute,
-    t,
-    isLoggedIn,
-    setIsLoggedIn,
-  ]);
+  }, [isSignupRoute, isSigninRoute, t, setIsLoggedIn]);
 
   return (
     <section className="navigation">
@@ -107,6 +93,7 @@ function Navigation({
                     className="navigation__home-vector"
                     src={vectorWhiteImg}
                     alt={t("nav.whiteThemeVector")}
+                    loading="lazy"
                   />
                 </picture>
               </span>
@@ -130,6 +117,7 @@ function Navigation({
                         className="navigation__saved-articles-vector"
                         src={vectorDarkImg}
                         alt={t("nav.darkThemeVector")}
+                        loading="lazy"
                       />
                     </picture>
                   </span>
@@ -140,7 +128,7 @@ function Navigation({
                 <button
                   type="submit"
                   className={`btn-logged-out ${themeClasses.btnLoggedOutClass}`}
-                  onClick={() => handleSignOut()}
+                  onClick={() => onSignOut()}
                 >
                   <span>{currentUser?.name}</span>
                   <picture className="navigation__icon-logged-out">
@@ -148,6 +136,7 @@ function Navigation({
                       className="navigation__logged-out"
                       src={themeClasses.iconLoggedOutClass}
                       alt={t("nav.logOut")}
+                      loading="lazy"
                     />
                   </picture>
                 </button>

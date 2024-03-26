@@ -22,13 +22,13 @@ function AppRoutes({
   isError,
   newsData,
   setNewsData,
-  onSearch,
   searchLang,
   setSearchLang,
   searchScrollY,
   setSearchScrollY,
-  handleSignOut,
   preloadRef,
+  onSearch,
+  onSignOut,
 }) {
   function renderAuthRoute() {
     if (isLoggedIn) {
@@ -42,11 +42,10 @@ function AppRoutes({
           setIsLoggedIn={setIsLoggedIn}
           isPopupOpen={isPopupOpen}
           setIsPopupOpen={setIsPopupOpen}
-          handleSignOut={handleSignOut}
-          onSearch={onSearch}
           searchLang={searchLang}
           setSearchLang={setSearchLang}
           setSearchScrollY={setSearchScrollY}
+          onSearch={onSearch}
         />
         <Main
           isLoggedIn={isLoggedIn}
@@ -76,8 +75,8 @@ function AppRoutes({
         setSavedArticles={setSavedArticles}
         isClosing={isClosing}
         setIsClosing={setIsClosing}
-        handleSignOut={handleSignOut}
         preloadRef={preloadRef}
+        onSignOut={onSignOut}
       />
     );
   }
@@ -89,11 +88,11 @@ function AppRoutes({
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
           setIsPopupOpen={setIsPopupOpen}
-          handleSignOut={handleSignOut}
-          onSearch={onSearch}
           searchLang={searchLang}
           setSearchLang={setSearchLang}
           setSearchScrollY={setSearchScrollY}
+          onSearch={onSearch}
+          onSignOut={onSignOut}
         />
         <Main
           isLoggedIn={isLoggedIn}
@@ -119,9 +118,9 @@ function AppRoutes({
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
           setIsPopupOpen={setIsPopupOpen}
-          handleSignOut={handleSignOut}
           savedArticles={savedArticles}
           setSavedArticles={setSavedArticles}
+          onSignOut={onSignOut}
         />
       </ProtectedRoute>
     );

@@ -6,10 +6,10 @@ import { localeOptions, getStateLangForKey } from "../helpers/localesHelpers";
 import formatDate from "../utils/formatDate";
 
 function ViewNewsArticleOverview({
-  onImageClick,
   isLoggedIn,
   handleBookmarkClick,
   isBookmarkActive,
+  onImage,
 }) {
   const location = useLocation();
   const { t } = useLang();
@@ -31,7 +31,7 @@ function ViewNewsArticleOverview({
   };
 
   const handleImageClickOpen = () => {
-    onImageClick({ urlToImage, title });
+    onImage({ urlToImage, title });
   };
 
   const { isHovered, handleMouseEnter, handleMouseLeave } = useBookmarkHover();
@@ -63,6 +63,7 @@ function ViewNewsArticleOverview({
               }`}
               src={bookmarkImageInfo.src}
               alt={bookmarkImageInfo.alt}
+              loading="lazy"
             />
           </picture>
           {isHovered && (
@@ -87,6 +88,7 @@ function ViewNewsArticleOverview({
               title: title,
               description: description,
             })}
+            loading="lazy"
           />
         </div>
         <div className="view-news-article-overview__briefing">

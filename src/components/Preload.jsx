@@ -56,7 +56,7 @@ const Preload = forwardRef(({ isError, source, errorLimiter }, ref) => {
     <AIAnimationCircle animate={true} completed={stageCompleted} />
   ) : (
     <picture>
-      <img className={imgClass} src={imgSrc} alt={altText} />
+      <img className={imgClass} src={imgSrc} alt={altText} loading="lazy" />
     </picture>
   );
 
